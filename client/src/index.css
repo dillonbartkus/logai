@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Slabo 27px',
+    serif, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+span {
+  font-size: 24px;
+  font-size: 2.5vw;
+}
+
+h1 {
+  margin: 0;
+}
+
+span:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  width: 50vw;
+  margin: 5% auto 5% auto;
+}
+
+form > * {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  margin: 1%;
+}
+
+label {
+  text-align: left;
+}
+
+input {
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  width: 25%;
+  padding: 2%;
+  border-radius: 10px;
+}
+
+.register {
+  overflow: auto;
+}
+
+.header {
+  height: 12vh;
+  margin: 2% auto 2% auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftnav, .rightnav {
+  cursor: pointer;
+  margin: 0 5%;
+}
+
+.leftnav > *, .rightnav> * {
+  padding: 6%;
+}
+
+.regbutton {
+  background-color: blue;
+  color: white;
+  border-radius: 25px;
+}
+
+.main, .login, .register, .services, .about, .dashboard {
+  display: flex;
+  flex-flow: column;
+  /* height: 500px; */
+  text-align: center;
+}
+
+.banner {
+  margin: 3% 0;
+  height: 30vw;
+  outline: 1px solid black;
+}
+
+.title {
+  margin: 2% auto;
+  font-size: 3vw;
+}
+
+.info {
+  margin: 3% 15%;
+  font-size: 2vw;
+}
+
+.footer {
+  margin: 5% auto 2% auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer > * {
+  cursor: pointer;
+  margin: 0 5%;
+}
