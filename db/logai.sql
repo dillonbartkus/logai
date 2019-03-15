@@ -1,9 +1,9 @@
-INSERT INTO users (username, pw, email, phone, company, comptype) VALUES
+INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
   (
     'dillon',
     'admin',
     'dillonbartkus@gmail.com',
     '9175455097',
-    'LogAI',
+    'Rudy',
     'Shipper'
   );

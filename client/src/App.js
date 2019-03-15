@@ -7,6 +7,7 @@ import Register from './Register';
 import About from './About';
 import Services from './Services';
 import Dashboard from './Dashboard';
+import RegConfirm from './RegConfirm';
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
   const [about, setAbout] = useState(false)
   const [services, setServices] = useState(false)
   const [dashboard, setDashboard] = useState(false)
+  const [newMember, setNewMember] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   const logUserIn = e => {
@@ -26,12 +28,17 @@ const App = () => {
   }
 
   const clearDisplay = () => {
-    setLogin(false); setRegister(false); setAbout(false); setMain(false); setServices(false); setDashboard(false)
+    setLogin(false); setRegister(false); setAbout(false); setMain(false); setServices(false); setDashboard(false); setNewMember(false)
   }
 
   const showDashboard = () => {
     clearDisplay()
     setDashboard(true)
+  }
+
+  const showNewMember = () => {
+    clearDisplay()
+    setNewMember(true)
   }
 
   const showLogin = () => {
@@ -77,7 +84,7 @@ const App = () => {
 
               {
                 register &&
-                <Register />
+                <Register showNewMember = {showNewMember}/>
               }
 
               {
@@ -88,6 +95,11 @@ const App = () => {
               {
                 services &&
                 <Services />
+              }
+
+              {
+                newMember &&
+                <RegConfirm />
               }
 
               {

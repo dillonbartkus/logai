@@ -1,17 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Dashboard = () =>  {
 
+  const [userData, setUserData] = useState('')
+
   useEffect( () => {
-    axios.get(``)
-  })
+    axios.get(`http://localhost:3001/users`)
+    .then(res => {
+      setUserData(res.data.data)
+    })
+    .catch( err => {
+      console.log(err.response);
+      });
+  }, [])
 
     return (
 
       <div className="dashboard">
       
-      <h1 className = "title">Welcome User</h1>
+      <h1 className = "title">Welcome, {userData.username}</h1>
 
       <br></br>
 

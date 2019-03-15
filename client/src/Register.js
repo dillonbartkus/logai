@@ -1,8 +1,27 @@
-import React, {Component} from 'react';
+import React, { useState} from 'react';
+import axios from 'axios';
 
-class Register extends Component {
+const Register = props => {
 
-render() {
+    const [companyName, setCompanyName] = useState('')
+    const [nPC, setNPC] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [pw, setPw] = useState('')
+    const [confirmPW, setConfirmPW] = useState('')
+
+
+    const submitForm = e => {
+        checkPW(e)
+    }
+
+    const checkPW = e => {
+        if (pw !== confirmPW) {
+            e.preventDefault()
+        } else {
+            props.showNewMember()
+        }
+    }
 
     return(
 
@@ -12,31 +31,65 @@ render() {
 
             <form className = "regform">
 
+                Tell use who you are.
+                
+                <input type = "radio"></input><label>Shipper</label>
+                <input type = "radio"></input><label>Warehouse</label>
+                <input type = "radio"></input><label>Carrier</label>
+                <input type = "radio"></input><label>Customer</label>
+
                 <label>Company Name</label>
-                <input>
+                <input
+                type="text"
+                value = {companyName}
+                onChange = {e => setCompanyName(e.target.value)}
+                >
                 </input>
 
                 <label>Name of Point of Contact</label>
-                <input>
+                <input
+                type="text"
+                value = {nPC}
+                onChange = {e => setNPC(e.target.value)}
+                >
                 </input>
 
                 <label>Email</label>
-                <input>
+                <input
+                type="email"
+                placeholder="Dunder Mifflin"
+                value = {email}
+                onChange = {e => setEmail(e.target.value)}
+                >
                 </input>
 
                 <label>Phone</label>
-                <input>
+                <input
+                type="tel"
+                value = {phone}
+                onChange = {e => setPhone(e.target.value)}
+                >
                 </input>
 
                 <label>Password</label>
-                <input>            
+                <input
+                type="password"
+                value = {pw}
+                onChange = {e => setPw(e.target.value)}
+                >            
                 </input>
 
                 <label>Confirm Password</label>
-                <input>
+                <input
+                type="password"
+                value = {confirmPW}
+                onChange = {e => setConfirmPW(e.target.value)}
+                >
                 </input>
 
-                <button>
+                <button
+                onClick = {e => submitForm(e)}
+                >
                 Register
                 </button>
 
@@ -46,7 +99,7 @@ render() {
         </div>
 
     )
-  }
+  
 }
 
 export default Register;

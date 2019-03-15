@@ -12,8 +12,14 @@ app.use(logger('dev'));
 // app.use(express.static('client/build'));
 
 app.get('/', (req,res) => {
-  res.send(`server  `)
+  res.send(`server`)
 })
+
+app.use( (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 const routes = require('./routes/routes')
 app.use('/', routes)

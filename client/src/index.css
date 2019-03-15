@@ -26,13 +26,13 @@ form {
   justify-content: center;
   align-items: center;
   flex-flow: column;
-  width: 50vw;
+  width: 33vw;
   margin: 5% auto 5% auto;
 }
 
 form > * {
   margin: auto;
-  width: 50%;
+  width: 45vw;
   padding: 10px;
   margin: 1%;
 }
@@ -50,7 +50,8 @@ input:focus {
 }
 
 button {
-  width: 25%;
+  width: 20vw;
+  margin: 10% auto auto auto;
   padding: 2%;
   border-radius: 10px;
 }
@@ -82,10 +83,9 @@ button {
   border-radius: 25px;
 }
 
-.main, .login, .register, .services, .about, .dashboard {
+.main, .login, .register, .services, .about, .dashboard, .regconfirm {
   display: flex;
   flex-flow: column;
-  /* height: 500px; */
   text-align: center;
 }
 
