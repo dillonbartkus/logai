@@ -20,11 +20,18 @@ const App = () => {
   const [dashboard, setDashboard] = useState(false)
   const [newMember, setNewMember] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [id, setId] = useState(null)
 
-  const logUserIn = e => {
-    e.preventDefault()
+
+  const logUserIn = id => {
     setIsLoggedIn(true)
+    setId(id)
     showDashboard()
+  }
+
+  const logUserOut = () => {
+    setIsLoggedIn(false)
+    showMain()
   }
 
   const clearDisplay = () => {
@@ -36,7 +43,7 @@ const App = () => {
     setDashboard(true)
   }
 
-  const showNewMember = () => {
+  const showWelcomePage = () => {
     clearDisplay()
     setNewMember(true)
   }
@@ -84,7 +91,7 @@ const App = () => {
 
               {
                 register &&
-                <Register showNewMember = {showNewMember}/>
+                <Register showWelcomePage = {showWelcomePage}/>
               }
 
               {
@@ -104,7 +111,7 @@ const App = () => {
 
               {
                 dashboard &&
-                <Dashboard />
+                <Dashboard logUserOut = {logUserOut} id = {id}/>
               }
 
           <Footer />

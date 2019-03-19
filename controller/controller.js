@@ -32,17 +32,18 @@ controller.getUser = (req, res) => {
 };
 
 
-controller.updateUser = (req, res) => {
-  Log.updateUser({
-    username: req.body.username,
-    password: req.body.password,
+controller.createUser = (req, res) => {
+  Log.createUser({
+    company: req.body.company,
+    pw: req.body.pw,
     email: req.body.email,
-    city: req.body.city
-  },
-  req.params.id)
-   .then(data => {
+    phone: req.body.phone,
+    npc: req.body.npc,
+    comptype: req.body.comptype
+  })
+   .then( () => {
       res.json({
-        message: 'updated',
+        message: 'created',
         data: res.data
       });
     })

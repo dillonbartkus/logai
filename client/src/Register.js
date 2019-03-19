@@ -3,23 +3,37 @@ import axios from 'axios';
 
 const Register = props => {
 
-    const [companyName, setCompanyName] = useState('')
-    const [nPC, setNPC] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
-    const [pw, setPw] = useState('')
-    const [confirmPW, setConfirmPW] = useState('')
+    const [companyName, setCompanyName] = useState(null)
+    const [companyType, setCompanyType] = useState(null)
+    const [pw, setPw] = useState(null)
+    const [email, setEmail] = useState(null)
+    const [phone, setPhone] = useState(null)
+    const [nPC, setNPC] = useState(null)
+    const [confirmPW, setConfirmPW] = useState(null)
 
 
     const submitForm = e => {
         checkPW(e)
-    }
+        axios.post(`http://localhost:3001/join`,  {
+            company: companyName,
+            pw: pw,
+            email: email,
+            phone: phone,
+            npc: nPC,
+            comptype: companyType
+        }).then(res => {
+            console.log(res)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
 
     const checkPW = e => {
         if (pw !== confirmPW) {
             e.preventDefault()
         } else {
-            props.showNewMember()
+            props.showWelcomePage()
         }
     }
 
@@ -31,12 +45,24 @@ const Register = props => {
 
             <form className = "regform">
 
-                Tell use who you are.
+                Tell us who you are.
                 
-                <input type = "radio"></input><label>Shipper</label>
-                <input type = "radio"></input><label>Warehouse</label>
-                <input type = "radio"></input><label>Carrier</label>
-                <input type = "radio"></input><label>Customer</label>
+                <input type = "radio" name = "choice" value = "shipper"
+                onChange = {e => setCompanyType(e.target.value)}
+                ></input>
+                <label>Shipper</label>
+
+                <input type = "radio" name = "choice" value = "warehouse"
+                onChange = {e => setCompanyType(e.target.value)}
+                ></input><label>Warehouse</label>
+
+                <input type = "radio" name = "choice" value = "carrier"
+                onChange = {e => setCompanyType(e.target.value)}
+                ></input><label>Carrier</label>
+
+                <input type = "radio" name = "choice" value = "customer"
+                onChange = {e => setCompanyType(e.target.value)}
+                ></input><label>Customer</label>
 
                 <label>Company Name</label>
                 <input
@@ -57,7 +83,6 @@ const Register = props => {
                 <label>Email</label>
                 <input
                 type="email"
-                placeholder="Dunder Mifflin"
                 value = {email}
                 onChange = {e => setEmail(e.target.value)}
                 >

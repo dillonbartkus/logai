@@ -5,7 +5,7 @@ const controller = require('../controller/controller')
 
 router.get('/users', controller.index);
 
-router.get('/users/:id', controller.getUser)
+router.get('/users/:id', controller.getUser);
 
 // router.get('/feed/user/:id', controller.getPostsByUser);
 
@@ -13,7 +13,7 @@ router.get('/users/:id', controller.getUser)
 
 // router.get('/user/:id', controller.getUser);
 
-// router.post('/join', controller.createUser);
+router.post('/join', controller.createUser);
 
 // router.post('/post', controller.createPost);
 

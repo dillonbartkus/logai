@@ -5,5 +5,5 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
     'dillonbartkus@gmail.com',
     '9175455097',
     'Rudy',
-    'Shipper'
+    'shipper'
   );

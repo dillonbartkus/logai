@@ -116,3 +116,7 @@ button {
   cursor: pointer;
   margin: 0 5%;
 }
+
+.invalidCred {
+  border: 1px solid red;
+}

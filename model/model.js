@@ -4,7 +4,7 @@ const model = {};
 
 
 model.findAll = name => {
-  return db.oneOrNone(
+  return db.query(
     `
     SELECT * FROM users
     `,
@@ -28,12 +28,12 @@ model.createUser = user => {
   return db.one(
     `
      INSERT INTO users
-     (username, password, email, first_name, last_name, city, avatar)
-     VALUES ($1, $2, $3, $4, $5, $6, $7)
+     (company, pw, email, phone, npc, comptype)
+     VALUES ($1, $2, $3, $4, $5, $6)
      RETURNING *
     `,
-    [user.username, user.password, user.email, user.first_name,
-    user.last_name, user.city, user.avatar]
+    [user.company, user.pw, user.email, user.phone,
+    user.npc, user.comptype]
   );
 };
 
