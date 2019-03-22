@@ -15,23 +15,34 @@ const Dashboard = props =>  {
       });
   }, [])
 
-    console.log(props)
-  
-
     return (
 
       <div className="dashboard">
       
-      <h1 className = "title">Welcome, {userData.company}</h1>
+          <h1 className = "title">Welcome, {userData.company}</h1>
 
-      <br></br>
+              <div className = "dashbuttons">
+            
+                  <button
+                  className = "dashbutton"
+                  onClick = {props.logUserOut}
+                  >
+                  Logout</button>
 
-      <button
-      onClick = {props.logUserOut}
-      >
-      Logout</button>
+                  <button
+                  className = "dashbutton"
+                  >
+                  Submit order
+                  </button>
 
-      <a target='blank' href="https://us-east-1.online.tableau.com/t/smartweels/views/Regional/FlightDelays?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no">View Dashboard</a>
+                  <button
+                  onClick = {() => window.open('https://us-east-1.online.tableau.com/t/smartweels/views/Regional/FlightDelays?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no','_blank') }
+                  className = "dashbutton"
+                  >
+                  View Dashboard
+                  </button>
+
+             </div>
 
       </div>
       

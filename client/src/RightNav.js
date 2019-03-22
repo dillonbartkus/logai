@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const RightNav = props => {
+
+  const [user, setUser] = useState('')
+
+  console.log(props)
 
     return(
 
@@ -11,7 +15,7 @@ const RightNav = props => {
             <span
             onClick = { () => {props.showDashboard()} }
             >
-            User
+            {props.company}
             </span>
           }
 

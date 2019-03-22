@@ -21,11 +21,13 @@ const App = () => {
   const [newMember, setNewMember] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [id, setId] = useState(null)
+  const [company, setCompany] = useState('')
 
 
-  const logUserIn = id => {
+  const logUserIn = (id, company) => {
     setIsLoggedIn(true)
     setId(id)
+    setCompany(company)
     showDashboard()
   }
 
@@ -77,7 +79,7 @@ const App = () => {
 
       <div className = "app">
 
-          <Header showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
+          <Header company = {company} id = {id} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
 
               {
                 main &&
@@ -86,7 +88,7 @@ const App = () => {
 
               {
                 login &&
-                <Login logUserIn = {logUserIn} />
+                <Login logUserIn = {logUserIn} showRegister = {showRegister} />
               }
 
               {

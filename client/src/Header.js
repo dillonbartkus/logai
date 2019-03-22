@@ -10,7 +10,7 @@ const Header = props => {
 
         <LeftNav showAbout = {props.showAbout} showServices = {props.showServices} showMain = {props.showMain} />
 
-        <RightNav showDashboard = {props.showDashboard} isLoggedIn = {props.isLoggedIn} showRegister = {props.showRegister} showLogin = {props.showLogin}/>
+        <RightNav company = {props.company} showDashboard = {props.showDashboard} isLoggedIn = {props.isLoggedIn} showRegister = {props.showRegister} showLogin = {props.showLogin}/>
 
       </div>
 

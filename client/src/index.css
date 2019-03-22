@@ -21,24 +21,9 @@ span:hover {
   cursor: pointer;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-  width: 33vw;
-  margin: 5% auto 5% auto;
-}
-
-form > * {
-  margin: auto;
-  width: 45vw;
-  padding: 10px;
-  margin: 1%;
-}
-
 label {
   text-align: left;
+  margin: 0;
 }
 
 input {
@@ -51,13 +36,12 @@ input:focus {
 
 button {
   width: 20vw;
-  margin: 10% auto auto auto;
+  border-radius: 10px;
+  background-color: navy;
+  color: white;
+  font-weight: 500;
   padding: 2%;
   border-radius: 10px;
-}
-
-.register {
-  overflow: auto;
 }
 
 .header {
@@ -119,4 +103,63 @@ button {
 
 .invalidCred {
   border: 1px solid red;
+}
+
+form > input {
+  margin: auto;
+  width: 45vw;
+  padding: 10px;
+  margin: 1%;
+}
+
+.logform {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  margin: 5% auto 5% auto;
+  text-align: left;
+}
+
+.regform {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: column;
+  margin: 5% 0 0 10%;
+  text-align: left;
+}
+
+.formbutton {
+  margin: 5% 0;
+}
+
+.radio {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  text-align: center;
+  margin: 0 5% 5% 0;
+}
+
+.radiobutton {
+  height: 10vh;
+  width: 100px;
+  margin: 2% 4%;
+}
+
+.radiobutton > div {
+  background-color: black;
+  height: 50%;
+}
+
+.dashboard {
+  display: flex;
+}
+
+.dashbuttons {
+  display: flex;
+  
+}
+
+.dashbutton {
+  margin: 5% auto;
 }

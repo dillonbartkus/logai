@@ -14,8 +14,9 @@ const Login = props => {
       const users = res.data.data
       users.forEach(user => {
         let id = user.id
+        let company = user.company
         if (email === user.email && password === user.pw) {
-          props.logUserIn(id)
+          props.logUserIn(id, company)
         }
         else {
           setInvalidCred(true)
@@ -58,13 +59,15 @@ const Login = props => {
                           <p style = {{'color': 'red'}}>Invalid Username / Password</p>
                         }
 
-                        <p>Forgot Password? <a href = "mailto:dillonbartkus@gmail.com">Reset</a></p>
 
                         <button
+                        className = "formbutton"
                         onClick = {authorize}
                         >
                         Login
                         </button>
+
+                        <p>Forgot Password? <a href = "mailto:dillonbartkus@gmail.com">Reset</a></p>
                 
                 </form>
 
