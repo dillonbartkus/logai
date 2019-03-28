@@ -57,8 +57,7 @@ button {
   border-bottom: 1px solid rgb(74, 74, 74);
   height: 50px;
   max-height: 100px;
-  margin: 2%;
-  padding-bottom: 2%;
+  padding: 2%;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -55,7 +55,7 @@ const Register = props => {
 
         <div className = "register" >
 
-        <h1>Tell us who you are.</h1>
+        <h1 className = "title">Tell us who you are.</h1>
 
             <form className = "regform">
 

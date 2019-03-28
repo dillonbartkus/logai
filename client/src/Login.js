@@ -32,7 +32,7 @@ const Login = props => {
 
         <div className = "login" >
 
-                 <h1>Login</h1>
+                 <h1 className = "title">Login</h1>
 
                 <form className = "logform">
                 
