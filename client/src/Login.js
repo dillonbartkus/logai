@@ -36,18 +36,18 @@ const Login = props => {
 
                 <form className = "logform">
                 
-                        <label>Email</label>
                         <input
                         className = {invalidCred ? 'invalidCred' : '' }
+                        placeholder = "Email"
                         type = "text"
                         value = {email}
                         onChange = {e => setEmail(e.target.value)}
                         >
                         </input>
 
-                        <label>Password</label>
                         <input
                         className = {invalidCred ? 'invalidCred' : '' }
+                        placeholder = "Password"
                         type = "password"
                         value = {password}
                         onChange = {e => setPassword(e.target.value)}

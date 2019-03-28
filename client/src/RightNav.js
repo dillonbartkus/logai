@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const RightNav = props => {
 
-  const [user, setUser] = useState('')
-
-  console.log(props)
+  let isRegister = (props.register) ? "regbuttonactive" : "regbutton"
 
     return(
 
@@ -30,10 +28,10 @@ const RightNav = props => {
             Login
             </span>
 
-            <span className = "regbutton"
+            <span className = {isRegister}
             onClick = { () => props.showRegister() }
             >
-            Register
+            Sign Up
             </span>
 
             </>

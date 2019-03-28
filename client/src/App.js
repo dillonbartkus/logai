@@ -31,6 +31,13 @@ const App = () => {
     showDashboard()
   }
 
+  const returnToTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   const logUserOut = () => {
     setIsLoggedIn(false)
     showMain()
@@ -79,7 +86,7 @@ const App = () => {
 
       <div className = "app">
 
-          <Header company = {company} id = {id} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
+          <Header company = {company} id = {id} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
 
               {
                 main &&
@@ -116,7 +123,7 @@ const App = () => {
                 <Dashboard logUserOut = {logUserOut} id = {id}/>
               }
 
-          <Footer />
+          <Footer returnToTop = {returnToTop} />
 
 
 

@@ -6,9 +6,14 @@ const LeftNav = props => {
 
         <div className = "leftnav">
 
+            <div className="logo"
+            onClick = {props.showMain}
+            >
+            </div>
             <span
             onClick = {props.showMain}
-            >Log.AI</span>
+            >
+            Log.AI</span>
 
             <span
             onClick = {props.showServices}

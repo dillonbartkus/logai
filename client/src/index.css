@@ -1,15 +1,17 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Slabo 27px',
-    serif, monospace;
+  background-color: #f4f4f4;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: rgb(74, 74, 74);
 }
 
 span {
   font-size: 24px;
-  font-size: 2.5vw;
+  font-size: 2.2vw;
+  color: rgb(74, 74, 74);
 }
 
 h1 {
@@ -17,53 +19,66 @@ h1 {
 }
 
 span:hover {
-  color: orange;
+  color: rgb(29, 157, 235);
   cursor: pointer;
-}
-
-label {
-  text-align: left;
-  margin: 0;
-}
-
-input {
-  border-radius: 5px;
 }
 
 input:focus {
   outline: none;
+  border: 2px solid rgb(251, 190, 14);
+  /* box-shadow: 0 0 0 1.5pt rgb(251, 190, 14); */
+}
+
+form > input {
+  width: 45vw;
+  padding: 10px;
+  margin: 2% auto;
+  border-radius: 5px;
 }
 
 button {
-  width: 20vw;
+  width: 25vw;
   border-radius: 10px;
-  background-color: navy;
+  background-color: rgb(29, 157, 235);
   color: white;
+  font-size: 18px;
   font-weight: 500;
   padding: 2%;
-  border-radius: 10px;
+  cursor: pointer;
+}
+
+.logo {
+  background-color: black;
+  width: 2vw;
+  display: inline-block;
 }
 
 .header {
-  height: 12vh;
-  margin: 2% auto 2% auto;
+  max-height: 50px;
+  height: 10vh;
+  margin: 2% 2% ;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.leftnav, .rightnav {
+.leftnav, .rightnav, .footer > div > * {
   cursor: pointer;
-  margin: 0 5%;
+  margin: 0 1vw;
 }
 
 .leftnav > *, .rightnav> * {
-  padding: 6%;
+  padding: 1vw;
 }
 
 .regbutton {
-  background-color: blue;
-  color: white;
+  background-color: rgb(251, 190, 14);
+  border-radius: 25px;
+}
+
+.regbuttonactive {
+  background-color: #fff;
+  border: 2px solid gold;
   border-radius: 25px;
 }
 
@@ -74,19 +89,23 @@ button {
 }
 
 .banner {
-  margin: 3% 0;
   height: 30vw;
   outline: 1px solid black;
 }
 
 .title {
-  margin: 2% auto;
+  margin: 2% auto auto auto;
   font-size: 3vw;
 }
 
-.info {
-  margin: 3% 15%;
+.maininfo {
+  text-align: left;
+  margin: 0 15% 3% 15%;
   font-size: 2vw;
+}
+
+.info {
+  margin: 10% auto 10% auto;
 }
 
 .footer {
@@ -105,27 +124,17 @@ button {
   border: 1px solid red;
 }
 
-form > input {
-  margin: auto;
-  width: 45vw;
-  padding: 10px;
-  margin: 1%;
-}
-
 .logform {
   display: flex;
   justify-content: center;
   flex-flow: column;
-  margin: 5% auto 5% auto;
+  margin: 5% auto;
   text-align: left;
 }
 
-.regform {
-  display: flex;
-  justify-content: flex-start;
-  flex-flow: column;
-  margin: 5% 0 0 10%;
-  text-align: left;
+.logform > input {
+  max-width: 500px;
+  width: 66vw;
 }
 
 .formbutton {
@@ -137,7 +146,7 @@ form > input {
   flex-flow: row;
   justify-content: center;
   text-align: center;
-  margin: 0 5% 5% 0;
+  margin: 5% 0 7% auto;
 }
 
 .radiobutton {
@@ -145,10 +154,53 @@ form > input {
   width: 100px;
   margin: 2% 4%;
 }
+  
+.radiobutton > input {
+  margin-top: 10%;
+  transform: scale(1.5);
+}
 
-.radiobutton > div {
-  background-color: black;
-  height: 50%;
+.reginputs {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 5% auto;
+  max-width: 500px;
+  width: 66vw;
+}
+
+.short {
+  width: 41% !important;
+}
+
+.reginputs > input {
+  padding: 10px;
+  margin: 2%;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.shipper {
+  background-image: url('./images/shipper.png');
+}
+
+.carrier {
+  background-image: url('./images/carrier.png');
+}
+
+.warehouse {
+  background-image: url('./images/warehouse.png');
+}
+
+.customer {
+  background-image: url('./images/customer.png');
+}
+
+.shipper, .carrier, .warehouse, .customer {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 8vw;
 }
 
 .dashboard {
@@ -157,7 +209,6 @@ form > input {
 
 .dashbuttons {
   display: flex;
-  
 }
 
 .dashbutton {
