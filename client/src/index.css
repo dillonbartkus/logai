@@ -54,12 +54,18 @@ button {
 }
 
 .header {
-  max-height: 50px;
-  height: 10vh;
-  margin: 2% 2% ;
+  border-bottom: 1px solid rgb(74, 74, 74);
+  height: 50px;
+  max-height: 100px;
+  margin: 2%;
+  padding-bottom: 2%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #f4f4f4;
 }
 
 .leftnav, .rightnav, .footer > div > * {
@@ -71,14 +77,19 @@ button {
   padding: 1vw;
 }
 
+.navactive {
+  color: rgb(29, 157, 235);
+}
+
 .regbutton {
   background-color: rgb(251, 190, 14);
   border-radius: 25px;
 }
 
 .regbuttonactive {
-  background-color: #fff;
-  border: 2px solid gold;
+  background-color: #f4f4f4;
+  color: rgb(29, 157, 235);
+  border: 2px solid rgb(251, 190, 14);
   border-radius: 25px;
 }
 
@@ -90,7 +101,6 @@ button {
 
 .banner {
   height: 30vw;
-  outline: 1px solid black;
 }
 
 .title {

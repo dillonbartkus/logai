@@ -2,27 +2,14 @@ import React from 'react';
 
 const RightNav = props => {
 
-  let isRegister = (props.register) ? "regbuttonactive" : "regbutton"
+  let isRegister = (props.register) ? 'regbuttonactive' : 'regbutton'
+  let isLogin = (props.login) ? 'navactive' : ''
 
     return(
 
         <div className = "rightnav" >
 
-          {
-            props.isLoggedIn &&
-            <span
-            onClick = { () => {props.showDashboard()} }
-            >
-            {props.company}
-            </span>
-          }
-
-          {
-            props.isLoggedIn ||
-
-            <>
-
-            <span
+            <span className = {isLogin}
             onClick = { e => props.showLogin(e) }
             >
             Login
@@ -33,9 +20,6 @@ const RightNav = props => {
             >
             Sign Up
             </span>
-
-            </>
-          }
 
         </div>
 

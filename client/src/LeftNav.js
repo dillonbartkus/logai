@@ -2,6 +2,10 @@ import React from 'react';
 
 const LeftNav = props => {
 
+    let isAbout = (props.about) ? 'navactive' : ''
+    let isServices = (props.services) ? 'navactive' : ''
+    let isMain = (props.main) ? 'navactive' : ''
+
     return(
 
         <div className = "leftnav">
@@ -11,15 +15,18 @@ const LeftNav = props => {
             >
             </div>
             <span
+            className = {isMain}
             onClick = {props.showMain}
             >
             Log.AI</span>
 
             <span
+            className = {isServices}
             onClick = {props.showServices}
             >Services</span>
             
             <span
+            className = {isAbout}
             onClick = {props.showAbout}
             >About</span>
                 
