@@ -11,7 +11,6 @@ const Register = props => {
     const [nPC, setNPC] = useState('')
     const [confirmPW, setConfirmPW] = useState('')
     const [invalidCred, setInvalidCred] = useState(false)
-    const [showInputs, setShowInputs] = useState(false)
 
     const checkForm = e => {
         if (!companyName || !companyType || !pw || !email || !phone || !nPC || !confirmPW) {
