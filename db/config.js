@@ -15,7 +15,8 @@ const options = {
       host: 'localhost',
     });
   } else if (process.env.NODE_ENV === 'production') {
-    db = pgp(process.env.DATABASE_URL);
+    let url = `postgres://localhost:5432/logai`
+    db = pgp(url);
   }
   
   module.exports = db;

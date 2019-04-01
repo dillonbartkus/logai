@@ -18,7 +18,7 @@ const RightNav = props => {
             <span className = {isRegister}
             onClick = { () => props.showRegister() }
             >
-            Sign Up
+            <span>Sign Up</span>
             </span>
 
         </div>
