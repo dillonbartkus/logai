@@ -21,8 +21,8 @@ const options = {
       host: '/cloudsql/logai-233920:us-east1:users',
       user: 'postgres',
       password: 'truckingrmmd19',
-      database: 'users'
-      // port: 5432,
+      database: 'users',
+      port: 5432
     });
   }
   
