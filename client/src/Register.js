@@ -22,7 +22,7 @@ const Register = props => {
     }
 
     const submitForm = () => {
-        axios.post(`http://localhost:3001/join`,  {
+        axios.post(`/join`,  {
             company: companyName,
             pw: pw,
             email: email,
@@ -33,7 +33,7 @@ const Register = props => {
             console.log(res)
     })
     .catch(err => {
-        console.log(err)
+        console.log(err.response)
     })
 }
 

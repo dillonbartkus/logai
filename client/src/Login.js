@@ -9,8 +9,9 @@ const Login = props => {
 
   const authorize = e => {
     e.preventDefault()
-    axios.get(`http://localhost:3001/users`)
+    axios.get(`/users`)
     .then(res => {
+      console.log(res)
       const users = res.data.data
       users.forEach(user => {
         let id = user.id
@@ -24,7 +25,7 @@ const Login = props => {
       })
     })
     .catch(err => {
-      console.log(err.message)
+      console.log(err.response)
     })
   }
 

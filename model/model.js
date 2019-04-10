@@ -3,12 +3,11 @@ const db = require('../db/config');
 const model = {};
 
 
-model.findAll = name => {
+model.findAll = () => {
   return db.query(
     `
     SELECT * FROM users
-    `,
-    name
+    `
   )
 }
 
