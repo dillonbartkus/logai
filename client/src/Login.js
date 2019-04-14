@@ -9,20 +9,23 @@ const Login = props => {
 
   const authorize = e => {
     e.preventDefault()
-    axios.get(`/users`)
+    axios.post(`/login`, {
+      email: email,
+      pw: password
+    })
     .then(res => {
+      // const users = res.data.data
+      // users.forEach(user => {
+      //   let id = user.id
+      //   let company = user.company
+      //   if (email === user.email && password === user.pw) {
+      //     props.logUserIn(id, company)
+      //   }
+      //   else {
+      //     setInvalidCred(true)
+      //   }
+      // })
       console.log(res)
-      const users = res.data.data
-      users.forEach(user => {
-        let id = user.id
-        let company = user.company
-        if (email === user.email && password === user.pw) {
-          props.logUserIn(id, company)
-        }
-        else {
-          setInvalidCred(true)
-        }
-      })
     })
     .catch(err => {
       console.log(err.response)

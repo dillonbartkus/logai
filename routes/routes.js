@@ -3,17 +3,11 @@ const router = express.Router()
 
 const controller = require('../controller/controller')
 
-router.get('/users', controller.index);
+router.post('/login', controller.login);
 
-router.get('/users/:id', controller.getUser);
+// router.get('/users/:id', controller.getUser);
 
-// router.get('/feed/user/:id', controller.getPostsByUser);
-
-// router.get('/login/:name', controller.login);
-
-// router.get('/user/:id', controller.getUser);
-
-router.post('/join', controller.createUser);
+router.post('/register', controller.createUser);
 
 // router.post('/post', controller.createPost);
 

@@ -22,7 +22,7 @@ const Register = props => {
     }
 
     const submitForm = () => {
-        axios.post(`/join`,  {
+        axios.post(`/register`,  {
             company: companyName,
             pw: pw,
             email: email,

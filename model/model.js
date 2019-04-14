@@ -3,22 +3,22 @@ const db = require('../db/config');
 const model = {};
 
 
-model.findAll = () => {
-  return db.query(
-    `
-    SELECT * FROM users
-    `
-  )
-}
+// model.findAll = () => {
+//   return db.query(
+//     `
+//     SELECT * FROM users
+//     `
+//   )
+// }
 
 
-model.findUser = id => {
+model.findUser = email => {
   return db.oneOrNone(
     `
     SELECT * FROM users
-    WHERE users.id = $1
+    WHERE users.email = $1
     `,
-    [id]
+    [email]
   );
 };
 
