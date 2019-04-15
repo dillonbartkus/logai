@@ -6,30 +6,23 @@ const Login = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [invalidCred, setInvalidCred] = useState('')
+  const [token, setToken] = useState('')
 
-  const authorize = e => {
+  const authorize = async e => {
     e.preventDefault()
-    axios.post(`/login`, {
+    try {
+    const res = await  axios.post(`/login`, {
       email: email,
       pw: password
     })
-    .then(res => {
-      // const users = res.data.data
-      // users.forEach(user => {
-      //   let id = user.id
-      //   let company = user.company
-      //   if (email === user.email && password === user.pw) {
-      //     props.logUserIn(id, company)
-      //   }
-      //   else {
-      //     setInvalidCred(true)
-      //   }
-      // })
-      console.log(res)
-    })
-    .catch(err => {
+    console.log(res.data.data)
+    setToken(res.data.token)
+    props.logUserIn(res.data.data)
+  }
+    catch(err) {
       console.log(err.response)
-    })
+      setInvalidCred(true)
+    }
   }
 
     return(

@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 const Dashboard = props =>  {
 
-  const [userData, setUserData] = useState('')
+  // const [userData, setUserData] = useState('')
 
-  useEffect( () => {
-    axios.get(`http://localhost:3001/users/${props.id}`)
-    .then(res => {
-      setUserData(res.data.data)
-    })
-    .catch( err => {
-      console.log(err.response);
-      });
-  }, [])
+  // useEffect( () => {
+  //   axios.get(`http://localhost:3001/users/${props.id}`)
+  //   .then(res => {
+  //     setUserData(res.data.data)
+  //   })
+  //   .catch( err => {
+  //     console.log(err.response);
+  //     });
+  // }, [])
 
     return (
 
       <div className="dashboard">
       
-          <h1 className = "title">Welcome, {userData.company}</h1>
+          <h1 className = "title">Welcome, {props.userData.npc}</h1>
 
               <div className = "dashbuttons">
             

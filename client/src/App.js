@@ -20,14 +20,12 @@ const App = () => {
   const [dashboard, setDashboard] = useState(false)
   const [newMember, setNewMember] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [id, setId] = useState(null)
-  const [company, setCompany] = useState('')
+  const [userData, setUserData] = useState(null)
 
 
-  const logUserIn = (id, company) => {
+  const logUserIn = (data) => {
     setIsLoggedIn(true)
-    setId(id)
-    setCompany(company)
+    setUserData(data)
     showDashboard()
   }
 
@@ -86,7 +84,7 @@ const App = () => {
 
       <div className = "app">
 
-          <Header main = {main} company = {company} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
+          <Header main = {main} userData = {userData} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
 
               {
                 main &&
@@ -120,7 +118,7 @@ const App = () => {
 
               {
                 dashboard &&
-                <Dashboard logUserOut = {logUserOut} id = {id}/>
+                <Dashboard logUserOut = {logUserOut} userData = {userData}/>
               }
 
           <Footer returnToTop = {returnToTop} />

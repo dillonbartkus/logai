@@ -6,22 +6,21 @@ const controller = {};
 controller.login = async (req, res) => {
   const { pw, email } = req.body;
 
-  Log.findUser(email)
-    .then(data => {
-      const passwordIsCorrect = checkPassword(pw, data.pw)
+  try {
+  const data = await Log.findUser(email)
+      const passwordIsCorrect = await checkPassword(pw, data.pw)
       if(passwordIsCorrect) {
-        const token = genToken(data)
+        const token = await genToken(data)
         res.json({
-          message: 'ok',
           data: data,
           token: token
         })
       }
-    })
-    .catch(err => {
+    }
+    catch(err) {
       console.log(err);
       res.status(500).json({ err });
-    });
+    };
 };
 
 
