@@ -15,7 +15,6 @@ const Login = props => {
       email: email,
       pw: password
     })
-    console.log(res.data.data)
     setToken(res.data.token)
     props.logUserIn(res.data.data)
   }

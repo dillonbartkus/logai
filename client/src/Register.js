@@ -21,20 +21,20 @@ const Register = props => {
         }
     }
 
-    const submitForm = () => {
-        axios.post(`/register`,  {
+    const submitForm = async () => {
+        try {
+        await axios.post(`/register`,  {
             company: companyName,
             pw: pw,
             email: email,
             phone: phone,
             npc: nPC,
             comptype: companyType
-        }).then(res => {
-            console.log(res)
-    })
-    .catch(err => {
+        })
+    }
+    catch (err) {
         console.log(err.response)
-    })
+    }
 }
 
     const checkPW = e => {
