@@ -6,7 +6,7 @@ const Main = () => {
 
       <div className = "main">
 
-        <div className = "banner">Banner</div>
+        <div className = "banner"></div>
 
         <h1 className = "title">Why Log.AI?</h1>
 
