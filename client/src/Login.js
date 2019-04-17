@@ -11,6 +11,9 @@ const Login = props => {
   const authorize = async e => {
     e.preventDefault()
     try {
+      // headers: {
+      //   authorization: `Bearer ${this.state.token}`
+      // }
     const res = await  axios.post(`/login`, {
       email: email,
       pw: password

@@ -10,10 +10,10 @@ const LeftNav = props => {
 
         <div className = "leftnav">
 
-            <div className="logo"
+            {/* <div className="logo"
             onClick = {props.showMain}
             >
-            </div>
+            </div> */}
             <span
             className = {isMain}
             onClick = {props.showMain}

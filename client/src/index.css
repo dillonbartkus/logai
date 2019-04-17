@@ -5,21 +5,18 @@ body {
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: rgb(74, 74, 74);
+  color: rgb(74, 74, 74) !important;
 }
 
 span {
   font-size: 24px;
-  font-size: 2.2vw;
+  font-size: 2.3vh;
+  font-weight: 500;
   color: rgb(74, 74, 74);
 }
 
 label {
   font-size: 2.2vw;
-}
-
-span > span{
-  font-size: 1.8vw;
 }
 
 h1 {
@@ -46,7 +43,7 @@ form > input {
 
 button {
   width: 25vw;
-  border-radius: 10px;
+  border-radius: 10px !important;
   background-color: rgb(29, 157, 235);
   color: white;
   font-size: 18px;
@@ -62,16 +59,17 @@ button {
 }
 
 .header {
-  border-bottom: 1px solid rgb(74, 74, 74);
+  border-bottom: 1px solid #eceef1;
+  background-color: #fff !important;
   height: 50px;
   max-height: 100px;
-  padding: 2%;
+  padding: 3vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   background-color: #f4f4f4;
 }
 
@@ -93,8 +91,13 @@ button {
   border-radius: 25px;
 }
 
+.regbutton > span {
+  font-size: 24px;
+  font-size: 2.2vh;
+}
+
 .regbuttonactive {
-  background-color: #f4f4f4;
+  background-color: #fff;
   color: rgb(29, 157, 235);
   border: 2px solid rgb(251, 190, 14);
   border-radius: 25px;
@@ -106,22 +109,34 @@ button {
   text-align: center;
 }
 
-.banner {
-  height: 60vw;
-  background-image: url('./images/customers.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
 .title {
   margin: 2% auto auto auto;
   font-size: 3vw;
 }
 
+.whoweserve {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.whoweserve > div {
+  display: flex;
+  flex-flow: column;
+  width: 25%;
+}
+
+.whoweserve > div > img {
+  width: 5vw;
+  margin: auto;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .maininfo {
   text-align: left;
-  margin: 0 15% 3% 15%;
+  margin: 0 15%;
   font-size: 2vw;
 }
 
@@ -129,7 +144,13 @@ button {
   margin: 10% auto 10% auto;
 }
 
+.info > * {
+  margin-top: 5%;
+}
+
 .footer {
+  border-top: 1px solid #eceef1;
+  padding-top: 2%;
   margin: 5% auto 2% auto;
   display: flex;
   justify-content: space-between;
@@ -185,7 +206,7 @@ button {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  margin: 5% auto;
+  margin: 10% auto;
   max-width: 500px;
   width: 66vw;
 }
@@ -234,4 +255,8 @@ button {
 
 .dashbutton {
   margin: 5% auto;
+}
+
+.carousel-item > * {
+  width: 100% !important;
 }
