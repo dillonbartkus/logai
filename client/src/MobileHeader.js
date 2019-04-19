@@ -18,7 +18,7 @@ const MobileHeader = props => {
 
       </div>
 
-      <div className= 
+      <div className= {`dropbutton ${props.dropdown}`}
       onClick = {() => props.setDropdown(!props.dropdown)}
       ></div>
           
