@@ -82,7 +82,7 @@ button {
 
 .logo > * {
   color: rgb(29, 157, 235);
-  font-size: 3.5vw;
+  font-size: 5vh;
   font-weight: 900;
 }
 
@@ -343,6 +343,10 @@ border-radius: 50%;
   .whoweserve > * {
     font-size: 3.3vw;
     width: auto !important;
+  }
+
+  .logo > * {
+    font-size: 3vh;
   }
 
   .header {
