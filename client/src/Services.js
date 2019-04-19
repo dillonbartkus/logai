@@ -6,7 +6,7 @@ const Services = () => {
 
       <div className = "services">
 
-          <h1 className = "title">Our Services</h1>
+          <h1 className = "title">Our Solutions</h1>
 
           <div className = "maininfo">
 

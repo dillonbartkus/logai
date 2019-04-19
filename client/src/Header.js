@@ -39,7 +39,7 @@ const Header = props => {
           <span
           className = {isServices}
           onClick = {props.showServices}
-          >Services</span>
+          >Solutions</span>
                 
           <span
           className = {isAbout}
