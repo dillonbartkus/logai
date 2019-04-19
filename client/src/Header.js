@@ -30,7 +30,7 @@ const Header = props => {
           className = {isMain}
           onClick = {props.showMain}
           >
-          Log.AI</span>
+          Log.Ai</span>
 
       </div>
 
