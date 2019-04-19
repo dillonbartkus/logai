@@ -9,8 +9,8 @@ body {
 }
 
 span {
-  font-size: 30px;
-  font-size: 3vh ;
+  font-size: 24px;
+  font-size: 2.7vh ;
   font-weight: 700;
   color: rgb(74, 74, 74);
 }
@@ -69,11 +69,11 @@ button {
 }
 
 .header.small {
-  height: 4rem;
+  height: 4.2rem;
 }
 
 .header.big {
-  height: 5.5rem;
+  height: 6rem;
 }
 
 .other > *, .logo {
@@ -82,16 +82,12 @@ button {
 
 .logo > * {
   color: rgb(29, 157, 235);
-  font-size: 5vh;
+  font-size: 4vw;
   font-weight: 900;
 }
 
-.logo:active {
-  animation: click 1s;
-}
-
 .header > div > *, .footer > div > * {  
-  padding: 1vw 2vw;
+  padding: 1vw 15px;
 }
 
 .navactive {
@@ -101,12 +97,6 @@ button {
 .regbutton {
   background-color: rgb(251, 190, 14);
   border-radius: 50px;
-}
-
-.regbutton > span {
-  font-size: 24px;
-  font-size: 3vh;
-  font-weight: 700;
 }
 
 .regbuttonactive {
@@ -153,10 +143,19 @@ button {
   font-size: 2vw;
 }
 
-.maininfo > img {
-  margin-top: 5%;
-  margin-left: 20%;
+.smallpic {
+  width: 25vw !important;
+}
+
+.aboutinfo > img {
+  margin: 5% auto;
   width: 50vw;
+}
+
+.aboutp {
+  text-align: left;
+  margin: 0 10%;
+  font-size: 2vw;
 }
 
 .info {
@@ -317,7 +316,7 @@ width: 10px !important;
 border-radius: 50%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
 
   h1 {
     font-size: 5vw !important;
@@ -328,7 +327,7 @@ border-radius: 50%;
   }
 
   p {
-    font-size: 3.3vw;
+    font-size: 3.5vw !important;
   }
 
   li {
@@ -338,6 +337,10 @@ border-radius: 50%;
   label {
     font-size: 3.5vw;
     font-weight: 500 !important;
+  }
+
+  span {
+    font-size: 3vw;
   }
 
   .whoweserve > * {
@@ -398,10 +401,6 @@ border-radius: 50%;
 
   .dropnav.blue > * {
     color: rgb(29, 157, 235);
-  }
-
-  .footer > div > span, .footer > span {
-    font-size: 3.5vw;
   }
 
 }

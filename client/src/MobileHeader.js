@@ -14,12 +14,12 @@ const MobileHeader = props => {
           className = {isMain}
           onClick = {props.showMain}
           >
-          Log.AI</span>
+          Log.Ai</span>
 
       </div>
 
       <div className= {`dropbutton ${props.dropdown}`}
-      onClick = {() => props.setDropdown(!props.dropdown)}
+      onClick = { () => props.setDropdown(!props.dropdown) }
       ></div>
           
       </div>

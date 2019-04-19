@@ -21,10 +21,23 @@ const Main = () => {
 
                 <h4>What We Do</h4>
 
-                <p>Our end-to-end software lets you run all of your business operations in one convenient place. Stop jumping between spreadhseets, websites, emails, and devices. Our logistical platform streamlines communication, helping you work faster, smarter, and happier.</p>
+                <p>Our end-to-end software lets you run all of your business operations in one convenient place. Stop drowning in manually-intensive spreadsheets to do financial reporting, jumping around websites to find work, and being glued to your phone and email inbox to coordinate operations and update your clients of your progress. Our logistical platform empowers you to eliminate manual and error-prone work, streamline communication, and help you work smarter.</p>
 
             </div>
-            <div className="info">
+
+            <hr></hr>
+
+            <div className = "info">
+
+              <h4>Why We Do It</h4>
+
+              <p>We really care about you, appreciate your hard work, and want to help you. We know first-hand all the hard work you put in everyday to conduct logistical operations and we want to put the best technology solutions in your hands so you can work better.</p>
+            
+            </div>
+
+            <hr></hr>
+
+            <div className = "info">
 
                 <h4>Who Do We Serve</h4>
 
@@ -53,15 +66,18 @@ const Main = () => {
                 </div>
 
             </div>
+
+            <hr></hr>
+
             <div className="info">
 
                 <h4>Why Choose Us</h4>
 
                 <ul>
                     <li>Bridge the gap between logical planning and management</li>
-                    <li>Speed up your manual operations</li>
-                    <li>Visualize and analyze your data so you can take immediate action</li>
-                    <li>Make rapid, real-time changes to your cargo orders</li>
+                    <li>Eliminate up to 70% of your manual operations and the errors that come with it</li>
+                    <li>Use real-time visualized analytical data to make proactive and efficient business decisions</li>
+                    <li>Effortlessly cater to last changes to cargo orders</li>
                     <li>Easily communicate with your peers</li>
                     <li>Coordinate logistical movements down to the most finite detail</li>
                     <br></br>
