@@ -1,0 +1,30 @@
+import React from 'react';
+
+const MobileHeader = props => {
+
+  let isMain = (props.main) ? 'navactive' : ''
+
+    return (
+
+      <div className = "mobileheader">
+
+      <div className="logo">
+
+          <span
+          className = {isMain}
+          onClick = {props.showMain}
+          >
+          Log.AI</span>
+
+      </div>
+
+      <div className="dropbutton"
+      onClick = {() => props.setDropdown(!props.dropdown)}
+      ></div>
+          
+      </div>
+
+    )
+  }
+
+export default MobileHeader;

@@ -9,9 +9,9 @@ body {
 }
 
 span {
-  font-size: 24px;
-  font-size: 2vh;
-  font-weight: 500;
+  font-size: 30px;
+  font-size: 3vh ;
+  font-weight: 700;
   color: rgb(74, 74, 74);
 }
 
@@ -35,7 +35,6 @@ span:hover {
 input:focus {
   outline: none;
   border: 2px solid rgb(251, 190, 14);
-  /* box-shadow: 0 0 0 1.5pt rgb(251, 190, 14); */
 }
 
 form > input {
@@ -57,7 +56,7 @@ button {
 }
 
 .header {
-  background-color: #f6f8fa !important;
+  background-color: #fff !important;
   border-bottom: 1px solid #eceef1;
   padding: 3vw;
   display: flex;
@@ -66,23 +65,32 @@ button {
   position: sticky;
   top: 0;
   z-index: 2;
-  transition: all .5s linear !important;
+  transition: height .5s linear !important;
 }
 
 .header.small {
-  height: 75px;
+  height: 4rem;
 }
 
 .header.big {
-  height: 100px;
+  height: 5.5rem;
 }
 
 .other > *, .logo {
-  margin: 0 2vw;
+  margin: 0 1vw;
 }
 
-.header > div > *, .footer > div > * {
-  padding: 1vw;
+.logo > * {
+  font-size: 4vw;
+  font-weight: 800;
+}
+
+.logo:active {
+  animation: click 1s;
+}
+
+.header > div > *, .footer > div > * {  
+  padding: 1vw 2vw;
 }
 
 .navactive {
@@ -96,8 +104,8 @@ button {
 
 .regbutton > span {
   font-size: 24px;
-  font-size: 1.8vh;
-  font-weight: 400;
+  font-size: 3vh;
+  font-weight: 700;
 }
 
 .regbuttonactive {
@@ -132,7 +140,7 @@ button {
 
 .whoweserve > div > img {
   width: 5vw;
-  margin: auto;
+  margin:  5% auto;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -176,6 +184,8 @@ button {
   flex-flow: column;
   margin: 5% auto;
   text-align: left;
+  max-width: 500px;
+  width: 66vw;
 }
 
 .logform > input {
@@ -185,6 +195,14 @@ button {
 
 .formbutton {
   margin: 5% 0;
+}
+
+.formbutton:active {
+  animation: click 2s linear !important;
+}
+
+.formbutton:focus {
+  outline: none;
 }
 
 .radio {
@@ -261,6 +279,123 @@ button {
   margin: 5% auto;
 }
 
+.mobileheader {
+  display: none;
+}
+
+.dropmenu.false {
+  width: 0;
+}
+
+.dropmenu.false > * {
+  display: none;
+}
+
+/* carousel changes */
+
 .carousel-item > * {
   width: 100% !important;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  height: 2rem !important;
+  width: 2rem !important;
+}
+
+.carousel-indicators > li {
+margin-right: 2% !important;
+margin-left: 2% !important;
+height: 10px !important;
+width: 10px !important;
+border-radius: 50%;
+}
+
+@media (max-width: 500px) {
+
+  h1 {
+    font-size: 5vw !important;
+  }
+
+  h4 {
+    font-size: 4.2vw !important;
+  }
+
+  p {
+    font-size: 3.3vw;
+  }
+
+  li {
+    font-size: 3.3vw;
+  }
+
+  label {
+    font-size: 3.5vw;
+    font-weight: 500 !important;
+  }
+
+  .whoweserve > * {
+    font-size: 3.3vw;
+    width: auto !important;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .mobileheader {
+    background-color: #fff !important;
+    border-bottom: 1px solid #eceef1;
+    padding: 3vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .dropbutton {
+    width: 8vw;
+    height: 8vw;
+    background-image: url('./images/hamburger.png');
+    background-size: contain;
+  }
+
+  .dropbutton:active {
+    animation: click 1s;
+  }
+
+  .dropmenu {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    background-color: #fff;
+    transition: all .25s;
+  }
+
+  .dropnav {
+    padding: 5%;
+    margin: 5%;
+  }
+
+  .dropnav.blue > * {
+    color: rgb(29, 157, 235);
+  }
+
+  .footer > div > span, .footer > span {
+    font-size: 3.5vw;
+  }
+
+}
+
+@keyframes click {
+  0%   {transform: scale(1);}
+  50%  {transform: scale(0.6);}
+  100% {transform: scale(1);}
 }

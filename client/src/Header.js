@@ -24,10 +24,6 @@ const Header = props => {
 
       <div className = {`header ${scroll}`}>
 
-        {/* <LeftNav main = {props.main} services = {props.services} about = {props.about} showAbout = {props.showAbout} showServices = {props.showServices} showMain = {props.showMain} />
-
-        <RightNav login = {props.login} register = {props.register} showDashboard = {props.showDashboard} isLoggedIn = {props.isLoggedIn} showRegister = {props.showRegister} showLogin = {props.showLogin}/> */}
-
       <div className="logo">
 
           <span

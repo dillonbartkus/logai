@@ -8,10 +8,12 @@ import About from './About';
 import Services from './Services';
 import Dashboard from './Dashboard';
 import RegConfirm from './RegConfirm';
-
+import MobileHeader from './MobileHeader';
+import Dropdown from './Dropdown';
 
 const App = () => {
 
+  const [dropdown, setDropdown] = useState(false)
   const [main, setMain] = useState(true)
   const [login, setLogin] = useState(false)
   const [register, setRegister] = useState(false)
@@ -21,7 +23,6 @@ const App = () => {
   const [newMember, setNewMember] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userData, setUserData] = useState(null)
-
 
   const logUserIn = (data) => {
     setIsLoggedIn(true)
@@ -42,7 +43,7 @@ const App = () => {
   }
 
   const clearDisplay = () => {
-    setLogin(false); setRegister(false); setAbout(false); setMain(false); setServices(false); setDashboard(false); setNewMember(false)
+    setDropdown(false); setLogin(false); setRegister(false); setAbout(false); setMain(false); setServices(false); setDashboard(false); setNewMember(false)
   }
 
   const showDashboard = () => {
@@ -84,7 +85,11 @@ const App = () => {
 
       <div className = "app">
 
-          <Header main = {main} userData = {userData} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
+            <MobileHeader showMain = {showMain} main = {main} dropdown = {dropdown} setDropdown = {setDropdown}/>
+
+            <Header main = {main} userData = {userData} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
+
+            <Dropdown dropdown = {dropdown} setDropdown = {setDropdown} main = {main} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
 
               {
                 main &&

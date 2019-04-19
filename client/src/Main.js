@@ -36,7 +36,7 @@ const Main = () => {
                     </div>
                     
                     <div className="warehouseserve">
-                    Warehouse Managers
+                    Warehouses
                     <img src = {warehouse} alt = 'warehouse'></img>
                     </div>
 
@@ -46,7 +46,7 @@ const Main = () => {
                     </div>
 
                     <div className="customerserve">
-                    Logistical Customers
+                    Stores
                     <img src = {customer} alt = 'customer'></img>
                     </div>
                 

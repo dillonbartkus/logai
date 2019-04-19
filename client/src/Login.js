@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const Login = props => {
 
+  const textInput = React.createRef()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [invalidCred, setInvalidCred] = useState('')
@@ -10,6 +11,7 @@ const Login = props => {
 
   const authorize = async e => {
     e.preventDefault()
+    textInput.current.blur()
     try {
       // headers: {
       //   authorization: `Bearer ${this.state.token}`
@@ -36,6 +38,7 @@ const Login = props => {
                 <form className = "logform">
                 
                         <input
+                        ref = {textInput}
                         className = {invalidCred ? 'invalidCred' : '' }
                         placeholder = "Email"
                         type = "text"
@@ -45,6 +48,7 @@ const Login = props => {
                         </input>
 
                         <input
+                        ref = {textInput}
                         className = {invalidCred ? 'invalidCred' : '' }
                         placeholder = "Password"
                         type = "password"
