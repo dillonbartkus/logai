@@ -43,7 +43,7 @@ const App = () => {
   }
 
   const clearDisplay = () => {
-    setDropdown(false); setLogin(false); setRegister(false); setAbout(false); setMain(false); setServices(false); setDashboard(false); setNewMember(false)
+    returnToTop(); setDropdown(false); setLogin(false); setRegister(false); setAbout(false); setMain(false); setServices(false); setDashboard(false); setNewMember(false)
   }
 
   const showDashboard = () => {

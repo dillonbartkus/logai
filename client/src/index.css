@@ -106,7 +106,7 @@ button {
 .regbuttonactive {
   background-color: #fff;
   color: rgb(29, 157, 235);
-  border: 2px solid rgb(251, 190, 14);
+  box-shadow: 0 0 0 1.5px rgb(251, 190, 14);
   border-radius: 25px;
 }
 
@@ -391,7 +391,7 @@ border-radius: 50%;
     align-items: center;
     width: 30vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     right: 0;
     background-color: #fff;
