@@ -39,9 +39,10 @@ const App = () => {
 
   const resetTimer = () => {
     if(localStorage.email || userData) {
+      console.log('sfsafa')
       let time;
       clearTimeout(time)
-      time = setTimeout( logUserOut, 6000)
+      time = setTimeout( logUserOut, 60000)
     }
   }
 
