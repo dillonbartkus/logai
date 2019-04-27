@@ -41,7 +41,7 @@ const App = () => {
     if(localStorage.email || userData) {
       let time;
       clearTimeout(time)
-      time = setTimeout( logUserOut, 600000)
+      time = setTimeout( logUserOut, 6000)
     }
   }
 
