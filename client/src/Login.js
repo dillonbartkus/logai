@@ -7,7 +7,6 @@ const Login = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [invalidCred, setInvalidCred] = useState('')
-  const [token, setToken] = useState('')
 
   const authorize = async e => {
     e.preventDefault()
@@ -16,12 +15,11 @@ const Login = props => {
       // headers: {
       //   authorization: `Bearer ${this.state.token}`
       // }
-    const res = await  axios.post(`/login`, {
+    const res = await axios.post(`/login`, {
       email: email,
       pw: password
     })
-    setToken(res.data.token)
-    props.logUserIn(res.data.data)
+    props.logUserIn(res.data.data, res.data.token)
   }
     catch(err) {
       console.log(err.response)

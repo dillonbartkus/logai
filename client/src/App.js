@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
@@ -23,12 +24,35 @@ const App = () => {
   const [newMember, setNewMember] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userData, setUserData] = useState(null)
+  const [token, setToken] = useState(null)
 
-  const logUserIn = (data) => {
+  useEffect( () => {
+    fetchUser()
+  }, [])
+
+  const fetchUser = async () => {
+    if(localStorage.email && !userData) {
+      const res = await axios.post(`/users/${localStorage.email}`)
+      setUserData(res.data.data);
+    }
+  }
+
+  const resetTimer = () => {
+    if(localStorage.email || userData) {
+      let time;
+      clearTimeout(time)
+      time = setTimeout( logUserOut, 600000)
+    }
+  }
+
+  const logUserIn = (data, token) => {
+    setToken(token)
     setIsLoggedIn(true)
     setUserData(data)
+    localStorage.setItem('logtoken', token)
+    localStorage.setItem('email', data.email)
     showDashboard()
-  }
+  }  
 
   const returnToTop = () => {
     window.scroll({
@@ -38,8 +62,12 @@ const App = () => {
   }
 
   const logUserOut = () => {
-    setIsLoggedIn(false)
     showMain()
+    setToken('')
+    setIsLoggedIn(false)
+    setUserData(null)
+    localStorage.removeItem('logtoken')
+    localStorage.removeItem('email')
   }
 
   const clearDisplay = () => {
@@ -83,13 +111,13 @@ const App = () => {
 
     return (
 
-      <div className = "app">
+      <div className = "app" onMouseMove = { () => resetTimer() } >
 
             <MobileHeader showMain = {showMain} main = {main} dropdown = {dropdown} setDropdown = {setDropdown}/>
 
-            <Header main = {main} userData = {userData} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
+            <Header token = {token} main = {main} userData = {userData} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
 
-            <Dropdown dropdown = {dropdown} setDropdown = {setDropdown} main = {main} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
+            <Dropdown token = {token} dropdown = {dropdown} setDropdown = {setDropdown} main = {main} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
 
               {
                 main &&

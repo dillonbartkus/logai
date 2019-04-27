@@ -10,7 +10,7 @@ body {
 
 span {
   font-size: 24px;
-  font-size: 2.7vh ;
+  font-size: 2.5vh ;
   font-weight: 700;
   color: rgb(74, 74, 74);
 }
@@ -62,7 +62,7 @@ button {
 .header {
   background-color: #fff !important;
   border-bottom: 1px solid #eceef1;
-  padding: 3vw;
+  padding: 0 3vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,11 +73,11 @@ button {
 }
 
 .header.small {
-  height: 4.2rem;
+  height: 5.3vw;
 }
 
 .header.big {
-  height: 6rem;
+  height: 7vw;
 }
 
 .other > *, .logo {
@@ -289,6 +289,12 @@ button {
   margin: 5% auto;
 }
 
+iframe {
+  width: 75vw !important;
+  margin: 0 auto;
+  height: 500px !important;
+}
+
 .mobileheader {
   display: none;
 }
@@ -320,7 +326,23 @@ width: 10px !important;
 border-radius: 50%;
 }
 
-@media (max-width: 550px) {
+/* ///////////////////////////// */
+
+@media (max-width: 1030px) {
+
+  .header.small {
+    height: 8vw;
+  }
+  
+  .header.big {
+    height: 10vw;
+  }
+
+}
+
+/* /////////////////////////////// */
+
+@media (max-width: 660px) {
 
   h1 {
     font-size: 5vw !important;

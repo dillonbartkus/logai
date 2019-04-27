@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Tabdash from './Tabdash';
 // import axios from 'axios';
 
 const Dashboard = props =>  {
@@ -29,20 +30,9 @@ const Dashboard = props =>  {
                   >
                   Logout</button>
 
-                  <button
-                  className = "dashbutton"
-                  >
-                  Submit order
-                  </button>
-
-                  <button
-                  onClick = {() => window.open('https://us-east-1.online.tableau.com/t/smartweels/views/Regional/FlightDelays?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no','_blank') }
-                  className = "dashbutton"
-                  >
-                  View Dashboard
-                  </button>
-
              </div>
+
+             <Tabdash />
 
       </div>
       

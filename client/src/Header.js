@@ -18,7 +18,7 @@ const Header = props => {
     if (scroll < 75) {
       setScroll('big')
     }
-  }, 100)
+  }, 100)  
 
     return (
 
@@ -46,17 +46,34 @@ const Header = props => {
           onClick = {props.showAbout}
           >About</span>
 
-          <span className = {isLogin}
-          onClick = { e => props.showLogin(e) }
-          >
-          Login
-          </span>
+          {
+            localStorage.logtoken &&
+            <span className = {isLogin}
+            onClick = { e => props.showDashboard() }
+            >
+            Profile
+            </span>
+          }
 
-          <span className = {isRegister}
-          onClick = { () => props.showRegister() }
-          >
-          <span>Sign Up</span>
-          </span>
+          {
+            !localStorage.logtoken &&
+
+            <span className = {isLogin}
+            onClick = { e => props.showLogin(e) }
+            >
+            Login
+            </span>
+          }
+
+          {
+            !localStorage.logtoken &&
+
+            <span className = {isRegister}
+            onClick = { () => props.showRegister() }
+            >
+            <span>Sign Up</span>
+            </span>
+          }
           
       </div>
 

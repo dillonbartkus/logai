@@ -15,17 +15,34 @@ const Dropmenu = props => {
         onClick = {props.showAbout}
         >About</span>
 
-        <span className = "dropnav"
-        onClick = { e => props.showLogin(e) }
-        >
-        Login
-        </span>
+        {
+        localStorage.logtoken &&
 
-        <span className = "dropnav blue"
-        onClick = { () => props.showRegister() }
-        >
-        <span>Register</span>
-        </span>
+            <span className = 'dropnav'
+            onClick = { e => props.showDashboard() }
+            >
+            Profile
+            </span>
+        }
+
+        {
+        !localStorage.logtoken &&
+
+            <span className = "dropnav"
+            onClick = { e => props.showLogin(e) }
+            >
+            Login
+            </span>
+        }
+
+        {
+        !localStorage.logtoken &&
+            <span className = "dropnav blue"
+            onClick = { () => props.showRegister() }
+            >
+            <span>Register</span>
+            </span>
+        }
 
         </div>
     )

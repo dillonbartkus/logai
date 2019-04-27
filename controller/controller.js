@@ -24,19 +24,22 @@ controller.login = async (req, res) => {
 };
 
 
-// controller.getUser = (req, res) => {
-//   Log.findUser(req.params.id)
-//   .then(data => {
-//     res.json({
-//       message: 'ok',
-//       data: data
-//     });
-//   })
-//   .catch(err => {
-//     console.log(err);
-//     res.status(500).json({ err });
-//   });
-// };
+controller.getUser = async (req, res) => {
+  const email = req.params.email;
+
+  try {
+    const data = await Log.findUser(email)
+      res.json({
+        data: data
+      })
+      console.log(data)
+  }
+
+  catch(err) {
+    console.log(err);
+    res.status(500).json({ err });
+  }
+};
 
 
 controller.createUser = async (req, res) => {
