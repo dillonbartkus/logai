@@ -13,7 +13,9 @@ const Footer = props => {
               Social Media
           </span>
 
-          <span>
+          <span
+          onClick = { () => window.location.href='mailto:dillonbartkus@gmail.com'}
+          >
               Contact Us
           </span>
         </div>

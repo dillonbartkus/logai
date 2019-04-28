@@ -22,7 +22,7 @@ const Login = props => {
     props.logUserIn(res.data.data, res.data.token)
   }
     catch(err) {
-      console.log(err.response)
+      console.log(err.message)
       setInvalidCred(true)
     }
   }

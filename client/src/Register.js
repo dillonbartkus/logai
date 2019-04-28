@@ -33,7 +33,7 @@ const Register = props => {
         })
     }
     catch (err) {
-        console.log(err.response)
+        console.log(err.message)
     }
 }
 
@@ -108,10 +108,6 @@ const Register = props => {
                         onChange = {e => setCompanyType(e.target.value)}
                         ></input>
                         </div>
-                        {
-                            invalidCred &&
-                            <p style = {{'color': 'red'}}>Field is required.</p>
-                        }
 
                 </div>
 

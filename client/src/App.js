@@ -37,15 +37,6 @@ const App = () => {
     }
   }
 
-  const resetTimer = () => {
-    if(localStorage.email || userData) {
-      console.log('sfsafa')
-      let time;
-      clearTimeout(time)
-      time = setTimeout( logUserOut, 60000)
-    }
-  }
-
   const logUserIn = (data, token) => {
     setToken(token)
     setIsLoggedIn(true)
@@ -112,7 +103,7 @@ const App = () => {
 
     return (
 
-      <div className = "app" onMouseMove = { () => resetTimer() } >
+      <div className = "app" >
 
             <MobileHeader showMain = {showMain} main = {main} dropdown = {dropdown} setDropdown = {setDropdown}/>
 

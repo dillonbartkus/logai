@@ -18,7 +18,6 @@ controller.login = async (req, res) => {
       }
     }
     catch(err) {
-      console.log(err);
       res.status(500).json({ err });
     };
 };
@@ -32,11 +31,9 @@ controller.getUser = async (req, res) => {
       res.json({
         data: data
       })
-      console.log(data)
   }
 
   catch(err) {
-    console.log(err);
     res.status(500).json({ err });
   }
 };
@@ -62,7 +59,6 @@ controller.createUser = async (req, res) => {
       });
     })
     .catch(err => {
-      console.log(err);
       res.status(500).json({ err });
     });
 }

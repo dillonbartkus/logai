@@ -91,7 +91,7 @@ button {
 }
 
 .header > div > *, .footer > div > * {  
-  padding: 1vw 15px;
+  padding: 1vw 1.75vw;
 }
 
 .navactive {
