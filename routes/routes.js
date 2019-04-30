@@ -9,7 +9,7 @@ router.post('/users/:email', controller.getUser);
 
 router.post('/register', controller.createUser);
 
-// router.post('/post', controller.createPost);
+router.post('/getinv/:id', controller.getInventory);
 
 // router.put('/feed/:id', controller.updatePost);
 

@@ -1,5 +1,7 @@
-import React from 'react';
-import Tabdash from './Tabdash';
+import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
+import Tabdash from './Tabdash'
+import WMS from './WMS'
 // import axios from 'axios';
 
 const Dashboard = props =>  {
@@ -16,25 +18,72 @@ const Dashboard = props =>  {
   //     });
   // }, [])
 
+  props = props.location.state
+
+  const [logout, setLogout] = useState(false)
+  const [wms, setWms] = useState(false)
+  const [dash, setDash] = useState(true)
+
+  const style = {'textAlign' : 'center', 'margin' : '2% auto'}
+
+  if(!props) {
+    return(<h1>Please log in.</h1>)
+  }
+
     return (
+
+    <>
+
+      <h1 style = {style} className = "title">Welcome, {props.userData.npc}</h1>
 
       <div className="dashboard">
       
-          <h1 className = "title">Welcome, {props.userData.npc}</h1>
-
               <div className = "dashbuttons">
+
+                  <button
+                  className = "dashbutton"
+                  onClick = { () => {
+                    setWms(false)
+                    setDash(true)
+                  }}
+                  >
+                  Dashboard</button>
+
+                 <button
+                  className = "dashbutton"
+                  onClick = { () => {
+                    setWms(true)
+                    setDash(false)
+                  }}
+                  >
+                  WMS</button>
             
                   <button
                   className = "dashbutton"
-                  onClick = {props.logUserOut}
+                  onClick = { () => setLogout(true)}
                   >
                   Logout</button>
 
              </div>
 
-             <Tabdash />
+             {
+               wms &&
+               <WMS userData = {props.userData}/>
+             }
+
+             {
+               dash &&
+               <Tabdash />
+             }
+
+
+             {logout
+             ? <Redirect push to={`/`} />
+             : ''}
 
       </div>
+    
+    </>
       
     )
 }

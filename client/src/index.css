@@ -49,6 +49,7 @@ form > input {
 }
 
 button {
+  outline: none !important;
   width: 25vw;
   border-radius: 10px !important;
   background-color: rgb(29, 157, 235);
@@ -110,7 +111,7 @@ button {
   border-radius: 25px;
 }
 
-.main, .login, .register, .services, .about, .dashboard, .regconfirm {
+.main, .login, .register, .services, .about, .regconfirm {
   display: flex;
   flex-flow: column;
   text-align: center;
@@ -207,11 +208,11 @@ button {
   margin: 5% 0;
 }
 
-.formbutton:active {
+button:active {
   animation: click 2s linear !important;
 }
 
-.formbutton:focus {
+button:focus {
   outline: none;
 }
 
@@ -277,24 +278,6 @@ button {
   height: 8vw;
 }
 
-.dashboard {
-  display: flex;
-}
-
-.dashbuttons {
-  display: flex;
-}
-
-.dashbutton {
-  margin: 5% auto;
-}
-
-iframe {
-  width: 75vw !important;
-  margin: 0 auto;
-  height: 500px !important;
-}
-
 .mobileheader {
   display: none;
 }
@@ -305,6 +288,40 @@ iframe {
 
 .dropmenu.false > * {
   display: none;
+}
+
+/* Dashboard */
+
+.dashboard {
+  display: flex;
+  height: 80vh;
+}
+
+.dashbuttons {
+  flex: 0 0 20%;
+  display: flex;
+  flex-flow: column;
+  border-right: 1px solid black;
+}
+
+.dashbutton {
+  margin: auto;
+  height: 8vh;
+  width: 75%;
+}
+
+iframe, .wms {
+  width: 75vw !important;
+  margin: 0 auto;
+  height: 100vh!important;
+}
+
+.wmsbuttons {
+  display: flex;
+}
+
+.wmsbuttons > * {
+  margin: 0 2%;
 }
 
 /* carousel changes */

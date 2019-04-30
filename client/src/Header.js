@@ -47,7 +47,7 @@ const Header = props => {
           >About</span>
 
           {
-            localStorage.logtoken &&
+            props.token &&
             <span className = {isLogin}
             onClick = { e => props.showDashboard() }
             >
@@ -56,7 +56,7 @@ const Header = props => {
           }
 
           {
-            !localStorage.logtoken &&
+            !props.token &&
 
             <span className = {isLogin}
             onClick = { e => props.showLogin(e) }
@@ -66,7 +66,7 @@ const Header = props => {
           }
 
           {
-            !localStorage.logtoken &&
+            !props.token &&
 
             <span className = {isRegister}
             onClick = { () => props.showRegister() }

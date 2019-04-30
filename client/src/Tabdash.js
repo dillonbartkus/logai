@@ -3,6 +3,10 @@ import tableau from 'tableau-api';
 
 class Tabdash extends React.Component {
 
+    state = {
+        loading: false
+    }
+
     initTableau() {
         const vizUrl =
             "https://us-east-1.online.tableau.com/t/logai/views/Book1/Sheet1?iframeSizedToWindow=true&:embed=yes&:showAppBanner=false&:display_count=no&:showVizHome=no";
@@ -39,6 +43,12 @@ class Tabdash extends React.Component {
     }
 
     render() {
+
+        if(this.state.loading) {
+         return(
+        <div className="loading"> </div>
+      )
+    }
 
     return <div ref={ c => (this.container = c) } ></div>
 

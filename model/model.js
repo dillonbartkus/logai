@@ -36,6 +36,16 @@ model.createUser = user => {
   );
 };
 
+model.getInventory = id => {
+  return db.query(
+    `
+    SELECT * FROM inventory
+    WHERE inventory.warehouse_id = $1
+    `,
+    [id]
+  );
+};
+
 
 model.updateUser = (users, id) => {
   return db.one(
