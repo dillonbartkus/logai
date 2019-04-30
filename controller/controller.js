@@ -78,5 +78,20 @@ controller.getInventory = async (req, res) => {
   }
 };
 
+controller.getOrders = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const data = await Log.getOrders(id)
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err });
+  }
+};
+
 
 module.exports = controller;

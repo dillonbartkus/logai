@@ -46,6 +46,16 @@ model.getInventory = id => {
   );
 };
 
+model.getOrders = id => {
+  return db.query(
+    `
+    SELECT * FROM orders
+    WHERE orders.origin_id = $1
+    `,
+    [id]
+  );
+};
+
 
 model.updateUser = (users, id) => {
   return db.one(

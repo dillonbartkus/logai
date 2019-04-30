@@ -11,7 +11,7 @@ router.post('/register', controller.createUser);
 
 router.post('/getinv/:id', controller.getInventory);
 
-// router.put('/feed/:id', controller.updatePost);
+router.post('/getorders/:id', controller.getOrders);
 
 // router.put('/user/:id', controller.updateUser);
 

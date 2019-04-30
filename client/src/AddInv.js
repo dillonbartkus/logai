@@ -12,7 +12,6 @@ const AddInv = props => {
      const fetchInv = async () => {
        let res = await axios.post(`/getinv/${props.userData.id}`)
        setInv(res.data.data);
-       
      }
 
      const renderInv = () => {
