@@ -314,6 +314,7 @@ iframe, .wms {
   width: 75vw !important;
   margin: 0 auto;
   height: 100vh!important;
+  text-align: center;
 }
 
 .wmsbuttons {
@@ -322,6 +323,29 @@ iframe, .wms {
 
 .wmsbuttons > * {
   margin: 0 2%;
+}
+
+.smallbutton {
+  font-size: 1.1vw;
+  width: 10vw;
+  height: 8vh;
+}
+
+.smallbutton.red {
+  background-color: red !important;
+}
+
+.invitem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  margin-top: 1%;
+}
+
+.order {
+  display: flex;
+  flex-flow: column;
 }
 
 /* carousel changes */

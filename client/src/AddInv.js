@@ -3,33 +3,61 @@ import axios from 'axios'
 
 const AddInv = props => {
 
-    const [inv, setInv] = useState(null)
 
-    useEffect( () => {
-        fetchInv()
-       }, [])
-   
-     const fetchInv = async () => {
-       let res = await axios.post(`/getinv/${props.userData.id}`)
-       setInv(res.data.data);
-     }
+    const updateProduct = async (amount, id) => {
+        let res = await axios.put(`/product/${id}`,
+        { amount: amount } )
+        window.location.reload()
+    }
+
+    const deleteProduct = async id => {
+        let res = await axios.delete(`/product/${id}`)
+        window.location.reload()
+    }
+
+    const addProduct = async () => {
+
+    }
 
      const renderInv = () => {
-         if (inv) {
-         return inv.map( (item, id) => {
+         if (props.inv) {
+         return props.inv.map( (item, id) => {
+            const [edit, setEdit] = useState(false)
+            const [newQuantity, setNewQuantity] = useState()
+            let editButtonText = (edit) ? 'Cancel' : 'Edit Quantity'
             return (
                 <div className = "invitem" key = {id}>
                 <img style = {imgstyle} alt = {id} src = {item.picture} />
-                {item.sku} - 
-                {item.name} - 
-                {item.amount} units
 
-                <button
-                
-                >Edit Quantity</button>
+                {
+                !edit &&
+                <>
+                SKU# - {item.sku} - 
+                {item.name} -
+                {item.amount} Units
+                </>
+                }
 
-                <button
+                {edit &&
+                <>
+                <input
+                value = {newQuantity}
+                onChange = { e => setNewQuantity(e.target.value)}
+                ></input>
+                <button className = "smallbutton"
+                onClick = { () => updateProduct(newQuantity, item.id) }
+                >Make Change</button>
+                </>
+                }
                 
+                <button className = "smallbutton"
+                onClick = { () => setEdit(!edit) }
+                >
+                {editButtonText}
+                </button>
+
+                <button className = "smallbutton red"
+                onClick = { () => deleteProduct(item.id) }
                 >Remove Item</button>
             
                  </div>
@@ -43,12 +71,12 @@ const AddInv = props => {
     return (
 
         <div className = 'addinv'>
-        Edit Inventory for {props.userData.company}:
+        <h3>Edit Inventory for {props.userData.company}:</h3>
 
         {renderInv()}
 
        <button
-                
+        onClick = {() => addProduct() }
        >Add New Item</button>
      
        </div>

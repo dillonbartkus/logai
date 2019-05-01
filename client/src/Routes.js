@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
-import axios from 'axios';
-import Header from './Header';
-import Footer from './Footer';
-import Main from './Main';
-import Login from './Login';
-import Register from './Register';
-import About from './About';
-import Services from './Services';
-import RegConfirm from './RegConfirm';
-import MobileHeader from './MobileHeader';
-import Dropdown from './Dropdown';
+import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
+import axios from 'axios'
+import Header from './Header'
+import Footer from './Footer'
+import Main from './Main'
+import Login from './Login'
+import Register from './Register'
+import About from './About'
+import Services from './Services'
+import RegConfirm from './RegConfirm'
+import MobileHeader from './MobileHeader'
+import Dropdown from './Dropdown'
 
 const Routes = () => {
 

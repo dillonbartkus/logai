@@ -13,10 +13,10 @@ router.post('/getinv/:id', controller.getInventory);
 
 router.post('/getorders/:id', controller.getOrders);
 
-// router.put('/user/:id', controller.updateUser);
+router.post('/getorderinv/:id', controller.getOrderInv);
 
-// router.delete('/feed/:id', controller.destroyPost);
+router.delete('/product/:id', controller.deleteProduct);
 
-// router.delete('/user/:name', controller.destroyUser);
+router.put('/product/:id', controller.updateProduct);
 
 module.exports = router;

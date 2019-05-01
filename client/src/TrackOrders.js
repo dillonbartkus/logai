@@ -3,36 +3,46 @@ import axios from 'axios'
 
 const TrackOrders = props => {
 
-    const [orders, setOrders] = useState(null)
+    const [orderData, setOrderData] = useState(null)
+
+    const imgstyle = {'height' : '50px', 'width' : '50px', 'margin' : '2% 2%'}
 
     useEffect( () => {
-        fetchOrders()
-       }, [])
-   
-     const fetchOrders = async () => {
-       let res = await axios.post(`/getorders/${props.userData.id}`)
-       setOrders(res.data.data);
-     }
+        fetchOrderInv()
+    }, [])
+
+    const fetchOrderInv = async () => {
+        const res = await axios.post(`/getorderinv/${props.userData.id}`)
+        setOrderData(res.data.data)
+    }
 
      const renderOrders = () => {
-         if (orders) {
-         return orders.map( (order, id) => {
+         if (orderData) {
+         return orderData.map( (order, id) => {
+             console.log(order);
+             let fulfilled = (order.fulfilled) ? 'Yes' : 'No'
             return (
                 <div className = "order" key = {id}>
-                {order.orderer} {order.date_ordered}
-                {order.content1}
+                    <div className = "invitem">
+                        <img style = {imgstyle} alt = {id} src = {order.picture} />
+                        SKU# - {order.sku} - 
+                        {order.name} - 
+                        {order.item1amount} Units / {order.amount} Available
+                    </div>
+                <p>Ordered by - {order.orderer}</p>
+                <p>Ordered on - {order.date_ordered}</p>
+                <p>Fulfilled - {fulfilled}</p>
+                
                 </div>
             )
          })
         }
      }
 
-     console.log(orders)
-
     return (
 
         <div className = 'trackorders'>
-        Your Orders:
+        <h3>Your Orders:</h3>
         {renderOrders()}
         </div>
     )

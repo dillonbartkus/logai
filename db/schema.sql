@@ -10,20 +10,21 @@ CREATE TABLE IF NOT EXISTS users(
   comptype TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS orders(
-  id SERIAL PRIMARY KEY NOT NULL,
-  origin_id INTEGER REFERENCES users(id),
-  content1 INTEGER REFERENCES inventory(id),
-  date_ordered VARCHAR(12) NOT NULL,
-  orderer VARCHAR(99) NOT NULL,
-  fulfilled BOOLEAN NOT NULL
-);
-
 CREATE TABLE IF NOT EXISTS inventory(
   id SERIAL PRIMARY KEY NOT NULL,
   warehouse_id INTEGER REFERENCES users(id),
   sku VARCHAR(20) UNIQUE NOT NULL,
   name VARCHAR(99) NOT NULL,
   picture VARCHAR(999),
-  amount VARCHAR(99) NOT NULL
+  amount INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS orders(
+  id SERIAL PRIMARY KEY NOT NULL,
+  origin_id INTEGER REFERENCES users(id),
+  item1 INTEGER REFERENCES inventory(id),
+  item1amount INTEGER NOT NULL,
+  date_ordered VARCHAR(12) NOT NULL,
+  orderer VARCHAR(99) NOT NULL,
+  fulfilled BOOLEAN NOT NULL
 );

@@ -91,7 +91,58 @@ controller.getOrders = async (req, res) => {
   catch(err) {
     res.status(500).json({ err });
   }
-};
+}
+
+controller.getOrderInv = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const data = await Log.getOrderInv(id)
+    res.json({
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
+controller.deleteProduct = async (req, res) => {
+  const id = req.params.id
+
+  try {
+    const data = await Log.deleteProduct(id)
+    res.json({
+      message: 'deleted',
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
+controller.updateProduct = async (req, res) => {
+  const id = req.params.id
+  const { amount } = req.body
+
+  try {
+    const data = await Log.updateProduct({
+      amount: amount
+    }, id)
+    res.json({
+      message: 'updated',
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
 
 
 module.exports = controller;

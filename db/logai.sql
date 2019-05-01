@@ -45,11 +45,20 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
       '999'
     );
 
-  INSERT INTO orders (origin_id, content1, date_ordered, orderer, fulfilled) VALUES
+  INSERT INTO orders (origin_id, item1, item1amount, date_ordered, orderer, fulfilled) VALUES
     (
       '2',
       '5',
+      '20',
       '04/25/2019',
       'Ramen Noodle Store',
       'No'
+    ),
+    (
+      '2',
+      '3',
+      '50',
+      '04/10/2019',
+      'Sam''s Grocery',
+      'Yes'
     );
