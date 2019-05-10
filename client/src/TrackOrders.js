@@ -1,49 +1,61 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import Completed from './Completed'
+import Fulfilling from './Fulfilling'
+import Incoming from './Incoming'
 
 const TrackOrders = props => {
 
-    const [orderData, setOrderData] = useState(null)
-
-    const imgstyle = {'height' : '50px', 'width' : '50px', 'margin' : '2% 2%'}
+    const [display, setDisplay] = useState('incoming')
+    const [fulfillingOrders, setFulfillingOrders] = useState()
+    const [completedOrders, setCompletedOrders] = useState()
+    const [incomingOrders, setIncomingOrders] = useState()
 
     useEffect( () => {
-        fetchOrderInv()
-    }, [])
+        filterOrders()
+    }, [] )
 
-    const fetchOrderInv = async () => {
-        const res = await axios.post(`/getorderinv/${props.userData.id}`)
-        setOrderData(res.data.data)
+    const filterOrders = () => {
+        if (props.orders) 
+        setFulfillingOrders(props.orders.filter( order => order.status === 'Completed' ))
+        setCompletedOrders(props.orders.filter( order => !order.status === ' Fulfilling' ))
+        setIncomingOrders(props.orders.filter( order => order.status === 'Incoming'))
     }
-
-     const renderOrders = () => {
-         if (orderData) {
-         return orderData.map( (order, id) => {
-             console.log(order);
-             let fulfilled = (order.fulfilled) ? 'Yes' : 'No'
-            return (
-                <div className = "order" key = {id}>
-                    <div className = "invitem">
-                        <img style = {imgstyle} alt = {id} src = {order.picture} />
-                        SKU# - {order.sku} - 
-                        {order.name} - 
-                        {order.item1amount} Units / {order.amount} Available
-                    </div>
-                <p>Ordered by - {order.orderer}</p>
-                <p>Ordered on - {order.date_ordered}</p>
-                <p>Fulfilled - {fulfilled}</p>
-                
-                </div>
-            )
-         })
-        }
-     }
-
+    
     return (
 
         <div className = 'trackorders'>
-        <h3>Your Orders:</h3>
-        {renderOrders()}
+
+            <button
+            onClick = { () => {
+                if (display === 'unfulfilled')
+                    setDisplay('fulfilled')
+                if (display === 'fulfilled')
+                    setDisplay('incoming')
+                if (display === 'incoming')
+                    setDisplay('unfulfilled')
+            }}
+            >
+            Change Page
+            </button>
+
+            {
+                display === 'unfulfilled' &&
+
+                <Incoming orders = {incomingOrders} inv = {props.inv} />
+            }
+
+            {
+                display === 'fulfilled' &&
+
+                <Fulfilling orders = {fulfillingOrders} />
+            }
+
+            {
+                display === 'incoming' &&
+
+                <Completed orders = {completedOrders} />
+            }
+
         </div>
     )
 }

@@ -50,7 +50,7 @@ model.getOrders = id => {
   return db.query(
     `
     SELECT * FROM orders
-    WHERE orders.origin_id = $1
+    WHERE orders.warehouse_id = $1
     `,
     [id]
   );
@@ -59,10 +59,12 @@ model.getOrders = id => {
 model.getOrderInv = id => {
   return db.query(
     `
-   SELECT inventory.*, orders.*
-   FROM orders
-   JOIN inventory ON orders.item1 = inventory.id
-   WHERE inventory.warehouse_id = $1
+    SELECT inventory.*, order_items.item_id, order_items.item_amount
+    FROM order_items
+    JOIN inventory
+    ON order_items.item_id = inventory.id
+    WHERE order_items.order_id = $1
+
     `,
     [id]
   );

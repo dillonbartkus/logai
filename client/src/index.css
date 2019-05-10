@@ -290,7 +290,11 @@ button:focus {
   display: none;
 }
 
-/* Dashboard */
+/* ////////////////////////////////////     */
+/*                                          */
+/*           Dashboard                      */
+/*                                          */
+/* ////////////////////////////////////     */
 
 .dashboard {
   display: flex;
@@ -301,7 +305,6 @@ button:focus {
   flex: 0 0 20%;
   display: flex;
   flex-flow: column;
-  border-right: 1px solid black;
 }
 
 .dashbutton {
@@ -314,7 +317,6 @@ iframe, .wms {
   width: 75vw !important;
   margin: 0 auto;
   height: 100vh!important;
-  text-align: center;
 }
 
 .wmsbuttons {
@@ -346,6 +348,20 @@ iframe, .wms {
 .order {
   display: flex;
   flex-flow: column;
+}
+
+.orderitem {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.trackorders {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.wmsbuttons > button {
+  font-size: 1.4vw;
 }
 
 /* carousel changes */

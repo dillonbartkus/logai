@@ -1,5 +1,5 @@
-import React from 'react';
-import Carousel from './Carousel.js';
+import React from 'react'
+import Carousel from './Carousel.js'
 import shipper from './images/shipper.png'
 import customer from './images/customer.png'
 import warehouse from './images/warehouse.png'

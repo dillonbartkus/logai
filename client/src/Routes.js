@@ -20,7 +20,6 @@ const Routes = () => {
   const [register, setRegister] = useState(false)
   const [about, setAbout] = useState(false)
   const [services, setServices] = useState(false)
-  const [dashboard, setDashboard] = useState(false)
   const [newMember, setNewMember] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userData, setUserData] = useState(null)
@@ -43,7 +42,6 @@ const Routes = () => {
     setIsLoggedIn(true)
     // localStorage.setItem('logtoken', token)
     // localStorage.setItem('email', data.email)
-    showDashboard()
   }  
 
   const returnToTop = () => {
@@ -54,12 +52,7 @@ const Routes = () => {
   }
 
   const clearDisplay = () => {
-    returnToTop(); setDropdown(false); setLogin(false); setRegister(false); setAbout(false); setMain(false); setServices(false); setDashboard(false); setNewMember(false)
-  }
-
-  const showDashboard = () => {
-    // clearDisplay()
-    // setDashboard(true)
+    returnToTop(); setDropdown(false); setLogin(false); setRegister(false); setAbout(false); setMain(false); setServices(false); setNewMember(false)
   }
 
   const showWelcomePage = () => {
@@ -98,9 +91,9 @@ const Routes = () => {
 
             <MobileHeader showMain = {showMain} main = {main} dropdown = {dropdown} setDropdown = {setDropdown}/>
 
-            <Header token = {token} main = {main} userData = {userData} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
+            <Header token = {token} main = {main} userData = {userData} services = {services} about = {about} login = {login} register = {register} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
 
-            <Dropdown token = {token} dropdown = {dropdown} setDropdown = {setDropdown} main = {main} services = {services} about = {about} login = {login} register = {register} showDashboard = {showDashboard} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
+            <Dropdown token = {token} dropdown = {dropdown} setDropdown = {setDropdown} main = {main} services = {services} about = {about} login = {login} register = {register} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
 
               {
                 main &&
@@ -131,18 +124,6 @@ const Routes = () => {
                 newMember &&
                 <RegConfirm />
               }
-
-              {/* {
-                dashboard &&
-                <Dashboard logUserOut = {logUserOut} userData = {userData}/>
-              } */}
-
-              {/* <Router>
-                <Route
-                  path="/dashboard"
-                  component={Dashboard}
-                />
-              </Router> */}
 
           <Footer returnToTop = {returnToTop} />
 

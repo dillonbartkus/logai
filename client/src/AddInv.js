@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 const AddInv = props => {
 
 
     const updateProduct = async (amount, id) => {
-        let res = await axios.put(`/product/${id}`,
-        { amount: amount } )
+        await axios.put(`/product/${id}`, { amount: amount } )
         window.location.reload()
     }
 
     const deleteProduct = async id => {
-        let res = await axios.delete(`/product/${id}`)
+        await axios.delete(`/product/${id}`)
         window.location.reload()
     }
 
@@ -71,7 +70,7 @@ const AddInv = props => {
     return (
 
         <div className = 'addinv'>
-        <h3>Edit Inventory for {props.userData.company}:</h3>
+        <h3>Add Inventory for {props.userData.company}:</h3>
 
         {renderInv()}
 

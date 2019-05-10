@@ -1,7 +1,7 @@
-import React from 'react';
-import team from './images/team.jpeg';
-import finance from './images/finance.png';
-import truck from './images/truck.jpeg';
+import React from 'react'
+import team from './images/team.jpeg'
+import finance from './images/finance.png'
+import truck from './images/truck.jpeg'
 
 const About = () => {
 

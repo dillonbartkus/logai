@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import AddInv from './AddInv'
+import Completed from './Completed'
 import TrackInv from './TrackInv'
-import TrackOrders from './TrackOrders'
+import Fulfilling from './Fulfilling'
+import Incoming from './Incoming'
 
 const WMS = props => {
 
-    const [trackInv, setTrackInv] = useState(true)
-    const [addInv, setAddInv] = useState(false)
-    const [trackOrders, setTrackOrders] = useState(false)
+    const [display, setDisplay] = useState('incoming')
     const [inv, setInv] = useState(null)
-    const [orders, setOrders] = useState(null)
+    const [fulfillingOrders, setFulfillingOrders] = useState()
+    const [completedOrders, setCompletedOrders] = useState()
+    const [incomingOrders, setIncomingOrders] = useState()
 
     useEffect( () => {
         fetchInv()
         fetchOrders()
-    }, [])
+    }, [] )
 
     const fetchInv = async () => {
         let res = await axios.post(`/getinv/${props.userData.id}`)
@@ -23,9 +24,11 @@ const WMS = props => {
     }
 
     const fetchOrders = async () => {
-        let res = await axios.post(`/getorders/${props.userData.id}`)
-        setOrders(res.data.data);
-      }
+        let res = await axios.post(`/getorders/${props.userData.id}`)        
+        setFulfillingOrders(res.data.data.filter( order => order.status === 'Fulfilling'))
+        setCompletedOrders(res.data.data.filter( order => order.status === 'Completed'))
+        setIncomingOrders(res.data.data.filter( order => order.status === 'Incoming'))
+      }      
 
     return (
 
@@ -36,9 +39,15 @@ const WMS = props => {
             <button
             className = "dashbutton"
             onClick = { () => {
-                setAddInv(false)
-                setTrackInv(true)
-                setTrackOrders(false)
+                setDisplay('incoming')
+            }}
+            >
+            Incoming Orders</button>
+
+            <button
+            className = "dashbutton"
+            onClick = { () => {
+                setDisplay('trackinv')
             }}
             >
             Track Inventory</button>
@@ -46,39 +55,40 @@ const WMS = props => {
             <button
             className = "dashbutton"
             onClick = { () => {
-                setAddInv(true)
-                setTrackInv(false)
-                setTrackOrders(false)
+                setDisplay('fulfilling')
             }}
             >
-            Edit Inventory</button>
+            Current Orders</button>
 
             <button
             className = "dashbutton"
             onClick = { () => {
-                setAddInv(false)
-                setTrackInv(false)
-                setTrackOrders(true)
+                setDisplay('completed')
             }}
             >
-            Track Orders</button>
+            Completed Orders</button>
 
             </div>
 
 
             {
-                trackInv &&
-                <TrackInv userData = {props.userData} inv = {inv} />
+                display === 'incoming' && incomingOrders &&
+                <Incoming userData = {props.userData} inv = {inv} orders = {incomingOrders} />
             }
 
             {
-                addInv &&
-                <AddInv userData = {props.userData} inv = {inv} />
+                display === 'trackinv' &&
+                <TrackInv userData = {props.userData} inv = {inv} />
             }
             
             {
-                trackOrders &&
-                <TrackOrders userData = {props.userData} inv = {inv} orders = {orders} />
+                display === 'fulfilling' &&
+                <Fulfilling userData = {props.userData} inv = {inv} orders = {fulfillingOrders} />
+            }
+
+            {
+                display === 'completed' &&
+                <Completed userData = {props.userData} inv = {inv} orders = {completedOrders} />
             }
             
       </div>

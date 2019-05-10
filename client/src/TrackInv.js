@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import React from 'react'
 
 const TrackInv = props => {
 
@@ -16,7 +15,7 @@ const TrackInv = props => {
                 <img style = {imgstyle} alt = {id} src = {item.picture} />
                 SKU# - {item.sku} - 
                 {item.name} - 
-                {item.amount} units
+                {item.quantity} units
                 </div>
             ) 
         })}

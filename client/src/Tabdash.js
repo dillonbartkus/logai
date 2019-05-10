@@ -1,5 +1,5 @@
-import React from 'react';
-import tableau from 'tableau-api';
+import React from 'react'
+// import tableau from 'tableau-api'
 
 class Tabdash extends React.Component {
 

@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
-} from 'reactstrap';
+  CarouselIndicators
+} from 'reactstrap'
 
 // carousel order - shipping, warehouse, dispatch, carrier, clients
 
