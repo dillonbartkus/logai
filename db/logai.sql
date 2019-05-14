@@ -16,14 +16,14 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
     'warehouse'
   );
 
-  INSERT INTO inventory (warehouse_id, sku, name, location, type, weight, last_checked, received_on, FIFO, picture, quantity, reserved) VALUES
+  INSERT INTO inventory (warehouse_id, sku, name, location, type, weight, last_checked, received_on, FIFO, picture, on_hand, reserved) VALUES
     (
       '2',
       '123456',
       'Canned Beans',
       'Row 5 Shelf 7',
       'Food',
-      '10 lbs',
+      '10',
       '4/30/2019',
       '4/25/2019',
       'True',
@@ -37,7 +37,7 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
       'Twinkies',
       'Row 22 Shelf 3',
       'Food',
-      '3 lbs',
+      '3',
       '4/30/2019',
       '4/25/2019',
       'True',
@@ -51,7 +51,7 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
       'Spam',
       'Row 19 Shelf 8',
       'Food',
-      '5 lbs',
+      '5',
       '4/30/2019',
       '4/25/2019',
       'True',
@@ -65,7 +65,7 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
       'Tomato Sauce',
       'Row 2 Shelf 7',
       'Food',
-      '10 lbs',
+      '10',
       '4/30/2019',
       '4/25/2019',
       'True',
@@ -79,7 +79,7 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
       'Ramen Noodles',
       'Row 13 Shelf 5',
       'Food',
-      '7 lbs',
+      '7',
       '4/30/2019',
       '4/25/2019',
       'True',
@@ -88,7 +88,7 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
       '333'
     );
 
-  INSERT INTO orders (warehouse_id, status, total_weight, employee, received_from, going_to, date_receieved, date_ready) VALUES
+  INSERT INTO orders (warehouse_id, status, total_weight, employee, received_from, going_to, date_received, date_ready) VALUES
     (
       '2',
       'Incoming',

@@ -345,6 +345,10 @@ iframe, .wms {
   margin-top: 1%;
 }
 
+.invitem > * {
+  margin: 0 2%;
+}
+
 .order {
   display: flex;
   flex-flow: column;

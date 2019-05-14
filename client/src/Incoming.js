@@ -1,5 +1,5 @@
 import React from 'react'
-import Order from './Order'
+import IncomingOrder from './IncomingOrder'
 
 const Incoming = props => {
 
@@ -7,7 +7,7 @@ const Incoming = props => {
         if (props.orders)
         return props.orders.map( (order, id) => {
            return (
-               <Order order = {order} key = {id} />
+               <IncomingOrder order = {order} key = {id} />
            )
        })
    }
