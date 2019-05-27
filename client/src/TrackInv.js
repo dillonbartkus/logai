@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 
 const TrackInv = props => {
 
-  const imgstyle = {'height' : '4vw'}
+  const imgstyle = {'height' : '5vw'}
 
     return (
 
         <div className = 'trackinv'>
-        <h4>Current Inventory for {props.userData.company}:</h4>
+        <h4>Current Inventory:</h4>
+        <hr></hr>
         {props.inv &&
             props.inv.map( (item, id) => {
                 const [detailedView, setDetailedView] = useState(false)

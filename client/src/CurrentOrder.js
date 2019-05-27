@@ -5,9 +5,10 @@ const CurrentOrder = props => {
 
     const [itemData, setItemData] = useState()
     const [picking, setPicking] = useState(false)
+
     let buttonText = picking ? 'Ship Order' : 'Start Picking'
 
-    const imgstyle = {'height' : '4vw'}
+    const imgstyle = {'height' : '5vw'}
 
     useEffect( () => {
         getItemData()
@@ -42,7 +43,7 @@ const CurrentOrder = props => {
             <div className = "orderitem" key = {item.id}>
             <img style = {imgstyle} alt = {item.name} src = {item.picture} />
             <p>{item.name}</p>
-
+            <p>SKU# - {item.sku}</p>
             <p>{item.item_amount} units</p>
 
             {
@@ -51,9 +52,9 @@ const CurrentOrder = props => {
             }
 
             <p>{item.location}</p>
-            <p>SKU# - {item.sku}</p>
             <p>Weight: {weight} lbs</p>
             <p>FIFO? {FIFO}</p>
+
             <p>Fillable? {fillable}</p>
             </div>
             )

@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f6f8fa !important;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: rgb(74, 74, 74) !important;
@@ -17,6 +17,10 @@ span {
 
 label {
   font-size: 2vw;
+}
+
+p {
+  margin-bottom: 0 !important;
 }
 
 h1 {
@@ -305,12 +309,14 @@ button:focus {
   flex: 0 0 20%;
   display: flex;
   flex-flow: column;
+  font-size: 2vw;
 }
 
 .dashbutton {
   margin: auto;
-  height: 8vh;
+  height: 6vw;
   width: 75%;
+  padding: 0;
 }
 
 iframe, .wms, .clientlist {
@@ -328,6 +334,7 @@ iframe, .wms, .clientlist {
 
 .wmsbuttons {
   display: flex;
+  margin-bottom: 3%;
 }
 
 .wmsbuttons > * {
@@ -335,7 +342,7 @@ iframe, .wms, .clientlist {
 }
 
 .wmsbuttons > button {
-  font-size: 1.4vw;
+  font-size: 1.75vw;
 }
 
 .smallbutton {
@@ -371,6 +378,7 @@ iframe, .wms, .clientlist {
 .orderitem {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   margin: 3% 0;
 }
 

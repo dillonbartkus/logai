@@ -5,7 +5,7 @@ const CompletedOrder = props => {
 
     const [itemData, setItemData] = useState()
 
-    const imgstyle = {'height' : '4vw'}
+    const imgstyle = {'height' : '5vw'}
 
     useEffect( () => {
         getItemData()
