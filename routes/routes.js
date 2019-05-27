@@ -15,8 +15,12 @@ router.post('/getorders/:id', controller.getOrders);
 
 router.post('/getorderinv/:id', controller.getOrderInv);
 
+router.post('/getclientlist/:id', controller.getClients);
+
 router.delete('/product/:id', controller.deleteProduct);
 
 router.put('/product/:id', controller.updateProduct);
+
+router.put('/order/:id', controller.updateOrder)
 
 module.exports = router;

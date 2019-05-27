@@ -70,17 +70,39 @@ model.getOrderInv = id => {
   );
 };
 
+model.getClients = id => {
+  return db.query(
+    `
+    SELECT * from clients
+    WHERE business_id = $1
+    `,
+    [id]
+  );
+};
+
 model.updateProduct = (inventory, id) => {
   return db.one(
     `
     UPDATE inventory SET
-      amount = $1
+      quantity = $1
     WHERE id = $2
     RETURNING *
   `,
-  [inventory.amount, id]
+  [inventory.quantity, id]
   );
 };
+
+model.updateOrder = (order, id) => {
+  return db.one(
+    `
+    UPDATE orders SET
+      status = $1
+    WHERE id = $2
+    RETURNING *
+    `,
+    [order.status, id]
+  )
+}
 
 
 model.deleteProduct = id => {

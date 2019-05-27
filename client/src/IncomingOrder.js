@@ -25,7 +25,7 @@ const IncomingOrder = props => {
                  let weight = item.weight * item.item_amount
                  totalWeight += weight
             })
-            return <p>Total Weight: {totalWeight} Lbs. </p>
+            return <p>Total Weight: <span>{totalWeight} Lbs.</span></p>
         }
     }
 
@@ -50,14 +50,21 @@ const IncomingOrder = props => {
         <div className = 'order'>
 
                 {renderItemData()}
-                {getOrderWeight()}
 
-                <p>Received from: {props.order.received_from}</p>
-                <p>Receieved Date - {props.order.date_received}</p>
+                <div className = "orderinfo">
+                    {getOrderWeight()}
+                    <p>Received from: <span>{props.order.received_from}</span> on <span>{props.order.date_received}</span></p>
+                </div>
 
-                <button
-                
-                >Confirm Order</button>
+                <div className = "orderbuttons">
+                    <button
+                    onClick = {() => {
+                        props.receiveInventory(itemData)
+                        props.receiveOrder(props.order)
+                        props.setToast(true)
+                    }}
+                    >Confirm Order</button>
+                </div>
 
         </div>
     )

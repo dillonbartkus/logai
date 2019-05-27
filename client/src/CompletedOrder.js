@@ -32,7 +32,6 @@ const CompletedOrder = props => {
     const renderItemData = () => {
         if (itemData)
         return itemData.map ( item => {
-            console.log(item)
             let weight = item.item_amount * item.weight
             return (
             <div className = "orderitem" key = {item.id}>
@@ -51,11 +50,15 @@ const CompletedOrder = props => {
         <div className = 'order'>
 
                 {renderItemData()}
-                {getOrderWeight()}
 
+                <div className = "orderinfo">
+                <p>Order Type: {props.order.status}</p>
+                {getOrderWeight()}
                 <p>Customer - {props.order.going_to}</p>
                 <p>Packed on - {props.order.date_ready} by {props.order.employee}</p>
+                </div>
 
+                <div className = "orderbuttons">
                 <button
                 
                 >
@@ -65,6 +68,7 @@ const CompletedOrder = props => {
                 
                 >
                 Track Order</button>
+                </div>
 
         </div>
     )

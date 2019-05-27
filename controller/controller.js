@@ -108,6 +108,21 @@ controller.getOrderInv = async (req, res) => {
   }
 }
 
+controller.getClients = async (req, res) => {
+  const id = req.params.id
+
+  try {
+    const data = await Log.getClients(id)
+    res.json({
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
 controller.deleteProduct = async (req, res) => {
   const id = req.params.id
 
@@ -126,11 +141,11 @@ controller.deleteProduct = async (req, res) => {
 
 controller.updateProduct = async (req, res) => {
   const id = req.params.id
-  const { amount } = req.body
+  const { quantity } = req.body
 
   try {
     const data = await Log.updateProduct({
-      amount: amount
+      quantity: quantity
     }, id)
     res.json({
       message: 'updated',
@@ -143,6 +158,24 @@ controller.updateProduct = async (req, res) => {
   }
 }
 
+controller.updateOrder = async (req, res) => {
+  const id = req.params.id
+  const { status } = req.body
+
+  try {
+    const data = await Log.updateOrder({
+      status: status
+    }, id)
+    res.json({
+      message: 'updated',
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
 
 
 module.exports = controller;

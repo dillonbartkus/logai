@@ -313,10 +313,17 @@ button:focus {
   width: 75%;
 }
 
-iframe, .wms {
+iframe, .wms, .clientlist {
   width: 75vw !important;
   margin: 0 auto;
   height: 100vh!important;
+}
+
+.client {
+  margin-top: 3vw;
+  display: flex;
+  flex-flow: column;
+  border-bottom: 1px solid rgb(74, 74, 74);
 }
 
 .wmsbuttons {
@@ -325,6 +332,10 @@ iframe, .wms {
 
 .wmsbuttons > * {
   margin: 0 2%;
+}
+
+.wmsbuttons > button {
+  font-size: 1.4vw;
 }
 
 .smallbutton {
@@ -343,6 +354,7 @@ iframe, .wms {
   align-items: center;
   padding: 2%;
   margin-top: 1%;
+  cursor: pointer;
 }
 
 .invitem > * {
@@ -352,9 +364,21 @@ iframe, .wms {
 .order {
   display: flex;
   flex-flow: column;
+  padding-bottom: 2%;
+  border-bottom: 1px solid rgb(74, 74, 74);
 }
 
 .orderitem {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.orderinfo {
+  margin-top: 2%;
+}
+
+.orderbuttons {
+  margin-top: 2%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -364,8 +388,10 @@ iframe, .wms {
   text-align: center;
 }
 
-.wmsbuttons > button {
-  font-size: 1.4vw;
+.toast {
+  max-width: 33vw !important;
+  font-size: 2vw !important;
+  color: green;
 }
 
 /* carousel changes */

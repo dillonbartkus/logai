@@ -7,89 +7,117 @@ import Incoming from './Incoming'
 
 const WMS = props => {
 
-    const [display, setDisplay] = useState('incoming')
-    const [inv, setInv] = useState(null)
-    const [fulfillingOrders, setFulfillingOrders] = useState()
-    const [completedOrders, setCompletedOrders] = useState()
-    const [incomingOrders, setIncomingOrders] = useState()
+const [display, setDisplay] = useState('incoming')
+const [inv, setInv] = useState()
+const [fulfillingOrders, setFulfillingOrders] = useState()
+const [completedOrders, setCompletedOrders] = useState()
+const [incomingOrders, setIncomingOrders] = useState()
 
-    useEffect( () => {
-        fetchInv()
-        fetchOrders()
-    }, [] )
+useEffect( () => {
+    fetchInv()
+    fetchOrders()
+}, [] )
 
-    const fetchInv = async () => {
-        let res = await axios.post(`/getinv/${props.userData.id}`)
-        setInv(res.data.data);
-    }
+const fetchInv = async () => {
+    let res = await axios.post(`/getinv/${props.userData.id}`)
+    setInv(res.data.data);
+}
 
-    const fetchOrders = async () => {
-        let res = await axios.post(`/getorders/${props.userData.id}`)        
-        setFulfillingOrders(res.data.data.filter( order => order.status === 'Fulfilling'))
-        setCompletedOrders(res.data.data.filter( order => order.status === 'Completed'))
-        setIncomingOrders(res.data.data.filter( order => order.status === 'Incoming'))
-      }      
+const fetchOrders = async () => {
+    let res = await axios.post(`/getorders/${props.userData.id}`)        
+    setFulfillingOrders(res.data.data.filter( order => order.status === 'Fulfilling'))
+    setCompletedOrders(res.data.data.filter( order => order.status === 'Completed' || order.status === 'Received'))
+    setIncomingOrders(res.data.data.filter( order => order.status === 'Incoming'))
+}
+    
+const receiveInventory = itemData => {
+    itemData.forEach( async item => {
+        let quantity = item.quantity + item.item_amount
+        let id = item.id
+        await axios.put(`/product/${id}`, { quantity: quantity } )
+    })
+    fetchInv()
+}
 
-    return (
+const shipInventory = itemData => {
+    itemData.forEach( async item => {
+        let quantity = item.quantity - item.item_amount
+        let id = item.id
+        await axios.put(`/product/${id}`, { quantity: quantity } )
+    })
+    fetchInv()
+}
 
-      <div className = 'wms'>
+const receiveOrder = async order => {
+    await axios.put(`/order/${order.id}`, { status: 'Received' } )
+    fetchOrders()
+}
 
-      <div className = "wmsbuttons">
+const shipOrder = async order => {
+    await axios.put(`/order/${order.id}`, { status: 'Completed' } )
+    fetchOrders()
+}
 
-            <button
-            className = "dashbutton"
-            onClick = { () => {
-                setDisplay('incoming')
-            }}
-            >
-            Incoming Orders</button>
+return (
 
-            <button
-            className = "dashbutton"
-            onClick = { () => {
-                setDisplay('trackinv')
-            }}
-            >
-            Track Inventory</button>
+    <div className = 'wms'>
 
-            <button
-            className = "dashbutton"
-            onClick = { () => {
-                setDisplay('fulfilling')
-            }}
-            >
-            Current Orders</button>
+    <div className = "wmsbuttons">
 
-            <button
-            className = "dashbutton"
-            onClick = { () => {
-                setDisplay('completed')
-            }}
-            >
-            Completed Orders</button>
+        <button
+        className = "dashbutton"
+        onClick = { () => {
+            setDisplay('incoming')
+        }}
+        >
+        Incoming Orders</button>
 
-            </div>
+        <button
+        className = "dashbutton"
+        onClick = { () => {
+            setDisplay('trackinv')
+        }}
+        >
+        Track Inventory</button>
+
+        <button
+        className = "dashbutton"
+        onClick = { () => {
+            setDisplay('fulfilling')
+        }}
+        >
+        Current Orders</button>
+
+        <button
+        className = "dashbutton"
+        onClick = { () => {
+            setDisplay('completed')
+        }}
+        >
+        Completed Orders</button>
+
+        </div>
 
 
-            {
-                display === 'incoming' && incomingOrders &&
-                <Incoming userData = {props.userData} inv = {inv} orders = {incomingOrders} />
-            }
+        {
+            display === 'incoming' && incomingOrders &&
+            <Incoming receiveInventory = {receiveInventory} receiveOrder = {receiveOrder} userData = {props.userData} inv = {inv} orders = {incomingOrders} />
+        }
 
-            {
-                display === 'trackinv' &&
-                <TrackInv userData = {props.userData} inv = {inv} />
-            }
+        {
+            display === 'trackinv' &&
+            <TrackInv userData = {props.userData} inv = {inv} />
+        }
             
-            {
-                display === 'fulfilling' &&
-                <Fulfilling userData = {props.userData} inv = {inv} orders = {fulfillingOrders} />
-            }
+        {
+            display === 'fulfilling' &&
+            <Fulfilling shipInventory = {shipInventory} shipOrder = {shipOrder} userData = {props.userData} inv = {inv} orders = {fulfillingOrders} />
+        }
 
-            {
-                display === 'completed' &&
-                <Completed userData = {props.userData} inv = {inv} orders = {completedOrders} />
-            }
+        {
+            display === 'completed' &&
+            <Completed userData = {props.userData} inv = {inv} orders = {completedOrders} />
+        }
             
       </div>
 

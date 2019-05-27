@@ -145,4 +145,22 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
       '5',
       '50',
       '3'
+    );
+
+    INSERT INTO clients (business_id, name, address, email, phone, npc) VALUES
+    (
+      '2',
+      'Sam''s Grocery',
+      '123 Fake St, Faketown NY 11221',
+      'sam@samsgrocery.com',
+      '234-654-7993',
+      'Sam'
+    ),
+    (
+      '2',
+      'Fortress Foods',
+      '555 Made Up Rd, Hicksville NJ',
+      'supply@fortress.com',
+      '121-323-5456',
+      'Greg'
     )
