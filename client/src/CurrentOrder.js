@@ -7,7 +7,7 @@ const CurrentOrder = props => {
     const [picking, setPicking] = useState(false)
     let buttonText = picking ? 'Ship Order' : 'Start Picking'
 
-    const imgstyle = {'height' : '50px', 'width' : '50px', 'margin' : '2% 2%'}
+    const imgstyle = {'height' : '4vw'}
 
     useEffect( () => {
         getItemData()

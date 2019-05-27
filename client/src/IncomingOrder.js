@@ -5,7 +5,7 @@ const IncomingOrder = props => {
 
     const [itemData, setItemData] = useState()
 
-    const imgstyle = {'height' : '50px', 'width' : '50px', 'margin' : '2% 2%'}
+    const imgstyle = {'height' : '5vw'}
 
     useEffect( () => {
         getItemData()
