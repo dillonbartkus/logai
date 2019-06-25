@@ -15,9 +15,9 @@ if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
     host: 'localhost',
   });
 } else if (process.env.NODE_ENV === 'production') {
-  console.log(process.env.NODE_ENV, process.env.DATABASE_URL)
   
   db = pgp(process.env.DATABASE_URL);
+
 //   db = pgp({
 //     host     : process.env.RDS_HOSTNAME,
 //     user     : process.env.RDS_USERNAME,
@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
 //     password : process.env.RDS_PASSWORD,
 //     port     : process.env.RDS_PORT
 // });
+
 }
 
 module.exports = db;
