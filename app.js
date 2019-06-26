@@ -8,9 +8,9 @@ app.use(cors())
 app.use(parser.json());
 app.use(parser.urlencoded({extended: false}));
 
-// app.use(express.static('client/build'));
+app.use(express.static('client/build'));
 
-app.get('/hello', (req,res) => {
+app.get('/', (req,res) => {
   res.send(`server`)
 })
 

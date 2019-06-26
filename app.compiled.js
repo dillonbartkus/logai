@@ -15,8 +15,8 @@ app.use(parser.urlencoded({
   extended: false
 }));
 
-// app.use(express["static"]('client/build'));
-app.get('/hello', function (req, res) {
+app.use(express["static"]('client/build'));
+app.get('/', function (req, res) {
   res.send("server");
 });
 
