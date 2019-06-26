@@ -15,9 +15,6 @@ app.use(parser.urlencoded({
   extended: false
 }));
 
-var logger = require('morgan');
-
-app.use(logger('dev'));
 app.use(express["static"]('client/build'));
 app.get('/', function (req, res) {
   res.send("server");
