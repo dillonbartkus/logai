@@ -15,10 +15,10 @@ app.use(parser.urlencoded({
   extended: false
 }));
 
-app.use(express["static"]('client/build'));
-app.get('/', function (req, res) {
-  res.send("server");
-});
+// app.use(express["static"]('client/build'));
+// app.get('/', function (req, res) {
+//   res.send("server");
+// });
 
 var routes = require('./routes/routes');
 

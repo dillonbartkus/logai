@@ -8,10 +8,7 @@ app.use(cors())
 app.use(parser.json());
 app.use(parser.urlencoded({extended: false}));
 
-// const logger = require('morgan');
-// app.use(logger('dev'));
-
-app.use(express.static('client/build'));
+// app.use(express.static('client/build'));
 
 app.get('/', (req,res) => {
   res.send(`server`)
