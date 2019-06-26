@@ -16,9 +16,9 @@ app.use(parser.urlencoded({
 }));
 
 // app.use(express["static"]('client/build'));
-// app.get('/', function (req, res) {
-//   res.send("server");
-// });
+app.get('/hello', function (req, res) {
+  res.send("server");
+});
 
 var routes = require('./routes/routes');
 

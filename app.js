@@ -10,7 +10,7 @@ app.use(parser.urlencoded({extended: false}));
 
 // app.use(express.static('client/build'));
 
-app.get('/', (req,res) => {
+app.get('/hello', (req,res) => {
   res.send(`server`)
 })
 
