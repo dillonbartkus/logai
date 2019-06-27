@@ -2,6 +2,8 @@
 
 var express = require('express');
 
+console.log(process.env.serverUrl);
+
 var app = express();
 const port = process.env.HTTP_PORT || 3001;
 
@@ -15,9 +17,13 @@ app.use(parser.urlencoded({
   extended: false
 }));
 
-app.use(express["static"]('client/build'));
+// app.use(express["static"]('client/build'));
 app.get('/', function (req, res) {
   res.send("server");
+});
+
+app.get('/hello', function (req, res) {
+  res.send("hello there!");
 });
 
 var routes = require('./routes/routes');
