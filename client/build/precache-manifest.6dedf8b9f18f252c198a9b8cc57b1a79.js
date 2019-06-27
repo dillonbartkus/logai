@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/static/media/truck.c237ae7f.jpeg"
   },
   {
-    "revision": "7c1d4f276525bfcafa91",
+    "revision": "e81d9d33ece441456769",
     "url": "/static/css/main.d6fe5d28.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/static/media/finance.555ef3b0.png"
   },
   {
-    "revision": "7c1d4f276525bfcafa91",
-    "url": "/static/js/main.a36c2cd5.chunk.js"
+    "revision": "e81d9d33ece441456769",
+    "url": "/static/js/main.18ae5e2b.chunk.js"
   },
   {
     "revision": "b2714ba9628dff096cc8bee0be64993a",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/static/css/2.12dab917.chunk.css"
   },
   {
-    "revision": "d50ec9f333a8c23103f62861d4695340",
+    "revision": "1a1819e6194d82208dfab676aa8c9136",
     "url": "/index.html"
   }
 ];
