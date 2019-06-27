@@ -2,8 +2,6 @@
 
 var express = require('express');
 
-console.log(process.env.serverUrl);
-
 var app = express();
 const port = process.env.HTTP_PORT || 3001;
 
@@ -23,7 +21,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/hello', function (req, res) {
-  res.send("hello there!");
+  res.send(process.env.serverUrl);
 });
 
 var routes = require('./routes/routes');
