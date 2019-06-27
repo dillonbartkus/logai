@@ -9,8 +9,6 @@ const Login = props => {
   const [password, setPassword] = useState('')
   const [invalidCred, setInvalidCred] = useState('')
 
-  console.log(config)
-
   const authorize = async e => {
     e.preventDefault()
     textInput.current.blur()
@@ -18,7 +16,7 @@ const Login = props => {
       // headers: {
       //   authorization: `Bearer ${this.state.token}`
       // }
-    const res = await axios.post(`${config.SERVERURL}login`, {
+    const res = await axios.post(`${config.SERVERURL}/login`, {
       email: email,
       pw: password
     })
