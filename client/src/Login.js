@@ -9,8 +9,6 @@ const Login = props => {
   const [password, setPassword] = useState('')
   const [invalidCred, setInvalidCred] = useState('')
 
-  console.log(config.SERVERURL);
-
   const authorize = async e => {
     e.preventDefault()
     textInput.current.blur()
