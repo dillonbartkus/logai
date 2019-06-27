@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import config from './config'
 
 const Login = props => {
 
@@ -7,6 +8,8 @@ const Login = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [invalidCred, setInvalidCred] = useState('')
+
+  console.log(config);
 
   const authorize = async e => {
     e.preventDefault()

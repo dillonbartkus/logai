@@ -20,10 +20,6 @@ app.get('/', function (req, res) {
   res.send("server");
 });
 
-app.get('/hello', function (req, res) {
-  res.send(process.env.serverUrl);
-});
-
 var routes = require('./routes/routes');
 
 app.use('/', routes);
