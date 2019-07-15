@@ -1,4 +1,4 @@
-INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
+INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
   (
     'dillon',
     'admin',
@@ -88,6 +88,31 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
       '333'
     );
 
+  INSERT INTO carts (owner_id) VALUES
+  (
+    '1'
+  ),
+  (
+    '2'
+  );
+
+  -- INSERT INTO cart_items (item_id, item_quantity, cart_id) VALUES
+  -- (
+  --   '3',
+  --   '25',
+  --   '1'
+  -- ),
+  --   (
+  --   '3',
+  --   '25',
+  --   '2'
+  -- ),
+  -- (
+  --   '2',
+  --   '15',
+  --   '1'
+  -- );
+
   INSERT INTO orders (warehouse_id, status, total_weight, employee, received_from, going_to, date_received, date_ready) VALUES
     (
       '2',
@@ -163,4 +188,4 @@ INSERT INTO users (company, pw, email, phone, npc, comptype) VALUES
       'supply@fortress.com',
       '121-323-5456',
       'Greg'
-    )
+    );

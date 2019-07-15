@@ -27,4 +27,4 @@ const MobileHeader = props => {
     )
   }
 
-export default MobileHeader;
+export default MobileHeader

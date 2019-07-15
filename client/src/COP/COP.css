@@ -1,0 +1,275 @@
+select {
+    border: 1px solid #979797;
+    background-color: #D8D8D8;
+    border-radius: 3px;
+}
+
+h4, h3, h2, h1 {
+    color: #000;
+}
+
+.bigheader {
+    font-family: "Raleway SemiBold";
+    font-size: 4vw;
+    letter-spacing: 2.38px;
+    line-height: 61px;
+}
+
+.smallheader {
+    font-family: "Raleway ExtraBold";
+    font-size: 30px;
+    letter-spacing: 1.38px;
+    line-height: 35px;
+}
+
+.cop {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 90%;
+    margin-left: 10vw;
+    text-align: center;
+}
+
+.createorder {
+    width: 100%;
+    margin: 1% 3%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.viewcart {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search {
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    border: 1px solid #979797;
+}
+
+.search > img {
+    height: 5vh;
+    margin: auto;
+    margin-left: 2%;
+}
+
+.searchbar {
+    border: none;
+    width: 90%;
+    height: 5vh;
+    padding: 1%;
+    font-size: 2.5vw;
+    background-color: #f6f8fa;
+    margin-left: 2%;
+}
+
+.searchbar:focus {
+    border: none;
+}
+
+.productlist {
+    width: 80%;
+    text-align: left;
+    margin-top: 3%;
+}
+
+.categorylist {
+    width: 15%;
+    border-right: 1px solid black;
+    text-align: left;
+    padding-right: 3%;
+    margin-top: 3%;
+    display: flex;
+    flex-flow: column;
+}
+
+.categorylist > span {
+    margin-top: 15%;
+}
+
+.productlisting {
+    width: 100%;
+    margin: 5% auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productlisting > * {
+    margin: 0 1%;
+}
+
+.addtocart {
+    border-radius: 16px !important;
+    color: #000000;
+    height: 6vh;
+    font-size: 2.5vh;
+    text-align: center;
+    width: 25%;
+}
+
+.cart {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.cartproducts {
+    width: 50%;
+    margin: 2%
+}
+
+.backtoorder {
+    margin-top: 1%;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    letter-spacing: 1.01px;
+    line-height: 26px;
+    width: 100%;
+}
+
+.subtotal {
+    width: 30%;
+    text-align: left;
+    margin: 2%;
+}
+
+.checkout {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.checkoutinfo {
+    width: 50%;
+    text-align: left;
+}
+
+.checkoutsummary {
+    height: 33vh;
+    width: 40%;
+    display: flex;
+    flex-flow: row wrap;
+    text-align: left;
+    justify-content: space-around;
+}
+
+.checkoutsummary > * {
+    width: 50%;
+    margin: 0;
+}
+
+.orderplaced {
+    border: 1px solid #979797;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    margin-top: 3%;
+    text-align: left;
+}
+
+.orderplaced > img {
+    height: 50%;
+}
+
+.orderheader{
+    font-family: "Raleway ExtraBold";
+    letter-spacing: 1px;
+    line-height: 35px;
+}
+
+.orderplaced > div > * {
+    margin-bottom: 5%;
+}
+
+.trackorders {
+    width: 95%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+
+.ordertitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.orderconfirmationbox {
+    border: 1px solid #979797;
+    width: 100%;
+    text-align: left;
+    padding: 3%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.orderconfirmationbox.false > * {
+    color: #FD992E;
+    width: 75%;
+}
+
+.orderconfirmationbox.true h4, .orderconfirmationbox h2 {
+    color: #6BE174;
+}
+
+.orderconfirmationbox > button {
+    width: 30%;
+    margin: auto;
+}
+
+.orderinformation {
+    width: 50%;
+    text-align: left;
+}
+
+.leavemessage {
+    width: 40%;
+    text-align: left;
+    display: flex;
+    flex-flow: column;
+}
+
+.leavemessage > select {
+    margin-bottom: 4%;
+    height: 4vh;
+    width: 40%;
+}
+
+.leavemessage > textarea {
+    width: 100%;
+    height: 13vh;
+    font-size: 1.5vw;
+}
+
+.leavemessage > button {
+    width: 33%;
+    margin-top: 4%;
+    height: 8vh;
+    align-self: flex-end;
+}
+
+.orderinfosummary {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.orderinfosummary > p, .ordersummary > b {
+    width: 49%;
+    margin-top: 2%;
+}

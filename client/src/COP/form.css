@@ -1,0 +1,117 @@
+p {
+    margin: 0;
+}
+
+.shipping, .payment, .delivery, .review {
+    margin-bottom: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form {
+    display: flex;
+    flex-flow: row wrap;
+    border: 0px 1px ;
+    color: #0c0b0b;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .form > input, .form > select {
+    background-color: #f6f8fa;
+    color: #0C0C0C;
+    font-family: "Raleway ExtraLight";
+    border: none;
+    margin: 2% 5%;
+    padding: 2% 0;
+    border-bottom: 1px solid black;
+    font-size: 1.2vw;
+  }
+  
+  .form > input:focus {
+    outline: none;
+  }
+  
+  .form > select {
+    border: none;
+    background-color: #f6f8fa;
+    margin: 3% auto;
+  }
+  
+  select:focus {
+    outline: none;
+  }
+
+  .formtitle.upcoming {
+    color: #808080;
+  }
+
+.formtitle.active, .formtitle.edit {
+    color: #1D9DEB;
+  }
+
+.checkoutbutton {
+    color: black;
+    font-size: 1.2vw;
+    height: 7vh;
+    width: 40%;
+    border-radius: 16px;
+    margin: 5% auto;
+    margin-right: 10%;
+}
+
+.editbutton {
+    text-align: center;
+    margin: auto;
+    text-decoration: underline;
+    color: #1D9DEB;
+    font-family: "Raleway SemiBold";
+    letter-spacing: 1.01px;
+    line-height: 26px;
+    font-size: 2vw;
+}
+
+.datepicker {
+  width: 100%;
+}
+
+.react-calendar {
+  width: 66% !important;
+}
+    
+.timeselect {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.dateandtime {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.timeselect > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20%;
+  margin-top: 4%;
+  margin-right: 20%;
+}
+
+.checkbox {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+  border: 1px solid #1D9DEB !important;
+	padding: 9px;
+}
+
+.checkbox:focus {
+  border: none;
+}
+
+.checkbox:checked {
+  background-color: #1D9DEB;
+  outline: 1px solid white;
+}

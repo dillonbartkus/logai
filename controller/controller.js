@@ -63,6 +63,101 @@ controller.createUser = async (req, res) => {
     });
 }
 
+//////////////////////////////////////////////
+
+//        COP ROUTES
+
+//////////////////////////////////////////////
+
+controller.getProducts = async (req, res) => {
+
+  try {
+    const data = await Log.getProducts()
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err });
+  }
+};
+
+controller.showCartItems = async (req, res) => {
+  const id = req.params.id
+
+  try {
+    const data = await Log.showCartItems(id)
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err });
+  } 
+}
+
+controller.addToCart = async (req, res) => {
+  const id = req.params.id
+  const { item_id, item_quantity } = req.body;
+
+  try {
+    const data = await Log.addToCart({
+      item_id,
+      item_quantity
+    }, id)
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  } 
+}
+
+controller.changeQuantity = async (req, res) => {
+  const id = req.params.id
+  const { item_id, item_quantity } = req.body;  
+
+  try {
+    const data = await Log.changeQuantity({
+      item_id,
+      item_quantity
+    }, id)
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
+controller.deleteCartItem = async (req, res) => {
+  const id = req.params.id
+
+  try {
+    const data = await Log.deleteCartItem(id)
+    res.json({
+      message: 'deleted',
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
+//////////////////////////////////////////////
+
+//        WMS ROUTES
+
+//////////////////////////////////////////////
+
 controller.getInventory = async (req, res) => {
   const id = req.params.id;
 

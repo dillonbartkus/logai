@@ -1,24 +1,22 @@
 import React from 'react'
-import Routes from './Routes'
+// import Home from './Home'
 import Dashboard from './Dashboard'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 
-const App = () => {
+export default function App() {
 
     return (
 
         <Router>
          <>
            <Switch>
-             <Route exact path="/" component={Routes} />
+             <Route exact path="/" component={Dashboard} />
              <Route exact path="/dashboard" component={Dashboard} />
              <Redirect to="/" />
            </Switch>
          </>
       </Router>
 
-    );
+    )
   }
-
-export default App;

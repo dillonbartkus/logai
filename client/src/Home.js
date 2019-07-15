@@ -12,7 +12,7 @@ import RegConfirm from './RegConfirm'
 import MobileHeader from './MobileHeader'
 import Dropdown from './Dropdown'
 
-const Routes = () => {
+export default function Home() {
 
   const [dropdown, setDropdown] = useState(false)
   const [main, setMain] = useState(true)
@@ -49,7 +49,7 @@ const Routes = () => {
       top: 0,
       behavior: 'smooth'
     })
-  }
+  }  
 
   const clearDisplay = () => {
     returnToTop(); setDropdown(false); setLogin(false); setRegister(false); setAbout(false); setMain(false); setServices(false); setNewMember(false)
@@ -138,5 +138,3 @@ const Routes = () => {
 
     )
   }
-
-export default Routes;

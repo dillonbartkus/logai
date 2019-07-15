@@ -1,17 +1,59 @@
-import React from 'react'
+import React, { useState } from 'react'
+import avatar from './images/avatar.png'
 
-const DashHeader = props => {
+export default function DashHeader({ setActiveNavItem }) {
 
-const style = {'textAlign' : 'center', 'margin' : '2% auto'}
+    const [dropdown, setDropwdown] = useState(false)
+
+    const dropdownStyle = (dropdown) ? {'height' : '20vh'} : {'height' : 0}
+    const dropdownItemStyle = (dropdown) ? {'display' : 'block'} : {'display' : 'none'}
 
 return (
 
     <div className = "dashheader">
              
-        <h1 style = {style} className = "title">Welcome, {props.userData.npc}!</h1>
+        <div
+        onClick = {() => setActiveNavItem()}
+        style = {{'display' : 'flex', 'flexDirection' : 'column'}}
+        >
+            <span
+            style = {{'fontSize' : '3.5vw'}}
+            >LOG.AI</span>
+            <span
+            style = {{'fontSize' : '1vw'}}
+            >Inventory Management</span>
+        </div>
+
+
+        <span
+        style = {{'fontSize' : '2vw'}}
+        >ABOUT</span>
+
+        <span
+        style = {{'fontSize' : '2vw'}}
+        >RESOURCES</span>
+
+        <div>
+
+            <span>(800) 888-8888</span>
+
+            <div
+            onClick = {() => setDropwdown(!dropdown) }
+            className="headeruserpic">
+                <img src = {avatar} alt=''/> User
+            </div>
+
+        </div>
+
+            
+        <div
+        style = {dropdownStyle} 
+        className = "headerdropdown">
+            <span style = {dropdownItemStyle}>Settings</span>
+            <span style = {dropdownItemStyle}>Other thing</span>
+            <span style = {dropdownItemStyle}>Another thing</span>
+        </div>
 
     </div>
     )
 }
-
-export default DashHeader

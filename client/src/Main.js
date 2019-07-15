@@ -1,11 +1,11 @@
 import React from 'react'
-import Carousel from './Carousel.js'
+import Carousel from './Carousel'
 import shipper from './images/shipper.png'
 import customer from './images/customer.png'
 import warehouse from './images/warehouse.png'
 import carrier from './images/carrier.png'
 
-const Main = () => {
+export default function Main(){
         
     return (
 
@@ -94,5 +94,3 @@ const Main = () => {
 
     )
   }
-
-export default Main;

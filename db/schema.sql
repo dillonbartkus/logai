@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users(
   email VARCHAR(50) UNIQUE NOT NULL,
   phone VARCHAR(15) UNIQUE NOT NULL,
   npc VARCHAR(25) NOT NULL,
-  comptype TEXT NOT NULL
+  company_type TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS inventory(
@@ -25,6 +25,18 @@ CREATE TABLE IF NOT EXISTS inventory(
   picture VARCHAR(999),
   on_hand INTEGER NOT NULL,
   reserved INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS carts(
+  id SERIAL PRIMARY KEY NOT NULL,
+  owner_id INTEGER UNIQUE REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS cart_items(
+  item_id INTEGER REFERENCES inventory(id),
+  item_quantity INTEGER NOT NULL,
+  cart_id INTEGER REFERENCES carts(id),
+  PRIMARY KEY(item_id, cart_id)
 );
 
 CREATE TABLE IF NOT EXISTS orders(

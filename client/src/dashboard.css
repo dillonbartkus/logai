@@ -1,0 +1,115 @@
+.dashboard {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .dashheader {
+    z-index: 1;
+    background-color: #1D9DEB;
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    letter-spacing: 1.1px;
+    line-height: 29px;
+    cursor: pointer;
+}
+
+.dashheader > *, .dashheader > div > * {
+    color: #F9F9F9;
+    font-weight: 900;
+    font-size: 2.3vw;
+}
+
+.headeruserpic {
+    margin-top: 10%;
+    cursor: pointer;
+    text-align: right;
+}
+
+.headeruserpic > img {
+    width: 3vw;
+}
+
+.headerdropdown {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+    right: 5vw;
+    top: 15vh;
+    width: 16%;
+    background-color: gray;
+    box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.5);
+    transition: all .5s;
+}
+
+.headerdropdown > * {
+    margin-top: 5%;
+    font-size: 2vh !important;
+}
+
+.sidenav {
+    background-color: #1D2124;
+    color: #FFFFFF;
+    width: 8vw;
+    position: fixed;
+    padding-top: 15vh;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+.sidenavitem{
+    cursor: pointer;
+    height: 20%;
+    font-size: 1.2vw;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidenavitem > img {
+    width: 50%;
+}
+
+.sidenavitem.active {
+    background-color: #FFFFFF;
+    color: #000000
+}
+
+.welcome {
+    width: 100%;
+    padding: 3%;
+}
+
+.portalbutton {
+    margin: 0 auto;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    line-height: 29px;
+    cursor: pointer;
+}
+
+.portalbg {
+    height: 33vh;
+    width: 25vw;
+    border-radius: 16px;
+    box-shadow: 1px 2px 4px 0 rgba(0,0,0,1);
+}
+
+.portalbutton.one > div {
+    background-color: #F6FBFE;
+}
+
+.portalbutton.two > div {
+    background-color: #A7DAA7;
+}
+
+.portalbutton.three > div {
+    background-color: #9BCCED;
+}
