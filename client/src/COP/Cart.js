@@ -1,16 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
+import CartProduct from './CartProduct'
 
-export default function Cart({ cart, setActiveNavItem }) {
-
-    const [quantity, setQuantity] = useState()
-
-    const selectQuantity = item => {
-        let options = []
-        for (let i = 1; i <= item.item_quantity; i ++) {
-            options.push(<option key = {i}>{i}</option>)
-        }
-        return options
-    }
+export default function Cart({ cart, changeQuantity, removeFromCart, setActiveNavItem }) {
     
     return(
 
@@ -29,35 +20,7 @@ export default function Cart({ cart, setActiveNavItem }) {
             <h1 style = {{'fontFamily': "Raleway SemiBold", 'letterSpacing': '2.38px', 'fontSize': '5vw', 'lineHeight': '61px', 'textAlign' : 'left', 'marginLeft' : '3%'}}>
             Cart</h1>
             
-            {cart.map( (item, id) => {
-                
-                return (
-                    <div className="productlisting" key = {id}>
-                    <img src = {item.picture} alt = {item.name} style = {{'height' : '10vh', 'width' : '5vw'}} />
-                    <span>{item.name}</span>
-                    <p>Price: $20</p>
-                        <div style = {{'display' : 'flex', 'flexDirection' : 'column', 'alignItems' : 'center'}}>
-                            Quantity
-                            <select
-                            defaultValue = {item.item_quantity}
-                            style = {{'width' : '70%'}}
-                            onChange = { e => {
-                                let num = parseInt(e.target.value)
-                                if(num >= 1){
-                                    setQuantity(num)
-                                }
-                                else {
-                                    setQuantity(quantity)
-                                }
-                                
-                            }}
-                            >
-                            {selectQuantity(item)}
-                            </select>
-                        </div>
-                    </div>
-                )}
-            )}
+            {cart.map( (item, id) => <CartProduct removeFromCart = {removeFromCart} changeQuantity = {changeQuantity} key = {id} item = {item} /> )}
 
             <h4 style = {{'fontSize': '1.5vw', 'fontWeight': 'bold', 'letterSpacing': '1.01px', 'lineHeight': '26px', 'textAlign': 'right'}}>Subtotal: $1200.00</h4>
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import config from './config'
 
 const Login = props => {
 
@@ -16,7 +15,7 @@ const Login = props => {
       // headers: {
       //   authorization: `Bearer ${this.state.token}`
       // }
-    const res = await axios.post(`${config.SERVERURL}/login`, {
+    const res = await axios.post(`/login`, {
       email: email,
       pw: password
     })

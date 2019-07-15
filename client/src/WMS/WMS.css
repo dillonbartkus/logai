@@ -1,0 +1,61 @@
+.incomingordernotification {
+    position: relative;
+    border-radius: 50%;
+    top: -5%;
+    left: -5%;
+    background-color: #DD1B1B;
+    height: 6vh;
+    width: 3.5vw;
+    color: white;
+}
+
+.small {
+    top: 10%;
+    left: -15%;
+    width: 2.25vw;
+    height: 4vh;
+}
+
+.incoming {
+    height: 4vh;
+    width: 2.5vw;
+    left: 10%;
+}
+
+.manager {
+    width: 95%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.ordersbox {
+    width: 100%;
+    border: 1px solid #1D9DEB;
+    border-radius: 3px;
+}
+
+.ordersboxtabs {
+    display: flex;
+}
+
+.ordersboxtab {
+    width: 25%;
+    height: 7vh;
+    border-right: 1px solid #1D9DEB;
+    border-bottom: 1px solid #1D9DEB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.ordersboxtab.active {
+    background-color: #1D9DEB;
+    color: #fff;
+}
+
+.timeslots {
+    height: 100%;
+    
+}

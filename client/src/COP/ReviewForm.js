@@ -1,7 +1,7 @@
 import React from 'react'
 import CartProduct from './CartProduct'
 
-export default function ReviewForm ({ status, orderWasPlaced, cart }) {
+export default function ReviewForm ({ status, orderWasPlaced, changeQuantity, removeFromCart, cart }) {
 
     return(
 
@@ -19,7 +19,7 @@ export default function ReviewForm ({ status, orderWasPlaced, cart }) {
                 style = {{'width' : '100%'}}
                 >
 
-                {cart.map( (item, id) => <CartProduct key = {id} item = {item} /> )}
+                {cart.map( (item, id) => <CartProduct removeFromCart = {removeFromCart} changeQuantity = {changeQuantity} key = {id} item = {item} /> )}
 
                 <h2 style = {{'width': '100%', 'marginTop': '1%', 'fontFamily': "Raleway ExtraBold", 'letterSpacing': '1.01px', 'lineHeight': '26px', 'textAlign': 'right'}}>
                 Estimated Grand Total: $1605.00</h2>

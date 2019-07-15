@@ -80,7 +80,7 @@ export default function PaymentForm ({status, setStatus, setDeliveryStatus}) {
                     setStatus('done')
                     setDeliveryStatus('active')
                 }}
-                className="checkoutbutton">Use this address</button>
+                className="checkoutbutton">Use this payment method</button>
 
             }
 

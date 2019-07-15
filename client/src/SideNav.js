@@ -3,17 +3,25 @@ import customer from './images/customer.png'
 
 export default function SideNav({ activeNavItem, setActiveNavItem }) {
 
+    const isCartActive = (activeNavItem === 'cart') ? 'active' : ''
     const isCreateActive = (activeNavItem === 'create') ? 'active' : ''
     const isTrackActive = (activeNavItem === 'track') ? 'active' : ''
     const isHistoryActive = (activeNavItem === 'history') ? 'active' : ''
+    
+    // const ismanagerActive = (activeNavItem === 'manager') ? 'active' : ''
+    // const isWMSActive = (activeNavItem === 'wms') ? 'active' : ''
+    // const isBAActive = (activeNavItem === 'ba') ? 'active' : ''
     
     return(
 
         <div className="sidenav">
 
-            <div className="sidenavitem">
+            {/* Customer Sidenav */}
+            <div
+            onClick = { () => setActiveNavItem('cart')}
+            className={`sidenavitem ${isCartActive}`}>
                 <img src= {customer} alt = 'customer'/>
-                <p>Messages</p>
+                <p>Cart</p>
             </div>
 
             <div
@@ -36,6 +44,29 @@ export default function SideNav({ activeNavItem, setActiveNavItem }) {
                 <img src= {customer} alt = 'customer'/>
                 <p>Order History</p>
             </div>
+
+            {/* Warehouse Sidenav */}
+            {/* <div
+            onClick = { () => setActiveNavItem('manager') }
+            className={`sidenavitem ${ismanagerActive}`}>
+                <div className="incomingordernotification small">5</div>
+                <img src= {customer} alt = 'customer'/>
+                <p>Order Manager</p>
+            </div>
+
+            <div
+            onClick = { () => setActiveNavItem('wms')}
+            className={`sidenavitem ${isWMSActive}`}>
+                <img src= {customer} alt = 'customer'/>
+                <p>WMS</p>
+            </div>
+
+            <div
+            onClick = { () => setActiveNavItem('ba')}
+            className={`sidenavitem ${isBAActive}`}>
+                <img src= {customer} alt = 'customer'/>
+                <p>Business Analytics</p>
+            </div> */}
 
         </div>
 

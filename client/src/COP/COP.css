@@ -113,6 +113,10 @@ h4, h3, h2, h1 {
     width: 25%;
 }
 
+.addtocart.true {
+    background-color: seagreen;
+}
+
 .cart {
     width: 100%;
     display: flex;
@@ -121,8 +125,14 @@ h4, h3, h2, h1 {
 }
 
 .cartproducts {
-    width: 50%;
+    width: 60%;
     margin: 2%
+}
+
+.remove {
+    height: 100%;
+    color: red;
+    cursor: pointer;
 }
 
 .backtoorder {

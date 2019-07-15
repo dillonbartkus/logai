@@ -13,7 +13,7 @@ return (
     <div className = "dashheader">
              
         <div
-        onClick = {() => setActiveNavItem()}
+        onClick = {() => setActiveNavItem('')}
         style = {{'display' : 'flex', 'flexDirection' : 'column'}}
         >
             <span

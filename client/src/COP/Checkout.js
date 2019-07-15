@@ -4,7 +4,7 @@ import PaymentForm from './PaymentForm'
 import DeliveryForm from './DeliveryForm'
 import ReviewForm from './ReviewForm'
 
-export default function Checkout ({ cart, time, date, setDate, orderWasPlaced, handleTimeSelect }) {
+export default function Checkout ({ cart, time, date, setDate, orderWasPlaced, changeQuantity, removeFromCart, handleTimeSelect }) {
 
     const [shippingStatus, setShippingStatus] = useState('active')
     const [paymentStatus, setPaymentStatus] = useState('upcoming')
@@ -45,6 +45,8 @@ export default function Checkout ({ cart, time, date, setDate, orderWasPlaced, h
                 status = {reviewStatus}
                 setStatus = {setReviewStatus}
                 orderWasPlaced = {orderWasPlaced}
+                changeQuantity = {changeQuantity}
+                removeFromCart = {removeFromCart}
                 cart = {cart} />
 
             </div>

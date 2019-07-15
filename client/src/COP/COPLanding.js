@@ -6,7 +6,7 @@ export default function COPLanding({ setActiveNavItem }) {
 
         <>
 
-        <h1 className="welcome">Welcome, User!</h1>
+        <h1 className="welcome">Welcome, Maria!</h1>
 
         <div
         onClick = { () => setActiveNavItem('create')}

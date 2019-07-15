@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 export default function Product({ item, addToCart }) {
 
     const [quantity, setQuantity] = useState(1)
+    const [recentlyAddedItem, setRecentlyAddedItem] = useState(false)
+
+    const buttonText = (recentlyAddedItem) ? 'Added!' : 'Add to cart'
 
     const selectQuantity = item => {
         let options = []
@@ -31,8 +34,11 @@ export default function Product({ item, addToCart }) {
         </div>
         <button
         style = {{'width' : '20%'}}
-        onClick = { () => addToCart(item, quantity) }
-        className="addtocart">Add to Cart</button>
+        onClick = { () => {
+            addToCart(item, quantity) 
+            setRecentlyAddedItem(true)
+        }}
+        className={`addtocart ${recentlyAddedItem}`}>{buttonText}</button>
         </div>
 
     )

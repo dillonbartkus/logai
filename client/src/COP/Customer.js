@@ -18,7 +18,12 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
 
     useEffect( () => {
         fetchCart()
-    }, [])
+    })
+
+    const fetchCart = async () => {
+        let res = await axios.post(`/cart/1`)
+        setCart(res.data.data)
+    }
 
     const orderWasPlaced = () => {
         setRecentlyPlacedOrder(true)
@@ -36,11 +41,6 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
             let remove = time.indexOf(e.target.value)
             time.splice(remove, 1)
           }
-    }
-
-    const fetchCart = async () => {
-        let res = await axios.post(`/cart/1`)
-        setCart(res.data.data)
     }
 
     const addToCart = async (item, quantity) => {
@@ -66,7 +66,10 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
             item_id: item.id,
             item_quantity: quantity
         })
-        fetchCart()
+    }
+
+    const removeFromCart = async item => {        
+        await axios.delete(`/deletecartitem/${item.id}`)
     }
 
     const changeQuantity = async (item, product, quantity) => {
@@ -75,7 +78,13 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
             item_id: item.id,
             item_quantity: newQuantity
         })
-        fetchCart()
+    }
+
+    const changeQuantityOfCartItem = (item, quantity) => {        
+         axios.put(`/changequantity/1`, {
+            item_id: item.item_id,
+            item_quantity: quantity
+        })
     }
 
 
@@ -134,7 +143,9 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
             activeNavItem === 'cart' &&
                 <Cart
                 setActiveNavItem = {setActiveNavItem}
-                cart = {cart} />
+                cart = {cart}
+                changeQuantity = {changeQuantityOfCartItem}
+                removeFromCart = {removeFromCart} />
             }
 
             {
@@ -145,6 +156,8 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
                 date = {date}
                 setDate = {setDate}
                 handleTimeSelect = {handleTimeSelect}
+                changeQuantity = {changeQuantityOfCartItem}
+                removeFromCart = {removeFromCart}
                 orderWasPlaced = {orderWasPlaced} />
             }
 

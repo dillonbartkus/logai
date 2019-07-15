@@ -1,6 +1,5 @@
 import React, { useState} from 'react'
 import axios from 'axios'
-import config from './config'
 
 const Register = props => {
 
@@ -24,7 +23,7 @@ const Register = props => {
 
     const submitForm = async () => {
         try {
-        await axios.post(`${config.SERVERURL}/register`,  {
+        await axios.post(`/register`,  {
             company: companyName,
             pw: pw,
             email: email,
