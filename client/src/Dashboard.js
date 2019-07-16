@@ -20,9 +20,9 @@ export default function Dashboard() {
         <SideNav activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
       }
 
-      <Customer activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+      {/* <Customer activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
 
-      {/* <Warehouse activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
+      <Warehouse activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
 
       </div>
       
