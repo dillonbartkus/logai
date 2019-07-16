@@ -4,16 +4,16 @@
     top: -5%;
     left: -5%;
     background-color: #DD1B1B;
-    height: 6vh;
-    width: 3.5vw;
+    height: 33px;
+    width: 33px;
     color: white;
 }
 
 .small {
     top: 10%;
     left: -15%;
-    width: 2.25vw;
-    height: 4vh;
+    width: 25px;
+    height: 25px;
 }
 
 .incoming {
@@ -58,4 +58,149 @@
 .timeslots {
     height: 100%;
     
+}
+
+.orderdetails {
+    width: 95%;
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 2%;
+}
+
+.orderdetails > h2, .orderdetails > p, .orderdetails > h4 {
+    width: 100%;
+    text-align: left;
+}
+
+.orderdetails > p {
+    font-size: 2vw;
+}
+
+.orderitemstitles {
+    font-weight: 900;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    margin-bottom: 1%;
+}
+
+.orderitemstitles > div {
+    flex: 1;
+}
+
+.orderitems {
+    width: 100%;
+    border: 1px solid #979797;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.orderitem {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    margin: 1% auto;
+}
+
+.orderitem > div {
+    flex: 1;
+}
+
+.imgandname {
+    display: flex;
+    align-items: center;
+}
+
+.imgandname > img {
+    width: 25%;
+    margin: 0 5%;
+}
+
+.orderpricinginfo {
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1% 0 1% 20%;
+}
+
+.orderpricinginfo > div {
+    font-weight: 900;
+    width: 50%;
+    margin-top: 2%;
+}
+
+.orderpricinginfo > p {
+    width: 50%;
+    margin-top: 2%;
+}
+
+.orderpricinginfo > span {
+    width: 50%;
+    margin-top: 2%;
+}
+
+.orderpricinginfo > span:nth-of-type(3) {
+    width: 100%;
+    text-align: center;
+}
+
+.ordershippingdates {
+    text-align: left;
+}
+
+.transportbutton {
+    border-radius: 16px;
+    background-color: #FD992E;
+    height: 6vh;
+    width: 25%;
+    font-size: 1.1vw;
+}
+
+/*  */
+
+/*  */
+
+/*  */
+
+.container-pickups {
+ display: flex;
+ justify-content: space-between;
+}
+
+.rectangle-pickups {    
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-evenly;
+ height: 173px;
+ width: 916px;    
+ border: 1px solid #979797;    
+ border-radius: 3px 3px 0 3px;    
+ background-color: #EFEFEF;
+}
+
+.rectangle2-pickups {    
+ display: flex;
+ justify-content: space-evenly;
+ align-items: flex-start;
+ height: 52px;    
+ width: 916px;    
+ border-radius: 3px 3px 0 0;    
+ background-color: #1D9DEB;
+}
+
+.pickup-flex-box
+{
+ display: flex;
+ align-items: center;
+}
+.time-col
+{
+ display: flex;
+ height: 173px;
+ justify-content: center;
+ flex-direction: column;
+ border-radius: 3px 3px 0 3px;    
+ background-color: #f6f8fa;
 }

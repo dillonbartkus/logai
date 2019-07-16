@@ -10,7 +10,7 @@ export default function WMSLanding({ setActiveNavItem }) {
 
         <div
         onClick = { () => setActiveNavItem('manager')}
-        className="portalbutton one">
+        className="portalbutton first">
             <div className="portalbg">
             <div className="incomingordernotification big">5</div>
             </div>
@@ -19,14 +19,14 @@ export default function WMSLanding({ setActiveNavItem }) {
 
         <div
         onClick = { () => setActiveNavItem('wms')}
-        className="portalbutton two">
+        className="portalbutton second">
             <div className="portalbg"></div>
             <p>Warehouse Management System</p>
         </div>
 
         <div
         onClick = { () => setActiveNavItem('ba')}
-        className="portalbutton three">
+        className="portalbutton third">
             <div className="portalbg"></div>
             <p>Business Analytics</p>
         </div>

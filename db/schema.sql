@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS users(
   pw VARCHAR(99) NOT NULL,
   email VARCHAR(50) UNIQUE NOT NULL,
   phone VARCHAR(15) UNIQUE NOT NULL,
+  address VARCHAR(99),
   npc VARCHAR(25) NOT NULL,
   company_type TEXT NOT NULL
 );
@@ -42,28 +43,20 @@ CREATE TABLE IF NOT EXISTS cart_items(
 CREATE TABLE IF NOT EXISTS orders(
   id SERIAL PRIMARY KEY NOT NULL,
   warehouse_id INTEGER REFERENCES users(id),
-  status VARCHAR(99),
+  ordered_by INTEGER REFERENCES users(id),
+  status VARCHAR(999) NOT NULL,
   total_weight INTEGER,
-  employee VARCHAR(25),
-  received_from VARCHAR(99),
-  going_to VARCHAR(99),
-  date_received VARCHAR(12),
-  date_ready VARCHAR(12)
+  employee VARCHAR(99),
+  date_received VARCHAR(99),
+  date_processed VARCHAR(99),
+  delivery_address VARCHAR(9999),
+  delivery_date VARCHAR(99),
+  delivery_times TEXT[]
 );
 
 CREATE TABLE IF NOT EXISTS order_items(
   item_id INTEGER REFERENCES inventory,
-  item_amount INTEGER NOT NULL,
+  amount_ordered INTEGER NOT NULL,
   order_id INTEGER REFERENCES orders,
   PRIMARY KEY(item_id, order_id)
-);
-
-CREATE TABLE IF NOT EXISTS clients(
-  id SERIAL PRIMARY KEY NOT NULL,
-  business_id INTEGER REFERENCES users(id),
-  name VARCHAR(99) UNIQUE NOT NULL,
-  address VARCHAR(999) UNIQUE NOT NULL,
-  email VARCHAR(50) UNIQUE NOT NULL,
-  phone VARCHAR(15) UNIQUE NOT NULL,
-  npc VARCHAR(25) NOT NULL
 );

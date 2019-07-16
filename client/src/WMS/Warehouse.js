@@ -4,6 +4,7 @@ import WMSLanding from './WMSLanding'
 import Manager from './Manager'
 import BA from './BA'
 import WMS from './WMS'
+import OrderDetails from './OrderDetails';
 
 export default function Warehouse({ activeNavItem, setActiveNavItem }){
 
@@ -29,6 +30,11 @@ export default function Warehouse({ activeNavItem, setActiveNavItem }){
         {
             activeNavItem === 'ba' &&
             <BA setActiveNavItem = {setActiveNavItem} />
+        }
+
+        {
+            activeNavItem === 'orderdetails' &&
+            <OrderDetails setActiveNavItem = {setActiveNavItem} />
         }
 
 

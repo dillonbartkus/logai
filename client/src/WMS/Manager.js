@@ -3,8 +3,9 @@ import Today from './Today'
 import Incoming from './Incoming'
 import Active from './Active'
 import Completed from './Completed'
+import OrderConfirmation from './WarehouseOrderConfirmation'
 
-export default function Manager(){
+export default function Manager({ setActiveNavItem }){
 
     const [activeTab, setActiveTab] = useState('today')
 
@@ -47,7 +48,9 @@ export default function Manager(){
 
                 {
                     activeTab === 'incoming' &&
-                    <Incoming />
+                    <Incoming
+                    setActiveTab = {setActiveTab}
+                    setActiveNavItem = {setActiveNavItem} />
                 }
 
                 {

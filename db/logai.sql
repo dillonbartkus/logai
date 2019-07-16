@@ -96,53 +96,42 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
     '2'
   );
 
-  -- INSERT INTO cart_items (item_id, item_quantity, cart_id) VALUES
-  -- (
-  --   '3',
-  --   '25',
-  --   '1'
-  -- ),
-  --   (
-  --   '3',
-  --   '25',
-  --   '2'
-  -- ),
-  -- (
-  --   '2',
-  --   '15',
-  --   '1'
-  -- );
-
-  INSERT INTO orders (warehouse_id, status, total_weight, employee, received_from, going_to, date_received, date_ready) VALUES
+  INSERT INTO orders (warehouse_id, ordered_by, status, total_weight, employee, date_received, date_processed, delivery_address, delivery_date, delivery_times) VALUES
     (
       '2',
-      'Incoming',
-      '200',
-      '',
-      'Grocery Supplier',
-      '',
-      '04/25/2019',
-      ''
+      '1',
+      'incoming',
+      '300',
+      'Steve',
+      '06/20/2019',
+      '06/21/2019',
+      '123 Fake Street, Faketown NY 12345',
+      '06/25/2019',
+      '{5:00 PM, 6:00 PM}'
     ),
     (
       '2',
-      'Fulfilling',
-      '400',
+      '1',
+      'active',
+      '250',
+      'James',
+      '06/21/2019',
+      '06/22/2019',
+      '123 Fake Street, Faketown NY 12345',
+      '06/25/2019',
+      '{4:00 PM, 5:00 PM, 6:00 PM}'
+    ),
+    (
+      '2',
+      '1',
+      'completed',
+      '450',
       'Robert',
-      '',
-      'Sam''s Grocery',
-      '04/10/2019',
-      '04/12/2019'
-    ),
-    (
-      '2',
-      'Completed',
-      '500',
-      'Kyle',
-      '',
-      'Fakeville Grocery Store',
-      '',
-      '04/30/2019'
+      '06/25/2019',
+      '06/25/2019',
+      '123 Fake Street, Faketown NY 12345',
+      '06/25/2019',
+      '{5:00 PM, 6:00 PM}'
     );
 
     INSERT INTO order_items (item_id, item_amount, order_id) VALUES
@@ -170,22 +159,4 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       '5',
       '50',
       '3'
-    );
-
-    INSERT INTO clients (business_id, name, address, email, phone, npc) VALUES
-    (
-      '2',
-      'Sam''s Grocery',
-      '123 Fake St, Faketown NY 11221',
-      'sam@samsgrocery.com',
-      '234-654-7993',
-      'Sam'
-    ),
-    (
-      '2',
-      'Fortress Foods',
-      '555 Made Up Rd, Hicksville NJ',
-      'supply@fortress.com',
-      '121-323-5456',
-      'Greg'
     );

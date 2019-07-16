@@ -102,14 +102,14 @@
     box-shadow: 1px 2px 4px 0 rgba(0,0,0,1);
 }
 
-.portalbutton.one > div {
+.portalbutton.first > div {
     background-color: #F6FBFE;
 }
 
-.portalbutton.two > div {
+.portalbutton.second > div {
     background-color: #A7DAA7;
 }
 
-.portalbutton.three > div {
+.portalbutton.third > div {
     background-color: #9BCCED;
 }

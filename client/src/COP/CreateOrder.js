@@ -3,6 +3,7 @@ import axios from 'axios'
 import Searchbar from './Searchbar'
 import ProductList from './ProductList'
 import Categories from './Categories'
+import cartimg from '../images/cart.png'
 
 export default function CreateOrder({ setActiveNavItem, cart, addToCart }) {
 
@@ -38,8 +39,8 @@ export default function CreateOrder({ setActiveNavItem, cart, addToCart }) {
             <div
             onClick = {() => setActiveNavItem('cart')}
             className="viewcart">
-                <p>View Cart</p>
-                <img src = 'http://cdn.onlinewebfonts.com/svg/img_416975.png' alt = 'cart' style = {{'height': '50px'}} />
+                <h4>View Cart</h4>
+                <img src = {cartimg} alt = 'back' />
                 <p style = {{'color' : '#FD992E', 'fontWeight' : 900}}>{cartTotal}</p>
             </div>
 

@@ -53,6 +53,7 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
                 changeQuantity(item, product, quantity)
                 return true
             }
+            return false
         })
         if (filter.length === 0){
             addItem(item, quantity)

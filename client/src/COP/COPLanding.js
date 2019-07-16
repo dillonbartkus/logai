@@ -10,21 +10,21 @@ export default function COPLanding({ setActiveNavItem }) {
 
         <div
         onClick = { () => setActiveNavItem('create')}
-        className="portalbutton one">
+        className="portalbutton first">
             <div className="portalbg"></div>
             <p>Create Order</p>
         </div>
 
         <div
         onClick = { () => setActiveNavItem('track')}
-        className="portalbutton two">
+        className="portalbutton second">
             <div className="portalbg"></div>
             <p>Track Orders</p>
         </div>
 
         <div
         onClick = { () => setActiveNavItem('history')}
-        className="portalbutton three">
+        className="portalbutton third">
             <div className="portalbg"></div>
             <p>Order History</p>
         </div>

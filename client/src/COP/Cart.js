@@ -1,5 +1,6 @@
 import React from 'react'
 import CartProduct from './CartProduct'
+import back from '../images/back.png'
 
 export default function Cart({ cart, changeQuantity, removeFromCart, setActiveNavItem }) {
     
@@ -10,7 +11,7 @@ export default function Cart({ cart, changeQuantity, removeFromCart, setActiveNa
             <div className="cartproducts">
 
             <div className = "backtoorder">
-            <img src = 'http://pixsector.com/cache/a8009c95/av8a49a4f81c3318dc69d.png' alt = 'a' style = {{'height' : '50px'}}/>
+            <img src = {back} alt = 'back' style = {{'height' : '5vh'}} />
             <span
             style = {{'fontFamily': "Raleway SemiBold", 'color': '#000000', 'fontSize': '22px', 'letterSpacing': '1.01px', 'lineHeight': '26px'}}
             onClick = { () => setActiveNavItem('create')}
