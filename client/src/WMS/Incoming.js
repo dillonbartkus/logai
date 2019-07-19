@@ -1,14 +1,21 @@
 import React from 'react'
+import IncomingOrder from './IncomingOrder'
 
-export default function Incoming({ setActiveNavItem }) {
+export default function Incoming({ showTransportInfo, showOrderDetails, orders }) {    
 
     return(
 
-        <div className = "incoming">
+        <div className = "incomingorders">
 
-            <h1
-            onClick = { () => setActiveNavItem('orderdetails') }
-            >Order Details</h1>
+            {
+                orders &&
+                orders.map( order => <IncomingOrder
+                showOrderDetails = {showOrderDetails}
+                showTransportInfo = {showTransportInfo}
+                order = {order}
+                key = {order.id} /> )
+
+            }
 
         </div>
         

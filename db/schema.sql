@@ -44,14 +44,19 @@ CREATE TABLE IF NOT EXISTS orders(
   id SERIAL PRIMARY KEY NOT NULL,
   warehouse_id INTEGER REFERENCES users(id),
   ordered_by INTEGER REFERENCES users(id),
-  status VARCHAR(999) NOT NULL,
+  status VARCHAR(99) NOT NULL,
   total_weight INTEGER,
   employee VARCHAR(99),
   date_received VARCHAR(99),
-  date_processed VARCHAR(99),
+  trucking_company VARCHAR(99),
+  truck_driver VARCHAR(99),
   delivery_address VARCHAR(9999),
-  delivery_date VARCHAR(99),
-  delivery_times TEXT[]
+  customer_confirmed_transport BOOLEAN,
+  preferred_date VARCHAR(99),
+  actual_date VARCHAR(99),
+  preferred_times TEXT[],
+  actual_time VARCHAR(99),
+  UNIQUE (actual_date, actual_time)
 );
 
 CREATE TABLE IF NOT EXISTS order_items(

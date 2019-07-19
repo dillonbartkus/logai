@@ -96,7 +96,7 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
     '2'
   );
 
-  INSERT INTO orders (warehouse_id, ordered_by, status, total_weight, employee, date_received, date_processed, delivery_address, delivery_date, delivery_times) VALUES
+  INSERT INTO orders (warehouse_id, ordered_by, status, total_weight, employee, date_received, trucking_company, truck_driver, delivery_address, preferred_date, actual_date, preferred_times, actual_time) VALUES
     (
       '2',
       '1',
@@ -104,10 +104,13 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       '300',
       'Steve',
       '06/20/2019',
-      '06/21/2019',
+      '',
+      '',
       '123 Fake Street, Faketown NY 12345',
       '06/25/2019',
-      '{5:00 PM, 6:00 PM}'
+      '',
+      '{5:00 PM, 6:00 PM}',
+      ''
     ),
     (
       '2',
@@ -116,10 +119,13 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       '250',
       'James',
       '06/21/2019',
-      '06/22/2019',
+      'Sam''s Trucking',
+      'Sam',
       '123 Fake Street, Faketown NY 12345',
       '06/25/2019',
-      '{4:00 PM, 5:00 PM, 6:00 PM}'
+      '06/26/2019',
+      '{4:00 PM, 5:00 PM, 6:00 PM}',
+      '5:00 PM'
     ),
     (
       '2',
@@ -128,10 +134,13 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       '450',
       'Robert',
       '06/25/2019',
+      'Best Trucking',
+      'Jim',
+      '99 Circle Dr, Hicksville MD 12345',
       '06/25/2019',
-      '123 Fake Street, Faketown NY 12345',
       '06/25/2019',
-      '{5:00 PM, 6:00 PM}'
+      '{5:00 PM, 6:00 PM}',
+      '6:00 PM'
     );
 
     INSERT INTO order_items (item_id, item_amount, order_id) VALUES

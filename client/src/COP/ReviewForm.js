@@ -1,8 +1,8 @@
 import React from 'react'
 import CartProduct from './CartProduct'
 
-export default function ReviewForm ({ status, orderWasPlaced, changeQuantity, removeFromCart, cart }) {
-
+export default function ReviewForm ({ status, orderWasPlaced, changeQuantity, removeFromCart, cart, time, date }) {
+    
     return(
 
         <div className = "review">
@@ -33,7 +33,7 @@ export default function ReviewForm ({ status, orderWasPlaced, changeQuantity, re
                 <>
 
                 <button
-                onClick = { () => orderWasPlaced() }
+                onClick = { () => orderWasPlaced(cart, time, date) }
                 className="checkoutbutton">Place Order Request</button>
 
                 <p style = {{'textAlign': 'left', 'marginLeft': '45%'}}> <b>Note:</b> Cost of shipping &amp; delivery will be finalized within 24 hours. You will not be charged until you have confirmed this cost and finalized your order. </p>

@@ -7,19 +7,20 @@
     height: 33px;
     width: 33px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: inherit;
 }
 
-.small {
+.incomingordernotification.small {
     top: 10%;
     left: -15%;
-    width: 25px;
-    height: 25px;
+    width: 25%;
+    height: 20%;
 }
 
-.incoming {
-    height: 4vh;
-    width: 2.5vw;
-    left: 10%;
+.incomingordernotification.incoming {
+    height: 66%;
 }
 
 .manager {
@@ -44,10 +45,14 @@
     border-right: 1px solid #1D9DEB;
     border-bottom: 1px solid #1D9DEB;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     font-weight: 900;
     cursor: pointer;
+}
+
+.ordersboxtab > b {
+    font-size: 150%;
 }
 
 .ordersboxtab.active {
@@ -164,43 +169,176 @@
 
 /*  */
 
-.container-pickups {
- display: flex;
- justify-content: space-between;
+.today {
+    width: 100%;
 }
 
-.rectangle-pickups {    
- display: flex;
- flex-wrap: wrap;
- justify-content: space-evenly;
- height: 173px;
- width: 916px;    
- border: 1px solid #979797;    
- border-radius: 3px 3px 0 3px;    
- background-color: #EFEFEF;
+.todayorder {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 25vh;
 }
 
-.rectangle2-pickups {    
- display: flex;
- justify-content: space-evenly;
- align-items: flex-start;
- height: 52px;    
- width: 916px;    
- border-radius: 3px 3px 0 0;    
- background-color: #1D9DEB;
+.timeslot {
+    width: 15%;
 }
 
-.pickup-flex-box
-{
- display: flex;
- align-items: center;
+.todayorderbox {    
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 2%;
+    width: 100%;
+    height: 75%;
+    justify-content: space-evenly;
+    border: 1px solid #979797;
+    border-radius: 3px 3px 0 3px;    
+    background-color: #EFEFEF;
+    text-align: left;
 }
-.time-col
-{
- display: flex;
- height: 173px;
- justify-content: center;
- flex-direction: column;
- border-radius: 3px 3px 0 3px;    
- background-color: #f6f8fa;
+
+.todayorderbox-top {
+    text-align: left;
+    height: 30%;
+    width: 100%;
+    border-radius: 3px 3px 0 0;    
+    background-color: #1D9DEB;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.todayorderbox-bottom {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    border-radius: 3px 3px 0 3px;    
+}
+
+.todayorderbox-bottom > * {
+    width: 33%;
+}
+
+.todayorderbox-bottom > div > h2 {
+    margin: auto;
+}
+
+.incomingorders {
+    width: 100%;
+}
+
+.incomingorder {
+    border: 1px solid #979797;
+    border-radius: 3px 3px 0 3px;
+    width: 90%;
+    height: 20vh;
+    margin: 2% auto;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.link {
+    text-decoration: underline;
+    color: #1D9DEB;
+    cursor: pointer;
+}
+
+.transportinfo {
+    position: absolute;
+    z-index: 1;
+    margin: auto;
+    width: 50%;
+    top: 5%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background-color: #f6f8fa;
+    padding: 0 2%;
+}
+
+.closepopup {
+    background-image: url('../images/closemenu.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 5%;
+    height: 5vh;
+    cursor: pointer;
+    margin-left: 90%;
+    margin-top: 2%;
+}
+
+.transportinfo > h2 {
+    width: 100%;
+    height: 5%;
+    text-align: left;
+    margin: 0 2.5%;
+}
+
+.transportinfo > input {
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #979797;
+    background-color: #f6f8fa;
+    padding: 2%;
+    font-size: 24px;
+    margin-bottom: 5%;
+}
+
+.transportcalendar {
+    width: 70% !important;
+    padding: 20px;
+    margin: 5% 0;
+    border: none;
+    box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.5);
+}
+
+.transportinfo > select {
+    margin: 4% 80% 4% 2%;
+    width: 20%;
+    border: none;
+    border-bottom: 1px solid #979797;
+    background-color: #f6f8fa;
+    font-size: 18px;
+}
+
+.transportinfo-add {
+    width: 25%;
+    height: 7vh;
+    margin: 5%;
+    border-radius: 24px !important;
+    font-size: 1.25vw;
+}
+
+.transportinfo-cancel {
+    width: 25%;
+    height: 7vh;
+    margin: 5%;
+    border-radius: 24px !important;
+    font-size: 1.25vw;
+    background-color: #fff;
+    border: 1px solid #1D9DEB;
+}
+
+.ordertransportinfo {
+    text-align: left;
+    width: 50%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.ordertransportinfo > h2 {
+    width: 100%;
+}
+
+.ordertransportinfo > div {
+    font-weight: 900;
+    width: 50%;
+    margin-top: 2%;
+}
+
+.ordertransportinfo > p {
+    width: 50%;
+    margin-top: 2%;
 }

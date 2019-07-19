@@ -1,50 +1,15 @@
 import React from 'react'
+import TimeSlot from './TimeSlot'
 
-export default function Today() {
+export default function Today({ orders }) {
+
+    const timeslots = ["7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"]
 
     return(
 
         <div className = "today">
 
-            <div className="container-pickups">
-
-                <div className="pickup-flex-box">
-
-                    <div className="time-col">
-
-                        <h2>0000</h2> {/* hourly time military */}
-
-                    </div>
-
-                </div>
-
-                <div className="rectangle-pickups">
-
-                    <div className="rectangle2-pickups">
-
-                        <h2>Order#</h2>
-                        <h2>number</h2> {/* Pickup order id */}
-
-                        <h2>Client:</h2>
-                        <h2>name</h2> {/*Client name* */}
-
-                    </div>
-
-                    <h2>Pickup:</h2>
-                    <h2>Time</h2> {/*Scheduled order pickup time */}
-
-                    <h2>Trucking:</h2>
-                    <h2>Truck co.</h2> {/*Transportation company picking up the order */}
-
-                    <h2>Driver:</h2>
-                    <h2>Guy</h2> {/*Driver name */}
-
-                    <h2>Delivery:</h2>
-                    <h2>mm/dd/yyyy</h2> {/*Date of pickup */}
-
-                </div>
-
-            </div>
+            {timeslots.map( timeslot => <TimeSlot orders = {orders} timeslot = {timeslot} key = {timeslot} /> )}
 
         </div>
 

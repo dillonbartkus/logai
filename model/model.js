@@ -64,6 +64,30 @@ model.addToCart = (cart_items, id) => {
   )
 }
 
+model.createCustomerOrder = order => {
+  return db.one(
+    `
+     INSERT INTO orders
+     (warehouse_id, ordered_by, status, preferred_date, preferred_times, delivery_address)
+     VALUES ($1, $2, $3, $4, $5, $6)
+     RETURNING *
+    `,
+    [order.warehouse_id, order.ordered_by, order.status, order.preferred_date, order.preferred_times, order.delivery_address]
+  )
+}
+
+model.addCartItemsToOrder = (order_items, id) => {
+  return db.one(
+    `
+     INSERT INTO order_items
+     (item_id, item_amount, order_id)
+     VALUES ($1, $2, $3)
+     RETURNING *
+    `,
+    [order_items.item_id, order_items.item_amount, order_items.order_id]
+  )
+}
+
 model.changeQuantity = (cart_items, id) => {
 return db.one(
   `
@@ -107,8 +131,12 @@ model.getInventory = id => {
 model.getOrders = id => {
   return db.query(
     `
-    SELECT * FROM orders
+    SELECT orders.*, users.company
+    FROM orders
+    JOIN users
+    ON orders.ordered_by = users.id
     WHERE orders.warehouse_id = $1
+    ORDER BY id DESC
     `,
     [id]
   );
@@ -127,17 +155,7 @@ model.getOrderInv = id => {
   );
 };
 
-model.getClients = id => {
-  return db.query(
-    `
-    SELECT * from clients
-    WHERE business_id = $1
-    `,
-    [id]
-  );
-};
-
-model.updateProduct = (inventory, id) => {
+model.updateProductQuantity = (inventory, id) => {
   return db.one(
     `
     UPDATE inventory SET
@@ -149,7 +167,7 @@ model.updateProduct = (inventory, id) => {
   );
 };
 
-model.updateOrder = (order, id) => {
+model.updateOrderStatus = (order, id) => {
   return db.one(
     `
     UPDATE orders SET
@@ -161,6 +179,20 @@ model.updateOrder = (order, id) => {
   )
 }
 
+model.updateTransportInfo = (order, id) => {  
+  return db.one(
+    `
+    UPDATE orders SET
+      trucking_company = $1,
+      truck_driver = $2,
+      actual_date = $3,
+      actual_time = $4
+    WHERE id = $5
+    RETURNING *
+    `,
+    [order.trucking_company, order.truck_driver, order.actual_date, order.actual_time, id]
+  )
+}
 
 model.deleteProduct = id => {
   return db.none(

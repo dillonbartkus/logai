@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function WMSLanding({ setActiveNavItem }) {
+export default function WMSLanding({ setActiveNavItem, incomingLength }) {
     
     return(
 
@@ -12,7 +12,10 @@ export default function WMSLanding({ setActiveNavItem }) {
         onClick = { () => setActiveNavItem('manager')}
         className="portalbutton first">
             <div className="portalbg">
-            <div className="incomingordernotification big">5</div>
+                {
+                    incomingLength > 0 &&
+                    <div className="incomingordernotification big">{incomingLength}</div>
+                }
             </div>
             <p>Order Manager</p>
         </div>

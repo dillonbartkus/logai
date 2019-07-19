@@ -38,7 +38,6 @@ controller.getUser = async (req, res) => {
   }
 };
 
-
 controller.createUser = async (req, res) => {
   const { company, pw, email, phone, npc, comptype } = req.body;
 
@@ -107,6 +106,47 @@ controller.addToCart = async (req, res) => {
       item_id,
       item_quantity
     }, id)
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  } 
+}
+
+controller.createCustomerOrder = async (req, res) => {
+  const { warehouse_id, ordered_by, status, preferred_date, preferred_time, delivery_address } = req.body;
+
+  try {
+    const data = await Log.createCustomerOrder({
+      warehouse_id,
+      ordered_by,
+      status,
+      preferred_date,
+      preferred_time,
+      delivery_address
+    })
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  } 
+}
+
+controller.addCartItemsToOrder = async (req, res) => {
+  const { item_id, item_amount, order_id } = req.body;
+
+  try {
+    const data = await Log.addCartItemsToOrder({
+      item_id,
+      item_amount,
+      order_id
+    })
       res.json({
         data: data
       })
@@ -203,21 +243,6 @@ controller.getOrderInv = async (req, res) => {
   }
 }
 
-controller.getClients = async (req, res) => {
-  const id = req.params.id
-
-  try {
-    const data = await Log.getClients(id)
-    res.json({
-      data: data
-    })
-  }
-
-  catch(err) {
-    res.status(500).json({ err })
-  }
-}
-
 controller.deleteProduct = async (req, res) => {
   const id = req.params.id
 
@@ -234,12 +259,12 @@ controller.deleteProduct = async (req, res) => {
   }
 }
 
-controller.updateProduct = async (req, res) => {
+controller.updateProductQuantity = async (req, res) => {
   const id = req.params.id
   const { quantity } = req.body
 
   try {
-    const data = await Log.updateProduct({
+    const data = await Log.updateProductQuantity({
       quantity: quantity
     }, id)
     res.json({
@@ -253,13 +278,35 @@ controller.updateProduct = async (req, res) => {
   }
 }
 
-controller.updateOrder = async (req, res) => {
+controller.updateOrderStatus = async (req, res) => {
   const id = req.params.id
   const { status } = req.body
 
   try {
-    const data = await Log.updateOrder({
+    const data = await Log.updateOrderStatus({
       status: status
+    }, id)
+    res.json({
+      message: 'updated',
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
+controller.updateTransportInfo = async (req, res) => {
+  const id = req.params.id
+  const { trucking_company, truck_driver, actual_date, actual_time } = req.body
+  
+  try {
+    const data = await Log.updateTransportInfo({
+      trucking_company,
+      truck_driver,
+      actual_date,
+      actual_time
     }, id)
     res.json({
       message: 'updated',

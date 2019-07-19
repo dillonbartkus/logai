@@ -11,26 +11,45 @@ import Checkout from './Checkout'
 
 export default function COP({ activeNavItem, setActiveNavItem }) {
 
-    const [recentlyPlacedOrder, setRecentlyPlacedOrder] = useState(true)
-    const [cart, setCart] = useState()
+    const [recentlyPlacedOrder, setRecentlyPlacedOrder] = useState(false)
     const [date, setDate] = useState()
     const [time, setTime] = useState([])
+    const [cart, setCart] = useState()
+    const [recentOrderId, setRecentOrderId] = useState()
 
     useEffect( () => {
-        fetchCart()
-    })
+        fetchCart()        
+    }, [])    
 
     const fetchCart = async () => {
         let res = await axios.post(`/cart/1`)
         setCart(res.data.data)
     }
 
-    const orderWasPlaced = () => {
+    const orderWasPlaced = async (cart, time, date) => {
+        const res = await axios.post(`/createcustomerorder`, {
+            warehouse_id: 2,
+            ordered_by: 1,
+            status: 'incoming',
+            preferred_date: date,
+            preferred_times: time,
+            delivery_address: '123 Fake st NY NY'
+        })
+        addCartItemsToOrder(cart, res.data.data.id)
+        setRecentOrderId(res.data.data.id)
         setRecentlyPlacedOrder(true)
         setActiveNavItem('')
     }
 
-    setTimeout( () => setRecentlyPlacedOrder(false), 5000 )
+    const addCartItemsToOrder = async (cart, id) => {
+        cart.forEach( async item => {            
+            await axios.post(`/additemstoorder`, {
+                item_id: item.id,
+                item_amount: item.item_quantity,
+                order_id: id
+            })            
+        })
+    }
     
     const handleTimeSelect = e => {
         if (e.target.checked){
@@ -43,7 +62,7 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
           }
     }
 
-    const addToCart = async (item, quantity) => {
+    const addToCart = (item, quantity) => {
         if(cart.length === 0){
             addItem(item, quantity)
         }
@@ -59,7 +78,8 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
             addItem(item, quantity)
         }
         
-      } 
+      }
+      fetchCart()
     }
 
     const addItem = async (item, quantity) => {
@@ -67,10 +87,12 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
             item_id: item.id,
             item_quantity: quantity
         })
+        fetchCart()
     }
 
     const removeFromCart = async item => {        
         await axios.delete(`/deletecartitem/${item.id}`)
+        fetchCart()
     }
 
     const changeQuantity = async (item, product, quantity) => {
@@ -79,15 +101,16 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
             item_id: item.id,
             item_quantity: newQuantity
         })
+        fetchCart()
     }
 
-    const changeQuantityOfCartItem = (item, quantity) => {        
-         axios.put(`/changequantity/1`, {
+    const changeQuantityOfCartItem = async (item, quantity) => {        
+        await axios.put(`/changequantity/1`, {
             item_id: item.item_id,
             item_quantity: quantity
         })
+        fetchCart()
     }
-
 
     return(
 
@@ -102,7 +125,7 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
 
                 <div>
                     <h2 className="orderheader">Your order request has been sent!</h2>
-                    <p>Purchase Order # 15296</p>
+                    <p>Purchase Order # {recentOrderId}</p>
                     <p>Delivery Date &amp; Time: {time} on {date} </p>
                 </div>
 

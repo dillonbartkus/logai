@@ -5,18 +5,22 @@ import Active from './Active'
 import Completed from './Completed'
 import OrderConfirmation from './WarehouseOrderConfirmation'
 
-export default function Manager({ setActiveNavItem }){
+export default function Manager({showTransportInfo, showOrderDetails, orders, orderPlaced, incomingLength, activeLength, setOrderPlaced, currentOrder }){
 
     const [activeTab, setActiveTab] = useState('today')
-
     const isTodayActive = (activeTab === 'today') ? 'active' : ''
     const isIncomingActive = (activeTab === 'incoming') ? 'active' : ''
     const isActiveActive = (activeTab === 'active') ? 'active' : ''
-    const isCompletedActive = (activeTab === 'completed') ? 'active' : ''
+    const isCompletedActive = (activeTab === 'completed') ? 'active' : ''    
 
     return(
 
         <div className="manager">
+
+        {
+            orderPlaced &&
+            <OrderConfirmation order = {currentOrder} setOrderPlaced = {setOrderPlaced} setActiveTab = {setActiveTab} />
+        }
 
             <h1 className="bigheader">Order Manager</h1>
 
@@ -30,11 +34,14 @@ export default function Manager({ setActiveNavItem }){
                     onClick = { () => setActiveTab('incoming')}
                     className = {`ordersboxtab ${isIncomingActive}`}>
                         Incoming Orders
-                        <div className="incomingordernotification incoming">5</div>
+                        {
+                            incomingLength > 0 &&
+                            <div className="incomingordernotification incoming">{incomingLength}</div>
+                        }
                         </div>
                     <div
                     onClick = { () => setActiveTab('active')}
-                    className = {`ordersboxtab ${isActiveActive}`}>Active Orders (5)</div>
+                    className = {`ordersboxtab ${isActiveActive}`}>Active Orders <b>({activeLength})</b></div>
                     <div
                     style = {{'borderRight' : 'none'}}
                     onClick = { () => setActiveTab('completed')}
@@ -43,24 +50,28 @@ export default function Manager({ setActiveNavItem }){
 
                 {
                     activeTab === 'today' &&
-                    <Today />
+                    <Today orders = {orders} />
                 }
 
                 {
                     activeTab === 'incoming' &&
                     <Incoming
-                    setActiveTab = {setActiveTab}
-                    setActiveNavItem = {setActiveNavItem} />
+                    orders = {orders.filter( order => order.status === 'incoming' )}
+                    showTransportInfo = {showTransportInfo}
+                    showOrderDetails = {showOrderDetails}
+                    setActiveTab = {setActiveTab} />
                 }
 
                 {
                     activeTab === 'active' &&
-                    <Active />
+                    <Active
+                    orders = {orders.filter( order => order.status === 'active' )} />
                 }
 
                 {
                     activeTab === 'completed' &&
-                    <Completed />
+                    <Completed 
+                    orders = {orders.filter( order => order.status === 'completed' )} />
                 }
 
             </div>

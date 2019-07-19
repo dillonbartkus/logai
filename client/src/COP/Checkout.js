@@ -47,6 +47,8 @@ export default function Checkout ({ cart, time, date, setDate, orderWasPlaced, c
                 orderWasPlaced = {orderWasPlaced}
                 changeQuantity = {changeQuantity}
                 removeFromCart = {removeFromCart}
+                time = {time}
+                date = {date}
                 cart = {cart} />
 
             </div>

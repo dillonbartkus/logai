@@ -3,9 +3,9 @@ import OrderItem from './OrderItem'
 import back from '../images/back.png'
 import axios from 'axios'
 
-export default function OrderDetails({ setActiveNavItem }) {
+export default function OrderDetails({ setActiveNavItem, showTransportInfo, order }) {
 
-    const [orderItems, setOrderItems] = useState()
+    const [orderItems, setOrderItems] = useState()    
 
     useEffect( () => {
         fetchOrderItems()
@@ -14,6 +14,43 @@ export default function OrderDetails({ setActiveNavItem }) {
     const fetchOrderItems = async () => {
         let res = await axios.post(`/cart/1`)
         setOrderItems(res.data.data)
+    }
+
+    const isTransportInfo = () => {
+        if (order.trucking_company && order.truck_driver && order.actual_date && order.actual_time) {
+            return(
+                <div className = "ordertransportinfo">
+
+                <h2 className = "smallheader">Transportation Information</h2>
+
+                <div>Trucking Company</div>
+                <p>{order.trucking_company}</p>
+
+                <div>Driver</div>
+                <p>{order.truck_driver}</p>
+
+                <div>Delivery Date</div>
+                <p>{order.actual_date}</p>
+
+                <div>Delivery Time</div>
+                <p>{order.actual_time}</p>
+
+                </div>
+            )
+        }
+        else return(
+            <>
+            <h2 className = "smallheader">Preferred Delivery Date: {order.preferred_date} </h2>
+
+            <h2 className = "smallheader">Preferred Delivery Times: {order.preferred_times.map(time => <p key = {time}>{time}</p>)} </h2>
+
+            <button
+            onClick = { () => showTransportInfo(order, order.company) }
+            className = "transportbutton">Add transportation information</button>
+
+            <h4>Note: The customer will be sent a notification once transportation information has been added.</h4>
+            </>
+        )
     }
 
     return(
@@ -28,12 +65,12 @@ export default function OrderDetails({ setActiveNavItem }) {
             >Back to Order Manager Main</span>
             </div>
 
-            <h2 className = "smallheader">Order # 15296</h2>
+            <h2 className = "smallheader">Order # {order.id}</h2>
 
             <h2 className = "smallheader">Shipping Address</h2>
 
-            <p>Maria Diaz</p>
-            <p>123 Street</p>
+            <p>{order.company}</p>
+            <p>{order.delivery_address}</p>
             <p>New York, NY 12345</p>
 
             <h2 className = "smallheader">Order Details</h2>
@@ -70,13 +107,7 @@ export default function OrderDetails({ setActiveNavItem }) {
 
             </div>
 
-            <h2 className = "smallheader">Preferred Delivery Date: 6/30/19 </h2>
-
-            <h2 className = "smallheader">Preferred Delivery Time: 5:00 PM </h2>
-
-            <button className = "transportbutton">Add transportation information</button>
-
-            <h4>Note: The customer will be sent a notification once transportation information has been added.</h4>
+            {isTransportInfo()}
 
         </div>
     )
