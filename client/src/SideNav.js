@@ -3,21 +3,21 @@ import customer from './images/customer.png'
 
 export default function SideNav({ activeNavItem, setActiveNavItem, incomingLength }) {
 
-    const isCartActive = (activeNavItem === 'cart') ? 'active' : ''
-    const isCreateActive = (activeNavItem === 'create') ? 'active' : ''
-    const isTrackActive = (activeNavItem === 'track') ? 'active' : ''
-    const isHistoryActive = (activeNavItem === 'history') ? 'active' : ''
+    // const isCartActive = (activeNavItem === 'cart') ? 'active' : ''
+    // const isCreateActive = (activeNavItem === 'create') ? 'active' : ''
+    // const isTrackActive = (activeNavItem === 'track') ? 'active' : ''
+    // const isHistoryActive = (activeNavItem === 'history') ? 'active' : ''
     
-    // const ismanagerActive = (activeNavItem === 'manager') ? 'active' : ''
-    // const isWMSActive = (activeNavItem === 'wms') ? 'active' : ''
-    // const isBAActive = (activeNavItem === 'ba') ? 'active' : ''
+    const ismanagerActive = (activeNavItem === 'manager') ? 'active' : ''
+    const isWMSActive = (activeNavItem === 'wms') ? 'active' : ''
+    const isBAActive = (activeNavItem === 'ba') ? 'active' : ''
     
     return(
 
         <div className="sidenav">
 
             {/* Customer Sidenav */}
-            <div
+            {/* <div
             onClick = { () => setActiveNavItem('cart')}
             className={`sidenavitem ${isCartActive}`}>
                 <img src= {customer} alt = 'customer'/>
@@ -43,10 +43,10 @@ export default function SideNav({ activeNavItem, setActiveNavItem, incomingLengt
             className={`sidenavitem ${isHistoryActive}`}>
                 <img src= {customer} alt = 'customer'/>
                 <p>Order History</p>
-            </div>
+            </div> */}
 
             {/* Warehouse Sidenav */}
-            {/* <div
+            <div
             onClick = { () => setActiveNavItem('manager') }
             className={`sidenavitem ${ismanagerActive}`}>
                 {
@@ -69,7 +69,7 @@ export default function SideNav({ activeNavItem, setActiveNavItem, incomingLengt
             className={`sidenavitem ${isBAActive}`}>
                 <img src= {customer} alt = 'customer'/>
                 <p>Business Analytics</p>
-            </div> */}
+            </div>
 
         </div>
 

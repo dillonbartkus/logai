@@ -3,7 +3,7 @@
 var express = require('express');
 
 var app = express();
-const port = process.env.HTTP_PORT || 3001;
+var port = process.env.HTTP_PORT || 3001;
 
 var cors = require('cors');
 
@@ -14,8 +14,7 @@ app.use(parser.json());
 app.use(parser.urlencoded({
   extended: false
 }));
-
-// app.use(express["static"]('client/build'));
+app.use(express["static"]('client/build'));
 app.get('/', function (req, res) {
   res.send("server");
 });

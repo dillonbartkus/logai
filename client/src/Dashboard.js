@@ -50,9 +50,9 @@ export default function Dashboard() {
         <SideNav incomingLength = {incomingOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
       }
 
-      <Customer activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+      {/* <Customer activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
 
-      {/* <Warehouse orders = {orders} incomingLength = {incomingOrderLength} activeLength = {activeOrderLength} fetchOrders = {fetchOrders}  activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
+      <Warehouse orders = {orders} incomingLength = {incomingOrderLength} activeLength = {activeOrderLength} fetchOrders = {fetchOrders}  activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
 
       </div>
       
