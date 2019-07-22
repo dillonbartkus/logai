@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "/static/media/customers.bd2c72c0.jpg"
   },
   {
-    "revision": "9f95e08d38eb0e73ed2de900b2b5a17c",
-    "url": "/static/media/shipping.9f95e08d.jpg"
-  },
-  {
     "revision": "6e49979ebca81d3f03c8ba10819dd80a",
     "url": "/static/media/trucking.6e49979e.jpg"
+  },
+  {
+    "revision": "9f95e08d38eb0e73ed2de900b2b5a17c",
+    "url": "/static/media/shipping.9f95e08d.jpg"
   },
   {
     "revision": "9949f56b5cc3132ae215b98cc1e3f822",
