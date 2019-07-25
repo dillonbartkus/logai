@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function OrderHistory() {
+export default function OrderHistory({ orders }) {    
 
     return(
 

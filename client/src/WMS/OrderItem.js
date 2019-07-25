@@ -6,7 +6,7 @@ export default function OrderItem({ item }) {
 
         <div className = "orderitem">
             <div className = "imgandname">
-                <img src = {item.picture} alt = {item.name} style = {{'height': '5vh'}}/>
+                <img src = {item.picture} alt = {item.name} style = {{'height': '5vh', 'width' : '3vw'}}/>
                 <p>{item.name}</p>
                 </div>
             <div>$20</div>

@@ -6,12 +6,12 @@ export default function WMSLanding({ setActiveNavItem, incomingLength }) {
 
         <>
 
-        <h1 className="welcome">Welcome, Brian!</h1>
+        <h1 className="bigheader" style = {{'width' : '100%', 'padding' : '3%'}}>Welcome, Brian!</h1>
 
         <div
         onClick = { () => setActiveNavItem('manager')}
         className="portalbutton first">
-            <div className="portalbg">
+            <div className="portalbg" id = "wmsportalone">
                 {
                     incomingLength > 0 &&
                     <div className="incomingordernotification big">{incomingLength}</div>
@@ -23,14 +23,14 @@ export default function WMSLanding({ setActiveNavItem, incomingLength }) {
         <div
         onClick = { () => setActiveNavItem('wms')}
         className="portalbutton second">
-            <div className="portalbg"></div>
+            <div className="portalbg" id = "wmsportaltwo"></div>
             <p>Warehouse Management System</p>
         </div>
 
         <div
         onClick = { () => setActiveNavItem('ba')}
         className="portalbutton third">
-            <div className="portalbg"></div>
+            <div className="portalbg" id = "wmsportalthree"></div>
             <p>Business Analytics</p>
         </div>
 

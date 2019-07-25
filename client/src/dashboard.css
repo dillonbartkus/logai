@@ -1,3 +1,7 @@
+body {
+    background-color: #fff !important;
+}
+
 .dashboard {
     display: flex;
     flex-flow: row wrap;
@@ -16,10 +20,26 @@
     cursor: pointer;
 }
 
-.dashheader > *, .dashheader > div > * {
+.headerlogo {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.headerlogo > span:nth-of-type(1) {
+    letter-spacing: 1.97px;
+    font-size: 43px;
+}
+
+.headerlogo > span:nth-of-type(2) {
+    font-size: 12px;
+}
+
+.dashheader > * {
     color: #F9F9F9;
     font-weight: 900;
-    font-size: 2.3vw;
+    font-size: 24px;
 }
 
 .headeruserpic {
@@ -62,10 +82,11 @@
     height: 100vh;
 }
 
-.sidenavitem{
+.sidenavitem {
     cursor: pointer;
     height: 20%;
-    font-size: 1.2vw;
+    font-size: 12px;
+    font-weight: 900;
     text-align: center;
     display: flex;
     flex-flow: column;
@@ -74,17 +95,15 @@
 }
 
 .sidenavitem > img {
+    height: 33%;
     width: 50%;
+    margin-bottom: 10%;
 }
 
 .sidenavitem.active {
     background-color: #FFFFFF;
-    color: #000000
-}
-
-.welcome {
-    width: 100%;
-    padding: 3%;
+    color: #000000;
+    border: 2px solid #1D2124;
 }
 
 .portalbutton {
@@ -100,6 +119,9 @@
     width: 25vw;
     border-radius: 16px;
     box-shadow: 1px 2px 4px 0 rgba(0,0,0,1);
+    background-size: 66%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .portalbutton.first > div {

@@ -4,19 +4,21 @@ import PaymentForm from './PaymentForm'
 import DeliveryForm from './DeliveryForm'
 import ReviewForm from './ReviewForm'
 
-export default function Checkout ({ cart, time, date, setDate, orderWasPlaced, changeQuantity, removeFromCart, handleTimeSelect }) {
+export default function Checkout ({ cart, times, dates, setDates, orderWasPlaced, changeQuantity, subtotal, removeFromCart, handleTimeSelect, orderAddress, handlePaymentInfo, handleDeliveryAddress }) {
 
-    const [shippingStatus, setShippingStatus] = useState('active')
+    const [shippingStatus, setShippingStatus] = useState('edit')
     const [paymentStatus, setPaymentStatus] = useState('upcoming')
     const [deliveryStatus, setDeliveryStatus] = useState('upcoming')
     const [reviewStatus, setReviewStatus] = useState('upcoming')
+    const tax = Math.round(subtotal * (9 / 100))
+    const shipping = subtotal / 4
+    const grandTotal = subtotal + tax + shipping
 
     return(
 
         <div className="checkout">
 
-            <h1 style = {{'width': '100%', 'fontFamily': "Raleway SemiBold", 'letterSpacing': '2.38px', 'fontSize': '4vw', 'lineHeight': '61px', 'textAlign' : 'left'}}>
-            Order Request Details </h1>
+            <h1 className = "bigheader">Order Request Details</h1>
 
             <div className = "checkoutinfo">
 
@@ -25,20 +27,23 @@ export default function Checkout ({ cart, time, date, setDate, orderWasPlaced, c
                 setStatus = {setShippingStatus}
                 setPaymentStatus = {setPaymentStatus}
                 setDeliveryStatus = {setDeliveryStatus}
+                handleDeliveryAddress = {handleDeliveryAddress}
+                orderAddress = {orderAddress}
                 setReviewStatus = {setReviewStatus} />
 
                 <PaymentForm
                 status = {paymentStatus}
                 setStatus = {setPaymentStatus}
+                handlePaymentInfo = {handlePaymentInfo}
                 setDeliveryStatus = {setDeliveryStatus} />
 
                 <DeliveryForm
                 status = {deliveryStatus}
                 setStatus = {setDeliveryStatus}
                 setReviewStatus = {setReviewStatus}
-                time = {time}
-                date = {date}
-                setDate = {setDate}
+                times = {times}
+                dates = {dates}
+                setDates = {setDates}
                 handleTimeSelect = {handleTimeSelect} />
 
                 <ReviewForm
@@ -47,25 +52,25 @@ export default function Checkout ({ cart, time, date, setDate, orderWasPlaced, c
                 orderWasPlaced = {orderWasPlaced}
                 changeQuantity = {changeQuantity}
                 removeFromCart = {removeFromCart}
-                time = {time}
-                date = {date}
+                grandTotal = {grandTotal}
+                times = {times}
+                dates = {dates}
                 cart = {cart} />
 
             </div>
         
             <div className="checkoutsummary">
 
-                <h1 style = {{'width': '100%', 'marginTop': 0, 'fontFamily': "Raleway ExtraBold", 'letterSpacing': '1.38px', 'lineHeight': '35px'}}>
-                Order Summary</h1>
+                <h1>Order Summary</h1>
 
                 <p>Subtotal</p>
-                <p style = {{'textAlign' : 'center'}}>$1200</p>
+                <p style = {{'textAlign' : 'center'}}>${subtotal}</p>
                 <p>Tax</p>
-                <p style = {{'textAlign' : 'center'}}>--</p>
+                <p style = {{'textAlign' : 'center'}}>${tax}</p>
                 <p>Estimated Shipping &amp; Delivery</p>
-                <p style = {{'textAlign' : 'center'}}>--</p>
-                <p style = {{'fontWeight': 'bold'}}>Grand Total</p>
-                <p style = {{'fontWeight': 'bold', 'textAlign' : 'center'}}>--</p>
+                <p style = {{'textAlign' : 'center'}}>${shipping}</p>
+                <p style = {{'fontWeight': 'bold', 'letterSpacing': '0.82px'}}>Estimated Grand Total</p>
+                <p style = {{'fontWeight': 'bold', 'letterSpacing': '0.82px', 'textAlign' : 'center'}}>${grandTotal}</p>
             
 
             </div>

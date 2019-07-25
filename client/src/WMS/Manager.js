@@ -41,7 +41,7 @@ export default function Manager({showTransportInfo, showOrderDetails, orders, or
                         </div>
                     <div
                     onClick = { () => setActiveTab('active')}
-                    className = {`ordersboxtab ${isActiveActive}`}>Active Orders <b>({activeLength})</b></div>
+                    className = {`ordersboxtab ${isActiveActive}`}>Active Orders <p>({activeLength})</p></div>
                     <div
                     style = {{'borderRight' : 'none'}}
                     onClick = { () => setActiveTab('completed')}

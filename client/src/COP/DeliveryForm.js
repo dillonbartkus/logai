@@ -1,16 +1,19 @@
 import React from 'react'
-import DatePicker from './DatePicker';
+import DatePicker from './DatePicker'
+import DatePicker2 from './DatePicker2'
+import DatePicker3 from './DatePicker3'
 
-export default function DeliveryForm ({ status, setStatus, setReviewStatus, time, date, setDate, handleTimeSelect }) {
+export default function DeliveryForm ({ status, setStatus, setReviewStatus, times, dates, setDates, handleTimeSelect }) {
+
+    const isDone = (status === 'done') ? 'done' : ''
 
     return(
 
-        <div className = "delivery">
+        <div className = {`delivery ${isDone}`}>
 
             <h1
-            className = {`formtitle ${status}`}
-            style = {{'marginTop': 0, 'fontFamily': "Raleway ExtraBold", 'letterSpacing': '1.38px', 'lineHeight': '35px'}}>
-            3. Delivery Date &amp; Time</h1>
+            className = {`formtitle ${status}`}>
+            3. Delivery Date &amp; Time Preferences</h1>
 
             {
                 status !== 'active' && status !== 'upcoming' &&
@@ -19,8 +22,20 @@ export default function DeliveryForm ({ status, setStatus, setReviewStatus, time
 
                 <div className="dateandtime">
 
-                {date}
-                {time.map( time => <p key = {time}>{time}</p>)}
+                    <div className = "datestimes">
+                    <p style = {{'width' : '100%'}}>#1. {dates.first}:</p>
+                    {times.first.map( time => <p key = {time}>{time} </p>)}
+                    </div>
+
+                    <div className = "datestimes">
+                    <p style = {{'width' : '100%'}}>#2. {dates.second}:</p>
+                    {times.second.map( time => <p key = {time}>{time} </p>)}
+                    </div>
+
+                    <div className = "datestimes">
+                    <p style = {{'width' : '100%'}}>#3. {dates.third}:</p>
+                    {times.third.map( time => <p key = {time}>{time} </p>)}
+                    </div>
 
                 </div>
 
@@ -29,7 +44,7 @@ export default function DeliveryForm ({ status, setStatus, setReviewStatus, time
                     setStatus('active')
                     setReviewStatus('upcoming')
                 }}
-                style = {{'width' : '50%'}} className="editbutton">Edit</span>
+                className="editbutton">Edit</span>
 
                 </>
                 
@@ -38,18 +53,23 @@ export default function DeliveryForm ({ status, setStatus, setReviewStatus, time
             {
                 status === 'active' &&
 
-                <DatePicker handleTimeSelect = {handleTimeSelect} setDate = {setDate} />
+                <>
+                <DatePicker handleTimeSelect = {handleTimeSelect} setDates = {setDates} dates = {dates}  />
+                <DatePicker2 handleTimeSelect = {handleTimeSelect} setDates = {setDates} dates = {dates}  />
+                <DatePicker3 handleTimeSelect = {handleTimeSelect} setDates = {setDates} dates = {dates}  />
+                </>
             }
 
             {
                 status !== 'done' && status !== 'upcoming' &&
 
                 <button
+                style = {{'width' : '25%', 'marginRight' : '30%'}}
                 onClick = {() => {
                     setStatus('done')
                     setReviewStatus('active')
                 }}
-                className="checkoutbutton">Choose this Date &amp; Time</button>
+                className="checkoutbutton">Choose these dates &amp; times</button>
 
             }
 

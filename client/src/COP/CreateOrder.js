@@ -16,30 +16,30 @@ export default function CreateOrder({ setActiveNavItem, cart, addToCart }) {
     }, [])
 
     useEffect( () => {
+        if(cart){
         let total = 0
         cart.forEach( item => {            
             total += item.item_quantity
         })
         setCartTotal(total)
+    }
     })
 
     const fetchProducts = async () => {
         const res =  await axios.post('/products')
         setProducts(res.data.data)
     }
-
-  
     
     return(
 
         <div className="createorder">
 
-            <h1 style = {{'fontSize' : '5vw'}}>Create Order</h1>
+            <h1 className = "bigheader">Create Order</h1>
 
             <div
             onClick = {() => setActiveNavItem('cart')}
             className="viewcart">
-                <h4>View Cart</h4>
+                <h2>View Cart</h2>
                 <img src = {cartimg} alt = 'back' />
                 <p style = {{'color' : '#FD992E', 'fontWeight' : 900}}>{cartTotal}</p>
             </div>

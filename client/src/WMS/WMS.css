@@ -21,6 +21,22 @@
 
 .incomingordernotification.incoming {
     height: 66%;
+    margin-left: 10%;
+}
+
+#wmsportalone {
+    background-image: url('../images/managerportalbutton.png');
+    background-size: contain;
+}
+
+#wmsportaltwo {
+    background-image: url('../images/wmsportalbutton.png');
+
+}
+
+#wmsportalthree {
+    background-image: url('../images/baportalbutton.png');
+    background-size: contain;
 }
 
 .manager {
@@ -40,19 +56,22 @@
 }
 
 .ordersboxtab {
+    color: #000;
     width: 25%;
     height: 7vh;
     border-right: 1px solid #1D9DEB;
     border-bottom: 1px solid #1D9DEB;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     font-weight: 900;
+    font-size: 1.5vw;
     cursor: pointer;
 }
 
-.ordersboxtab > b {
+.ordersboxtab > p {
     font-size: 150%;
+    margin-left: 5%;
 }
 
 .ordersboxtab.active {
@@ -62,7 +81,6 @@
 
 .timeslots {
     height: 100%;
-    
 }
 
 .orderdetails {
@@ -75,6 +93,7 @@
 .orderdetails > h2, .orderdetails > p, .orderdetails > h4 {
     width: 100%;
     text-align: left;
+    color: #000;
 }
 
 .orderdetails > p {
@@ -91,6 +110,7 @@
 
 .orderitemstitles > div {
     flex: 1;
+    font-size: 1.5vw;
 }
 
 .orderitems {
@@ -110,6 +130,7 @@
 
 .orderitem > div {
     flex: 1;
+    font-size: 1.5vw;
 }
 
 .imgandname {
@@ -128,10 +149,12 @@
     display: flex;
     flex-flow: row wrap;
     margin: 1% 0 1% 20%;
+    font-size: 1.5vw;
+
 }
 
 .orderpricinginfo > div {
-    font-weight: 900;
+    font-weight: 500;
     width: 50%;
     margin-top: 2%;
 }
@@ -142,6 +165,7 @@
 }
 
 .orderpricinginfo > span {
+    font-weight: 900;
     width: 50%;
     margin-top: 2%;
 }
@@ -162,12 +186,6 @@
     width: 25%;
     font-size: 1.1vw;
 }
-
-/*  */
-
-/*  */
-
-/*  */
 
 .today {
     width: 100%;
@@ -205,23 +223,25 @@
     background-color: #1D9DEB;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+}
+
+.todayorderbox-top > * {
+    margin-left: 2%;
+    margin-right: 33%;
 }
 
 .todayorderbox-bottom {
     width: 100%;
+    height: 70%;
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
     align-items: center;
     border-radius: 3px 3px 0 3px;    
 }
 
-.todayorderbox-bottom > * {
-    width: 33%;
-}
-
-.todayorderbox-bottom > div > h2 {
-    margin: auto;
+.todayorderbox-bottom > div > h4 {
+    margin: 5% auto;
 }
 
 .incomingorders {
@@ -231,11 +251,52 @@
 .incomingorder {
     border: 1px solid #979797;
     border-radius: 3px 3px 0 3px;
-    width: 90%;
+    background-color: #EFEFEF;
+    width: 95%;
     height: 20vh;
     margin: 2% auto;
     display: flex;
     flex-flow: row wrap;
+}
+
+.incomingorderbox-top {
+    text-align: left;
+    height: 30%;
+    width: 100%;
+    border-radius: 3px 3px 0 0;    
+    background-color: #1D9DEB;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.incomingorderbox-top > * {
+    margin-left: 2%;
+    margin-right: 33%;
+}
+
+.incomingorderbox-bottom {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 3px 3px 0 3px;  
+}
+
+.incomingorderbox-bottom > * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.incomingorderbox-bottom > h2 {
+    letter-spacing: 2px;
+}
+
+.incomingorderbox-bottom > button {
+    width: 33%;
+    height: 50%;
 }
 
 .link {

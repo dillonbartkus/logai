@@ -8,32 +8,71 @@ import OrderHistory from './OrderHistory'
 import TrackOrders from './TrackOrders'
 import Cart from './Cart'
 import Checkout from './Checkout'
+import OrderDetails from './OrderDetails'
 
 export default function COP({ activeNavItem, setActiveNavItem }) {
 
     const [recentlyPlacedOrder, setRecentlyPlacedOrder] = useState(false)
-    const [date, setDate] = useState()
-    const [time, setTime] = useState([])
+    const [orderAddress, setOrderAddress] = useState({
+        name: '',
+        streetnamenumber: '',
+        city: '',
+        state: '',
+        zip: ''
+    })
+    const [dates, setDates] = useState({
+        first: '',
+        second: '',
+        third: ''
+    })
+    const [times, setTimes] = useState({
+        first: [],
+        second: [],
+        third: []
+    })
+    const [paymentInfo, setPaymentInfo] = useState({
+        cardholder: '',
+        cardNumber: '',
+        expMonth: '',
+        expYear: '',
+        cvc: ''
+    })
     const [cart, setCart] = useState()
+    const [orders, setOrders] = useState()
     const [recentOrderId, setRecentOrderId] = useState()
+    let subtotal = 0
 
     useEffect( () => {
-        fetchCart()        
+        fetchCart()
+        fetchOrders()
     }, [])    
 
     const fetchCart = async () => {
-        let res = await axios.post(`/cart/1`)
+        const res = await axios.post(`/cart/1`)
         setCart(res.data.data)
     }
 
-    const orderWasPlaced = async (cart, time, date) => {
+    const updateSubtotal = () => {
+        if(cart) cart.forEach( item => subtotal += (item.price * item.item_quantity) )
+    }
+
+    const fetchOrders = async () => {
+        const res = await axios.post(`/getallcustomerorders/${1}`)
+        setOrders(res.data.data)
+    }    
+    
+    // Add customer order to database as an incoming order for the warehouse.
+
+    const orderWasPlaced = async (cart, times, dates) => {
+        const now = new Date().toLocaleDateString()
         const res = await axios.post(`/createcustomerorder`, {
             warehouse_id: 2,
             ordered_by: 1,
+            date_placed: now,
             status: 'incoming',
-            preferred_date: date,
-            preferred_times: time,
-            delivery_address: '123 Fake st NY NY'
+            preferred_dates: dates,
+            preferred_times: times,
+            delivery_address: orderAddress
         })
         addCartItemsToOrder(cart, res.data.data.id)
         setRecentOrderId(res.data.data.id)
@@ -41,25 +80,50 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
         setActiveNavItem('')
     }
 
+    // Use the id of the above order to add cart items to the order.
+
     const addCartItemsToOrder = async (cart, id) => {
         cart.forEach( async item => {            
             await axios.post(`/additemstoorder`, {
                 item_id: item.id,
-                item_amount: item.item_quantity,
+                amount_ordered: item.item_quantity,
                 order_id: id
             })            
         })
     }
+
+    const handlePaymentInfo = e => {
+        console.log(e)
+    }
+
+    // function for handling the preferred delivery times.
     
     const handleTimeSelect = e => {
-        if (e.target.checked){
-            const  newTime = [...time , e.target.value]
-            setTime (newTime);
+        const { name, value, checked } = e.target        
+        if (checked) {
+            setTimes({...times, [name]: [...times[name], value]})
             } 
         else {
-            let remove = time.indexOf(e.target.value)
-            time.splice(remove, 1)
+            const remove = times[name].indexOf(e.target.value)
+            times[name].splice(remove, 1)
           }
+    }
+
+    // handle the order delivery address.
+
+    const handleDeliveryAddress = e => {
+        const {name, value} = e.target
+        setOrderAddress({
+            ...orderAddress,
+            [name] : value
+        })
+    }
+
+    // Show a single order details page from the order tracker.
+
+    const showOrder = order => {
+        setRecentOrderId(order.id)
+        setActiveNavItem('details')
     }
 
     const addToCart = (item, quantity) => {
@@ -116,6 +180,8 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
 
         <div className="cop">
 
+            {updateSubtotal()}
+
             {
                 recentlyPlacedOrder &&
 
@@ -124,15 +190,15 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
                 <img src = {balloons} alt = ''></img>
 
                 <div>
-                    <h2 className="orderheader">Your order request has been sent!</h2>
+                    <h2 className="smallheader">Your order request has been sent!</h2>
                     <p>Purchase Order # {recentOrderId}</p>
-                    <p>Delivery Date &amp; Time: {time} on {date} </p>
+                    <p>You will not be charged until the order has been finalized.</p>
                 </div>
 
                 <button 
                 onClick = { () => {
                     setRecentlyPlacedOrder(false)
-                    setActiveNavItem('track')
+                    setActiveNavItem('details')
                 }}
                 className="addtocart">View / Track Order</button>
                 
@@ -155,12 +221,23 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
 
             {
             activeNavItem === 'track' &&
-                <TrackOrders />
+                <TrackOrders
+                showOrder = {showOrder}
+                orders = {orders}
+                setActiveNavItem = {setActiveNavItem} />
+            }
+
+            {
+            activeNavItem === 'details' &&
+                <OrderDetails
+                setActiveNavItem = {setActiveNavItem}
+                orderId = {recentOrderId} />
             }
 
             {
             activeNavItem === 'history' &&
-                <OrderHistory />
+                <OrderHistory 
+                orders = {orders.filter( order => order.status === 'completed' )} />
             }
 
             {
@@ -168,6 +245,8 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
                 <Cart
                 setActiveNavItem = {setActiveNavItem}
                 cart = {cart}
+                fetchCart = {fetchCart}
+                subtotal = {subtotal}
                 changeQuantity = {changeQuantityOfCartItem}
                 removeFromCart = {removeFromCart} />
             }
@@ -176,9 +255,13 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
             activeNavItem === 'checkout' &&
                 <Checkout
                 cart = {cart}
-                time = {time}
-                date = {date}
-                setDate = {setDate}
+                times = {times}
+                subtotal = {subtotal}
+                handleDeliveryAddress = {handleDeliveryAddress}
+                handlePaymentInfo = {handlePaymentInfo}
+                orderAddress = {orderAddress}
+                dates = {dates}
+                setDates = {setDates}
                 handleTimeSelect = {handleTimeSelect}
                 changeQuantity = {changeQuantityOfCartItem}
                 removeFromCart = {removeFromCart}

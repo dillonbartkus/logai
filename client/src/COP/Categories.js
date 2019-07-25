@@ -28,8 +28,8 @@ export default function Categories({ products, setSearchTerm }) {
                 products &&
                 <>
                 <span
-                onClick = {() => setSearchTerm('')}
-                >All</span>
+                onClick = {() => setSearchTerm('all')}
+                >All Products</span>
                 {filterCategories()}
                 </>
             }

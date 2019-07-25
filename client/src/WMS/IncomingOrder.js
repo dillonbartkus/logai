@@ -6,7 +6,7 @@ export default function IncomingOrder({ order, showOrderDetails, showTransportIn
 
         <div className = "incomingorder">
 
-            <div className="todayorderbox-top">
+            <div className="incomingorderbox-top">
 
                 <h2>Order# {order.id}</h2>
 
@@ -14,9 +14,9 @@ export default function IncomingOrder({ order, showOrderDetails, showTransportIn
 
             </div>
 
-            <div className = "todayorderbox-bottom">
+            <div className = "incomingorderbox-bottom">
 
-                <h2>Delivery: {order.preferred_date}</h2>
+                <h2>Delivery: {JSON.parse(order.preferred_dates).first}</h2>
 
                 <button
                 onClick = { () => showTransportInfo(order, order.company) }

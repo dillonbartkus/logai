@@ -26,7 +26,7 @@ export default function Dashboard() {
   })
 
   const fetchOrders = async () => {
-    let res = await axios.post(`/getorders/2`)
+    let res = await axios.post(`/getwarehouseorders/2`)
     setOrders(res.data.data)
   }
 
@@ -45,14 +45,11 @@ export default function Dashboard() {
 
       <DashHeader setActiveNavItem = {setActiveNavItem} />
 
-      {
-        activeNavItem === 'checkout' ||
-        <SideNav incomingLength = {incomingOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
-      }
+      <SideNav incomingLength = {incomingOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
 
-      {/* <Customer activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
+      <Customer activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
 
-      <Warehouse orders = {orders} incomingLength = {incomingOrderLength} activeLength = {activeOrderLength} fetchOrders = {fetchOrders}  activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+      {/* <Warehouse orders = {orders} incomingLength = {incomingOrderLength} activeLength = {activeOrderLength} fetchOrders = {fetchOrders}  activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
 
       </div>
       

@@ -5,9 +5,9 @@ export default function TransportationInfo({ popup, order, setActiveNavItem, upd
 
     const [company, setCompany] = useState(order.trucking_company || '')
     const [driver, setDriver] = useState(order.truck_driver || '')
-    const [date, setDate] = useState(order.actual_date || '')
-    const [time, setTime] = useState(order.actual_time || '')
-
+    const [date, setDate] = useState(JSON.parse(order.preferred_dates).first )
+    const [time, setTime] = useState(JSON.parse(order.preferred_times).first[0].length > 1 ? JSON.parse(order.preferred_times).first[0] : JSON.parse(order.preferred_times).first )
+    
     return(
 
         <div className = "transportinfo">
@@ -29,17 +29,26 @@ export default function TransportationInfo({ popup, order, setActiveNavItem, upd
             <h2>Date</h2>
 
             <Calendar
+            calendarType = "US"
             name = "deliveryDate"
-            selected = {order.actual_date}
             onChange = { date => setDate(date.toLocaleDateString() ) }
             className ="transportcalendar"/>
 
             <h2>Time</h2>
 
             <select
-            onChange ={ e => setTime(e.target.value) }
-            selected = {order.actual_time} >
-                <option></option>
+            onChange ={ e => setTime(e.target.value) } >
+                <option>Select:</option>
+                <option value="7:00 AM">7:00 AM</option>
+                <option value="8:00 AM">8:00 AM</option>
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
+                <option value="4:00 PM">4:00 PM</option>
                 <option value="5:00 PM">5:00 PM</option>
             </select>
 

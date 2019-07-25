@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PaymentForm ({status, setStatus, setDeliveryStatus}) {
+export default function PaymentForm ({status, setStatus, handlePaymentInfo, setDeliveryStatus}) {
 
 
     return(
@@ -8,8 +8,7 @@ export default function PaymentForm ({status, setStatus, setDeliveryStatus}) {
         <div className = "payment">
 
             <h1
-            className = {`formtitle ${status}`}
-            style = {{'marginTop': 0, 'fontFamily': "Raleway ExtraBold", 'letterSpacing': '1.38px', 'lineHeight': '35px'}}>
+            className = {`formtitle ${status}`} >
             2. Payment Information</h1>
 
             {
@@ -68,6 +67,16 @@ export default function PaymentForm ({status, setStatus, setDeliveryStatus}) {
                 type="text"
                 />
 
+                {/*
+                <div class="card-js">
+                    <input class="card-number my-custom-class" name="card-number"></input>
+                    <input class="name" id="the-card-name-id" name="card-holders-name" placeholder="Name on card"></input>
+                    <input class="expiry-month" name="expiry-month"></input>
+                    <input class="expiry-year" name="expiry-year"></input>
+                    <input class="cvc" name="cvc"></input>
+                </div>
+                */}
+
                 </div>
 
             }
@@ -76,6 +85,7 @@ export default function PaymentForm ({status, setStatus, setDeliveryStatus}) {
                 status !== 'done' && status !== 'upcoming' &&
 
                 <button
+                style = {{'width' : '45%'}}
                 onClick = {() => {
                     setStatus('done')
                     setDeliveryStatus('active')

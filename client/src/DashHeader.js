@@ -13,15 +13,13 @@ return (
     <div className = "dashheader">
              
         <div
+        className = "headerlogo"
         onClick = {() => setActiveNavItem('')}
-        style = {{'display' : 'flex', 'flexDirection' : 'column'}}
         >
-            <span
-            style = {{'fontSize' : '3.5vw'}}
-            >LOG.AI</span>
-            <span
-            style = {{'fontSize' : '1vw'}}
-            >Inventory Management</span>
+            <span>LOG.AI</span>
+
+            <span>Inventory Management</span>
+
         </div>
 
 

@@ -2,25 +2,23 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f6f8fa !important;
-  font-family: 'Raleway', sans-serif !important;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: rgb(74, 74, 74) !important;
 }
 
 span {
-  font-size: 24px;
+  /* font-size: 24px;
   font-size: 2.5vh ;
   font-weight: 700;
-  color: rgb(74, 74, 74);
+  color: rgb(74, 74, 74); */
 }
 
-label {
-  font-size: 2vw;
-}
-
-h3 {
-  font-size: 3vw !important;
+button {
+  outline: none !important;
+  background-color: rgb(29, 157, 235);
+  font-weight: 500;
+  cursor: pointer;
 }
 
 span:hover {
@@ -39,14 +37,11 @@ form > input {
   border-radius: 5px;
 }
 
-button {
-  outline: none !important;
-  /* width: 25vw; */
+.formbutton {
+  width: 25vw;
+  height: 6vh;
   border-radius: 10px !important;
-  background-color: rgb(29, 157, 235);
-  /* color: white; */
-  font-weight: 500;
-  cursor: pointer;
+  color: white;
 }
 
 .header {
@@ -197,7 +192,7 @@ button {
 }
 
 button:active {
-  animation: click 2s linear !important;
+  animation: click .5s linear !important;
 }
 
 button:focus {

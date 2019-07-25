@@ -1,22 +1,22 @@
-INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
-  (
-    'dillon',
-    'admin',
-    'dillonbartkus@gmail.com',
-    '9175455097',
-    'Dillon',
-    'shipper'
-  ),
-  (
-    'Steve''s Warehouse',
-    '$2b$11$XqkXv8pXkJsp4tbJyzq6deBKzyLP4dYv2Rg054KRpJj4dJbC/PJ9O',
-    'steve',
-    '5555555555',
-    'Steve',
-    'warehouse'
-  );
+-- INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
+--   (
+--     'dillon',
+--     'admin',
+--     'dillonbartkus@gmail.com',
+--     '9175455097',
+--     'Dillon',
+--     'shipper'
+--   ),
+--   (
+--     'Steve''s Warehouse',
+--     '$2b$11$XqkXv8pXkJsp4tbJyzq6deBKzyLP4dYv2Rg054KRpJj4dJbC/PJ9O',
+--     'steve',
+--     '5555555555',
+--     'Steve',
+--     'warehouse'
+--   );
 
-  INSERT INTO inventory (warehouse_id, sku, name, location, type, weight, last_checked, received_on, FIFO, picture, on_hand, reserved) VALUES
+  INSERT INTO inventory (warehouse_id, sku, name, location, type, weight, price, last_checked, received_on, FIFO, picture, on_hand, reserved) VALUES
     (
       '2',
       '123456',
@@ -24,6 +24,7 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       'Row 5 Shelf 7',
       'Food',
       '10',
+      '5',
       '4/30/2019',
       '4/25/2019',
       'True',
@@ -38,6 +39,7 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       'Row 22 Shelf 3',
       'Food',
       '3',
+      '5',
       '4/30/2019',
       '4/25/2019',
       'True',
@@ -51,6 +53,7 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       'Spam',
       'Row 19 Shelf 8',
       'Food',
+      '5',
       '5',
       '4/30/2019',
       '4/25/2019',
@@ -66,6 +69,7 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       'Row 2 Shelf 7',
       'Food',
       '10',
+      '3',
       '4/30/2019',
       '4/25/2019',
       'True',
@@ -73,21 +77,37 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       '200',
       '0'
     ),
-        (
+      (
       '2',
       '223333',
       'Ramen Noodles',
       'Row 13 Shelf 5',
       'Food',
       '7',
+      '2',
       '4/30/2019',
       '4/25/2019',
       'True',
       'http://ecx.images-amazon.com/images/I/91aXy3R2SYL._SL1500_.jpg',
       '999',
       '333'
+    ),
+    (
+      '2',
+      '420420',
+      'Maker''s Mark Whiskey',
+      'Row 2 Shelf 6',
+      'Spirits',
+      '3',
+      '20',
+      '5/03/2019',
+      '6/03/2019',
+      'FALSE',
+      'http://www.boozebusiness.com/wp-content/uploads/2015/03/makersmark.jpg',
+      '23',
+      '2'
     );
-
+    
   INSERT INTO carts (owner_id) VALUES
   (
     '1'
@@ -96,7 +116,7 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
     '2'
   );
 
-  INSERT INTO orders (warehouse_id, ordered_by, status, total_weight, employee, date_received, trucking_company, truck_driver, delivery_address, preferred_date, actual_date, preferred_times, actual_time) VALUES
+  INSERT INTO orders (warehouse_id, ordered_by, status, total_weight, employee, date_placed, trucking_company, truck_driver, delivery_address, customer_confirmed_transport, preferred_dates, actual_date, preferred_times, actual_time) VALUES
     (
       '2',
       '1',
@@ -106,10 +126,11 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       '06/20/2019',
       '',
       '',
-      '123 Fake Street, Faketown NY 12345',
-      '06/25/2019',
+      '{"name":"Dillon Bartkus","streetnamenumber":"631 van buren st","city":"Brooklyn","state":"NY","zip":"11221"}',
+      'FALSE',
+      '{"first":"7/5/2019","second":"7/12/2019","third":"7/26/2019"}',
       '',
-      '{5:00 PM, 6:00 PM}',
+      '{"first":["8:00AM","9:00AM"],"second":["9:00AM","10:00AM"],"third":["10:00AM","11:00AM"]}',
       ''
     ),
     (
@@ -121,10 +142,11 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       '06/21/2019',
       'Sam''s Trucking',
       'Sam',
-      '123 Fake Street, Faketown NY 12345',
-      '06/25/2019',
+      '{"name":"Joe Smith","streetnamenumber":"99 Fake st","city":"Boston","state":"MA","zip":"02575"}',
+      'FALSE',
+      '{"first":"7/5/2019","second":"7/12/2019","third":"7/26/2019"}',
       '06/26/2019',
-      '{4:00 PM, 5:00 PM, 6:00 PM}',
+      '{"first":["8:00AM","9:00AM"],"second":["9:00AM","10:00AM"],"third":["10:00AM","11:00AM"]}',
       '5:00 PM'
     ),
     (
@@ -136,14 +158,15 @@ INSERT INTO users (company, pw, email, phone, npc, company_type) VALUES
       '06/25/2019',
       'Best Trucking',
       'Jim',
-      '99 Circle Dr, Hicksville MD 12345',
+      '{"name":"Steve Steven","streetnamenumber":"123 Pin oak circle","city":"Vineyard Haven","state":"MA","zip":"02434"}',
+      'TRUE',
+      '{"first":"7/5/2019","second":"7/12/2019","third":"7/26/2019"}',
       '06/25/2019',
-      '06/25/2019',
-      '{5:00 PM, 6:00 PM}',
+      '{"first":["8:00AM","9:00AM"],"second":["9:00AM","10:00AM"],"third":["10:00AM","11:00AM"]}',
       '6:00 PM'
     );
 
-    INSERT INTO order_items (item_id, item_amount, order_id) VALUES
+    INSERT INTO order_items (item_id, amount_ordered, order_id) VALUES
     (
       '2',
       '25',

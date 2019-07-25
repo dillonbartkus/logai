@@ -4,19 +4,13 @@ select {
     border-radius: 3px;
 }
 
-h4, h3, h2, h1 {
-    color: #000;
-}
-
 .bigheader {
-    font-family: "Raleway SemiBold";
-    font-size: 4vw;
+    font-size: 52px;
     letter-spacing: 2.38px;
     line-height: 61px;
 }
 
 .smallheader {
-    font-family: "Raleway ExtraBold";
     font-size: 30px;
     letter-spacing: 1.38px;
     line-height: 35px;
@@ -29,6 +23,21 @@ h4, h3, h2, h1 {
     width: 90%;
     margin-left: 10vw;
     text-align: center;
+}
+
+#copportalone {
+    background-image: url('../images/clipboardportalbutton.png');
+    background-size: 30%;
+}
+
+#copportaltwo {
+    background-image: url('../images/trackorderportalbutton.png');
+    background-size: 40%;
+}
+
+#copportalthree {
+    background-image: url('../images/orderhistoryportalbutton.png');
+    background-size: 40%;
 }
 
 .createorder {
@@ -51,9 +60,9 @@ h4, h3, h2, h1 {
 
 .viewcart > p {
     position: relative;
-    right: 24%;
+    right: 20%;
     bottom: 4%;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .search {
@@ -74,8 +83,7 @@ h4, h3, h2, h1 {
     width: 90%;
     height: 5vh;
     padding: 1%;
-    font-size: 2.5vw;
-    background-color: #f6f8fa;
+    font-size: 18px;
     margin-left: 2%;
 }
 
@@ -89,6 +97,10 @@ h4, h3, h2, h1 {
     margin-top: 3%;
 }
 
+.productlist > h4 {
+    font-size: 22px;
+}
+
 .categorylist {
     width: 15%;
     border-right: 1px solid black;
@@ -99,33 +111,73 @@ h4, h3, h2, h1 {
     flex-flow: column;
 }
 
+.categorylist > h4 {
+    font-size: 22px;
+}
+
 .categorylist > span {
-    margin-top: 15%;
+    margin-top: 10%;
+    font-size: 16px;
 }
 
 .productlisting {
     width: 100%;
+    height: 10vh;
     margin: 5% auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: left;
 }
 
-.productlisting > * {
-    margin: 0 1%;
+.productlisting > img {
+    width: 5%;
+    height: 75%;
+    margin-right: 4%;
+}
+
+.productlisting > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.pricepercase {
+    margin-left: 2%;
+    width: 20%;
+    text-align: left;
+}
+
+.nameandsku {
+    width: 30%;
+}
+
+.nameandsku > span {
+    margin-bottom: 5%;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.73px;
+}
+
+.quantityselector {
+    width: 20%;
+    align-items: center;
+}
+
+.quantityselector > select {
+    margin-top: 2%;
+    font-size: 2vh;
 }
 
 .addtocart {
-    border-radius: 16px !important;
+    border-radius: 16px;
     color: #000000;
-    height: 6vh;
-    font-size: 2.5vh;
-    text-align: center;
-    width: 25%;
+    height: 66%;
+    font-size: 16px;
+    width: 20%;
 }
 
 .addtocart.true {
-    background-color: seagreen;
+    background-color: #6BE174;
 }
 
 .cart {
@@ -136,14 +188,24 @@ h4, h3, h2, h1 {
 }
 
 .cartproducts {
-    width: 60%;
+    width: 55%;
     margin: 2%
 }
 
+.cartproducts > h4 {
+    font-size: 22px;
+    font-weight: 900;
+    text-align: right;
+    margin-right: 20%;
+}
+
 .remove {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
     color: red;
     cursor: pointer;
+    text-align: center;
+    font-weight: 900;
 }
 
 .backtoorder {
@@ -162,31 +224,52 @@ h4, h3, h2, h1 {
     margin-right: 2%;
 }
 
+.backtoorder > span {
+    font-size: 22px;
+    letter-spacing: 1.01px;
+    line-height: 26px;
+    font-weight: 600;
+}
+
 .subtotal {
     width: 30%;
     text-align: left;
     margin: 2%;
 }
 
+.subtotal > h4 {
+    font-size: 22px;
+    font-weight: 900;
+}
+
 .checkout {
-    width: 100%;
+    width: 95%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
 }
 
 .checkoutinfo {
-    width: 50%;
+    width: 100%;
     text-align: left;
 }
 
 .checkoutsummary {
     height: 33vh;
-    width: 40%;
+    width: 35%;
+    position: absolute;
+    top: 35%;
+    right: 0;
     display: flex;
     flex-flow: row wrap;
     text-align: left;
     justify-content: space-around;
+}
+
+.checkoutsummary > h1 {
+    font-size: 30px;
+    width: 100%;
+    font-weight: 900;
 }
 
 .checkoutsummary > * {
@@ -197,16 +280,25 @@ h4, h3, h2, h1 {
 .orderplaced {
     border: 1px solid #979797;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
     align-items: center;
     width: 90%;
     margin-top: 3%;
     text-align: left;
 }
 
+.orderplaced > div > p {
+    font-weight: 900;
+}
+
+.orderplaced > button {
+    height: 25%;
+    width: 25%;
+    margin: auto;
+}
+
 .orderplaced > img {
     height: 50%;
+    margin: 0 2%;
 }
 
 .orderheader{
@@ -230,15 +322,15 @@ h4, h3, h2, h1 {
 .ordertitle {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
 .orderconfirmationbox {
     border: 1px solid #979797;
     width: 100%;
+    min-height: 27vh;
     text-align: left;
-    padding: 3%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
@@ -246,16 +338,60 @@ h4, h3, h2, h1 {
 
 .orderconfirmationbox.false > * {
     color: #FD992E;
-    width: 75%;
+    width: 90%;
+    margin: auto;
 }
 
-.orderconfirmationbox.true h4, .orderconfirmationbox h2 {
+.orderconfirmationbox.true > div {
+    width: 66%;
+    margin-left: 3%;
+}
+
+.orderconfirmationbox.true > div > * {
     color: #6BE174;
+    margin: 1% auto;
+}
+
+.orderconfirmationbox.true > div > h3 {
+    margin-top: 2%;
+}
+
+.orderconfirmationbox.true > div > p {
+    margin: 2% 0;
 }
 
 .orderconfirmationbox > button {
-    width: 30%;
-    margin: auto;
+    width: 24%;
+    height: 25%;
+    margin: auto 2%;
+}
+
+.ordercomplete {
+    display: flex;
+    align-items: center;
+    width: 100% !important;
+}
+
+.ordercomplete > img {
+    height: 75%;
+    margin: auto 2% auto 0;
+}
+
+.ordercomplete > div {
+    width: 75%;
+    height: 75%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.ordercomplete > div > h2 {
+    margin: 0;
+}
+
+.ordercomplete > div > p {
+    color: #000;
+    width: 100%;
+    font-weight: 600;
 }
 
 .orderinformation {
@@ -263,30 +399,54 @@ h4, h3, h2, h1 {
     text-align: left;
 }
 
+.orderdeliverydate > div {
+    display: flex;
+}
+
+.orderdeliverydate > div > p {
+    font-size: 20px;
+    margin: 2%;
+}
+
 .leavemessage {
-    width: 40%;
+    width: 47%;
     text-align: left;
     display: flex;
     flex-flow: column;
-}
-
-.leavemessage > select {
-    margin-bottom: 4%;
-    height: 4vh;
-    width: 40%;
 }
 
 .leavemessage > textarea {
     width: 100%;
     height: 13vh;
     font-size: 1.5vw;
+    padding: 3%;
+    border: 1px solid #979797;
+    border-radius: 3px;
 }
 
 .leavemessage > button {
-    width: 33%;
+    width: 20%;
     margin-top: 4%;
-    height: 8vh;
+    height: 6vh;
     align-self: flex-end;
+}
+
+.orderdeliverydate {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.orderdeliverydate > h2 {
+    width: 100%;
+}
+
+.orderdeliverydate > p {
+    font-size: 2vw !important;
+    margin-right: 5%;
+}
+
+.orderinformation > div {
+    color: #000;
 }
 
 .orderinfosummary {
@@ -298,4 +458,62 @@ h4, h3, h2, h1 {
 .orderinfosummary > p, .ordersummary > b {
     width: 49%;
     margin-top: 2%;
+}
+
+.trackordersbox {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    border: 1px solid #979797;
+    border-radius: 3px;
+}
+
+.customerorder {
+    width: 90%;
+    display: flex;
+    flex-flow: column;
+    border-radius: 3px 3px 0 3px;
+    margin: 2% auto;
+    height: 20vh;
+}
+
+.customerorderbox-top {
+    background-color: #1D9DEB;
+    border-radius: 3px 3px 0 0;
+    height: 33%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customerorderbox-top > * {
+    margin: auto 2%;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.customerorderbox-bottom {
+    background-color: #EFEFEF;
+    border: 1px solid #979797;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 67%;
+    text-align: left;
+}
+
+.customerorderbox-bottom > div {
+    margin: 2%;
+}
+
+.customerorderbox-bottom > div > * {
+    color: #000;
+    margin: 3% 0;
+    font-size: 18px;
+}
+
+.customerorderbox-bottom > button {
+    width: 25%;
+    height: 50%;
+    margin-right: 5%;
 }

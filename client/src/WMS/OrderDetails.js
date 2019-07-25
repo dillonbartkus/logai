@@ -15,7 +15,7 @@ export default function OrderDetails({ setActiveNavItem, showTransportInfo, orde
         let res = await axios.post(`/cart/1`)
         setOrderItems(res.data.data)
     }
-
+    
     const isTransportInfo = () => {
         if (order.trucking_company && order.truck_driver && order.actual_date && order.actual_time) {
             return(
@@ -40,13 +40,13 @@ export default function OrderDetails({ setActiveNavItem, showTransportInfo, orde
         }
         else return(
             <>
-            <h2 className = "smallheader">Preferred Delivery Date: {order.preferred_date} </h2>
+            <h2 className = "smallheader">Preferred Delivery Date: {(JSON.parse(order.preferred_dates).first)} </h2>
 
-            <h2 className = "smallheader">Preferred Delivery Times: {order.preferred_times.map(time => <p key = {time}>{time}</p>)} </h2>
+            <h2 className = "smallheader">Preferred Delivery Times: {(JSON.parse(order.preferred_times).first)[0]}, {(JSON.parse(order.preferred_times).first)[1]} </h2>
 
             <button
             onClick = { () => showTransportInfo(order, order.company) }
-            className = "transportbutton">Add transportation information</button>
+            className = "transportbutton" style = {{'height' : '3.5%', 'width' : '33%'}}>Add transportation information</button>
 
             <h4>Note: The customer will be sent a notification once transportation information has been added.</h4>
             </>
@@ -60,7 +60,6 @@ export default function OrderDetails({ setActiveNavItem, showTransportInfo, orde
             <div className = "backtoorder">
             <img src = {back} alt = 'back'/>
             <span
-            style = {{'fontFamily': "Raleway SemiBold", 'color': '#000000', 'fontSize': '22px', 'letterSpacing': '1.01px', 'lineHeight': '26px'}}
             onClick = { () => setActiveNavItem('manager')}
             >Back to Order Manager Main</span>
             </div>
@@ -69,10 +68,10 @@ export default function OrderDetails({ setActiveNavItem, showTransportInfo, orde
 
             <h2 className = "smallheader">Shipping Address</h2>
 
-            <p>{order.company}</p>
-            <p>{order.delivery_address}</p>
-            <p>New York, NY 12345</p>
-
+            <p>{JSON.parse(order.delivery_address).name}</p>
+            <p>{JSON.parse(order.delivery_address).streetnamenumber}</p>
+            <p>{JSON.parse(order.delivery_address).city}, {JSON.parse(order.delivery_address).state} {JSON.parse(order.delivery_address).zip}</p>
+            
             <h2 className = "smallheader">Order Details</h2>
 
             <div className = "orderitemstitles">

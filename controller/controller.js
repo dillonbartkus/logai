@@ -117,15 +117,16 @@ controller.addToCart = async (req, res) => {
 }
 
 controller.createCustomerOrder = async (req, res) => {
-  const { warehouse_id, ordered_by, status, preferred_date, preferred_time, delivery_address } = req.body;
+  const { warehouse_id, ordered_by, date_placed, status, preferred_dates, preferred_times, delivery_address } = req.body;
 
   try {
     const data = await Log.createCustomerOrder({
       warehouse_id,
       ordered_by,
+      date_placed,
       status,
-      preferred_date,
-      preferred_time,
+      preferred_dates,
+      preferred_times,
       delivery_address
     })
       res.json({
@@ -139,12 +140,12 @@ controller.createCustomerOrder = async (req, res) => {
 }
 
 controller.addCartItemsToOrder = async (req, res) => {
-  const { item_id, item_amount, order_id } = req.body;
+  const { item_id, amount_ordered, order_id } = req.body;
 
   try {
     const data = await Log.addCartItemsToOrder({
       item_id,
-      item_amount,
+      amount_ordered,
       order_id
     })
       res.json({
@@ -156,6 +157,52 @@ controller.addCartItemsToOrder = async (req, res) => {
     res.status(500).json({ err })
   } 
 }
+
+controller.getCustomerOrder = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const data = await Log.getCustomerOrder(id)
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err });
+  }
+}
+
+controller.getAllCustomerOrders = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const data = await Log.getAllCustomerOrders(id)
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err });
+  }
+}
+
+controller.confirmCustomerOrder = async (req, res) => {
+  const id = req.params.id
+
+  try {
+    const data = await Log.confirmCustomerOrder(id)
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err });
+  }
+}
+
 
 controller.changeQuantity = async (req, res) => {
   const id = req.params.id
@@ -213,11 +260,11 @@ controller.getInventory = async (req, res) => {
   }
 };
 
-controller.getOrders = async (req, res) => {
+controller.getWarehouseOrders = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const data = await Log.getOrders(id)
+    const data = await Log.getWarehouseOrders(id)
       res.json({
         data: data
       })

@@ -11,7 +11,7 @@ export default function Searchbar({ setSearchTerm, searchTerm }) {
 
             <input
             onChange = { e => setSearchTerm(e.target.value) }
-            className="searchbar" value = {searchTerm} placeholder = "Search all products">
+            className="searchbar" value = {searchTerm} placeholder = "Search product name or category...">
             </input>
 
         </div>

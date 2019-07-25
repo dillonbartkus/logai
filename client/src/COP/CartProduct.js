@@ -4,7 +4,7 @@ export default function CartProduct({ item, changeQuantity, removeFromCart }) {
 
     const selectQuantity = item => {
         let options = []
-        for (let i = 1; i <= item.quantity; i ++) {
+        for (let i = 1; i <= item.on_hand; i ++) {
             options.push(<option key = {i}>{i}</option>)
         }
         return options
@@ -14,15 +14,20 @@ export default function CartProduct({ item, changeQuantity, removeFromCart }) {
 
         <div className="productlisting">
 
-        <img src = {item.picture} alt = {item.name} style = {{'height' : '10vh', 'width' : '8%'}} />
-        <span style = {{'width' : '10%'}}>{item.name}</span>
-        <p style = {{'width' : '10%'}}>Unit Price: $20</p>
-        <p style = {{'width' : '10%'}}># in Cart: {item.item_quantity}</p>
-            <div style = {{'display' : 'flex', 'flexDirection' : 'column', 'alignItems' : 'center'}}>
-                Quantity
+            <img src = {item.picture} alt = {item.name} />
+            <div className = "nameandsku">
+                <span>{item.name}</span>
+                <p>Product ID: {item.sku}</p>
+                <p>Units per case: 24</p>
+            </div>
+            <div className = "pricepercase">
+                <p>Price per case:</p>
+                <p>${item.price}</p>
+            </div>
+            <div className = "quantityselector">
+                <p>Quantity</p>
                 <select
                 defaultValue = {item.item_quantity}
-                style = {{'width' : '70%'}}
                 onChange = { e => {
                     changeQuantity(item, e.target.value)
                 }}
@@ -34,10 +39,10 @@ export default function CartProduct({ item, changeQuantity, removeFromCart }) {
             <div
             onClick = {() => removeFromCart(item)}
             className="remove">
-                    Remove?
-                    <br/>
-                    <b>X</b>
-                </div>
+                Remove?
+                <br/>
+                <p>X</p>
+            </div>
         </div>
 
     )

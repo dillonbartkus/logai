@@ -4,13 +4,13 @@ export default function TimeSlot({ timeslot, orders }) {
 
     const [order, setOrder] = useState()
 
+    
+
     useEffect( () => {
         const today = new Date().toLocaleDateString()
-        const res = orders.filter( order => order.actual_date === today && order.actual_time === timeslot)        
-        if(res) setOrder(res[0])
+        const res = orders.filter( order => order.actual_date === today && order.actual_time === timeslot )        
+        if(res) setOrder(res[0])        
     }, [])
-
-    console.log(order)
 
     return(
 
@@ -29,7 +29,7 @@ export default function TimeSlot({ timeslot, orders }) {
 
                     <div className="todayorderbox-top">
 
-                        <h2>Order# {order.id}</h2>
+                        <h2>Order #{order.id}</h2>
 
                         <h2>Client: {order.company}</h2>
 
@@ -42,17 +42,17 @@ export default function TimeSlot({ timeslot, orders }) {
                         </div>
 
                         <div>
-                        <h2>Trucking:</h2>
-                        <p>{order.trucking_company}</p>
+                        <h4>Trucking:</h4>
+                        <p>{order.trucking_company}dasdasdas</p>
                         </div>
 
                         <div>
-                        <h2>Driver:</h2>
-                        <p>{order.truck_driver}</p>
+                        <h4>Driver:</h4>
+                        <p>{order.truck_driver}dsdasds</p>
                         </div>
 
                         <div>
-                        <h2>Delivery: {order.actual_date}</h2>
+                        <h4>Delivery: {order.actual_date}</h4>
                         </div>
 
                     </div>

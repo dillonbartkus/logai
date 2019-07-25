@@ -21,6 +21,12 @@ router.post('/createcustomerorder', controller.createCustomerOrder)
 
 router.post('/additemstoorder', controller.addCartItemsToOrder)
 
+router.post('/getcustomerorder/:id', controller.getCustomerOrder)
+
+router.post('/getallcustomerorders/:id', controller.getAllCustomerOrders)
+
+router.put('/confirmcustomermorder/:id', controller.confirmCustomerOrder)
+
 router.put('/changequantity/:id', controller.changeQuantity)
 
 router.delete('/deletecartitem/:id', controller.deleteCartItem)
@@ -29,7 +35,7 @@ router.delete('/deletecartitem/:id', controller.deleteCartItem)
 
 router.post('/getinv/:id', controller.getInventory)
 
-router.post('/getorders/:id', controller.getOrders)
+router.post('/getwarehouseorders/:id', controller.getWarehouseOrders)
 
 router.post('/getorderinv/:id', controller.getOrderInv)
 
