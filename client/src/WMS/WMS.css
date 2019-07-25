@@ -4,8 +4,8 @@
     top: -5%;
     left: -5%;
     background-color: #DD1B1B;
-    height: 33px;
-    width: 33px;
+    height: 15%;
+    width: 2.5vw;
     color: white;
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@
 }
 
 .incomingordernotification.incoming {
-    height: 66%;
+    height: 4.5vh;
     margin-left: 10%;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .ordersboxtab > p {
-    font-size: 150%;
+    font-size: 24px;
     margin-left: 5%;
 }
 

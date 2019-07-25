@@ -27,11 +27,16 @@ export default function Order({ order, showOrder }) {
                     !order.truck_driver && !order.trucking_company && !order.actual_date && !order.actual_time &&
                     <p style = {{'fontStyle' : 'italic'}}>Final shipping &amp; delivery details pending</p>
                 }
+                
+                {
+                    !order.customer_confirmed_transport && order.truck_driver && order.trucking_company && order.actual_date && order.actual_time &&
+                    <p style = {{'fontStyle' : 'italic'}}>Shipping &amp; delivery details finalized!</p>
+                }
 
                 </div>
 
                 {
-                    order.truck_driver && order.trucking_company && order.actual_date && order.actual_time &&
+                    !order.customer_confirmed_transport && order.truck_driver && order.trucking_company && order.actual_date && order.actual_time &&
 
                     <button className = "transportbutton"
                     onClick = { () => showOrder(order) }
@@ -40,6 +45,14 @@ export default function Order({ order, showOrder }) {
 
                 {
                     !order.truck_driver && !order.trucking_company && !order.actual_date && !order.actual_time &&
+
+                    <button className = "addtocart"
+                    onClick = { () => showOrder(order) }
+                    >View / Track order</button>
+                }
+
+                {
+                    order.customer_confirmed_transport &&
 
                     <button className = "addtocart"
                     onClick = { () => showOrder(order) }

@@ -74,7 +74,7 @@ body {
 .sidenav {
     background-color: #1D2124;
     color: #FFFFFF;
-    width: 8vw;
+    width: 100px;
     position: fixed;
     padding-top: 15vh;
     display: flex;

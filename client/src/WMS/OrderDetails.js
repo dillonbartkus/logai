@@ -46,7 +46,7 @@ export default function OrderDetails({ setActiveNavItem, showTransportInfo, orde
 
             <button
             onClick = { () => showTransportInfo(order, order.company) }
-            className = "transportbutton" style = {{'height' : '3.5%', 'width' : '33%'}}>Add transportation information</button>
+            className = "transportbutton" style = {{'height' : '4%', 'width' : '33%'}}>Add transportation information</button>
 
             <h4>Note: The customer will be sent a notification once transportation information has been added.</h4>
             </>

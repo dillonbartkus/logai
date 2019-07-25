@@ -326,6 +326,10 @@ select {
     align-items: center;
 }
 
+.ordertitle > h2 {
+    letter-spacing: 1.2px
+}
+
 .orderconfirmationbox {
     border: 1px solid #979797;
     width: 100%;

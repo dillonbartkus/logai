@@ -38,7 +38,7 @@ export default function OrderDetails({ setActiveNavItem, orderId }) {
 
             <div className="ordertitle">
                 <h1 className="bigheader">Purchase Order #{orderId}</h1>
-                <h2 className = "smallheader">Placed {order.date_placed}</h2>
+                <h2>Placed {order.date_placed}</h2>
             </div>
 
             <div className={`orderconfirmationbox ${hasTransportInfo}`}>
@@ -56,7 +56,7 @@ export default function OrderDetails({ setActiveNavItem, orderId }) {
                 <>
                 <div>
                     <h3 className = "smallheader">Shipping &amp; delivery finalized!</h3>
-                    <h2>Delivery Date &amp; Time: 7/30/19 5:00 PM</h2>
+                    <h2>Delivery Date &amp; Time: {order.actual_date} {order.actual_time}</h2>
                     <h2>Shipping and Delivery Cost: $300.00 </h2>
                     <p style = {{'fontSize': '18px'}}>Please confirm to complete your purchase order. (Your card will be charged.)</p>
                 </div>
@@ -132,11 +132,15 @@ export default function OrderDetails({ setActiveNavItem, orderId }) {
             
         </div>
 
-        <div className="leavemessage">
-            <h2>Delivery Instructions:</h2>
-            <textarea placeholder = "Type a message here."></textarea>
-            <button className = "addtocart">Send</button>
-        </div>
+        {
+            !hasTransportInfo &&
+
+            <div className="leavemessage">
+                <h2>Delivery Instructions:</h2>
+                <textarea placeholder = "Type a message here."></textarea>
+                <button className = "addtocart">Send</button>
+            </div>
+        }
 
         </div>
 
