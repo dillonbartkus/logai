@@ -14,6 +14,7 @@ export default function Dashboard() {
   const [incomingOrderLength, setIncomingOrderLength] = useState()
   const [activeOrderLength, setActiveOrderLength] = useState()
   const [customerOrderLength, setCustomerOrderLength] = useState()
+  const [dropdown, setDropdown] = useState(false)
 
   // 
   //  Don't forget to update server calls with actual user ID!!!!
@@ -61,9 +62,9 @@ export default function Dashboard() {
 
     return (
 
-      <div className="dashboard">
+      <div className="dashboard" onClick = { () => setDropdown(false) } >
 
-      <DashHeader setActiveNavItem = {setActiveNavItem} />
+      <DashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} />
 
       <SideNav incomingLength = {incomingOrderLength} customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
 
