@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import avatar from './images/avatar.png'
+import { Redirect } from 'react-router-dom'
 
 export default function DashHeader({ setActiveNavItem }) {
 
     const [dropdown, setDropwdown] = useState(false)
+    const [loggedOut, setLoggedOut] = useState(false)
 
     const dropdownStyle = (dropdown) ? {'height' : '20vh'} : {'height' : 0}
     const dropdownItemStyle = (dropdown) ? {'display' : 'block'} : {'display' : 'none'}
@@ -47,10 +49,19 @@ return (
         <div
         style = {dropdownStyle} 
         className = "headerdropdown">
+            
+            <span
+            onClick = { () => setLoggedOut(true) }
+            style = {dropdownItemStyle}>Logout</span>
+
             <span style = {dropdownItemStyle}>Settings</span>
-            <span style = {dropdownItemStyle}>Other thing</span>
-            <span style = {dropdownItemStyle}>Another thing</span>
         </div>
+
+        {loggedOut
+          ? <Redirect to={{
+            pathname: '/'
+          }} />
+          : ''}
 
     </div>
     )

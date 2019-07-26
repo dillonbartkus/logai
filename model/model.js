@@ -69,15 +69,15 @@ model.createCustomerOrder = order => {
   return db.one(
     `
      INSERT INTO orders
-     (warehouse_id, ordered_by, date_placed, status, preferred_dates, preferred_times, delivery_address)
-     VALUES ($1, $2, $3, $4, $5, $6, $7)
+     (warehouse_id, ordered_by, date_placed, tax, shipping, subtotal, status, total_weight, preferred_dates, preferred_times, delivery_address)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
      RETURNING *
     `,
-    [order.warehouse_id, order.ordered_by, order.date_placed, order.status, order.preferred_dates, order.preferred_times, order.delivery_address]
+    [order.warehouse_id, order.ordered_by, order.date_placed, order.tax, order.shipping, order.subtotal, order.status, order.total_weight, order.preferred_dates, order.preferred_times, order.delivery_address]
   )
 }
 
-model.addCartItemsToOrder = (order_items) => {
+model.addCartItemsToOrder = order_items => {
   return db.one(
     `
      INSERT INTO order_items
@@ -109,6 +109,18 @@ model.getAllCustomerOrders = id => {
     [id]
   );
 };
+
+model.addInstructions = (orders, id) => {
+  return db.one(
+    `
+    UPDATE orders SET
+      instructions = $1
+    WHERE orders.id = $2
+    RETURNING *
+    `,
+    [orders.instructions, id]
+  )
+}
 
 model.confirmCustomerOrder = id => {
   return db.one(

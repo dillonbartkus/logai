@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import balloons from '../images/balloons.png'
+import MessageBox from './MessageBox'
 import axios from 'axios'
 
-export default function OrderDetails({ setActiveNavItem, orderId }) {
+export default function OrderDetails({ setActiveNavItem, orderId, fetch }) {
 
     const [order, setOrder] = useState()
 
@@ -18,10 +19,12 @@ export default function OrderDetails({ setActiveNavItem, orderId }) {
     const confirmOrder = async () => {
         await axios.put(`/confirmcustomermorder/${orderId}`)
         fetchOrder()
+        fetch()
     }
 
     const hasTransportInfo = (order && order.truck_driver && order.trucking_company && order.actual_date && order.actual_time) ? true : false
     const confirmedByCustomer = (order && order.customer_confirmed_transport) ? true : false
+    const grandTotal = (order && parseFloat(order.subtotal) + parseFloat(order.tax) + parseFloat(order.shipping))
     
     return(
 
@@ -95,13 +98,13 @@ export default function OrderDetails({ setActiveNavItem, orderId }) {
             <div className = "orderinfosummary">
                 <h2 className="smallheader" style = {{'width' : '100%'}}>Order Summary</h2>
                 <p>Subtotal</p>
-                <p>$1200.00</p>
+                <p>${order.subtotal}</p>
                 <p>Tax</p>
-                <p>$105.00</p>
+                <p>${order.tax}</p>
                 <p>Shipping &amp; Delivery</p>
-                <p>$300.00</p>
+                <p>${order.shipping}</p>
                 <p style = {{'fontWeight' : 900}}>Grand Total</p>
-                <p style = {{'fontWeight' : 900}}>$1605.00</p>
+                <p style = {{'fontWeight' : 900}}>${ grandTotal }</p>
             </div>
 
             {
@@ -135,11 +138,7 @@ export default function OrderDetails({ setActiveNavItem, orderId }) {
         {
             !hasTransportInfo &&
 
-            <div className="leavemessage">
-                <h2>Delivery Instructions:</h2>
-                <textarea placeholder = "Type a message here."></textarea>
-                <button className = "addtocart">Send</button>
-            </div>
+            <MessageBox order = {order} />
         }
 
         </div>

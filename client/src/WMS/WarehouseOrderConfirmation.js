@@ -12,7 +12,7 @@ export default function WarehouseOrderConfirmation({ setActiveTab, setOrderPlace
         <div>
             <h2 className="orderheader">Order confirmed!</h2>
             <p>Transportation information has been sent to {order.company}.</p>
-            <p>Order # {order.id} will now appear under Active Orders. </p>
+            <p>Order # {order.id} will now appear under <b>Active Orders.</b></p>
         </div>
     
         <button 
@@ -20,7 +20,7 @@ export default function WarehouseOrderConfirmation({ setActiveTab, setOrderPlace
             setActiveTab('active')
             setOrderPlaced(false)
         }}
-        className="addtocart">View active orders</button>
+        className="transportbutton">View active orders</button>
     
         </div>
 

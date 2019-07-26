@@ -1,7 +1,7 @@
 import React from 'react'
 import Order from './Order'
 
-export default function TrackOrders({ orders, showOrder }) {
+export default function TrackOrders({ orders, showOrder }) {    
 
     return(
 
@@ -10,16 +10,21 @@ export default function TrackOrders({ orders, showOrder }) {
             <h1 className = "bigheader">Track Orders</h1>
 
             <div className = "trackordersbox">
-        
-            {
-                orders &&
-                orders.filter( order => order.status === 'incoming' || order.status === 'active')
-                .map( order => <Order
-                showOrder = {showOrder}
-                order = {order}
-                key = {order.id} /> )
 
-            }
+                {
+                    orders.length < 1 &&
+                    <h2 style = {{'margin' : 'auto'}}>No orders to show!</h2>
+                }
+        
+                {
+                    orders &&
+                    orders.filter( order => order.status === 'incoming' || order.status === 'active')
+                    .map( order => <Order
+                    showOrder = {showOrder}
+                    order = {order}
+                    key = {order.id} /> )
+
+                }
 
             </div>
 

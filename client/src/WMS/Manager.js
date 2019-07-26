@@ -65,7 +65,8 @@ export default function Manager({showTransportInfo, showOrderDetails, orders, or
                 {
                     activeTab === 'active' &&
                     <Active
-                    orders = {orders.filter( order => order.status === 'active' )} />
+                    orders = {orders.filter( order => order.status === 'active' )}
+                    showOrderDetails = {showOrderDetails} />
                 }
 
                 {

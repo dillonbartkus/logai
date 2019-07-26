@@ -9,33 +9,53 @@ import axios from 'axios'
 export default function Dashboard() {
 
   const [activeNavItem, setActiveNavItem] = useState('')  
-  const [orders, setOrders] = useState()
+  const [warehouseOrders, setWarehouseOrders] = useState()
+  const [customerOrders, setCustomerOrders] = useState()
   const [incomingOrderLength, setIncomingOrderLength] = useState()
   const [activeOrderLength, setActiveOrderLength] = useState()
+  const [customerOrderLength, setCustomerOrderLength] = useState()
+
+  // 
+  //  Don't forget to update server calls with actual user ID!!!!
+  // 
 
   useEffect( () => {
-    fetchOrders()
+    fetchWarehouseOrders()
+    fetchCustomerOrders()
   }, [])
 
   useEffect( () => {
-    getOrderLengths()
+    getWarehouseOrderLengths()
+    getCustomerOrderLengths()
     window.scroll({
       top: 0,
       behavior: 'smooth'
     })
   })
 
-  const fetchOrders = async () => {
+  const fetchWarehouseOrders = async () => {
     let res = await axios.post(`/getwarehouseorders/2`)
-    setOrders(res.data.data)
+    setWarehouseOrders(res.data.data)
   }
 
-  const getOrderLengths = () => {
-    if(orders){
-    let inc = orders.filter( order => order.status === 'incoming' )
+  const fetchCustomerOrders = async () => {
+    let res = await axios.post(`/getallcustomerorders/1`)
+    setCustomerOrders(res.data.data)
+  }
+
+  const getWarehouseOrderLengths = () => {
+    if(warehouseOrders){
+    let inc = warehouseOrders.filter( order => order.status === 'incoming' )
     setIncomingOrderLength(inc.length)
-    let active = orders.filter( order => order.status === 'active' )
+    let active = warehouseOrders.filter( order => order.status === 'active' )
     setActiveOrderLength(active.length)
+    }
+  }
+
+  const getCustomerOrderLengths = () => {
+    if(customerOrders){
+    let length = customerOrders.filter( order => !order.customer_confirmed_transport && order.status === 'active' )
+    setCustomerOrderLength(length.length)
     }
   }   
 
@@ -45,11 +65,11 @@ export default function Dashboard() {
 
       <DashHeader setActiveNavItem = {setActiveNavItem} />
 
-      <SideNav incomingLength = {incomingOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+      <SideNav incomingLength = {incomingOrderLength} customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
 
-      {/* <Customer activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
+      <Customer fetch = {fetchCustomerOrders} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
 
-      <Warehouse orders = {orders} incomingLength = {incomingOrderLength} activeLength = {activeOrderLength} fetchOrders = {fetchOrders}  activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+      {/* <Warehouse orders = {warehouseOrders} incomingLength = {incomingOrderLength} activeLength = {activeOrderLength} fetchOrders = {fetchWarehouseOrders}  activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
 
       </div>
       

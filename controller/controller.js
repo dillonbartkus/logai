@@ -117,14 +117,18 @@ controller.addToCart = async (req, res) => {
 }
 
 controller.createCustomerOrder = async (req, res) => {
-  const { warehouse_id, ordered_by, date_placed, status, preferred_dates, preferred_times, delivery_address } = req.body;
+  const { warehouse_id, ordered_by, date_placed, tax, shipping, subtotal, status, total_weight, preferred_dates, preferred_times, delivery_address } = req.body;
 
   try {
     const data = await Log.createCustomerOrder({
       warehouse_id,
       ordered_by,
       date_placed,
+      tax,
+      shipping,
+      subtotal,
       status,
+      total_weight,
       preferred_dates,
       preferred_times,
       delivery_address
@@ -178,6 +182,24 @@ controller.getAllCustomerOrders = async (req, res) => {
 
   try {
     const data = await Log.getAllCustomerOrders(id)
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err });
+  }
+}
+
+controller.addInstructions = async (req, res) => {
+  const id = req.params.id
+  const { instructions } = req.body
+
+  try {
+    const data = await Log.addInstructions({
+      instructions
+    }, id)
       res.json({
         data: data
       })

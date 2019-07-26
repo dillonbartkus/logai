@@ -53,6 +53,9 @@ export default function Checkout ({ cart, times, dates, setDates, orderWasPlaced
                 changeQuantity = {changeQuantity}
                 removeFromCart = {removeFromCart}
                 grandTotal = {grandTotal}
+                tax = {tax}
+                shipping = {shipping}
+                subtotal = {subtotal}
                 times = {times}
                 dates = {dates}
                 cart = {cart} />

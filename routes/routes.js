@@ -25,6 +25,8 @@ router.post('/getcustomerorder/:id', controller.getCustomerOrder)
 
 router.post('/getallcustomerorders/:id', controller.getAllCustomerOrders)
 
+router.put('/addinstructions/:id', controller.addInstructions)
+
 router.put('/confirmcustomermorder/:id', controller.confirmCustomerOrder)
 
 router.put('/changequantity/:id', controller.changeQuantity)

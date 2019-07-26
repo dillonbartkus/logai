@@ -116,7 +116,7 @@
     '2'
   );
 
-  INSERT INTO orders (warehouse_id, ordered_by, status, total_weight, employee, date_placed, trucking_company, truck_driver, delivery_address, customer_confirmed_transport, preferred_dates, actual_date, preferred_times, actual_time) VALUES
+  INSERT INTO orders (warehouse_id, ordered_by, status, total_weight, employee, date_placed, tax, shipping, subtotal, trucking_company, truck_driver, delivery_address, customer_confirmed_transport, preferred_dates, actual_date, preferred_times, actual_time) VALUES
     (
       '2',
       '1',
@@ -124,6 +124,9 @@
       '300',
       'Steve',
       '06/20/2019',
+      '',
+      '',
+      '',
       '',
       '',
       '{"name":"Dillon Bartkus","streetnamenumber":"631 van buren st","city":"Brooklyn","state":"NY","zip":"11221"}',
@@ -140,6 +143,9 @@
       '250',
       'James',
       '06/21/2019',
+      '',
+      '',
+      '',
       'Sam''s Trucking',
       'Sam',
       '{"name":"Joe Smith","streetnamenumber":"99 Fake st","city":"Boston","state":"MA","zip":"02575"}',
@@ -156,6 +162,9 @@
       '450',
       'Robert',
       '06/25/2019',
+      '',
+      '',
+      '',
       'Best Trucking',
       'Jim',
       '{"name":"Steve Steven","streetnamenumber":"123 Pin oak circle","city":"Vineyard Haven","state":"MA","zip":"02434"}',

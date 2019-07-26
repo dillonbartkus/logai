@@ -10,7 +10,7 @@ import Cart from './Cart'
 import Checkout from './Checkout'
 import OrderDetails from './OrderDetails'
 
-export default function COP({ activeNavItem, setActiveNavItem }) {
+export default function COP({ activeNavItem, setActiveNavItem, fetch }) {
 
     const [recentlyPlacedOrder, setRecentlyPlacedOrder] = useState(false)
     const [orderAddress, setOrderAddress] = useState({
@@ -63,13 +63,18 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
     
     // Add customer order to database as an incoming order for the warehouse.
 
-    const orderWasPlaced = async (cart, times, dates) => {
-        const now = new Date().toLocaleDateString()
+    const orderWasPlaced = async (cart, times, dates, tax, shipping, subtotal, totalWeight) => {
+        const nowDate = new Date().toLocaleString()
+        const nowTime = new Date().toLocaleTimeString()
         const res = await axios.post(`/createcustomerorder`, {
             warehouse_id: 2,
             ordered_by: 1,
-            date_placed: now,
+            date_placed: nowDate, nowTime,
+            tax: tax,
+            shipping: shipping,
+            subtotal: subtotal,
             status: 'incoming',
+            total_weight: totalWeight,
             preferred_dates: dates,
             preferred_times: times,
             delivery_address: orderAddress
@@ -195,7 +200,7 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
                     <p>You will not be charged until the order has been finalized.</p>
                 </div>
 
-                <button 
+                <button
                 onClick = { () => {
                     setRecentlyPlacedOrder(false)
                     setActiveNavItem('details')
@@ -230,6 +235,7 @@ export default function COP({ activeNavItem, setActiveNavItem }) {
             {
             activeNavItem === 'details' &&
                 <OrderDetails
+                fetch = {fetch}
                 setActiveNavItem = {setActiveNavItem}
                 orderId = {recentOrderId} />
             }

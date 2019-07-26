@@ -7,13 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-span {
-  /* font-size: 24px;
-  font-size: 2.5vh ;
-  font-weight: 700;
-  color: rgb(74, 74, 74); */
-}
-
 button {
   outline: none !important;
   background-color: rgb(29, 157, 235);
@@ -25,16 +18,24 @@ span:hover {
   cursor: pointer;
 }
 
-input:focus {
+input {
   outline: none;
-  border: 2px solid rgb(251, 190, 14);
 }
 
-form > input {
+.logform > input {
   width: 45vw;
   padding: 10px;
   margin: 2% auto;
-  border-radius: 5px;
+  max-width: 500px;
+  width: 66vw;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+.logform > input:focus {
+  /* border: 2px solid rgb(251, 190, 14); */
 }
 
 .formbutton {
@@ -178,11 +179,6 @@ form > input {
   flex-flow: column;
   margin: 5% auto;
   text-align: left;
-  max-width: 500px;
-  width: 66vw;
-}
-
-.logform > input {
   max-width: 500px;
   width: 66vw;
 }

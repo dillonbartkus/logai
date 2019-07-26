@@ -5,8 +5,8 @@ export default function TransportationInfo({ popup, order, setActiveNavItem, upd
 
     const [company, setCompany] = useState(order.trucking_company || '')
     const [driver, setDriver] = useState(order.truck_driver || '')
-    const [date, setDate] = useState(JSON.parse(order.preferred_dates).first )
-    const [time, setTime] = useState(JSON.parse(order.preferred_times).first[0].length > 1 ? JSON.parse(order.preferred_times).first[0] : JSON.parse(order.preferred_times).first )
+    const [date, setDate] = useState(JSON.parse(order.preferred_dates).first || '' )
+    const [time, setTime] = useState(JSON.parse(order.preferred_times).first[0].length > 1 ? JSON.parse(order.preferred_times).first[0] : JSON.parse(order.preferred_times).first || '')
     
     return(
 
@@ -38,7 +38,7 @@ export default function TransportationInfo({ popup, order, setActiveNavItem, upd
 
             <select
             onChange ={ e => setTime(e.target.value) } >
-                <option>Select:</option>
+                <option>↓</option>
                 <option value="7:00 AM">7:00 AM</option>
                 <option value="8:00 AM">8:00 AM</option>
                 <option value="9:00 AM">9:00 AM</option>

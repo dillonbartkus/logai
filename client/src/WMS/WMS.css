@@ -4,8 +4,8 @@
     top: -5%;
     left: -5%;
     background-color: #DD1B1B;
-    height: 15%;
-    width: 2.5vw;
+    height: 33px;
+    width: 33px;
     color: white;
     display: flex;
     justify-content: center;
@@ -15,8 +15,6 @@
 .incomingordernotification.small {
     top: 10%;
     left: -15%;
-    width: 25%;
-    height: 20%;
 }
 
 .incomingordernotification.incoming {
@@ -65,8 +63,8 @@
     justify-content: center;
     align-items: center;
     font-weight: 900;
-    font-size: 1.5vw;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .ordersboxtab > p {
@@ -130,17 +128,19 @@
 
 .orderitem > div {
     flex: 1;
-    font-size: 1.5vw;
+    font-size: 18px;
 }
 
 .imgandname {
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .imgandname > img {
-    width: 25%;
-    margin: 0 5%;
+    width: 10%;
+    height: 50%;
+    margin: 0 18%;
 }
 
 .orderpricinginfo {
@@ -184,7 +184,7 @@
     background-color: #FD992E;
     height: 6vh;
     width: 25%;
-    font-size: 1.1vw;
+    font-size: 16px;
 }
 
 .today {
@@ -227,7 +227,7 @@
 
 .todayorderbox-top > * {
     margin-left: 2%;
-    margin-right: 33%;
+    width: 50%;
 }
 
 .todayorderbox-bottom {
@@ -267,12 +267,13 @@
     background-color: #1D9DEB;
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
 
 .incomingorderbox-top > * {
-    margin-left: 2%;
-    margin-right: 33%;
+    margin-left: 3%;
+    width: 50%;
+    display: flex;
+    align-items: center;
 }
 
 .incomingorderbox-bottom {
@@ -280,14 +281,13 @@
     height: 70%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border-radius: 3px 3px 0 3px;  
 }
 
 .incomingorderbox-bottom > * {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0 3%;
 }
 
 .incomingorderbox-bottom > h2 {
@@ -348,7 +348,7 @@
 }
 
 .transportcalendar {
-    width: 70% !important;
+    width: 60% !important;
     padding: 20px;
     margin: 5% 0;
     border: none;
@@ -358,10 +358,17 @@
 .transportinfo > select {
     margin: 4% 80% 4% 2%;
     width: 20%;
-    border: none;
-    border-bottom: 1px solid #979797;
+    border: 0;
+    border-radius: 0px;
+    -webkit-appearance: none;
+    border-bottom: 1px solid #979797 !important;
     background-color: #f6f8fa;
     font-size: 18px;
+    text-align-last: right;
+}
+
+.transportinfo > select > option {
+    direction: rtl;
 }
 
 .transportinfo-add {
@@ -397,6 +404,7 @@
     font-weight: 900;
     width: 50%;
     margin-top: 2%;
+    letter-spacing: 1px;
 }
 
 .ordertransportinfo > p {

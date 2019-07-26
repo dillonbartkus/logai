@@ -38,7 +38,7 @@ export default function TimeSlot({ timeslot, orders }) {
                     <div className = "todayorderbox-bottom">
 
                         <div>
-                        <h1>Pickup: {order.actual_time}</h1>
+                        <h2 className = "smallheader">Pickup: {order.actual_time}</h2>
                         </div>
 
                         <div>

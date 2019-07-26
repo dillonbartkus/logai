@@ -1,6 +1,8 @@
 import React from 'react'
 
-export default function Order({ order, showOrder }) {    
+export default function Order({ order, showOrder }) {
+
+    const grandTotal = parseFloat(order.subtotal) + parseFloat(order.tax) + parseFloat(order.shipping)    
 
     return (
 
@@ -21,7 +23,7 @@ export default function Order({ order, showOrder }) {
             <div className = "customerorderbox-bottom">
 
                 <div>
-                <span>Grand Total:</span> $1605.00
+                <span>Grand Total:</span> ${grandTotal}
 
                 {
                     !order.truck_driver && !order.trucking_company && !order.actual_date && !order.actual_time &&
@@ -36,6 +38,14 @@ export default function Order({ order, showOrder }) {
                 </div>
 
                 {
+                    order.customer_confirmed_transport &&
+
+                    <button className = "addtocart"
+                    onClick = { () => showOrder(order) }
+                    >View / Track order</button>
+                }
+
+                {
                     !order.customer_confirmed_transport && order.truck_driver && order.trucking_company && order.actual_date && order.actual_time &&
 
                     <button className = "transportbutton"
@@ -45,14 +55,6 @@ export default function Order({ order, showOrder }) {
 
                 {
                     !order.truck_driver && !order.trucking_company && !order.actual_date && !order.actual_time &&
-
-                    <button className = "addtocart"
-                    onClick = { () => showOrder(order) }
-                    >View / Track order</button>
-                }
-
-                {
-                    order.customer_confirmed_transport &&
 
                     <button className = "addtocart"
                     onClick = { () => showOrder(order) }

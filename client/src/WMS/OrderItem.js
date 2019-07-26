@@ -6,12 +6,12 @@ export default function OrderItem({ item }) {
 
         <div className = "orderitem">
             <div className = "imgandname">
-                <img src = {item.picture} alt = {item.name} style = {{'height': '5vh', 'width' : '3vw'}}/>
+                <img src = {item.picture} alt = {item.name}/>
                 <p>{item.name}</p>
                 </div>
-            <div>$20</div>
+            <div>${item.price}</div>
             <div>{item.item_quantity}</div>
-            <div>{item.quantity}</div>
+            <div>{item.on_hand}</div>
             <div>{item.weight}</div>
         </div>
     )

@@ -9,7 +9,8 @@ const options = {
   contain: true,
   lazyLoad: true,
   wrapAround: true,
-  autoPlay: 5000
+  autoPlay: 4000,
+  pauseAutoPlayOnHover: false
 }
   return (
 

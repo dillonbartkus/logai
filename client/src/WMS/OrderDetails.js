@@ -5,11 +5,12 @@ import axios from 'axios'
 
 export default function OrderDetails({ setActiveNavItem, showTransportInfo, order }) {
 
-    const [orderItems, setOrderItems] = useState()    
+    const [orderItems, setOrderItems] = useState()
+    const grandTotal = parseFloat(order.subtotal) + parseFloat(order.tax) + parseFloat(order.shipping)
 
     useEffect( () => {
         fetchOrderItems()
-    }, [] )
+    }, [] )    
 
     const fetchOrderItems = async () => {
         let res = await axios.post(`/cart/1`)
@@ -42,7 +43,7 @@ export default function OrderDetails({ setActiveNavItem, showTransportInfo, orde
             <>
             <h2 className = "smallheader">Preferred Delivery Date: {(JSON.parse(order.preferred_dates).first)} </h2>
 
-            <h2 className = "smallheader">Preferred Delivery Times: {(JSON.parse(order.preferred_times).first)[0]}, {(JSON.parse(order.preferred_times).first)[1]} </h2>
+            <h2 className = "smallheader">Preferred Delivery Times: {(JSON.parse(order.preferred_times).first)[0]} {(JSON.parse(order.preferred_times).first)[1]} {(JSON.parse(order.preferred_times).first)[2]} {(JSON.parse(order.preferred_times).first)[3]} {(JSON.parse(order.preferred_times).first)[4]} </h2>
 
             <button
             onClick = { () => showTransportInfo(order, order.company) }
@@ -95,14 +96,14 @@ export default function OrderDetails({ setActiveNavItem, showTransportInfo, orde
             <div className = "orderpricinginfo">
 
                 <div>Subtotal:</div>
-                <p>$1200.00</p>
+                <p>${order.subtotal}</p>
                 <div>Tax:</div>
-                <p>$105.00</p>
+                <p>${order.tax}</p>
                 <div>Estimated Shipping &amp; Delivery:</div>
-                <p>$300.00</p>
+                <p>${order.shipping}</p>
                 <span>Grand Total:</span>
-                <span>$1605.00</span>
-                <span>Total Weight: 270 Lbs</span>
+                <span>${grandTotal}</span>
+                <span>Total Weight: {order.total_weight} Lbs</span>
 
             </div>
 

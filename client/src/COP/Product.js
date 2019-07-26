@@ -5,6 +5,8 @@ export default function Product({ item, addToCart }) {
     const [quantity, setQuantity] = useState(1)
     const [recentlyAddedItem, setRecentlyAddedItem] = useState(false)
 
+    console.log(recentlyAddedItem)
+    
     const buttonText = (recentlyAddedItem) ? 'Added!' : 'Add to cart'
 
     const selectQuantity = item => {
@@ -15,8 +17,6 @@ export default function Product({ item, addToCart }) {
         return options
     }
 
-    console.log(item);
-    
 
     return(
 
@@ -44,6 +44,7 @@ export default function Product({ item, addToCart }) {
             onClick = { () => {
                 addToCart(item, quantity) 
                 setRecentlyAddedItem(true)
+                setTimeout( () => setRecentlyAddedItem(false), 1500 )
             }}
             className={`addtocart ${recentlyAddedItem}`}>{buttonText}</button>
 
