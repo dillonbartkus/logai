@@ -299,11 +299,10 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    height: 25vh;
   }
 
-  .barcodescan > h1 {
-    margin-top: 4%;
+  .barcodescan > * {
+    margin: 5%;
     color: #FD992E;
   }
 
