@@ -189,7 +189,7 @@ model.getWarehouseOrders = id => {
 model.getOrderInv = id => {
   return db.query(
     `
-    SELECT inventory.*, order_items.item_id, order_items.item_amount
+    SELECT inventory.*, order_items.item_id, order_items.amount_ordered
     FROM order_items
     JOIN inventory
     ON order_items.item_id = inventory.id
