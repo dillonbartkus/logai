@@ -1,0 +1,310 @@
+@media (max-width: 1370px) {
+
+  .receiving {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .error {
+    margin: 10% auto;
+  }
+
+  .mobiledashheader {
+    background-color: #1D9DEB;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    letter-spacing: 1.1px;
+    line-height: 29px;
+    cursor: pointer;
+  }
+
+  .mobiledashheader > * {
+    color: #F9F9F9;
+    font-weight: 900;
+}
+
+  .headerlogo {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 50%;
+  }
+
+  .headerlogo > span:first-of-type {
+    letter-spacing: 1px;
+    font-size: 74px;
+    margin-bottom: 4%;
+  }
+
+  .headerlogo > span:nth-of-type(2) {
+    font-size: 21px;
+  }
+
+  .mobileheaderuserpic {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobileheaderuserpic > img {
+    height: 75%;
+  }
+
+  .mobilehamburger {
+    height: 50%;
+    width: 10%;
+    background-image: url('../images/whitehamburger.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .todayjobs {
+    margin: 5% auto;
+    width: 90%;
+    text-align: center;
+  }
+
+  .todayjobs > h1 {
+    letter-spacing: 1.38px;
+    font-size: 32px;
+    line-height: 35px;
+    text-align: left;
+    font-weight: 900;
+  }
+
+  .employeeinfo {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+
+  .employeeinfo > h2 {
+    letter-spacing: 1.01px;
+    font-size: 30px;
+  }
+
+  .employeeinfo > p {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .jobsbox {
+    border: 1px solid #979797;
+    border-radius: 3px;
+  }
+
+  .todayjob {
+    background-color: #EFEFEF;
+    border-radius: 3px;
+    width: 95%;
+    margin: 2% auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .jobnumber {
+    background-color: #1D9DEB;
+    border-radius: 50px;
+    width: 66px;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 24px;
+  }
+
+  .jobdetails {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    text-align: left;
+    margin-bottom: 2%;
+  }
+
+  .jobdetails > * {
+    margin: 1% 0 !important;
+    letter-spacing: 1px;
+  }
+
+  .jobdetails > h3, .jobdetails > span {
+    font-size: 20px;
+  }
+
+  .assignedtome {
+    background-color: #FD992E;
+    border-radius: 16px;
+    padding: 1%;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 900;
+    align-self: flex-end;
+    right: 8%;
+    position: absolute;
+  }
+
+  .receiveorder {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .productcategory {
+    background-color: #FD992E;
+    border-radius: 3px;
+    font-weight: 900;
+    padding: 2.5% 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .productcategory > span {
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  .productcategory > img {
+    width: 8%;
+    height: 40%;
+  }
+
+  .productcategory.true {
+    margin-bottom: 0;
+  }
+
+  .expandedcategory {
+    margin-top: 0 !important;
+    border: 1px solid #FD992E;
+  }
+
+  .categorydetails {
+    display: flex;
+    margin: 1% auto;
+  }
+
+  .categorydetails > h1 {
+    font-weight: 400;
+    margin-left: 5%;
+  }
+
+  .backtoorder {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    margin: 5% auto 2% auto;
+    font-size: 32px;
+    font-weight: 900;
+  }
+
+  .backtoorder > img {
+    margin-right: 3%;
+    height: 60%;
+  }
+
+  .receieveoverview {
+    background-color: #EFEFEF;
+    border-radius: 3px;
+    width: 100%;
+    margin: 2% auto 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 1%;
+  }
+
+  .receivesummary {
+    border: 1px solid #979797;
+    border-radius: 3px;
+    width: 100%;
+  }
+
+  .receivesummary > * {
+    margin: 5%;
+  }
+
+  .beginreceiving {
+    background-color: #1D9DEB;
+    border-radius: 16px;
+    margin: 3% auto;
+    height: 10vh;
+    width: 50%;
+    font-size: 3vh;
+  }
+
+  .orderscanner {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .reportissue {
+    border: 1px solid #DD1B1B;
+    color: #DD1B1B;
+    border-radius: 16px;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5% auto 2% auto;
+    font-size: 20px;
+    font-weight: 900;
+    height: 2vh;
+    width: 22%;
+  }
+
+  .progresstext {
+    margin: auto;
+    position: relative;
+    top: 3.3vh;
+  }
+
+  progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top: 1%;
+    width: 100%;
+    height: 2.2vh;
+  }
+
+  progress::-webkit-progress-bar {
+    background-color: #fff;
+    border-radius: 20px;
+    border: 1px solid #979797;
+  }
+
+  progress::-webkit-progress-value {
+    border: 1px solid #979797;
+    background-color: #6BE174;
+    border-radius: 16px; 
+  }
+
+  .barcodescan {
+    margin-top: 3%;
+    width: 100%;
+    border: 1px solid #979797;
+    border-radius: 3px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+  }
+
+  .barcodescan > h1 {
+    margin-top: 4%;
+    color: #FD992E;
+  }
+
+}

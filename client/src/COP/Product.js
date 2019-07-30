@@ -4,8 +4,6 @@ export default function Product({ item, addToCart }) {
 
     const [quantity, setQuantity] = useState(1)
     const [recentlyAddedItem, setRecentlyAddedItem] = useState(false)
-
-    console.log(recentlyAddedItem)
     
     const buttonText = (recentlyAddedItem) ? 'Added!' : 'Add to cart'
 
@@ -16,7 +14,6 @@ export default function Product({ item, addToCart }) {
         }
         return options
     }
-
 
     return(
 

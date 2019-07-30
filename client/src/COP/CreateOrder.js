@@ -9,7 +9,7 @@ export default function CreateOrder({ setActiveNavItem, cart, addToCart }) {
 
     const [products, setProducts] = useState()
     const [searchTerm, setSearchTerm] = useState('')
-    const [cartTotal, setCartTotal] = useState(0)
+    const [cartTotal, setCartTotal] = useState()
 
     useEffect( () => {
         fetchProducts()
@@ -22,13 +22,13 @@ export default function CreateOrder({ setActiveNavItem, cart, addToCart }) {
             total += item.item_quantity
         })
         setCartTotal(total)
-    }
+        }
     })
 
     const fetchProducts = async () => {
         const res =  await axios.post('/products')
         setProducts(res.data.data)
-    }
+    }    
     
     return(
 
@@ -41,7 +41,7 @@ export default function CreateOrder({ setActiveNavItem, cart, addToCart }) {
             className="viewcart">
                 <h2>View Cart</h2>
                 <img src = {cartimg} alt = 'back' />
-                <p style = {{'color' : '#FD992E', 'fontWeight' : 900}}>{cartTotal}</p>
+                <p>{cartTotal}</p>
             </div>
 
             <Searchbar setSearchTerm = {setSearchTerm} searchTerm = {searchTerm} />

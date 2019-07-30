@@ -8,8 +8,8 @@ export default function CartProduct({ item, changeQuantity, removeFromCart }) {
             options.push(<option key = {i}>{i}</option>)
         }
         return options
-    }    
-
+    }
+    
     return(
 
         <div className="productlisting">
@@ -27,7 +27,7 @@ export default function CartProduct({ item, changeQuantity, removeFromCart }) {
             <div className = "quantityselector">
                 <p>Quantity</p>
                 <select
-                defaultValue = {item.item_quantity}
+                value = {item.item_quantity}
                 onChange = { e => {
                     changeQuantity(item, e.target.value)
                 }}

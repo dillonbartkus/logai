@@ -21,7 +21,10 @@ export default function Cart({ cart, changeQuantity, removeFromCart, subtotal, s
             
             {cart.map( (item, id) => <CartProduct removeFromCart = {removeFromCart} changeQuantity = {changeQuantity} key = {id} item = {item} /> )}
 
-            <h4>Subtotal: ${subtotal}</h4>
+            {
+                subtotal > 0 &&
+                <h4>Subtotal: ${subtotal}</h4>
+            }
 
             </div>
 
