@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import back from '../images/back.png'
 import camera from '../images/camera.png'
+import Quagga from './Quagga'
 
 export default function OrderScanner({ order, orderInv, setDisplay, number, pieces }) {
 
     const [progress, setProgress] = useState(0)
 
-    console.log(progress, pieces)
+    console.log(orderInv)
 
     return(
 
@@ -41,6 +42,22 @@ export default function OrderScanner({ order, orderInv, setDisplay, number, piec
                 <h1>Center product barcode here to receive product</h1>
 
             </div>
+
+            <div className = "scannerdetails">
+                <h1>Product Type</h1> <span></span>
+                <h1>Product ID</h1> <span></span>
+                <h1>Product Name</h1> <span></span>
+                <h1>SKU</h1> <span></span>
+                <h1>Quantity</h1> <span></span>
+            </div>
+
+            <Quagga />
+
+            <button className = "beginreceiving"
+            // onClick = { () => showScanner(orderInv, pieces) }
+            >
+            Scan next product
+            </button>
 
         </div>
 

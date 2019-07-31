@@ -6,8 +6,8 @@
     "axios": "^0.18.0",
     "card-js": "^1.0.13",
     "flickity": "^2.2.1",
+    "quagga": "^0.12.1",
     "react": "^16.8.4",
-    "react-barcode-reader": "0.0.1",
     "react-calendar": "^2.19.0",
     "react-dom": "^16.8.4",
     "react-flickity-component": "^3.3.0",
@@ -31,5 +31,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "proxy": "http://localhost:3001"
 }

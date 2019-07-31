@@ -312,4 +312,25 @@
     letter-spacing: 1.01px;
   }
 
+  .scannerdetails {
+    background-color: #EFEFEF;
+    margin: 5% auto;
+    width: 100%;
+    padding: 1% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .scannerdetails > h1 {
+    width: 25%;
+  }
+
+  .scannerdetails > span {
+    margin-left: 5%;
+    font-size: 33px;
+    width: 70%;
+    border-bottom: 1px dashed #979797;
+  }
+
 }

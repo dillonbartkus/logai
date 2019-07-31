@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import SERVERURL from './config'
 
 const Login = props => {
 
@@ -15,7 +16,7 @@ const Login = props => {
       // headers: {
       //   authorization: `Bearer ${this.state.token}`
       // }
-    const res = await axios.post(`https://server.log-ai.com/login`, {
+    const res = await axios.post(`${SERVERURL}/login`, {
       email: email,
       pw: password
     })
