@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/truck.c237ae7f.jpeg"
   },
   {
-    "revision": "cfceca242a5708f99c1d",
-    "url": "/static/css/main.93f5be87.chunk.css"
+    "revision": "41b39082837d95d21dfe",
+    "url": "/static/css/main.83736d54.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/static/media/finance.555ef3b0.png"
   },
   {
-    "revision": "cfceca242a5708f99c1d",
-    "url": "/static/js/main.b843c239.chunk.js"
+    "revision": "41b39082837d95d21dfe",
+    "url": "/static/js/main.ce257014.chunk.js"
   },
   {
     "revision": "b2714ba9628dff096cc8bee0be64993a",
@@ -38,6 +38,10 @@ self.__precacheManifest = [
   {
     "revision": "9f95e08d38eb0e73ed2de900b2b5a17c",
     "url": "/static/media/shipping.9f95e08d.jpg"
+  },
+  {
+    "revision": "5d09ebf71e1c105972f1843d9d344ad8",
+    "url": "/static/media/dispatchers.5d09ebf7.jpg"
   },
   {
     "revision": "bd2c72c08af8d4ba5752fb5b63af5fdc",
@@ -52,11 +56,7 @@ self.__precacheManifest = [
     "url": "/static/media/warehouse.9949f56b.jpg"
   },
   {
-    "revision": "5d09ebf71e1c105972f1843d9d344ad8",
-    "url": "/static/media/dispatchers.5d09ebf7.jpg"
-  },
-  {
-    "revision": "77116bc005e7cbff37105923416ac94b",
+    "revision": "98109e4487a8e1d90b5900cfcf73167d",
     "url": "/index.html"
   }
 ];
