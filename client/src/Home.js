@@ -11,7 +11,6 @@ import Services from './Services'
 import RegConfirm from './RegConfirm'
 import MobileHeader from './MobileHeader'
 import Dropdown from './Dropdown'
-import Quagga from './Receiving/Quagga'
 
 export default function Home() {
 
@@ -95,8 +94,6 @@ export default function Home() {
             <Header token = {token} main = {main} userData = {userData} services = {services} about = {about} login = {login} register = {register} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
 
             <Dropdown token = {token} dropdown = {dropdown} setDropdown = {setDropdown} main = {main} services = {services} about = {about} login = {login} register = {register} isLoggedIn = {isLoggedIn} showServices = {showServices} showAbout = {showAbout} showMain = {showMain} showRegister = {showRegister} showLogin = {showLogin}/>
-
-            < Quagga />
 
               {
                 main &&

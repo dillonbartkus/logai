@@ -6,6 +6,8 @@ import TodayJobs from './TodayJobs'
 import avatar from '../images/avatar.png'
 import axios from 'axios'
 import OrderScanner from './OrderScanner';
+import SERVERURL from '../config'
+import Quagga from './Quagga'
 
 export default function Receiving() {
 
@@ -23,7 +25,7 @@ export default function Receiving() {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.post(`/getwarehouseorders/2`)
+            const res = await axios.post(`${SERVERURL}/getwarehouseorders/2`)
             setOrders(res.data.data.filter( order => order.status === 'active'))
         }
         catch {
@@ -48,6 +50,8 @@ export default function Receiving() {
         <div className="receiving">
 
             <MobileDashHeader avatar = {avatar} />
+
+            <Quagga />
 
             {
                 error &&
