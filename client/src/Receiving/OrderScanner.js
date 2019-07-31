@@ -36,7 +36,7 @@ export default function OrderScanner({ order, orderInv, setDisplay, number, piec
             </progress>
 
             <div className = "barcodescan">
-
+        
                 <img src = {camera} alt = '' />
                 <h1>Center product barcode here to receive product</h1>
 

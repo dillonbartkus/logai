@@ -291,7 +291,7 @@
   }
 
   .barcodescan {
-    margin-top: 3%;
+    margin-top: 5%;
     width: 100%;
     border: 1px solid #979797;
     border-radius: 3px;
@@ -299,11 +299,17 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    color: #FD992E;
   }
 
-  .barcodescan > * {
-    margin: 5%;
-    color: #FD992E;
+  .barcodescan > img {
+    margin-top: 10%;
+  }
+
+  .barcodescan > h1 {
+    margin: 5% 20% 10% 20%;
+    text-align: center;
+    letter-spacing: 1.01px;
   }
 
 }

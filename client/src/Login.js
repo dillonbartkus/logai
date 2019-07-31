@@ -15,7 +15,7 @@ const Login = props => {
       // headers: {
       //   authorization: `Bearer ${this.state.token}`
       // }
-    const res = await axios.post(`/login`, {
+    const res = await axios.post(`https://server.log-ai.com/login`, {
       email: email,
       pw: password
     })
