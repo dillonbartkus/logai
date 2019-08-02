@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import Quagga from 'quagga';
-
+import React, { Component } from 'react'
+import Quagga from 'quagga'
 
 class Scanner extends Component {
 
@@ -21,7 +20,7 @@ class Scanner extends Component {
         },
         numOfWorkers: 4,
         decoder: {
-            readers : [ "code_128_reader"]
+            readers : [ 'code_128_reader', 'upc_reader', 'upc_e_reader', 'codabar_reader' ]
         },
         locate: true
     }, function(err) {

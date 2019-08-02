@@ -39,6 +39,8 @@ router.post('/getinv/:id', controller.getInventory)
 
 router.post('/getwarehouseorders/:id', controller.getWarehouseOrders)
 
+router.post('/getorderbyid/:id', controller.getOrderById)
+
 router.post('/getorderinv/:id', controller.getOrderInv)
 
 router.delete('/product/:id', controller.deleteProduct)
@@ -46,6 +48,8 @@ router.delete('/product/:id', controller.deleteProduct)
 router.put('/updateproductquantity/:id', controller.updateProductQuantity)
 
 router.put('/updateorderstatus/:id', controller.updateOrderStatus)
+
+router.put('/orderitemisputaway', controller.orderItemIsPutAway)
 
 router.put('/updatetransportinfo/:id', controller.updateTransportInfo)
 

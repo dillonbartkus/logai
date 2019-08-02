@@ -1,9 +1,7 @@
 import React from 'react'
 import Home from './Home'
-import Receiving from './Receiving/Receiving'
-// import Dashboard from './Dashboard'
+import Dashboard from './Dashboard'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-
 
 export default function App() {
 
@@ -13,7 +11,7 @@ export default function App() {
          <>
            <Switch>
              <Route exact path="/" component={Home} />
-             <Route exact path="/dashboard" component={Receiving} />
+             <Route exact path="/dashboard" component={Dashboard} />
              <Redirect to="/" />
            </Switch>
          </>

@@ -180,7 +180,17 @@ model.getWarehouseOrders = id => {
     JOIN users
     ON orders.ordered_by = users.id
     WHERE orders.warehouse_id = $1
-    ORDER BY id DESC
+    ORDER BY id ASC
+    `,
+    [id]
+  );
+};
+
+model.getOrderById = id => {
+  return db.query(
+    `
+    SELECT * FROM orders
+    WHERE orders.id = $1
     `,
     [id]
   );
@@ -189,7 +199,7 @@ model.getWarehouseOrders = id => {
 model.getOrderInv = id => {
   return db.query(
     `
-    SELECT inventory.*, order_items.item_id, order_items.amount_ordered
+    SELECT inventory.*, order_items.item_id, order_items.amount_ordered, order_items.put_away
     FROM order_items
     JOIN inventory
     ON order_items.item_id = inventory.id
@@ -220,6 +230,18 @@ model.updateOrderStatus = (order, id) => {
     RETURNING *
     `,
     [order.status, id]
+  )
+}
+
+model.orderItemIsPutAway = (order_items) => {
+  return db.one(
+    `
+    UPDATE order_items SET
+      put_away = true
+    WHERE item_id = $1 AND order_id = $2
+    RETURNING *
+    `,
+    [order_items.item_id, order_items.order_id]
   )
 }
 

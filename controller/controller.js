@@ -297,6 +297,21 @@ controller.getWarehouseOrders = async (req, res) => {
   }
 }
 
+controller.getOrderById = async (req, res) => {
+  const id = req.params.id
+
+  try {
+    const data = await Log.getOrderById(id)
+      res.json({
+        data: data
+      })
+  }
+
+  catch(err) {
+    res.status(500).json({ err });
+  }
+}
+
 controller.getOrderInv = async (req, res) => {
   const id = req.params.id;
 
@@ -355,6 +370,25 @@ controller.updateOrderStatus = async (req, res) => {
     const data = await Log.updateOrderStatus({
       status: status
     }, id)
+    res.json({
+      message: 'updated',
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
+controller.orderItemIsPutAway = async (req, res) => {
+  const { item_id, order_id } = req.body
+
+  try {
+    const data = await Log.orderItemIsPutAway({
+      item_id,
+      order_id,
+    })
     res.json({
       message: 'updated',
       data: data

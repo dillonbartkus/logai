@@ -68,5 +68,6 @@ CREATE TABLE IF NOT EXISTS order_items(
   item_id INTEGER REFERENCES inventory,
   amount_ordered INTEGER NOT NULL,
   order_id INTEGER REFERENCES orders,
+  put_away BOOLEAN,
   PRIMARY KEY(item_id, order_id)
 );

@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ProductCategory from './ProductCategory'
-import axios from 'axios'
 import back from '../images/back.png'
 
-export default function ReceiveOrder({ order, setDisplay, number, showScanner }) {
+export default function OrderDetails({ order, setDisplay, number, showScanner, fetchOrderInv, orderInv }) {
 
-    const [orderInv, setOrderInv] = useState()
     const [pieces, setPieces] = useState()
 
     useEffect( () => {
-        fetchOrderInv()
+        fetchOrderInv(order)
     }, [])
 
     useEffect( () => {
@@ -22,12 +20,8 @@ export default function ReceiveOrder({ order, setDisplay, number, showScanner })
         }
     })
 
-    const fetchOrderInv = async () => {
-        let res = await axios.post(`/getorderinv/${order.id}`)
-        setOrderInv(res.data.data)
-    }
-
     const filterCategories = () => {
+        if (orderInv){
         let categoryArray = []
         orderInv.forEach( item => {
             if (categoryArray.includes(item.type)){
@@ -39,7 +33,20 @@ export default function ReceiveOrder({ order, setDisplay, number, showScanner })
         return categoryArray.map( (category, id) => {
             return <ProductCategory items = {orderInv.filter( item => item.type === category )} category = {category} key = {id} />
         })
-    }
+    }}
+
+    const filterItemLocations = () => {
+        if (orderInv){
+        let locationsArray = []
+        orderInv.forEach( item => {
+            if (locationsArray.includes(item.location)){
+                return
+            } else {
+                locationsArray.push(item.location)
+            }
+        })
+        return locationsArray.map( loc => <h1 key = {loc} style = {{'fontWeight' : 400}}>{loc}</h1> )
+    }}
     
     return(
 
@@ -53,7 +60,7 @@ export default function ReceiveOrder({ order, setDisplay, number, showScanner })
 
             <div className = "receieveoverview">
                 <div className = "jobnumber" style = {{'margin' : '0 3%'}}>{number}</div>
-                <h1>Receive</h1>
+                <h1>{order.status === 'active' ? 'Receive' : 'Put Away'}</h1>
                 <h1 style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>Incoming Shipment Purchase Order #{order.id}</h1>
             </div>
 
@@ -65,17 +72,26 @@ export default function ReceiveOrder({ order, setDisplay, number, showScanner })
 
                 <h1>Product Types:</h1>
 
-            {
-                orderInv &&
-                filterCategories()
-            }
+                {filterCategories()}
+
+                {
+                    order.status === 'received' &&
+
+                    <div className = "locations">
+                        <div>
+                            <h1>Locations:</h1>
+                        </div>
+                        <div>
+                            {filterItemLocations()}
+                        </div>
+                    </div>
+                }
 
             </div>
 
             <button className = "beginreceiving"
-            onClick = { () => showScanner(orderInv, pieces) }
-            >
-            Begin receiving
+            onClick = { () => showScanner(orderInv, pieces) } >
+            {order.status === 'active' ? 'Begin receiving' : 'Begin putting away' }
             </button>
 
         </div>

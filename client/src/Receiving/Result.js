@@ -7,6 +7,8 @@ class Result extends Component {
 
     if (!result) { return null }
 
+    console.log(result)
+
     return (
       <li> {result.codeResult.code} [{result.codeResult.format}] </li>
     )
