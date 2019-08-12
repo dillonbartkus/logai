@@ -5,7 +5,7 @@ import Incoming from './Incoming'
 
 const TrackOrders = props => {
 
-    const [display, setDisplay] = useState('incoming')
+    const [display, setActiveNavItem] = useState('incoming')
     const [fulfillingOrders, setFulfillingOrders] = useState()
     const [completedOrders, setCompletedOrders] = useState()
     const [incomingOrders, setIncomingOrders] = useState()
@@ -28,11 +28,11 @@ const TrackOrders = props => {
             <button
             onClick = { () => {
                 if (display === 'unfulfilled')
-                    setDisplay('fulfilled')
+                    setActiveNavItem('fulfilled')
                 if (display === 'fulfilled')
-                    setDisplay('incoming')
+                    setActiveNavItem('incoming')
                 if (display === 'incoming')
-                    setDisplay('unfulfilled')
+                    setActiveNavItem('unfulfilled')
             }}
             >
             Change Page

@@ -1,6 +1,6 @@
-const db = require('../db/config');
+const db = require('../db/config')
 
-const model = {};
+const model = {}
 
 model.findUser = email => {
   return db.oneOrNone(
@@ -9,8 +9,8 @@ model.findUser = email => {
     WHERE users.email = $1
     `,
     [email]
-  );
-};
+  )
+}
 
 model.createUser = user => {
   return db.one(
@@ -22,8 +22,8 @@ model.createUser = user => {
     `,
     [user.company, user.pw, user.email, user.phone,
     user.npc, user.comptype]
-  );
-};
+  )
+}
 
 //////////////////////////////////////////////
 
@@ -31,13 +31,15 @@ model.createUser = user => {
 
 //////////////////////////////////////////////
 
-model.getProducts = () => {
+model.getProducts = id => {
   return db.query(
     `
     SELECT * FROM inventory
-    `
-  );
-};
+    WHERE warehouse_id = $1
+    `,
+    id
+  )
+}
 
 model.showCartItems = id => {
   return db.query(
@@ -49,7 +51,7 @@ model.showCartItems = id => {
     WHERE cart_id = $1
     ORDER BY id ASC
     `,
-    [id]
+    id
   )
 }
 
@@ -95,9 +97,9 @@ model.getCustomerOrder = id => {
     SELECT * FROM orders
     WHERE orders.id = $1
     `,
-    [id]
-  );
-};
+    id
+  )
+}
 
 model.getAllCustomerOrders = id => {
   return db.query(
@@ -106,9 +108,9 @@ model.getAllCustomerOrders = id => {
     WHERE orders.ordered_by = $1
     ORDER BY id DESC
     `,
-    [id]
-  );
-};
+    id
+  )
+}
 
 model.addInstructions = (orders, id) => {
   return db.one(
@@ -130,7 +132,7 @@ model.confirmCustomerOrder = id => {
     WHERE orders.id = $1
     RETURNING *
     `,
-    [id]
+    id
   )
 }
 
@@ -146,6 +148,18 @@ return db.one(
   )
 }
 
+model.replenishProduct = id => {
+  return db.one(
+    `
+    UPDATE inventory SET
+      being_replenished = TRUE
+    WHERE id = $1
+    RETURNING being_replenished
+    `,
+    id
+  )
+}
+
 model.deleteCartItem = id => {
   return db.none(
     `
@@ -153,8 +167,18 @@ model.deleteCartItem = id => {
     WHERE cart_items.item_id = $1
   `,
     id
-  );
-};
+  )
+}
+
+model.emptyCart = id => {
+  return db.none(
+    `
+    DELETE FROM cart_items
+    WHERE cart_id = $1
+    `,
+    id
+  )
+}
 
 //////////////////////////////////////////////
 
@@ -167,10 +191,11 @@ model.getInventory = id => {
     `
     SELECT * FROM inventory
     WHERE inventory.warehouse_id = $1
+    ORDER BY id ASC
     `,
-    [id]
-  );
-};
+    id
+  )
+}
 
 model.getWarehouseOrders = id => {
   return db.query(
@@ -182,9 +207,9 @@ model.getWarehouseOrders = id => {
     WHERE orders.warehouse_id = $1
     ORDER BY id ASC
     `,
-    [id]
-  );
-};
+    id
+  )
+}
 
 model.getOrderById = id => {
   return db.query(
@@ -192,22 +217,22 @@ model.getOrderById = id => {
     SELECT * FROM orders
     WHERE orders.id = $1
     `,
-    [id]
-  );
-};
+    id
+  )
+}
 
 model.getOrderInv = id => {
   return db.query(
     `
-    SELECT inventory.*, order_items.item_id, order_items.amount_ordered, order_items.put_away
+    SELECT inventory.*, order_items.item_id, order_items.amount_ordered, order_items.completed
     FROM order_items
     JOIN inventory
     ON order_items.item_id = inventory.id
     WHERE order_items.order_id = $1
     `,
-    [id]
-  );
-};
+    id
+  )
+}
 
 model.updateProductQuantity = (inventory, id) => {
   return db.one(
@@ -218,8 +243,8 @@ model.updateProductQuantity = (inventory, id) => {
     RETURNING *
   `,
   [inventory.quantity, id]
-  );
-};
+  )
+}
 
 model.updateOrderStatus = (order, id) => {
   return db.one(
@@ -233,11 +258,11 @@ model.updateOrderStatus = (order, id) => {
   )
 }
 
-model.orderItemIsPutAway = (order_items) => {
+model.orderItemIsCompleted = (order_items) => {
   return db.one(
     `
     UPDATE order_items SET
-      put_away = true
+      completed = true
     WHERE item_id = $1 AND order_id = $2
     RETURNING *
     `,
@@ -267,8 +292,8 @@ model.deleteProduct = id => {
     WHERE inventory.id = $1
   `,
     id
-  );
-};
+  )
+}
 
 
-module.exports = model;
+module.exports = model

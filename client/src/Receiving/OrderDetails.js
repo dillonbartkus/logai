@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ProductCategory from './ProductCategory'
 import back from '../images/back.png'
 
-export default function OrderDetails({ order, setDisplay, number, showScanner, fetchOrderInv, orderInv }) {
+export default function OrderDetails({ order, setActiveNavItem, number, showScanner, fetchOrderInv, orderInv }) {
 
     const [pieces, setPieces] = useState()
 
@@ -53,15 +53,19 @@ export default function OrderDetails({ order, setDisplay, number, showScanner, f
         <div className = "receiveorder">
 
             <div className = "backtoorder"
-            onClick = { () => setDisplay('')} >
+            onClick = { () => setActiveNavItem('')} >
                 <img src = {back} alt = 'back' />
                 <span>Back</span>
             </div>
 
             <div className = "receieveoverview">
                 <div className = "jobnumber" style = {{'margin' : '0 3%'}}>{number}</div>
-                <h1>{order.status === 'active' ? 'Receive' : 'Put Away'}</h1>
-                <h1 style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>Incoming Shipment Purchase Order #{order.id}</h1>
+
+                <h1> {order.status === 'active' && 'Pick' }
+                {order.status === 'receiving' && 'Receive'}
+                {order.status === 'received' && 'Put away'} </h1>
+
+                <h1 style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>{order.status === 'active' ? 'Customer' : 'Incoming Shipment'} Purchase Order #{order.id}</h1>
             </div>
 
             <h1>Summary</h1>
@@ -75,7 +79,7 @@ export default function OrderDetails({ order, setDisplay, number, showScanner, f
                 {filterCategories()}
 
                 {
-                    order.status === 'received' &&
+                    order.status !== 'receiving' &&
 
                     <div className = "locations">
                         <div>
@@ -91,7 +95,9 @@ export default function OrderDetails({ order, setDisplay, number, showScanner, f
 
             <button className = "beginreceiving"
             onClick = { () => showScanner(orderInv, pieces) } >
-            {order.status === 'active' ? 'Begin receiving' : 'Begin putting away' }
+            {order.status === 'active' && 'Begin picking' }
+            {order.status === 'receiving' && 'Begin receiving'}
+            {order.status === 'received' && 'Begin putting away'}
             </button>
 
         </div>

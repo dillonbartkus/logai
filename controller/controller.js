@@ -69,9 +69,10 @@ controller.createUser = async (req, res) => {
 //////////////////////////////////////////////
 
 controller.getProducts = async (req, res) => {
+  const id = req.params.id
 
   try {
-    const data = await Log.getProducts()
+    const data = await Log.getProducts(id)
       res.json({
         data: data
       })
@@ -261,6 +262,22 @@ controller.deleteCartItem = async (req, res) => {
   }
 }
 
+controller.emptyCart = async (req, res) => {
+  const id = req.params.id
+
+  try {
+    const data = await Log.emptyCart(id)
+    res.json({
+      message: 'deleted',
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
 //////////////////////////////////////////////
 
 //        WMS ROUTES
@@ -362,6 +379,22 @@ controller.updateProductQuantity = async (req, res) => {
   }
 }
 
+controller.replenishProduct = async (req, res) => {
+  const id = req.params.id
+
+  try {
+    const data = await Log.replenishProduct(id)
+    res.json({
+      message: 'updated',
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
 controller.updateOrderStatus = async (req, res) => {
   const id = req.params.id
   const { status } = req.body
@@ -381,11 +414,11 @@ controller.updateOrderStatus = async (req, res) => {
   }
 }
 
-controller.orderItemIsPutAway = async (req, res) => {
+controller.orderItemIsCompleted = async (req, res) => {
   const { item_id, order_id } = req.body
 
   try {
-    const data = await Log.orderItemIsPutAway({
+    const data = await Log.orderItemIsCompleted({
       item_id,
       order_id,
     })

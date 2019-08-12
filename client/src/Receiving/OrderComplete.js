@@ -1,9 +1,7 @@
 import React from 'react'
 import balloons from '../images/balloons.png'
 
-export default function OrderComplete({ order, showOrder, setDisplay, number, fetchOrders }) {
-
-    console.log(order.status)
+export default function OrderComplete({ order, showOrder, setActiveNavItem, number, fetchOrders }) {
 
     return(
 
@@ -23,6 +21,9 @@ export default function OrderComplete({ order, showOrder, setDisplay, number, fe
                 {order.status === 'put away' &&
                 <h1>Put-away is finished!</h1> }
 
+                {order.status === 'picked' &&
+                <h1>Picking is finished!</h1> }
+
             </div>
 
         </div>
@@ -34,7 +35,7 @@ export default function OrderComplete({ order, showOrder, setDisplay, number, fe
                 <li>Your manager has been notified of your success!</li>
                 { order.status === 'received' &&
                 <li>A new job has been added: Put Away Incoming Shipment Purchase Order {order.id}#</li> }
-                { order.status === 'put away' &&
+                { order.status !== 'received' &&
                 <li>This job has been cleared from your queue</li> }
             </ul>
 
@@ -44,24 +45,27 @@ export default function OrderComplete({ order, showOrder, setDisplay, number, fe
             order.status === 'received' &&
             <>
                 <button className = "beginreceiving" style = {{'width' : '60%'}}
-                onClick = { () => showOrder(order, number) }
+                onClick = { () => {
+                    fetchOrders()
+                    showOrder(order, number) 
+                }}
                 >Put away now</button>
 
                 <button className = "putawaylater"
                 onClick = { () => {
                     fetchOrders()
-                    setDisplay('') 
+                    setActiveNavItem('') 
                 }}>
                 Put away later</button>
             </>
         }
 
         {
-            order.status === 'put away' &&
+            order.status !== 'received' &&
             <button className = "beginreceiving" style = {{'width' : '60%'}}
             onClick = { () => {
                 fetchOrders()
-                setDisplay('') 
+                setActiveNavItem('') 
             }}>
             Return home</button>
         }

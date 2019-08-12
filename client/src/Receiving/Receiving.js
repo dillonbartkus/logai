@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import './receiving.css'
-import MobileDashHeader from './MobileDashHeader'
 import OrderDetails from './OrderDetails'
 import TodayJobs from './TodayJobs'
 import OrderScanner from './OrderScanner'
 import OrderComplete from './OrderComplete'
 import avatar from '../images/avatar.png'
 import axios from 'axios'
-import Quagga from './Quagga'
+// import Quagga from './Quagga'
 
-export default function Receiving() {
+export default function Receiving({ setActiveNavItem, activeNavItem }) {
 
-    const [display, setDisplay] = useState('')
     const [orders, setOrders] = useState()
     const [currentOrder, setCurrentOrder] = useState()
     const [currentOrderNumber, setCurrentOrderNumber] = useState()
@@ -26,7 +24,10 @@ export default function Receiving() {
     const fetchOrders = async () => {
         try {
             const res = await axios.post(`/getwarehouseorders/2`)
-            setOrders(res.data.data.filter( order => order.status === 'active' || order.status === 'received'))
+            setOrders(res.data.data.filter( order => {
+                const status = order.status
+                return status === 'active' || status === 'receiving' || status === 'received'
+                }))
         }
         catch {
             setError('Something went wrong. Please reload the page.')
@@ -41,7 +42,7 @@ export default function Receiving() {
     const showOrder = (order, number) => {
         setCurrentOrder(order)
         setCurrentOrderNumber(number)
-        setDisplay('details')
+        setActiveNavItem('details')
     }
 
     const receivedOrder = async order => {
@@ -50,39 +51,43 @@ export default function Receiving() {
         })
         const res = await axios.post(`getorderbyid/${order.id}`)
         setCurrentOrder(res.data.data[0])
-        setDisplay('complete')        
+        setActiveNavItem('complete')        
     }
 
-    const putAwayOrder = async order => {
-        await axios.put(`updateorderstatus/${order.id}`, {
-        status: 'put away'
-        })
+    const completeOrder = async order => {
+        if (order.status === 'receiving') await axios.put(`updateorderstatus/${order.id}`, {status: 'put away'})
+        if (order.status === 'active') await axios.put(`updateorderstatus/${order.id}`, {status: 'picked'})
         const res = await axios.post(`getorderbyid/${order.id}`)
         setCurrentOrder(res.data.data[0])
-        setDisplay('complete')
+        setActiveNavItem('complete')
     }
 
     const showScanner = (orderInv, pieces) => {
         setCurrentOrderInv(orderInv)
         setCurrentPieces(pieces)
-        setDisplay('scanner')
+        setActiveNavItem('scanner')
     }
     
     return( 
         
         <div className="receiving">
 
-            <MobileDashHeader avatar = {avatar} />
-
-            <Quagga />
+            {/* <Quagga /> */}
 
             {
                 error &&
+                <>
                 <h1 className = "error">{error}</h1>
+                <button
+                className = "beginreceiving"
+                style = {{'animation' : 'none'}}
+                onClick = {() => window.location.reload()}>
+                Reload</button>
+                </>
             }
         
             {
-                !error && !display &&
+                !error && !activeNavItem &&
                 <TodayJobs
                 avatar = {avatar}
                 showOrder = {showOrder}
@@ -90,23 +95,23 @@ export default function Receiving() {
             }
 
             {
-                display === 'details' &&
+                activeNavItem === 'details' &&
                 <OrderDetails
                 order = {currentOrder}
                 fetchOrderInv = {fetchOrderInv}
                 orderInv = {currentOrderInv}
                 number = {currentOrderNumber}
                 showScanner = {showScanner}
-                setDisplay = {setDisplay} />
+                setActiveNavItem = {setActiveNavItem} />
             }
 
             {
-                display === 'scanner' &&
+                activeNavItem === 'scanner' &&
                 <OrderScanner
-                setDisplay = {setDisplay}
+                setActiveNavItem = {setActiveNavItem}
                 orderInv = {currentOrderInv}
                 fetchOrderInv = {fetchOrderInv}
-                putAwayOrder = {putAwayOrder}
+                completeOrder = {completeOrder}
                 receivedOrder = {receivedOrder}
                 number = {currentOrderNumber}
                 order = {currentOrder}
@@ -114,9 +119,9 @@ export default function Receiving() {
             }
 
             {
-                display === 'complete' &&
+                activeNavItem === 'complete' &&
                 <OrderComplete
-                setDisplay = {setDisplay}
+                setActiveNavItem = {setActiveNavItem}
                 order = {currentOrder} 
                 showOrder = {showOrder}
                 fetchOrders = {fetchOrders}

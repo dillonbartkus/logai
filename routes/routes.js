@@ -11,7 +11,7 @@ router.post('/register', controller.createUser)
 
 // COP Routes
 
-router.post('/products', controller.getProducts)
+router.post('/products/:id', controller.getProducts)
 
 router.post('/cart/:id', controller.showCartItems)
 
@@ -33,6 +33,8 @@ router.put('/changequantity/:id', controller.changeQuantity)
 
 router.delete('/deletecartitem/:id', controller.deleteCartItem)
 
+router.delete('/emptycart/:id', controller.emptyCart)
+
 // WMS Routes
 
 router.post('/getinv/:id', controller.getInventory)
@@ -47,9 +49,11 @@ router.delete('/product/:id', controller.deleteProduct)
 
 router.put('/updateproductquantity/:id', controller.updateProductQuantity)
 
+router.put('/replenishproduct/:id', controller.replenishProduct)
+
 router.put('/updateorderstatus/:id', controller.updateOrderStatus)
 
-router.put('/orderitemisputaway', controller.orderItemIsPutAway)
+router.put('/orderitemiscompleted', controller.orderItemIsCompleted)
 
 router.put('/updatetransportinfo/:id', controller.updateTransportInfo)
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import camera from '../images/camera.png'
 import barcode from '../images/barcode.png'
 
-export default function ScanItem({ item, nextItem, pieces, progress, setProgress, receivedOrder, scanningLocation, isPutAway, order }) {
+export default function ScanItem({ item, nextItem, pieces, progress, setProgress, receivedOrder, scanningLocation, isCompleted, order }) {
 
     const [isScanned, setIsScanned] = useState(false)
 
@@ -12,15 +12,15 @@ export default function ScanItem({ item, nextItem, pieces, progress, setProgress
 
             <div className = "barcodescan"
             onClick = { () => {
+                if (!isScanned) setProgress(progress += item.amount_ordered)
                 setIsScanned(true)
-                setProgress(progress += item.amount_ordered)
             }}
             >
                 {
                     !isScanned &&
                     <div>
                     <img src = {camera} alt = '' />
-                    <h1>Center location barcode here</h1>
+                    <h1>Center {order.status === 'active' ? 'product' : 'location'} barcode here</h1>
                     </div>
                 }
 
@@ -55,7 +55,7 @@ export default function ScanItem({ item, nextItem, pieces, progress, setProgress
             {
                 !isScanned &&
                 <div className = "beginreceiving false">
-                Confirm product put away
+                Confirm product {order.status === 'active' ? 'picked' : 'put away'}
                 </div>
             }
 
@@ -65,11 +65,11 @@ export default function ScanItem({ item, nextItem, pieces, progress, setProgress
 
                 <button className = "beginreceiving"
                 onClick = { () => {
-                    isPutAway(item)
+                    isCompleted(item)
                     setIsScanned(false)
                 }}
                 >
-                Confirm product put away
+                Confirm product {order.status === 'active' ? 'picked' : 'put away'}
                 </button>
             }
 
@@ -83,15 +83,15 @@ export default function ScanItem({ item, nextItem, pieces, progress, setProgress
 
             <div className = "barcodescan"
             onClick = { () => {
+                if(!isScanned) setProgress(progress += item.amount_ordered)
                 setIsScanned(true)
-                setProgress(progress += item.amount_ordered)
             }}
             >
                 {
                     !isScanned &&
                     <div>
                     <img src = {camera} alt = '' />
-                    <h1>Center product barcode here to receive product</h1>
+                    <h1>Center product barcode here</h1>
                     </div>
                 }
 

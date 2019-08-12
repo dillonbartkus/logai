@@ -10,7 +10,7 @@ export default function OrderItem({ item }) {
                 <p>{item.name}</p>
                 </div>
             <div>${item.price}</div>
-            <div>{item.item_quantity}</div>
+            <div>{item.amount_ordered}</div>
             <div>{item.on_hand}</div>
             <div>{item.weight}</div>
         </div>

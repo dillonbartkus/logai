@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function COPLanding({ setActiveNavItem }) {
+export default function COPLanding({ setActiveNavItem, customerLength }) {
     
     return(
 
@@ -18,7 +18,12 @@ export default function COPLanding({ setActiveNavItem }) {
         <div
         onClick = { () => setActiveNavItem('track')}
         className="portalbutton second">
-            <div className="portalbg" id = "copportaltwo"></div>
+            <div className="portalbg" id = "copportaltwo">
+                {
+                    customerLength > 0 &&
+                    <div className="incomingordernotification big">{customerLength}</div>
+                }
+            </div>
             <p>Track Orders</p>
         </div>
 

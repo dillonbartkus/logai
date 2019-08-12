@@ -2,9 +2,6 @@ import React from 'react'
 
 export default function ActiveOrder({ order, showOrderDetails }){
 
-    console.log(order)
-
-
     return(
 
         <div className = "incomingorder">

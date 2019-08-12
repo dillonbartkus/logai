@@ -8,7 +8,7 @@ import OrderDetails from './OrderDetails'
 import TransportationInfo from './TransportInfo'
 import axios from 'axios'
 
-export default function Warehouse({ activeNavItem, setActiveNavItem, orders, fetchOrders, incomingLength, activeLength }){
+export default function Warehouse({ activeNavItem, setActiveNavItem, orders, user, fetchOrders, incomingLength, activeLength }){
 
     const [toggleTransportPopup, setToggleTransportPopup] = useState(false)
     const [currentOrder, setCurrentOrder] = useState()
@@ -62,7 +62,8 @@ export default function Warehouse({ activeNavItem, setActiveNavItem, orders, fet
 
         {
             activeNavItem === 'wms' &&
-            <WMS setActiveNavItem = {setActiveNavItem} />
+            <WMS showOrder = {showOrderDetails}
+            user = {user} />
         }
 
         {

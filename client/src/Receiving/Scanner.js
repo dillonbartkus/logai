@@ -16,12 +16,28 @@ class Scanner extends Component {
         },
         locator: {
             patchSize: "medium",
-            halfSample: true
+            halfSample: true,
+            debug: {
+              showCanvas: false,
+              showPatches: false,
+              showFoundPatches: false,
+              showSkeleton: false,
+              showLabels: false
+            }
         },
         numOfWorkers: 4,
+        frequency: 20,
         decoder: {
-            readers : [ 'code_128_reader', 'upc_reader', 'upc_e_reader', 'codabar_reader' ]
-        },
+            readers : [ 
+              "code_128_reader", "upc_reader", "upc_e_reader", "codabar_reader", "ean_reader", "ean_8_reader"
+            ],
+            debug: {
+              showFrequency: true,
+              drawBoundingBox: true,
+              drawScanLine: true,
+              showPattern: true
+        }
+      },
         locate: true
     }, function(err) {
         if (err) {

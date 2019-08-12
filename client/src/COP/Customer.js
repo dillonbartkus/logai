@@ -10,7 +10,7 @@ import Cart from './Cart'
 import Checkout from './Checkout'
 import OrderDetails from './OrderDetails'
 
-export default function COP({ activeNavItem, setActiveNavItem, fetch }) {
+export default function COP({ activeNavItem, setActiveNavItem, customerLength, orders, confirmOrder, user }) {
 
     const [recentlyPlacedOrder, setRecentlyPlacedOrder] = useState(false)
     const [orderAddress, setOrderAddress] = useState({
@@ -38,17 +38,16 @@ export default function COP({ activeNavItem, setActiveNavItem, fetch }) {
         cvc: ''
     })
     const [cart, setCart] = useState()
-    const [orders, setOrders] = useState()
+    // const [orders, setOrders] = useState()
     const [recentOrderId, setRecentOrderId] = useState()
     let subtotal = 0
 
     useEffect( () => {
         fetchCart()
-        fetchOrders()
     }, [])    
 
     const fetchCart = async () => {
-        const res = await axios.post(`/cart/1`)
+        const res = await axios.post(`/cart/${user.id}`)
         setCart(res.data.data)
     }
 
@@ -56,20 +55,19 @@ export default function COP({ activeNavItem, setActiveNavItem, fetch }) {
         if(cart) cart.forEach( item => subtotal += (item.price * item.item_quantity) )
     }
 
-    const fetchOrders = async () => {
-        const res = await axios.post(`/getallcustomerorders/${1}`)
-        setOrders(res.data.data)
-    }    
+    // const fetchOrders = async () => {
+    //     const res = await axios.post(`/getallcustomerorders/${user.id}`)
+    //     setOrders(res.data.data)
+    // }    
     
     // Add customer order to database as an incoming order for the warehouse.
 
     const orderWasPlaced = async (cart, times, dates, tax, shipping, subtotal, totalWeight) => {
-        const nowDate = new Date().toLocaleString()
-        const nowTime = new Date().toLocaleTimeString()
+        const now = new Date().toLocaleDateString()
         const res = await axios.post(`/createcustomerorder`, {
-            warehouse_id: 2,
-            ordered_by: 1,
-            date_placed: nowDate, nowTime,
+            warehouse_id: user.customer_of,
+            ordered_by: user.id,
+            date_placed: now,
             tax: tax,
             shipping: shipping,
             subtotal: subtotal,
@@ -80,6 +78,7 @@ export default function COP({ activeNavItem, setActiveNavItem, fetch }) {
             delivery_address: orderAddress
         })
         addCartItemsToOrder(cart, res.data.data.id)
+        emptyCart()
         setRecentOrderId(res.data.data.id)
         setRecentlyPlacedOrder(true)
         setActiveNavItem('')
@@ -95,6 +94,11 @@ export default function COP({ activeNavItem, setActiveNavItem, fetch }) {
                 order_id: id
             })            
         })
+    }
+
+    const emptyCart = async () => {
+        await axios.delete(`/emptycart/${1}`)
+        fetchCart()
     }
 
     const handlePaymentInfo = e => {
@@ -152,7 +156,7 @@ export default function COP({ activeNavItem, setActiveNavItem, fetch }) {
     }
 
     const addItem = async (item, quantity) => {
-        await axios.post(`/addtocart/1`, {
+        await axios.post(`/addtocart/${user.id}`, {
             item_id: item.id,
             item_quantity: quantity
         })
@@ -213,6 +217,7 @@ export default function COP({ activeNavItem, setActiveNavItem, fetch }) {
             {
             !activeNavItem &&
                 <COPLanding
+                customerLength = {customerLength}
                 setActiveNavItem = {setActiveNavItem} />
             }
 
@@ -221,6 +226,7 @@ export default function COP({ activeNavItem, setActiveNavItem, fetch }) {
                 <CreateOrder
                 setActiveNavItem = {setActiveNavItem}
                 cart = {cart}
+                user = {user}
                 addToCart = {addToCart} />
             }
 
@@ -235,7 +241,7 @@ export default function COP({ activeNavItem, setActiveNavItem, fetch }) {
             {
             activeNavItem === 'details' &&
                 <OrderDetails
-                fetch = {fetch}
+                confirmOrder = {confirmOrder}
                 setActiveNavItem = {setActiveNavItem}
                 orderId = {recentOrderId} />
             }

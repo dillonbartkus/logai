@@ -3,23 +3,20 @@ import balloons from '../images/balloons.png'
 import MessageBox from './MessageBox'
 import axios from 'axios'
 
-export default function OrderDetails({ setActiveNavItem, orderId, fetch }) {
+export default function OrderDetails({ setActiveNavItem, orderId, confirmOrder }) {
 
     const [order, setOrder] = useState()
+    const [count, setCount] = useState(1)
+
+    // increase the count to force the component to re render.
 
     useEffect( () => {
         fetchOrder()
-    }, [])    
+    }, [count])
 
     const fetchOrder = async () => {
         const res = await axios.post(`/getcustomerorder/${orderId}`)
         setOrder(res.data.data[0])
-    }
-
-    const confirmOrder = async () => {
-        await axios.put(`/confirmcustomermorder/${orderId}`)
-        fetchOrder()
-        fetch()
     }
 
     const hasTransportInfo = (order && order.truck_driver && order.trucking_company && order.actual_date && order.actual_time) ? true : false
@@ -64,7 +61,11 @@ export default function OrderDetails({ setActiveNavItem, orderId, fetch }) {
                     <p style = {{'fontSize': '18px'}}>Please confirm to complete your purchase order. (Your card will be charged.)</p>
                 </div>
                 <button
-                onClick = { () => confirmOrder() }
+                onClick = { () => {
+                    confirmOrder(orderId)
+                    fetchOrder()
+                    setCount(count + 1)
+                }}
                 className = "addtocart">Confirm purchase order</button>
                 </>
             }

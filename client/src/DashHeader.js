@@ -9,7 +9,7 @@ export default function DashHeader({ setActiveNavItem, dropdown, setDropdown }) 
     const dropdownStyle = (dropdown) ? {'height' : '20vh'} : {'height' : 0}
     const dropdownItemStyle = (dropdown) ? {'display' : 'block'} : {'display' : 'none'}
 
-return (
+    return (
 
     <div className = "dashheader">
              
@@ -51,20 +51,19 @@ return (
         <div
         style = {dropdownStyle} 
         className = "headerdropdown">
-            
+
+            <span
+            onClick = { e => {
+                e.stopPropagation()
+            }}
+            style = {dropdownItemStyle}>Settings</span>
+                        
             <span
             onClick = { e => {
                 e.stopPropagation()
                 setLoggedOut(true) 
             }}
             style = {dropdownItemStyle}>Logout</span>
-
-            <span
-            onClick = { e => {
-                e.stopPropagation()
-                console.log('dasda')
-            }}
-            style = {dropdownItemStyle}>Settings</span>
 
         </div>
 

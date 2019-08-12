@@ -1,82 +1,100 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './dashboard.css'
-// import Customer from './COP/Customer'
-// import Warehouse from './WMS/Warehouse'
-// import DashHeader from './DashHeader'
-// import SideNav from './SideNav'
-import Receiving from './Receiving/Receiving'
-// import axios from 'axios'
+import Customer from './COP/Customer'
+import Warehouse from './WMS/Warehouse'
+import DashHeader from './DashHeader'
+import SideNav from './SideNav'
+// import Receiving from './Receiving/Receiving'
+// import MobileDashHeader from './MobileDashHeader'
+import axios from 'axios'
 
-export default function Dashboard( ) {
+export default function Dashboard( props ) {
 
-  // const [activeNavItem, setActiveNavItem] = useState('')
-  // const [warehouseOrders, setWarehouseOrders] = useState()
-  // const [customerOrders, setCustomerOrders] = useState()
-  // const [incomingOrderLength, setIncomingOrderLength] = useState()
-  // const [activeOrderLength, setActiveOrderLength] = useState()
-  // const [customerOrderLength, setCustomerOrderLength] = useState()
-  // const [dropdown, setDropdown] = useState(false)
-  // const userData = props.location.state.userData
+  const [activeNavItem, setActiveNavItem] = useState('')
+  const [warehouseOrders, setWarehouseOrders] = useState()
+  const [customerOrders, setCustomerOrders] = useState()
+  const [incomingOrderLength, setIncomingOrderLength] = useState()
+  const [activeOrderLength, setActiveOrderLength] = useState()
+  const [customerOrderLength, setCustomerOrderLength] = useState()
+  const [dropdown, setDropdown] = useState(false)
+  const user = props.location.state.userData
 
-  // 
-  //  Don't forget to update server calls with actual user ID!!!!
-  // 
+  useEffect( () => {
+    if (user.type === 'warehouse') fetchWarehouseOrders()
+    if (user.type === 'customer') fetchCustomerOrders()
+  }, [])
 
-  // useEffect( () => {
-    // fetchWarehouseOrders()
-    // fetchCustomerOrders()
-  // }, [])
+  useEffect( () => {
+    if (user.type === 'warehouse') getWarehouseOrderLengths()
+    if (user.type === 'customer') getCustomerOrderLengths()
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  })
 
-  // useEffect( () => {
-    // getWarehouseOrderLengths()
-    // getCustomerOrderLengths()
-    // window.scroll({
-      // top: 0,
-      // behavior: 'smooth'
-    // })
-  // })
+  const fetchWarehouseOrders = async () => {    
+    let res = await axios.post(`/getwarehouseorders/${user.id}`)
+    setWarehouseOrders(res.data.data)
+  }
 
-  // const fetchWarehouseOrders = async () => {
-  //   let res = await axios.post(`/getwarehouseorders/2`)
-  //   setWarehouseOrders(res.data.data)
-  // }
+  const fetchCustomerOrders = async () => {
+    let res = await axios.post(`/getallcustomerorders/${user.id}`)
+    setCustomerOrders(res.data.data)
+  }
 
-  // const fetchCustomerOrders = async () => {
-  //   let res = await axios.post(`/getallcustomerorders/1`)
-  //   setCustomerOrders(res.data.data)
-  // }
+  const confirmCustomerOrder = async orderId => {
+    await axios.put(`/confirmcustomermorder/${orderId}`)
+    fetchCustomerOrders()
+}
 
-  // const getWarehouseOrderLengths = () => {
-  //   if(warehouseOrders){
-  //   let inc = warehouseOrders.filter( order => order.status === 'incoming' )
-  //   setIncomingOrderLength(inc.length)
-  //   let active = warehouseOrders.filter( order => order.status === 'active' )
-  //   setActiveOrderLength(active.length)
-  //   }
-  // }
+  const getWarehouseOrderLengths = () => {
+    if(warehouseOrders){
+    let inc = warehouseOrders.filter( order => order.status === 'incoming' )
+    setIncomingOrderLength(inc.length)
+    let active = warehouseOrders.filter( order => order.status !== 'incoming' && order.status !== 'completed' )
+    setActiveOrderLength(active.length)
+    }
+  }
 
-  // const getCustomerOrderLengths = () => {
-  //   if(customerOrders){
-  //   let length = customerOrders.filter( order => !order.customer_confirmed_transport && order.status === 'active' )
-  //   setCustomerOrderLength(length.length)
-  //   }
-  // }
+  const getCustomerOrderLengths = () => {
+    if(customerOrders){
+    let length = customerOrders.filter( order => !order.customer_confirmed_transport && order.status === 'active' )
+    setCustomerOrderLength(length.length)
+    }
+  }
+
+    if(!props.location.state.userData) return ( <>
+      <h1 className = "error">Something went wrong. Please reload the page.</h1>
+      <button
+      className = "beginreceiving"
+      style = {{'animation' : 'none'}}
+      onClick = {() => window.location.reload()}>
+      Reload</button>
+      </> )
   
     return (
 
       <div className="dashboard"
-      // onClick = { () => setDropdown(false) }
+      onClick = { () => setDropdown(false) }
       >
 
-        <Receiving />
+      {/* <MobileDashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} /> */}
 
-      {/* <DashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} /> */}
+      {/* <Receiving activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
 
-      {/* <SideNav incomingLength = {incomingOrderLength} customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
+      <DashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} />
 
-      {/* <Customer fetch = {fetchCustomerOrders} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
+      <SideNav user = {user} incomingLength = {incomingOrderLength} customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
 
-      {/* <Warehouse orders = {warehouseOrders} incomingLength = {incomingOrderLength} activeLength = {activeOrderLength} fetchOrders = {fetchWarehouseOrders}  activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
+      { user.type === 'customer' &&
+        <Customer user = {user} confirmOrder = {confirmCustomerOrder} orders = {customerOrders} customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+      }
+
+      { user.type ==='warehouse' &&
+        <Warehouse user = {user} orders = {warehouseOrders} incomingLength = {incomingOrderLength} activeLength = {activeOrderLength}
+        fetchOrders = {fetchWarehouseOrders}  activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+      }
 
       </div>
       

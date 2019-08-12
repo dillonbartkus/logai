@@ -1,7 +1,7 @@
 import React from 'react'
 import Order from './Order'
 
-export default function TrackOrders({ orders, showOrder }) {    
+export default function TrackOrders({ orders, showOrder }) {
 
     return(
 
@@ -18,7 +18,7 @@ export default function TrackOrders({ orders, showOrder }) {
         
                 {
                     orders &&
-                    orders.filter( order => order.status === 'incoming' || order.status === 'active')
+                    orders.filter( order => order.status !== 'receiving' && order.status !== 'received' && order.status !== 'put away')
                     .map( order => <Order
                     showOrder = {showOrder}
                     order = {order}

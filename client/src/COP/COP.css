@@ -285,7 +285,7 @@
     border: 1px solid #979797;
     display: flex;
     align-items: center;
-    width: 90%;
+    width: 95%;
     margin: 3% auto 0 auto;
     text-align: left;
 }
@@ -531,4 +531,21 @@
     width: 25%;
     height: 50%;
     margin-right: 5%;
+}
+
+@media (max-width: 900px){
+
+    .cop {
+        flex-flow: column;
+    }
+
+    .portalbutton {
+        margin: 2% auto;
+        width: 50%;
+    }
+
+    .portalbg {
+        width: 100%;
+    }
+
 }

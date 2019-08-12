@@ -4,7 +4,7 @@ import ScanItem from './ScanItem'
 import ScanLocation from './ScanLocation'
 import axios from 'axios'
 
-export default function OrderScanner({ order, orderInv, setDisplay, number, pieces, receivedOrder, putAwayOrder, fetchOrderInv }) {
+export default function OrderScanner({ order, orderInv, setActiveNavItem, number, pieces, receivedOrder, completeOrder, fetchOrderInv }) {
 
     const [progress, setProgress] = useState(0)
     const [currentItem, setCurrentItem] = useState()
@@ -19,6 +19,12 @@ export default function OrderScanner({ order, orderInv, setDisplay, number, piec
             putAway.forEach( item => count += item.amount_ordered )
             setProgress(count)
         }
+        if(order.status === 'active') {
+            let count = 0
+            let picked = orderInv.filter( item => item.picked)
+            picked.forEach( item => count += item.picked )
+            setProgress(count)
+        }
     }, [])
 
     const nextItem = () => {
@@ -31,8 +37,8 @@ export default function OrderScanner({ order, orderInv, setDisplay, number, piec
         setScanningLocation(true)
     }
 
-    const isPutAway = async item => {
-        await axios.put(`/orderitemisputaway`, {
+    const isCompleted = async item => {
+        await axios.put(`/orderitemiscompleted`, {
             item_id : item.id,
             order_id: order.id
         })
@@ -45,7 +51,7 @@ export default function OrderScanner({ order, orderInv, setDisplay, number, piec
         <div className = "orderscanner">
 
             <div className = "backtoorder" style = {{'width' : '75%'}}
-            onClick = { () => setDisplay('details')} >
+            onClick = { () => setActiveNavItem('details')} >
                 <img src = {back} alt = 'back' />
                 <span>Back</span>
             </div>
@@ -56,8 +62,12 @@ export default function OrderScanner({ order, orderInv, setDisplay, number, piec
 
             <div className = "receieveoverview">
                 <div className = "jobnumber" style = {{'margin' : '0 3%'}}>{number}</div>
-                <h1>{order.status === 'active' ? 'Receive' : 'Put Away' }</h1>
-                <h1 style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>Incoming Shipment Purchase Order #{order.id}</h1>
+
+                <h1> {order.status === 'active' && 'Pick' }
+                {order.status === 'receiving' && 'Receive' }
+                {order.status === 'received' && 'Put Away' } </h1>
+
+                <h1 style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>{order.status === 'active' ? 'Customer' : 'Incoming Shipment'} Purchase Order #{order.id}</h1>
             </div>
 
             <h1 className = "progresstext"> {progress} / {pieces} </h1>
@@ -69,25 +79,26 @@ export default function OrderScanner({ order, orderInv, setDisplay, number, piec
 
             {
                 scanningLocation &&
-                <ScanItem isPutAway = {isPutAway} scanningLocation = {scanningLocation} item = {currentItem} progress = {progress} setProgress = {setProgress} pieces = {pieces} receivedOrder = {receivedOrder} />
+                <ScanItem isCompleted = {isCompleted} scanningLocation = {scanningLocation} item = {currentItem} progress = {progress} setProgress = {setProgress} order = {order} pieces = {pieces} receivedOrder = {receivedOrder} />
             }
 
             {
-                order.status === 'active' && !scanningLocation &&
+                // Receive products only
+                order.status === 'receiving' && !scanningLocation &&
                 <ScanItem nextItem = {nextItem} item = {currentItem} progress = {progress} setProgress = {setProgress} pieces = {pieces} order = {order} receivedOrder = {receivedOrder} />
             }
 
             {
-                order.status === 'received' && !scanningLocation &&
-                orderInv.map( (item, id) => <ScanLocation scanItemLocation = {scanItemLocation} item = {item} key = {id} /> )
+                order.status !== 'receiving' && !scanningLocation &&
+                orderInv.map( (item, id) => <ScanLocation scanItemLocation = {scanItemLocation} item = {item} order = {order} key = {id} /> )
             }
 
             {
-                order.status === 'received' && progress === pieces && !scanningLocation &&
+                order.status !== 'receiving' && progress === pieces && !scanningLocation &&
                 <button
                 className = "beginreceiving"
-                onClick = { () => putAwayOrder(order) }
-                >Mark put-away complete</button>
+                onClick = { () => completeOrder(order) }>
+                {order.status === 'active' ? 'Mark picking complete' : 'Mark put-away complete'}</button>
             }
 
         </div>

@@ -6,7 +6,7 @@ export default function WMSLanding({ setActiveNavItem, incomingLength }) {
 
         <>
 
-        <h1 className="bigheader" style = {{'width' : '100%', 'padding' : '3%'}}>Welcome, Brian!</h1>
+        <h1 className="bigheader" style = {{'width' : '100%', 'padding' : '3%'}}>Welcome, Steve!</h1>
 
         <div
         onClick = { () => setActiveNavItem('manager')}

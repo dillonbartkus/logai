@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Calendar from 'react-calendar'
-import down from '../images/down.png'
 
 export default function TransportationInfo({ popup, order, setActiveNavItem, updateTransportInfo }) {
 
@@ -39,7 +38,7 @@ export default function TransportationInfo({ popup, order, setActiveNavItem, upd
 
             <select
             onChange ={ e => setTime(e.target.value) } >
-                <option>{down}</option>
+                <option>↓</option>
                 <option value="7:00 AM">7:00 AM</option>
                 <option value="8:00 AM">8:00 AM</option>
                 <option value="9:00 AM">9:00 AM</option>

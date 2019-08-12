@@ -7,7 +7,7 @@ body {
     flex-flow: row wrap;
   }
   
-  .dashheader {
+.dashheader {
     z-index: 1;
     background-color: #1D9DEB;
     height: 15vh;
@@ -68,7 +68,7 @@ body {
 
 .headerdropdown > * {
     margin-top: 5%;
-    font-size: 2vh !important;
+    font-size: 2vh;
 }
 
 .sidenav {
@@ -134,4 +134,10 @@ body {
 
 .portalbutton.third > div {
     background-color: #9BCCED;
+}
+
+@media (max-width: 1370px) {
+
+
+
 }

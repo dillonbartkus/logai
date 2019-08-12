@@ -13,7 +13,7 @@ export default function OrderDetails({ setActiveNavItem, showTransportInfo, orde
     }, [] )    
 
     const fetchOrderItems = async () => {
-        let res = await axios.post(`/cart/1`)
+        let res = await axios.post(`/getorderinv/${order.id}`)
         setOrderItems(res.data.data)
     }
     

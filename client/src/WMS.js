@@ -7,7 +7,7 @@ import Incoming from './Incoming'
 
 const WMS = props => {
 
-const [display, setDisplay] = useState('incoming')
+const [display, setActiveNavItem] = useState('incoming')
 const [inv, setInv] = useState()
 const [fulfillingOrders, setFulfillingOrders] = useState()
 const [completedOrders, setCompletedOrders] = useState()
@@ -67,7 +67,7 @@ return (
         <button
         className = "dashbutton"
         onClick = { () => {
-            setDisplay('incoming')
+            setActiveNavItem('incoming')
         }}
         >
         Incoming Orders</button>
@@ -75,7 +75,7 @@ return (
         <button
         className = "dashbutton"
         onClick = { () => {
-            setDisplay('trackinv')
+            setActiveNavItem('trackinv')
         }}
         >
         Track Inventory</button>
@@ -83,7 +83,7 @@ return (
         <button
         className = "dashbutton"
         onClick = { () => {
-            setDisplay('fulfilling')
+            setActiveNavItem('fulfilling')
         }}
         >
         Current Orders</button>
@@ -91,7 +91,7 @@ return (
         <button
         className = "dashbutton"
         onClick = { () => {
-            setDisplay('completed')
+            setActiveNavItem('completed')
         }}
         >
         Completed Orders</button>

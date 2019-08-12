@@ -5,7 +5,7 @@ import ProductList from './ProductList'
 import Categories from './Categories'
 import cartimg from '../images/cart.png'
 
-export default function CreateOrder({ setActiveNavItem, cart, addToCart }) {
+export default function CreateOrder({ setActiveNavItem, cart, user, addToCart }) {
 
     const [products, setProducts] = useState()
     const [searchTerm, setSearchTerm] = useState('')
@@ -23,10 +23,10 @@ export default function CreateOrder({ setActiveNavItem, cart, addToCart }) {
         })
         setCartTotal(total)
         }
-    })
+    })    
 
     const fetchProducts = async () => {
-        const res =  await axios.post('/products')
+        const res =  await axios.post(`/products/${user.customer_of}`)
         setProducts(res.data.data)
     }    
     

@@ -1,6 +1,6 @@
 import React, { useState} from 'react'
 import axios from 'axios'
-import SERVERURL from './config'
+// import SERVERURL from './config'
 
 const Register = props => {
 
@@ -24,7 +24,7 @@ const Register = props => {
 
     const submitForm = async () => {
         try {
-        await axios.post(`${SERVERURL}/register`,  {
+        await axios.post(`/register`,  {
             company: companyName,
             pw: pw,
             email: email,

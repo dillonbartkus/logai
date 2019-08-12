@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-export default function TimeSlot({ timeslot, orders }) {
+export default function TimeSlot({ timeslot, orders, showOrderDetails }) {
 
     const [order, setOrder] = useState()
 
@@ -25,7 +25,9 @@ export default function TimeSlot({ timeslot, orders }) {
                 {
                     order &&
 
-                <div className="todayorderbox">
+                <div className="todayorderbox"
+                onClick = {() => showOrderDetails(order)}
+                >
 
                     <div className="todayorderbox-top">
 
@@ -43,12 +45,12 @@ export default function TimeSlot({ timeslot, orders }) {
 
                         <div>
                         <h4>Trucking:</h4>
-                        <p>{order.trucking_company}dasdasdas</p>
+                        <p>{order.trucking_company}</p>
                         </div>
 
                         <div>
                         <h4>Driver:</h4>
-                        <p>{order.truck_driver}dsdasds</p>
+                        <p>{order.truck_driver}</p>
                         </div>
 
                         <div>

@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS users(
   phone VARCHAR(15) UNIQUE NOT NULL,
   address VARCHAR(99),
   npc VARCHAR(25) NOT NULL,
-  company_type TEXT NOT NULL
+  type TEXT NOT NULL,
+  customer_of INTEGER REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS inventory(
@@ -46,6 +47,7 @@ CREATE TABLE IF NOT EXISTS orders(
   warehouse_id INTEGER REFERENCES users(id),
   ordered_by INTEGER REFERENCES users(id),
   status VARCHAR(99) NOT NULL,
+  supplier VARCHAR(999),
   total_weight INTEGER,
   employee VARCHAR(99),
   date_placed VARCHAR(999),
@@ -68,6 +70,6 @@ CREATE TABLE IF NOT EXISTS order_items(
   item_id INTEGER REFERENCES inventory,
   amount_ordered INTEGER NOT NULL,
   order_id INTEGER REFERENCES orders,
-  put_away BOOLEAN,
+  completed BOOLEAN false,
   PRIMARY KEY(item_id, order_id)
 );

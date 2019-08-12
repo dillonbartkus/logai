@@ -8,6 +8,7 @@
 
   .error {
     margin: 10% auto;
+    font-size: 40px;
   }
 
   .mobiledashheader {
@@ -19,7 +20,6 @@
     align-items: center;
     letter-spacing: 1.1px;
     line-height: 29px;
-    cursor: pointer;
   }
 
   .mobiledashheader > * {
@@ -27,22 +27,24 @@
     font-weight: 900;
 }
 
-  .headerlogo {
+  .mobileheaderlogo {
     font-family: 'Lato', sans-serif;
     display: flex;
     flex-flow: column;
-    align-items: center;
+    justify-content: center;
     height: 50%;
   }
 
-  .headerlogo > span:first-of-type {
-    letter-spacing: 1px;
-    font-size: 74px;
-    margin-bottom: 4%;
+  .mobileheaderlogo > span:first-of-type {
+    letter-spacing: 1.97px;
+    font-size: 58px;
+    line-height: 51px;
   }
 
-  .headerlogo > span:nth-of-type(2) {
-    font-size: 21px;
+  .mobileheaderlogo > span:nth-of-type(2) {
+    line-height: 14px;
+    font-size: 18px;
+    letter-spacing: 0.55px;
   }
 
   .mobileheaderuserpic {
@@ -58,7 +60,7 @@
   .mobilehamburger {
     height: 50%;
     width: 10%;
-    background-image: url('../images/whitehamburger.png');
+    background-image: url('./images/whitehamburger.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -66,7 +68,7 @@
 
   .todayjobs {
     margin: 5% auto;
-    width: 90%;
+    width: 95%;
     text-align: center;
   }
 
@@ -124,34 +126,33 @@
     width: 85%;
     height: 100%;
     display: flex;
-    flex-flow: column;
+    flex-flow: row wrap;
     text-align: left;
     margin-bottom: 2%;
   }
 
   .jobdetails > * {
-    margin: 1% 0 !important;
+    margin: 1%;
     letter-spacing: 1px;
   }
 
-  .jobdetails > h3, .jobdetails > span {
-    font-size: 20px;
+  .jobdetails > h2, .jobdetails > span {
+    font-size: 28px;
   }
 
   .assignedtome {
     background-color: #FD992E;
     border-radius: 16px;
     padding: 1%;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     font-weight: 900;
-    align-self: flex-end;
-    right: 8%;
+    right: 5%;  
     position: absolute;
   }
 
   .receiveorder {
-    width: 90%;
+    width: 95%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -242,7 +243,7 @@
   }
 
   .orderscanner {
-    width: 90%;
+    width: 95%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -333,6 +334,7 @@
   .scannerdetails > span {
     margin-left: 5%;
     font-size: 33px;
+    height: 33px;
     width: 60%;
     border-bottom: 1px dashed #979797;
   }
@@ -346,7 +348,7 @@
   }
 
   .ordercomplete {
-    width: 90%;
+    width: 95%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -424,7 +426,7 @@
   }
 
   .scanlocation > div:nth-of-type(1) > div {
-    width: 90%;
+    width: 95%;
     display: flex;
     margin-left: 5%;
   }
