@@ -30,7 +30,7 @@ const Register = props => {
             email: email,
             phone: phone,
             npc: nPC,
-            comptype: companyType
+            type: companyType
         })
     }
     catch (err) {

@@ -5,7 +5,7 @@ export default function OrderComplete({ order, showOrder, setActiveNavItem, numb
 
     return(
 
-        <div className = "ordercomplete">
+        <div className = "receivingordercomplete">
 
         <div className = "congrats">
 
@@ -23,6 +23,9 @@ export default function OrderComplete({ order, showOrder, setActiveNavItem, numb
 
                 {order.status === 'picked' &&
                 <h1>Picking is finished!</h1> }
+
+                {order.status === 'counted' &&
+                <h1>Cycle count is finished!</h1> }
 
             </div>
 

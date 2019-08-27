@@ -4,8 +4,8 @@ import Customer from './COP/Customer'
 import Warehouse from './WMS/Warehouse'
 import DashHeader from './DashHeader'
 import SideNav from './SideNav'
-// import Receiving from './Receiving/Receiving'
-// import MobileDashHeader from './MobileDashHeader'
+import Receiving from './Receiving/Receiving'
+import MobileDashHeader from './MobileDashHeader'
 import axios from 'axios'
 
 export default function Dashboard( props ) {
@@ -17,7 +17,7 @@ export default function Dashboard( props ) {
   const [activeOrderLength, setActiveOrderLength] = useState()
   const [customerOrderLength, setCustomerOrderLength] = useState()
   const [dropdown, setDropdown] = useState(false)
-  const user = props.location.state.userData
+  const user = props.location.state.userData  
 
   useEffect( () => {
     if (user.type === 'warehouse') fetchWarehouseOrders()
@@ -63,29 +63,28 @@ export default function Dashboard( props ) {
     setCustomerOrderLength(length.length)
     }
   }
-
-    if(!props.location.state.userData) return ( <>
-      <h1 className = "error">Something went wrong. Please reload the page.</h1>
-      <button
-      className = "beginreceiving"
-      style = {{'animation' : 'none'}}
-      onClick = {() => window.location.reload()}>
-      Reload</button>
-      </> )
   
     return (
 
       <div className="dashboard"
       onClick = { () => setDropdown(false) }
       >
+      
+      { user.type === 'employee' &&
+      <>
+      <MobileDashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} />
 
-      {/* <MobileDashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} /> */}
+      <Receiving user = {user} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+      </> 
+      }
 
-      {/* <Receiving activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} /> */}
-
+      { user.type !== 'employee' &&
+      <>
       <DashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} />
 
       <SideNav user = {user} incomingLength = {incomingOrderLength} customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+      </>
+      }
 
       { user.type === 'customer' &&
         <Customer user = {user} confirmOrder = {confirmCustomerOrder} orders = {customerOrders} customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />

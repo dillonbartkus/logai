@@ -20,7 +20,7 @@ export default function ScanItem({ item, nextItem, pieces, progress, setProgress
                     !isScanned &&
                     <div>
                     <img src = {camera} alt = '' />
-                    <h1>Center {order.status === 'active' ? 'product' : 'location'} barcode here</h1>
+                    <h1>Center {order.status !== 'received' ? 'product' : 'location'} barcode here</h1>
                     </div>
                 }
 
@@ -44,18 +44,29 @@ export default function ScanItem({ item, nextItem, pieces, progress, setProgress
                 <h1>SKU</h1>
                 <span style = {{'borderBottom' : 'none'}}> {item.sku} </span>
 
+                {order.status !== 'count' &&
+                <>
                 <h1>Quantity</h1>
                 <span style = {{'borderBottom' : 'none'}}> {item.amount_ordered} </span>
+                </> }
 
                 <h1>Location</h1>
                 <span style = {{'borderBottom' : 'none'}}> {item.location} </span>
+
+                {order.status === 'count' &&
+                <>
+                <h1 style = {{'color' : '#FD992E' }}>Quantity</h1>
+                <span> {isScanned && pieces} </span>
+                </> }
 
             </div>
 
             {
                 !isScanned &&
                 <div className = "beginreceiving false">
-                Confirm product {order.status === 'active' ? 'picked' : 'put away'}
+                Confirm {order.status === 'active' && 'product picked'}
+                {order.status === 'received' && 'product put away'}
+                {order.status === 'count' && 'count'}
                 </div>
             }
 
@@ -69,7 +80,9 @@ export default function ScanItem({ item, nextItem, pieces, progress, setProgress
                     setIsScanned(false)
                 }}
                 >
-                Confirm product {order.status === 'active' ? 'picked' : 'put away'}
+                Confirm {order.status === 'active' && 'product picked'}
+                {order.status === 'received' && 'product put away'}
+                {order.status === 'count' && 'count'}
                 </button>
             }
 

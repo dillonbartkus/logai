@@ -18,7 +18,7 @@ export default function OrderDetails({ order, setActiveNavItem, number, showScan
             })
             setPieces(total)
         }
-    })
+    })    
 
     const filterCategories = () => {
         if (orderInv){
@@ -55,7 +55,7 @@ export default function OrderDetails({ order, setActiveNavItem, number, showScan
             <div className = "backtoorder"
             onClick = { () => setActiveNavItem('')} >
                 <img src = {back} alt = 'back' />
-                <span>Back</span>
+                <h4>Back</h4>
             </div>
 
             <div className = "receieveoverview">
@@ -63,16 +63,32 @@ export default function OrderDetails({ order, setActiveNavItem, number, showScan
 
                 <h1> {order.status === 'active' && 'Pick' }
                 {order.status === 'receiving' && 'Receive'}
-                {order.status === 'received' && 'Put away'} </h1>
+                {order.status === 'received' && 'Put away'}
+                {order.status === 'count' && 'Count'} </h1>
 
+                {order.status !== 'count' &&
                 <h1 style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>{order.status === 'active' ? 'Customer' : 'Incoming Shipment'} Purchase Order #{order.id}</h1>
+                }
+                {order.status === 'count' &&
+                <h1 style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>Cycle Count #{order.id}</h1>
+                }
+
+
             </div>
 
             <h1>Summary</h1>
 
             <div className = "receivesummary">
 
-                <h1># Pieces: <span style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>{pieces}</span> </h1>
+                {
+                    order.status !== 'count' &&
+                    <h1># Pieces: <span style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>{pieces}</span> </h1>
+                }
+
+                {
+                    order.status === 'count' &&
+                    <h1># Items: <span style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>{pieces}</span> </h1>
+                }
 
                 <h1>Product Types:</h1>
 
@@ -98,6 +114,7 @@ export default function OrderDetails({ order, setActiveNavItem, number, showScan
             {order.status === 'active' && 'Begin picking' }
             {order.status === 'receiving' && 'Begin receiving'}
             {order.status === 'received' && 'Begin putting away'}
+            {order.status === 'count' && 'Begin counting'}
             </button>
 
         </div>

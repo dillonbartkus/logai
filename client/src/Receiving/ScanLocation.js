@@ -34,16 +34,24 @@ export default function ScanLocation({ item, order, scanItemLocation }) {
                     <h1 style = {{'fontWeight' : 500, 'marginLeft' : '5%'}}> {item.sku} </h1>
                 </div>
 
+                {order.status !== 'count' &&
                 <div>
                     <h1>Quantity</h1>
                     <h1 style = {{'fontWeight' : 500, 'marginLeft' : '5%'}}> {item.amount_ordered} </h1>
-                </div>
+                </div> }
+
+                {order.status === 'count' &&
+                <div>
+                    <h1>Location</h1>
+                    <h1 style = {{'fontWeight' : 500, 'marginLeft' : '5%'}}> {item.location} </h1>
+                </div> }
+
             </div>
 
             <div
             onClick = { () => scanItemLocation(item) } >
                 <img src = {camera} alt = '' />
-                <h1>Scan {order.status === 'active' ? 'product' : 'location'}</h1>
+                <h1>Scan {order.status !== 'received' ? 'product' : 'location'}</h1>
 
             </div>
 

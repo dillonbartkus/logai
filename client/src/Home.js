@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import axios from 'axios'
+// import axios from 'axios'
 import Header from './Header'
 import Footer from './Footer'
 import Main from './Main'
@@ -25,16 +25,16 @@ export default function Home() {
   const [userData, setUserData] = useState(null)
   const [token, setToken] = useState(null)
 
-  useEffect( () => {
-    fetchUser()
-  }, [])
+  // useEffect( () => {
+  //   fetchUser()
+  // }, [])
 
-  const fetchUser = async () => {
-    if(localStorage.email && !userData) {
-      const res = await axios.post(`/users/${localStorage.email}`)
-      setUserData(res.data.data);
-    }
-  }
+  // const fetchUser = async () => {
+  //   if(localStorage.email && !userData) {
+  //     const res = await axios.post(`/users/${localStorage.email}`)
+  //     setUserData(res.data.data);
+  //   }
+  // }
 
   const logUserIn = (data, token) => {
     setToken(token)

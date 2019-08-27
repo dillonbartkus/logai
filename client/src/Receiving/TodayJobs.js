@@ -1,7 +1,7 @@
 import React from 'react'
 import TodayJob from './TodayJob'
 
-export default function TodayJobs({ orders, avatar, showOrder }) {
+export default function TodayJobs({ orders, avatar, showOrder, user }) {
 
     return(
 
@@ -11,7 +11,7 @@ export default function TodayJobs({ orders, avatar, showOrder }) {
 
                 <img src = {avatar} alt = "employee" />
 
-                <h2>David Hernandez</h2>
+                <h2>{user.npc}</h2>
                 <p>Picker</p>
 
             </div>

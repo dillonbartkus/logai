@@ -16,12 +16,12 @@ model.createUser = user => {
   return db.one(
     `
      INSERT INTO users
-     (company, pw, email, phone, npc, comptype)
+     (company, pw, email, phone, npc, type)
      VALUES ($1, $2, $3, $4, $5, $6)
      RETURNING *
     `,
     [user.company, user.pw, user.email, user.phone,
-    user.npc, user.comptype]
+    user.npc, user.type]
   )
 }
 
@@ -295,5 +295,21 @@ model.deleteProduct = id => {
   )
 }
 
+//////////////////////////////////////////////
+
+//        WMS ROUTES
+
+//////////////////////////////////////////////
+
+model.getWarehouseEmployeeOrders = id => {
+  return db.query(
+    `
+    SELECT * FROM orders
+    WHERE warehouse_id = $1
+    ORDER BY id DESC
+    `,
+    id
+  )
+}
 
 module.exports = model

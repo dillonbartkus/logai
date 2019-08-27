@@ -38,7 +38,6 @@ export default function COP({ activeNavItem, setActiveNavItem, customerLength, o
         cvc: ''
     })
     const [cart, setCart] = useState()
-    // const [orders, setOrders] = useState()
     const [recentOrderId, setRecentOrderId] = useState()
     let subtotal = 0
 
@@ -54,11 +53,6 @@ export default function COP({ activeNavItem, setActiveNavItem, customerLength, o
     const updateSubtotal = () => {
         if(cart) cart.forEach( item => subtotal += (item.price * item.item_quantity) )
     }
-
-    // const fetchOrders = async () => {
-    //     const res = await axios.post(`/getallcustomerorders/${user.id}`)
-    //     setOrders(res.data.data)
-    // }    
     
     // Add customer order to database as an incoming order for the warehouse.
 

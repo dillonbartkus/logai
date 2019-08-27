@@ -53,7 +53,7 @@ export default function OrderScanner({ order, orderInv, setActiveNavItem, number
             <div className = "backtoorder" style = {{'width' : '75%'}}
             onClick = { () => setActiveNavItem('details')} >
                 <img src = {back} alt = 'back' />
-                <span>Back</span>
+                <h4>Back</h4>
             </div>
 
             <div className = "reportissue"
@@ -65,9 +65,11 @@ export default function OrderScanner({ order, orderInv, setActiveNavItem, number
 
                 <h1> {order.status === 'active' && 'Pick' }
                 {order.status === 'receiving' && 'Receive' }
-                {order.status === 'received' && 'Put Away' } </h1>
+                {order.status === 'received' && 'Put Away' }
+                {order.status === 'count' && 'Count' } </h1>
 
-                <h1 style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}>{order.status === 'active' ? 'Customer' : 'Incoming Shipment'} Purchase Order #{order.id}</h1>
+                {order.status !== 'count' && <h1 style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}> {order.status === 'active' ? 'Customer' : 'Incoming Shipment'} Purchase Order #{order.id}</h1> }
+                {order.status === 'count' && <h1 style = {{'fontWeight' : 500, 'marginLeft' : '2%'}}> Cycle Count #{order.id}</h1> }
             </div>
 
             <h1 className = "progresstext"> {progress} / {pieces} </h1>
@@ -98,7 +100,10 @@ export default function OrderScanner({ order, orderInv, setActiveNavItem, number
                 <button
                 className = "beginreceiving"
                 onClick = { () => completeOrder(order) }>
-                {order.status === 'active' ? 'Mark picking complete' : 'Mark put-away complete'}</button>
+                {order.status === 'active' && 'Mark picking complete'}
+                {order.status === 'received' && 'Mark put-away complete'}
+                {order.status === 'count' && 'Mark cycle count complete'}
+                </button>
             }
 
         </div>

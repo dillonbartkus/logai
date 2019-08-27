@@ -8,7 +8,7 @@ import avatar from '../images/avatar.png'
 import axios from 'axios'
 // import Quagga from './Quagga'
 
-export default function Receiving({ setActiveNavItem, activeNavItem }) {
+export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
 
     const [orders, setOrders] = useState()
     const [currentOrder, setCurrentOrder] = useState()
@@ -18,15 +18,15 @@ export default function Receiving({ setActiveNavItem, activeNavItem }) {
     const [error, setError] = useState()    
     
     useEffect( () => {
-        fetchOrders()        
-    }, [])
+        fetchOrders()
+    }, [])    
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.post(`/getwarehouseorders/2`)
+            const res = await axios.post(`/getemployeeorders/${user.customer_of}`)
             setOrders(res.data.data.filter( order => {
-                const status = order.status
-                return status === 'active' || status === 'receiving' || status === 'received'
+                const status = order.status                
+                return status === 'active' || status === 'receiving' || status === 'received' || status === 'count'
                 }))
         }
         catch {
@@ -57,6 +57,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem }) {
     const completeOrder = async order => {
         if (order.status === 'receiving') await axios.put(`updateorderstatus/${order.id}`, {status: 'put away'})
         if (order.status === 'active') await axios.put(`updateorderstatus/${order.id}`, {status: 'picked'})
+        if (order.status === 'count') await axios.put(`updateorderstatus/${order.id}`, {status: 'counted'})
         const res = await axios.post(`getorderbyid/${order.id}`)
         setCurrentOrder(res.data.data[0])
         setActiveNavItem('complete')
@@ -89,6 +90,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem }) {
             {
                 !error && !activeNavItem &&
                 <TodayJobs
+                user = {user}
                 avatar = {avatar}
                 showOrder = {showOrder}
                 orders = {orders} />

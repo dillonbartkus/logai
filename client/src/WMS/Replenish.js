@@ -28,6 +28,12 @@ export default function Replenish({ inv, popup, showOrder }) {
             <div className = "replenishitems">
 
             {renderInv()}
+            <div className = "countitem"></div>
+            <div className = "countitem gray"></div>
+            <div className = "countitem"></div>
+            <div className = "countitem gray"></div>
+            <div className = "countitem"></div>
+            <div className = "countitem gray"></div>
 
             </div>
 

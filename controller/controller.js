@@ -39,7 +39,7 @@ controller.getUser = async (req, res) => {
 };
 
 controller.createUser = async (req, res) => {
-  const { company, pw, email, phone, npc, comptype } = req.body;
+  const { company, pw, email, phone, npc, type } = req.body;
 
   const password_digest = await hashPassword(pw);
 
@@ -49,7 +49,7 @@ controller.createUser = async (req, res) => {
     email,
     phone,
     npc,
-    comptype
+    type
   })
    .then( data => {
       res.json({
@@ -455,5 +455,25 @@ controller.updateTransportInfo = async (req, res) => {
   }
 }
 
+//////////////////////////////////////////////
+
+//        WMS ROUTES
+
+//////////////////////////////////////////////
+
+controller.getWarehouseEmployeeOrders = async (req, res) => {
+  const id = req.params.id
+
+  try {
+    const data = await Log.getWarehouseEmployeeOrders(id)
+    res.json({
+      data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
 
 module.exports = controller;

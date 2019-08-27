@@ -4,6 +4,8 @@ import Count from './Count'
 import Replenish from './Replenish'
 import ReplenishPopup from './ReplenishPopup'
 import ReplenishOrderConfirm from './ReplenishOrderConfirm'
+import CycleCount from './CycleCount'
+import Settings from './Settings'
 import axios from 'axios'
 
 export default function WMS({ user, showOrder }){
@@ -15,12 +17,12 @@ export default function WMS({ user, showOrder }){
     const [confirmReplenish, setConfirmReplenish] = useState(false)
 
     const isInvActive = (activeTab === 'inv') ? 'active' : ''
-    const isCountActive = (activeTab === 'count') ? 'active' : ''
+    const isCountActive = (activeTab === 'counting') ? 'active' : ''
     const isReplenishActive = (activeTab === 'replenish') ? 'active' : ''    
 
     useEffect( () => {
         fetchInv()
-    }, [])    
+    }, [])
 
     const fetchInv = async () => {
         const res = await axios.post(`/getinv/${user.id}`)
@@ -53,27 +55,40 @@ export default function WMS({ user, showOrder }){
                 <ReplenishPopup item = {replenishItem} request = {requestReplenishOrder} setPopup = {setPopup} />
             }
 
-            <h1 className="bigheader">Warehouse Management System</h1>
+            { activeTab !== 'settings' && activeTab !== 'count' &&
+                <>
+                <h1 className="bigheader">Warehouse Management System</h1>
 
-            <div className = "ordersbox">
+                <div className = "ordersbox">
 
-                <div className = "ordersboxtabs">
+                    <div className = "ordersboxtabs">
 
-                    <div
-                    onClick = { () => setActiveTab('inv')}
-                    className ={`ordersboxtab ${isInvActive}`} style = {{'width' : '33.3%'}}>Current Inventory</div>
+                        <div
+                        onClick = { () => setActiveTab('inv')}
+                        className ={`ordersboxtab ${isInvActive}`} style = {{'flex' : 1}}>Current Inventory</div>
 
-                    <div
-                    onClick = { () => setActiveTab('count')}
-                    className = {`ordersboxtab ${isCountActive}`} style = {{'width' : '33.3%'}}>Counting</div>
+                        <div
+                        onClick = { () => setActiveTab('counting')}
+                        className = {`ordersboxtab ${isCountActive}`} style = {{'flex' : 1}}>Counting</div>
 
-                    <div
-                    onClick = { () => setActiveTab('replenish')}
-                    className = {`ordersboxtab ${isReplenishActive}`} style = {{'width' : '33.3%', 'borderRight' : 0}}>Replenishment Orders</div>
+                        <div
+                        onClick = { () => setActiveTab('replenish')}
+                        className = {`ordersboxtab ${isReplenishActive}`} style = {{'flex' : 1, 'borderRight' : 0}}>Replenishment Orders</div>
+
+                    </div>
 
                 </div>
 
-            </div>
+            </> 
+            }
+
+            {   activeTab === 'settings' &&
+                <Settings setActiveTab = {setActiveTab} inv = {inv} />
+            }
+
+            {   activeTab === 'count' &&
+                <CycleCount setActiveTab = {setActiveTab} inv = {inv} />
+            }
 
             {
                 activeTab === 'inv' &&
@@ -81,8 +96,8 @@ export default function WMS({ user, showOrder }){
             }
 
             {
-                activeTab === 'count' &&
-                <Count />
+                activeTab === 'counting' &&
+                <Count setActiveTab = {setActiveTab} />
             }
 
             {

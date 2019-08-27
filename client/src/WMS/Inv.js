@@ -29,6 +29,12 @@ export default function Inv({ inv }) {
             <div className = "invitems">
 
                 {renderInv()}
+                <div className = "countitem"></div>
+                <div className = "countitem gray"></div>
+                <div className = "countitem"></div>
+                <div className = "countitem gray"></div>
+                <div className = "countitem"></div>
+                <div className = "countitem gray"></div>
 
             </div>
 
