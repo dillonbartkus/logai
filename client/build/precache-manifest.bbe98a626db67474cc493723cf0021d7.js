@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "b2714ba9628dff096cc8bee0be64993a",
-    "url": "/static/media/closemenu.b2714ba9.png"
+    "revision": "0f12d61e2125800a524244cd5caf6623",
+    "url": "/static/media/peoplewhite.0f12d61e.svg"
   },
   {
-    "revision": "0558b18780d146c2c4be",
-    "url": "/static/css/main.14853165.chunk.css"
+    "revision": "65692cd8ffdcff1842fb",
+    "url": "/static/css/main.b791e49d.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/static/media/baportalbutton.bdcc9ae0.png"
   },
   {
-    "revision": "6463d3406a5e55af99b8",
-    "url": "/static/js/2.34c8303e.chunk.js"
+    "revision": "d3f0b59f4685bed81c88",
+    "url": "/static/js/2.daa62580.chunk.js"
   },
   {
     "revision": "8c05652b72929387f676b73d6a18489f",
@@ -44,36 +44,44 @@ self.__precacheManifest = [
     "url": "/static/media/magnifying-glass-icon.43d5d77d.png"
   },
   {
-    "revision": "0558b18780d146c2c4be",
-    "url": "/static/js/main.482106e2.chunk.js"
+    "revision": "97658416bac6f6bfb506cf370b7d8b8f",
+    "url": "/static/media/people.97658416.svg"
   },
   {
-    "revision": "9f95e08d38eb0e73ed2de900b2b5a17c",
-    "url": "/static/media/shipping.9f95e08d.jpg"
+    "revision": "65692cd8ffdcff1842fb",
+    "url": "/static/js/main.fd51fea2.chunk.js"
   },
   {
-    "revision": "bd2c72c08af8d4ba5752fb5b63af5fdc",
-    "url": "/static/media/customers.bd2c72c0.jpg"
+    "revision": "b2714ba9628dff096cc8bee0be64993a",
+    "url": "/static/media/closemenu.b2714ba9.png"
   },
   {
     "revision": "6e49979ebca81d3f03c8ba10819dd80a",
     "url": "/static/media/trucking.6e49979e.jpg"
   },
   {
-    "revision": "9949f56b5cc3132ae215b98cc1e3f822",
-    "url": "/static/media/warehouse.9949f56b.jpg"
+    "revision": "9f95e08d38eb0e73ed2de900b2b5a17c",
+    "url": "/static/media/shipping.9f95e08d.jpg"
   },
   {
     "revision": "5d09ebf71e1c105972f1843d9d344ad8",
     "url": "/static/media/dispatchers.5d09ebf7.jpg"
   },
   {
-    "revision": "d4f82fb0139024cb4bf133b9cbff48ee",
-    "url": "/static/media/orderhistoryportalbutton.d4f82fb0.png"
+    "revision": "bd2c72c08af8d4ba5752fb5b63af5fdc",
+    "url": "/static/media/customers.bd2c72c0.jpg"
+  },
+  {
+    "revision": "9949f56b5cc3132ae215b98cc1e3f822",
+    "url": "/static/media/warehouse.9949f56b.jpg"
   },
   {
     "revision": "e3fd265cad20a4c73d6ed77280d57775",
     "url": "/static/media/trackorderportalbutton.e3fd265c.png"
+  },
+  {
+    "revision": "d4f82fb0139024cb4bf133b9cbff48ee",
+    "url": "/static/media/orderhistoryportalbutton.d4f82fb0.png"
   },
   {
     "revision": "aec3c0e243869e9804e58da913c7288a",
@@ -84,11 +92,11 @@ self.__precacheManifest = [
     "url": "/static/media/managerportalbutton.b77f812f.png"
   },
   {
-    "revision": "6463d3406a5e55af99b8",
+    "revision": "d3f0b59f4685bed81c88",
     "url": "/static/css/2.87a73fb7.chunk.css"
   },
   {
-    "revision": "6b0c231fd55b621f828d29675afc3753",
+    "revision": "c8965d64bd18719a9315b1cb9783053c",
     "url": "/index.html"
   }
 ];
