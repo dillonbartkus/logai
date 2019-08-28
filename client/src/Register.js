@@ -1,5 +1,6 @@
 import React, { useState} from 'react'
 import axios from 'axios'
+import Quagga from './Receiving/Quagga'
 // import SERVERURL from './config'
 
 const Register = props => {
@@ -116,6 +117,8 @@ const Register = props => {
                     companyType &&
 
                 <div className="reginputs">
+
+                <Quagga />
                 
                         <input
                         className = {invalidCred ? 'invalidCred' : '' }

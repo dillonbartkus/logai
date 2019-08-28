@@ -5,7 +5,7 @@ import TrackInv from './TrackInv'
 import Fulfilling from './Fulfilling'
 import Incoming from './Incoming'
 
-const WMS = props => {
+export default function WMS (props) {
 
 const [display, setActiveNavItem] = useState('incoming')
 const [inv, setInv] = useState()
@@ -123,5 +123,3 @@ return (
 
     )
   }
-
-export default WMS;
