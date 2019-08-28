@@ -1,10 +1,19 @@
 import React from 'react'
 import SettingsItem from './SettingsItem'
+import axios from 'axios'
 
-export default function Settings({ setActiveTab, inv }) {
+export default function Settings({ setActiveTab, inv, fetch }) {
 
     const renderInv = () => {
-        if(inv) return inv.map( (item, id) => <SettingsItem item = {item} key = {id} id = {id} /> )
+        if(inv) return inv.map( (item, id) => <SettingsItem changeFreq = {changeSellingFrequency} item = {item} key = {id} id = {id} /> )
+    }
+
+    const changeSellingFrequency = async (rate, item) => {
+        const res = await axios.put(`/updatecountrate/${item.id}`, {
+            rate_of_count: rate
+        })
+        console.log(res.data.data.rate_of_count)
+        fetch()
     }
 
     return(

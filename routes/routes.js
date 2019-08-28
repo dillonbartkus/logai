@@ -57,6 +57,8 @@ router.put('/orderitemiscompleted', controller.orderItemIsCompleted)
 
 router.put('/updatetransportinfo/:id', controller.updateTransportInfo)
 
+router.put('/updatecountrate/:id', controller.updateCountRate)
+
 // RECEIVING Routes
 
 router.post('/getemployeeorders/:id', controller.getWarehouseEmployeeOrders)

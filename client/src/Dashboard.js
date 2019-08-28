@@ -10,6 +10,8 @@ import axios from 'axios'
 
 export default function Dashboard( props ) {
 
+  const user = props.location.state.userData
+
   const [activeNavItem, setActiveNavItem] = useState('')
   const [warehouseOrders, setWarehouseOrders] = useState()
   const [customerOrders, setCustomerOrders] = useState()
@@ -17,7 +19,6 @@ export default function Dashboard( props ) {
   const [activeOrderLength, setActiveOrderLength] = useState()
   const [customerOrderLength, setCustomerOrderLength] = useState()
   const [dropdown, setDropdown] = useState(false)
-  const user = props.location.state.userData  
 
   useEffect( () => {
     if (user.type === 'warehouse') fetchWarehouseOrders()

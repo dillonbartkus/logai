@@ -6,7 +6,7 @@ import OrderScanner from './OrderScanner'
 import OrderComplete from './OrderComplete'
 import avatar from '../images/avatar.png'
 import axios from 'axios'
-// import Quagga from './Quagga'
+import Quagga from './Quagga'
 
 export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
 
@@ -73,7 +73,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
         
         <div className="receiving">
 
-            {/* <Quagga /> */}
+            <Quagga />
 
             {
                 error &&

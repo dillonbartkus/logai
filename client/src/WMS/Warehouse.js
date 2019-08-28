@@ -6,6 +6,7 @@ import BA from './BA'
 import WMS from './WMS'
 import OrderDetails from './OrderDetails'
 import TransportationInfo from './TransportInfo'
+import AssignJobs from './AssignJobs'
 import axios from 'axios'
 
 export default function Warehouse({ activeNavItem, setActiveNavItem, orders, user, fetchOrders, incomingLength, activeLength }){
@@ -69,6 +70,11 @@ export default function Warehouse({ activeNavItem, setActiveNavItem, orders, use
         {
             activeNavItem === 'ba' &&
             <BA setActiveNavItem = {setActiveNavItem} />
+        }
+
+        {
+            activeNavItem === 'assign' &&
+            <AssignJobs setActiveNavItem = {setActiveNavItem} />
         }
 
         {

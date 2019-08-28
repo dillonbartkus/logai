@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SettingsItem({ item, id }) {
+export default function SettingsItem({ item, id, changeFreq }) {
 
     // Item that is mapped over in count settings page.
 
@@ -13,9 +13,11 @@ export default function SettingsItem({ item, id }) {
             <div>{item.type}</div>
             <div>{item.name}</div>
             <div>#{item.sku}</div>
-            <div>Fast</div>
+            <div>{item.selling_frequency}</div>
             <div>
-                <select>
+                <select defaultValue = {item.rate_of_count}
+                onChange = { e => changeFreq(e.target.value, item)}
+                >
                     <option>Daily</option>
                     <option>Weekly</option>
                     <option>Monthly</option>

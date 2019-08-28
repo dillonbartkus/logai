@@ -285,6 +285,18 @@ model.updateTransportInfo = (order, id) => {
   )
 }
 
+model.updateCountRate = (inventory, id) => {
+  return db.one(
+    `
+    UPDATE inventory SET
+      rate_of_count = $1
+    WHERE id = $2
+    RETURNING *
+    `,
+    [inventory.rate_of_count, id]
+  )
+}
+
 model.deleteProduct = id => {
   return db.none(
     `

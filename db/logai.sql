@@ -16,7 +16,7 @@
 --     'warehouse'
 --   );
 
-  INSERT INTO inventory (warehouse_id, sku, name, location, type, weight, price, last_checked, received_on, FIFO, picture, on_hand, reserved) VALUES
+  INSERT INTO inventory (warehouse_id, sku, name, location, type, weight, price, last_checked, received_on, FIFO, picture, rate_of_count, selling_frequency, on_hand, reserved) VALUES
     (
       '2',
       '123456',
@@ -29,6 +29,8 @@
       '4/25/2019',
       'True',
       'https://d3cizcpymoenau.cloudfront.net/images/26078/SIL_BlackBeans_Bushs.jpg',
+      'Monthly',
+      'TBD',
       '50',
       '20'
     ),
@@ -44,6 +46,8 @@
       '4/25/2019',
       'True',
       'http://a.abcnews.com/images/Business/HT_Twinkie_Box_jef_130709_16x9_992.jpg',
+      'Monthly',
+      'TBD',
       '100',
       '30'
     ),
@@ -59,6 +63,8 @@
       '4/25/2019',
       'True',
       'http://4.bp.blogspot.com/-AqCxfV4L3Lg/TbCbVuCf6HI/AAAAAAAAEpA/DCBBIrhKSVk/s1600/_MG_1849.jpg',
+      'Monthly',
+      'TBD',
       '500',
       '100'
     ),
@@ -74,6 +80,8 @@
       '4/25/2019',
       'True',
       'http://ecx.images-amazon.com/images/I/51M2JUAB9pL._SY445_.jpg',
+      'Monthly',
+      'TBD',
       '200',
       '0'
     ),
@@ -89,6 +97,8 @@
       '4/25/2019',
       'True',
       'http://ecx.images-amazon.com/images/I/91aXy3R2SYL._SL1500_.jpg',
+      'Monthly',
+      'TBD',
       '999',
       '333'
     ),
@@ -104,6 +114,8 @@
       '6/03/2019',
       'FALSE',
       'http://www.boozebusiness.com/wp-content/uploads/2015/03/makersmark.jpg',
+      'Monthly',
+      'TBD',
       '23',
       '2'
     );

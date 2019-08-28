@@ -153,7 +153,6 @@
     flex-flow: row wrap;
     margin: 1% 0 1% 20%;
     font-size: 1.5vw;
-
 }
 
 .orderpricinginfo > div {
@@ -431,7 +430,7 @@
 }
 
 .invitemtitles > div {
-    width: 12%;
+    width: 15%;
     text-align: left;
     margin: auto;
 }
@@ -450,7 +449,7 @@
 }
 
 .invitem > div {
-    width: 12%;
+    width: 15%;
     text-align: left;
     margin: auto;
 }
@@ -655,4 +654,10 @@
 
 .cyclecount {
     width: 100%;
+}
+
+.assignjobs {
+    width: 95%;
+    display: flex;
+    flex-flow: row wrap;
 }

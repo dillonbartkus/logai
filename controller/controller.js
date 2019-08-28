@@ -455,9 +455,26 @@ controller.updateTransportInfo = async (req, res) => {
   }
 }
 
+controller.updateCountRate = async (req, res) => {
+  const id = req.params.id
+  const {rate_of_count} = req.body
+  
+  try {    
+    const data = await Log.updateCountRate({rate_of_count}, id)
+    res.json({
+      message: 'updated',
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
 //////////////////////////////////////////////
 
-//        WMS ROUTES
+//        RECEIVING ROUTES
 
 //////////////////////////////////////////////
 

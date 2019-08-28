@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Header = props => {
+export default function Header( props ) {  
 
   const [scroll, setScroll] = useState('big')
 
@@ -81,5 +81,3 @@ const Header = props => {
 
     )
   }
-
-export default Header

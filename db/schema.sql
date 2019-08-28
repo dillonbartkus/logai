@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS inventory(
   received_on DATE NOT NULL DEFAULT CURRENT_DATE,
   FIFO BOOLEAN,
   picture VARCHAR(999),
+  rate_of_count VARCHAR(99),
+  selling_frequency VARCHAR(99),
   on_hand INTEGER NOT NULL,
   reserved INTEGER
 );

@@ -83,7 +83,7 @@ export default function WMS({ user, showOrder }){
             }
 
             {   activeTab === 'settings' &&
-                <Settings setActiveTab = {setActiveTab} inv = {inv} />
+                <Settings setActiveTab = {setActiveTab} inv = {inv} fetch = {fetchInv} />
             }
 
             {   activeTab === 'count' &&

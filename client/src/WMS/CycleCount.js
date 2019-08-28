@@ -4,9 +4,7 @@ import InvItem from './InvItem'
 export default function CycleCount({ setActiveTab, inv }) {
 
     const renderInv = () => {
-        if (inv) return inv.map( (item, id) => {
-            while (id < 3) return <InvItem item = {item} id = {id} key = {id} />
-        })
+        if (inv) return inv.map( (item, id) => <InvItem item = {item} id = {id} key = {id} />)
     }
 
     return(
