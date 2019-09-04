@@ -32,7 +32,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
     const fetchInv = async () => {
         const res = await axios.post(`${SERVERURL}/getinv/${user.customer_of}`)
         setInv(res.data.data)
-    }
+    }    
 
     const checkBarcode = code => {
         const product = inv.filter( product => product.upc_code === code )
