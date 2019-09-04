@@ -4,7 +4,7 @@ import ScanItem from './ScanItem'
 import ScanLocation from './ScanLocation'
 import axios from 'axios'
 
-export default function OrderScanner({ order, orderInv, setActiveNavItem, number, pieces, receivedOrder, completeOrder, fetchOrderInv }) {
+export default function OrderScanner({ order, check, orderInv, setActiveNavItem, number, pieces, receivedOrder, completeOrder, fetchOrderInv }) {
 
     const [progress, setProgress] = useState(0)
     const [currentItem, setCurrentItem] = useState()
@@ -81,7 +81,7 @@ export default function OrderScanner({ order, orderInv, setActiveNavItem, number
 
             {
                 scanningLocation &&
-                <ScanItem isCompleted = {isCompleted} scanningLocation = {scanningLocation} item = {currentItem} progress = {progress} setProgress = {setProgress} order = {order} pieces = {pieces} receivedOrder = {receivedOrder} />
+                <ScanItem check = {check} isCompleted = {isCompleted} scanningLocation = {scanningLocation} item = {currentItem} progress = {progress} setProgress = {setProgress} order = {order} pieces = {pieces} receivedOrder = {receivedOrder} />
             }
 
             {

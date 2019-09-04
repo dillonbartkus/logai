@@ -29,7 +29,7 @@ class Scanner extends Component {
         frequency: 20,
         decoder: {
             readers : [ 
-              "code_128_reader", "upc_reader", "upc_e_reader", "codabar_reader", "ean_reader", "ean_8_reader"
+              "code_128_reader", "upc_reader", "upc_e_reader", "codabar_reader"
             ],
             debug: {
               showFrequency: true,

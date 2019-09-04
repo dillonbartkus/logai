@@ -7,7 +7,7 @@ import OrderComplete from './OrderComplete'
 import avatar from '../images/avatar.png'
 import axios from 'axios'
 import Quagga from './Quagga'
-import SERVERURL from '../config'
+// import SERVERURL from '../config'
 
 export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
 
@@ -30,13 +30,15 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
     const [product, setProduct] = useState('')
 
     const fetchInv = async () => {
-        const res = await axios.post(`${SERVERURL}/getinv/${user.customer_of}`)
+        const res = await axios.post(`/getinv/${user.customer_of}`)
         setInv(res.data.data)
     }
 
     const checkBarcode = code => {
         const product = inv.filter( product => product.upc_code === code )
         console.log(product[0])
+        console.log(code)
+        
         setProduct(product[0])
     }    
 
@@ -44,7 +46,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.post(`${SERVERURL}/getemployeeorders/${user.customer_of}`)
+            const res = await axios.post(`/getemployeeorders/${user.customer_of}`)
             setOrders(res.data.data.filter( order => {
                 const status = order.status                
                 return status === 'active' || status === 'receiving' || status === 'received' || status === 'count'
@@ -100,7 +102,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
             <p>{product.upc_code}</p>
             </div> }
 
-            <Quagga check = {checkBarcode} />
+            {/* <Quagga check = {checkBarcode} /> */}
 
             {
                 error &&
@@ -140,6 +142,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
                 setActiveNavItem = {setActiveNavItem}
                 orderInv = {currentOrderInv}
                 fetchOrderInv = {fetchOrderInv}
+                check = {checkBarcode}
                 completeOrder = {completeOrder}
                 receivedOrder = {receivedOrder}
                 number = {currentOrderNumber}

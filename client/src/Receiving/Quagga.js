@@ -5,7 +5,7 @@ import Result from './Result'
 class Quagga extends Component {
 
   state = {
-    scanning: false,
+    scanning: true,
     results: []
   }
 
@@ -22,7 +22,7 @@ class Quagga extends Component {
 
     return (
       <div>
-          <button onClick={this._scan}>{this.state.scanning ? 'Stop' : 'Start'}</button>
+          {/* <button onClick={this._scan}>{this.state.scanning ? 'Stop' : 'Start'}</button> */}
           <ul className="results">
             {this.state.results.map((result, i) => (<Result key={result.codeResult.code + i} result={result} />))}
           </ul>

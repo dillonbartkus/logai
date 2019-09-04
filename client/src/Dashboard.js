@@ -10,8 +10,6 @@ import axios from 'axios'
 
 export default function Dashboard( props ) {
 
-  console.log(props)
-
   const user = props.location.state.userData
 
   const [activeNavItem, setActiveNavItem] = useState('')

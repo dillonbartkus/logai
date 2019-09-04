@@ -210,8 +210,6 @@ const Register = props => {
 
             </form>
 
-            <Quagga />
-
         </div>
 
     )

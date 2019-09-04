@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import camera from '../images/camera.png'
 import barcode from '../images/barcode.png'
+import Quagga from './Quagga'
 
-export default function ScanItem({ item, nextItem, pieces, progress, setProgress, receivedOrder, scanningLocation, isCompleted, order }) {
+export default function ScanItem({ check, item, nextItem, pieces, progress, setProgress, receivedOrder, scanningLocation, isCompleted, order }) {
 
     const [isScanned, setIsScanned] = useState(false)
 
@@ -18,10 +19,13 @@ export default function ScanItem({ item, nextItem, pieces, progress, setProgress
             >
                 {
                     !isScanned &&
-                    <div>
-                    <img src = {camera} alt = '' />
-                    <h1>Center {order.status !== 'received' ? 'product' : 'location'} barcode here</h1>
-                    </div>
+
+                    <Quagga check = {check} />
+
+                    // <div>
+                    // <img src = {camera} alt = '' />
+                    // <h1>Center {order.status !== 'received' ? 'product' : 'location'} barcode here</h1>
+                    // </div>
                 }
 
                 {
