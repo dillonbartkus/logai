@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/static/media/peoplewhite.0f12d61e.svg"
   },
   {
-    "revision": "5a756818566374b683fc",
+    "revision": "5a202fc767749c0e92b6",
     "url": "/static/css/main.2eccb114.chunk.css"
   },
   {
@@ -48,20 +48,24 @@ self.__precacheManifest = [
     "url": "/static/media/people.97658416.svg"
   },
   {
-    "revision": "5a756818566374b683fc",
-    "url": "/static/js/main.98338f7a.chunk.js"
+    "revision": "5a202fc767749c0e92b6",
+    "url": "/static/js/main.b29abfd7.chunk.js"
   },
   {
     "revision": "b2714ba9628dff096cc8bee0be64993a",
     "url": "/static/media/closemenu.b2714ba9.png"
   },
   {
-    "revision": "6e49979ebca81d3f03c8ba10819dd80a",
-    "url": "/static/media/trucking.6e49979e.jpg"
+    "revision": "9f95e08d38eb0e73ed2de900b2b5a17c",
+    "url": "/static/media/shipping.9f95e08d.jpg"
   },
   {
     "revision": "bd2c72c08af8d4ba5752fb5b63af5fdc",
     "url": "/static/media/customers.bd2c72c0.jpg"
+  },
+  {
+    "revision": "6e49979ebca81d3f03c8ba10819dd80a",
+    "url": "/static/media/trucking.6e49979e.jpg"
   },
   {
     "revision": "9949f56b5cc3132ae215b98cc1e3f822",
@@ -70,10 +74,6 @@ self.__precacheManifest = [
   {
     "revision": "5d09ebf71e1c105972f1843d9d344ad8",
     "url": "/static/media/dispatchers.5d09ebf7.jpg"
-  },
-  {
-    "revision": "9f95e08d38eb0e73ed2de900b2b5a17c",
-    "url": "/static/media/shipping.9f95e08d.jpg"
   },
   {
     "revision": "e3fd265cad20a4c73d6ed77280d57775",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "/static/css/2.87a73fb7.chunk.css"
   },
   {
-    "revision": "f26b2da9e0e4f19373f0a8513eb1d203",
+    "revision": "246304699b9469274345ee91f89a33c5",
     "url": "/index.html"
   }
 ];

@@ -7,6 +7,7 @@ import OrderComplete from './OrderComplete'
 import avatar from '../images/avatar.png'
 import axios from 'axios'
 import Quagga from './Quagga'
+import SERVERURL from '../config'
 
 export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
 
@@ -29,7 +30,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
     const [product, setProduct] = useState('')
 
     const fetchInv = async () => {
-        const res = await axios.post(`/getinv/${user.customer_of}`)
+        const res = await axios.post(`${SERVERURL}/getinv/${user.customer_of}`)
         setInv(res.data.data)
     }
 
@@ -37,13 +38,13 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
         const product = inv.filter( product => product.upc_code === code )
         console.log(product[0])
         setProduct(product[0])
-    }
+    }    
 
     /////////////////////////////
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.post(`/getemployeeorders/${user.customer_of}`)
+            const res = await axios.post(`${SERVERURL}/getemployeeorders/${user.customer_of}`)
             setOrders(res.data.data.filter( order => {
                 const status = order.status                
                 return status === 'active' || status === 'receiving' || status === 'received' || status === 'count'
@@ -93,11 +94,11 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
         
         <div className="receiving">
 
-            <div>
+            { product && <div>
             <p>{product.name}</p>
             <p>{product.sku}</p>
             <p>{product.upc_code}</p>
-            </div>
+            </div> }
 
             <Quagga check = {checkBarcode} />
 

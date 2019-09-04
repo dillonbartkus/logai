@@ -10,6 +10,8 @@ import axios from 'axios'
 
 export default function Dashboard( props ) {
 
+  console.log(props)
+
   const user = props.location.state.userData
 
   const [activeNavItem, setActiveNavItem] = useState('')
@@ -97,7 +99,7 @@ export default function Dashboard( props ) {
       onClick = { () => setDropdown(false) }
       >
       
-      { user.type === 'employee' &&
+      { user && user.type === 'employee' &&
       <>
       <MobileDashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} />
 
@@ -105,7 +107,7 @@ export default function Dashboard( props ) {
       </> 
       }
 
-      { user.type !== 'employee' &&
+      { user && user.type !== 'employee' &&
       <>
       <DashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} />
 
@@ -114,12 +116,12 @@ export default function Dashboard( props ) {
       </>
       }
 
-      { user.type === 'customer' &&
+      { user && user.type === 'customer' &&
         <Customer user = {user} fetch = {fetchCustomerOrders} confirmOrder = {confirmCustomerOrder} orders = {customerOrders}
         customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
       }
 
-      { user.type ==='warehouse' &&
+      { user && user.type ==='warehouse' &&
         <Warehouse user = {user} orders = {warehouseOrders} employees = {employees} incomingLength = {incomingOrderLength} jobs = {allJobs}
         activeLength = {activeOrderLength} fetchOrders = {fetchWarehouseOrders} activeNavItem = {activeNavItem} assign = {assignEmployee}
         setActiveNavItem = {setActiveNavItem} alert = {assignedAlert} setAlert = {setAssignedAlert} recentJobs = {recentlyAssignedJobs}
