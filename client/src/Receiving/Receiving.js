@@ -7,7 +7,7 @@ import OrderComplete from './OrderComplete'
 import avatar from '../images/avatar.png'
 import axios from 'axios'
 import Quagga from './Quagga'
-// import SERVERURL from '../config'
+import SERVERURL from '../config'
 
 export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
 
@@ -30,7 +30,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
     const [product, setProduct] = useState('')
 
     const fetchInv = async () => {
-        const res = await axios.post(`/getinv/${user.customer_of}`)
+        const res = await axios.post(`${SERVERURL}/getinv/${user.customer_of}`)
         setInv(res.data.data)
     }
 
@@ -46,7 +46,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.post(`/getemployeeorders/${user.customer_of}`)
+            const res = await axios.post(`${SERVERURL}/getemployeeorders/${user.customer_of}`)
             setOrders(res.data.data.filter( order => {
                 const status = order.status                
                 return status === 'active' || status === 'receiving' || status === 'received' || status === 'count'
@@ -58,7 +58,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
     }    
 
     const fetchOrderInv = async order => {
-        let res = await axios.post(`/getorderinv/${order.id}`)
+        let res = await axios.post(`${SERVERURL}/getorderinv/${order.id}`)
         setCurrentOrderInv(res.data.data)        
     }
 
@@ -69,18 +69,18 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
     }
 
     const receivedOrder = async order => {
-        await axios.put(`updateorderstatus/${order.id}`, {
+        await axios.put(`/updateorderstatus/${order.id}`, {
             status: 'received'
         })
-        const res = await axios.post(`getorderbyid/${order.id}`)
+        const res = await axios.post(`/getorderbyid/${order.id}`)
         setCurrentOrder(res.data.data[0])
         setActiveNavItem('complete')        
     }
 
     const completeOrder = async order => {
-        if (order.status === 'receiving') await axios.put(`updateorderstatus/${order.id}`, {status: 'put away'})
-        if (order.status === 'active') await axios.put(`updateorderstatus/${order.id}`, {status: 'picked'})
-        if (order.status === 'count') await axios.put(`updateorderstatus/${order.id}`, {status: 'counted'})
+        if (order.status === 'receiving') await axios.put(`/updateorderstatus/${order.id}`, {status: 'put away'})
+        if (order.status === 'active') await axios.put(`/updateorderstatus/${order.id}`, {status: 'picked'})
+        if (order.status === 'count') await axios.put(`/updateorderstatus/${order.id}`, {status: 'counted'})
         const res = await axios.post(`getorderbyid/${order.id}`)
         setCurrentOrder(res.data.data[0])
         setActiveNavItem('complete')
@@ -102,7 +102,7 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
             <p>{product.upc_code}</p>
             </div> }
 
-            {/* <Quagga check = {checkBarcode} /> */}
+            <Quagga check = {checkBarcode} />
 
             {
                 error &&
