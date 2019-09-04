@@ -45,7 +45,11 @@ router.post('/getorderbyid/:id', controller.getOrderById)
 
 router.post('/getorderinv/:id', controller.getOrderInv)
 
+router.post('/getemployees/:id', controller.getEmployees)
+
 router.delete('/product/:id', controller.deleteProduct)
+
+router.put('/assignemployee/:id', controller.assignEmployee)
 
 router.put('/updateproductquantity/:id', controller.updateProductQuantity)
 

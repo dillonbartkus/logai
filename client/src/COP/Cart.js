@@ -2,7 +2,7 @@ import React from 'react'
 import CartProduct from './CartProduct'
 import back from '../images/back.png'
 
-export default function Cart({ cart, changeQuantity, removeFromCart, subtotal, setActiveNavItem }) {
+export default function Cart({ cart, changeQuantity, removeFromCart, subtotal, setActiveNavItem }) {    
     
     return(
 
@@ -34,11 +34,12 @@ export default function Cart({ cart, changeQuantity, removeFromCart, subtotal, s
 
             <h4>${subtotal}</h4>
 
+            {cart.length > 0 &&
             <button
             onClick = { () => setActiveNavItem('checkout')}
             className = "addtocart"
             style = {{ 'height': '7vh', 'width': '80%'}}
-            >Continue Order Request</button>
+            >Continue Order Request</button> }
 
             </div>
 

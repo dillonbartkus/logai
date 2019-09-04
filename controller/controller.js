@@ -18,7 +18,7 @@ controller.login = async (req, res) => {
       }
     }
     catch(err) {
-      res.status(500).json({ err });
+      res.status(500).json({ err })
     };
 };
 
@@ -330,10 +330,25 @@ controller.getOrderById = async (req, res) => {
 }
 
 controller.getOrderInv = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id
 
   try {
     const data = await Log.getOrderInv(id)
+    res.json({
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
+controller.getEmployees = async (req, res) => {
+  const id = req.params.id
+
+  try {
+    const data = await Log.getEmployees(id)
     res.json({
       data: data
     })
@@ -351,6 +366,24 @@ controller.deleteProduct = async (req, res) => {
     const data = await Log.deleteProduct(id)
     res.json({
       message: 'deleted',
+      data: data
+    })
+  }
+
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
+controller.assignEmployee = async (req, res) => {
+  const id = req.params.id
+  const { employee } = req.body
+  console.log(employee)
+
+  try {
+    const data = await Log.assignEmployee({employee}, id)
+    res.json({
+      message: 'assigned',
       data: data
     })
   }

@@ -234,6 +234,16 @@ model.getOrderInv = id => {
   )
 }
 
+model.getEmployees = id => {
+  return db.query(
+    `
+    SELECT * FROM users
+    WHERE type = 'employee' AND customer_of = $1
+    `,
+    id
+  )
+}
+
 model.updateProductQuantity = (inventory, id) => {
   return db.one(
     `
@@ -297,6 +307,18 @@ model.updateCountRate = (inventory, id) => {
   )
 }
 
+model.assignEmployee = (orders, id) => {
+  return db.one(
+    `
+    UPDATE orders SET
+      employee = $1
+    WHERE id = $2
+    RETURNING *
+  `,
+    [orders.employee, id]
+  )
+}
+
 model.deleteProduct = id => {
   return db.none(
     `
@@ -309,7 +331,7 @@ model.deleteProduct = id => {
 
 //////////////////////////////////////////////
 
-//        WMS ROUTES
+//        RECEIVING ROUTES
 
 //////////////////////////////////////////////
 

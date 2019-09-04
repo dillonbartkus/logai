@@ -661,3 +661,143 @@
     display: flex;
     flex-flow: row wrap;
 }
+
+.assignjob {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #1D9DEB;
+    border-top: 0;
+}
+
+.assignjob > div {
+    width: 48%;
+    text-align: left;
+    margin: 1%;
+}
+
+.chooseemployee-box {
+    width: 100%;
+    border: 1px solid #979797;
+    border-radius: 3px;
+    max-height: 50vh;
+    overflow: scroll;
+}
+
+.chooseemployee-box > .invitemtitles, .choosejob-box > .invitemtitles {
+    height: 5vh;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
+
+.chooseemployee-box > div > div, .choosejob-box > div > div {
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.chooseemployee-box > div > div > input {
+    margin-right: 4%;
+    cursor: pointer;
+    appearance: none;
+    border: 0.5px solid #1D9DEB;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
+
+.chooseemployee-box > div > div > input:checked {
+    background-color: #1D9DEB;
+}
+
+.choosejob-box {
+    width: 100%;
+    border: 1px solid #979797;
+    border-radius: 3px;
+    max-height: 50vh;
+    overflow: scroll;
+}
+
+.choosejob-box > div > div > form > input {
+    margin-right: 4%;
+    cursor: pointer;
+    appearance: none;
+    border: 0.5px solid #1D9DEB;
+    height: 20px;
+    width: 20px;
+}
+
+.choosejob-box > div > div > form > input:checked {
+    background-color: #1D9DEB;
+}
+
+.jobwasassigned {
+    border: 1px solid #979797;
+    width: 100%;
+    margin: 3% auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.jobwasassigned > img {
+    height: 75%;
+}
+
+.jobwasassigned > div {
+    width: 50%;
+    text-align: left;
+}
+
+.addajob {
+    border: 1px solid #FD992E;
+    background-color: #fff;
+    color: #FD992E;
+    border-radius: 16px;
+    height: 5vh;
+    margin: auto 3% auto 3%;
+}
+
+.activejobs {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #1D9DEB;
+    border-top: 0;
+}
+
+.activejobtitles {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    height: 5vh;
+    margin: 1% auto;
+}
+
+.activejobtitles > div:first-of-type {
+    margin-left: 2%;
+}
+
+.activejobtitles > div {
+    flex: 1;
+    text-align: left;
+}
+
+.activejobs-box {
+    width: 100%;
+    border: 1px solid #979797;
+    border-radius: 3px;
+    max-height: 50vh;
+    overflow: scroll;
+}
+
+.activejobs-box > .countitem > * {
+    flex: 1;
+    text-align: left;
+}
+
+.activejobs-box > .countitem > button {
+    
+}

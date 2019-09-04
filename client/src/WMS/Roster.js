@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Roster() {
+export default function Roster({ employees }) {
 
     return(
 

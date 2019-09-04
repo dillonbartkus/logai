@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Scanner from './Scanner';
-import Result from './Result';
+import React, { Component } from 'react'
+import Scanner from './Scanner'
+import Result from './Result'
 
 class Quagga extends Component {
 
@@ -10,14 +10,16 @@ class Quagga extends Component {
   }
 
   _scan = () => {
-    this.setState({scanning: !this.state.scanning});
+    this.setState({scanning: !this.state.scanning})
   }
 
-  _onDetected = (result) => {
-    this.setState({results: this.state.results.concat([result])});
+  _onDetected = result => {
+    this.setState({results: this.state.results.concat([result])})
+    this.props.check(result)
   }
 
   render() {
+
     return (
       <div>
           <button onClick={this._scan}>{this.state.scanning ? 'Stop' : 'Start'}</button>
@@ -31,4 +33,33 @@ class Quagga extends Component {
 
 }
 
-export default Quagga;
+export default Quagga
+
+// import React, { useState } from 'react'
+// import Scanner from './Scanner'
+// import Result from './Result'
+
+// export default function Quagga({ check }) {
+
+//   const [scanning, setScanning] = useState(true)
+//   const [results, setResults] = useState([])
+
+//   const _scan = () => {
+//     setScanning(!scanning)
+//   }
+
+//   const _onDetected = result => {
+//     console.log(result)
+//     setResults( [...results, result] )
+//   }
+
+//     return (
+//       <div>
+//           <button onClick={ () => _scan()}>{scanning ? 'Stop' : 'Start'}</button>
+//           <ul className="results">
+//             {results.map((result, i) => (<Result result={result} />))}
+//           </ul>
+//           {scanning ? <Scanner onDetected={ () => _onDetected() }/> : null}
+//       </div>
+//     )
+// }

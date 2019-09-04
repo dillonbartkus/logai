@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/peoplewhite.0f12d61e.svg"
   },
   {
-    "revision": "98ef40f6db5b1daaa406",
-    "url": "/static/css/main.b791e49d.chunk.css"
+    "revision": "5a756818566374b683fc",
+    "url": "/static/css/main.2eccb114.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/static/media/baportalbutton.bdcc9ae0.png"
   },
   {
-    "revision": "42cfb14396a1cbbedf8c",
-    "url": "/static/js/2.d35dd32c.chunk.js"
+    "revision": "94b01263cd2812091647",
+    "url": "/static/js/2.87bcfefd.chunk.js"
   },
   {
     "revision": "8c05652b72929387f676b73d6a18489f",
@@ -48,24 +48,20 @@ self.__precacheManifest = [
     "url": "/static/media/people.97658416.svg"
   },
   {
-    "revision": "98ef40f6db5b1daaa406",
-    "url": "/static/js/main.4e26544e.chunk.js"
+    "revision": "5a756818566374b683fc",
+    "url": "/static/js/main.98338f7a.chunk.js"
   },
   {
     "revision": "b2714ba9628dff096cc8bee0be64993a",
     "url": "/static/media/closemenu.b2714ba9.png"
   },
   {
-    "revision": "9f95e08d38eb0e73ed2de900b2b5a17c",
-    "url": "/static/media/shipping.9f95e08d.jpg"
+    "revision": "6e49979ebca81d3f03c8ba10819dd80a",
+    "url": "/static/media/trucking.6e49979e.jpg"
   },
   {
     "revision": "bd2c72c08af8d4ba5752fb5b63af5fdc",
     "url": "/static/media/customers.bd2c72c0.jpg"
-  },
-  {
-    "revision": "6e49979ebca81d3f03c8ba10819dd80a",
-    "url": "/static/media/trucking.6e49979e.jpg"
   },
   {
     "revision": "9949f56b5cc3132ae215b98cc1e3f822",
@@ -74,6 +70,10 @@ self.__precacheManifest = [
   {
     "revision": "5d09ebf71e1c105972f1843d9d344ad8",
     "url": "/static/media/dispatchers.5d09ebf7.jpg"
+  },
+  {
+    "revision": "9f95e08d38eb0e73ed2de900b2b5a17c",
+    "url": "/static/media/shipping.9f95e08d.jpg"
   },
   {
     "revision": "e3fd265cad20a4c73d6ed77280d57775",
@@ -92,11 +92,11 @@ self.__precacheManifest = [
     "url": "/static/media/managerportalbutton.b77f812f.png"
   },
   {
-    "revision": "42cfb14396a1cbbedf8c",
+    "revision": "94b01263cd2812091647",
     "url": "/static/css/2.87a73fb7.chunk.css"
   },
   {
-    "revision": "c0c8d39b37f5101ca4c6b25001bc02f3",
+    "revision": "f26b2da9e0e4f19373f0a8513eb1d203",
     "url": "/index.html"
   }
 ];

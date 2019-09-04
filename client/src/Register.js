@@ -117,8 +117,6 @@ const Register = props => {
                     companyType &&
 
                 <div className="reginputs">
-
-                <Quagga />
                 
                         <input
                         className = {invalidCred ? 'invalidCred' : '' }
@@ -211,6 +209,8 @@ const Register = props => {
                     }
 
             </form>
+
+            <Quagga />
 
         </div>
 

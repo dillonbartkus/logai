@@ -12,7 +12,7 @@ import clipboardwhite from './images/clipboardsidebarwhite.png'
 import people from './images/people.svg'
 import peoplewhite from './images/peoplewhite.svg'
 
-export default function SideNav({ activeNavItem, setActiveNavItem, incomingLength, customerLength, user }) {
+export default function SideNav({ activeNavItem, setActiveNavItem, incomingLength, customerLength, user, jobs }) {
 
     const isCreateActive = (activeNavItem === 'create') ? 'active' : ''
     const isTrackActive = (activeNavItem === 'track') ? 'active' : ''
@@ -20,7 +20,7 @@ export default function SideNav({ activeNavItem, setActiveNavItem, incomingLengt
     const isManagerActive = (activeNavItem === 'manager') ? 'active' : ''
     const isWMSActive = (activeNavItem === 'wms') ? 'active' : ''
     const isBAActive = (activeNavItem === 'ba') ? 'active' : ''
-    const isAssignActive = (activeNavItem === 'assign') ? 'active' : ''
+    const isAssignActive = (activeNavItem === 'assign') ? 'active' : ''    
     
     if(user.type === 'customer') return(
 
@@ -87,6 +87,10 @@ export default function SideNav({ activeNavItem, setActiveNavItem, incomingLengt
             <div
             onClick = { () => setActiveNavItem('assign')}
             className={`sidenavitem ${isAssignActive}`}>
+                {
+                    jobs && jobs.length > 0 &&
+                    <div className="incomingordernotification small">{jobs.length}</div>
+                }
                 <img src = {(isAssignActive) ? people : peoplewhite } alt = ''/>
                 <p>Job Assignment</p>
             </div>

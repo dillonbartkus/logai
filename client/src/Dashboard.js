@@ -14,16 +14,23 @@ export default function Dashboard( props ) {
 
   const [activeNavItem, setActiveNavItem] = useState('')
   const [warehouseOrders, setWarehouseOrders] = useState()
+  const [employees, setEmployees] = useState()
   const [customerOrders, setCustomerOrders] = useState()
   const [incomingOrderLength, setIncomingOrderLength] = useState()
   const [activeOrderLength, setActiveOrderLength] = useState()
   const [customerOrderLength, setCustomerOrderLength] = useState()
+  const [allJobs, setAllJobs] = useState()
+  const [unassignedJobs, setUnassignedJobs] = useState()
+  const [count, setCount] = useState(0)
   const [dropdown, setDropdown] = useState(false)
+  const [assignedAlert, setAssignedAlert] = useState(false)
+  const [recentlyAssignedJobs, setRecentlyAssignedJobs] = useState()
+  const [recentlyAssignedEmp, setRecentlyAssignedEmp] = useState()
 
   useEffect( () => {
-    if (user.type === 'warehouse') fetchWarehouseOrders()
+    if (user.type === 'warehouse') fetchWarehouseOrders() && fetchEmployees()
     if (user.type === 'customer') fetchCustomerOrders()
-  }, [])
+  }, [count])
 
   useEffect( () => {
     if (user.type === 'warehouse') getWarehouseOrderLengths()
@@ -32,7 +39,12 @@ export default function Dashboard( props ) {
       top: 0,
       behavior: 'smooth'
     })
-  })
+  }, [warehouseOrders, customerOrders, count])
+
+  const fetchEmployees = async () => {
+    let res = await axios.post(`/getemployees/${user.id}`)
+    setEmployees(res.data.data)
+  }
 
   const fetchWarehouseOrders = async () => {    
     let res = await axios.post(`/getwarehouseorders/${user.id}`)
@@ -55,6 +67,10 @@ export default function Dashboard( props ) {
     setIncomingOrderLength(inc.length)
     let active = warehouseOrders.filter( order => order.status !== 'incoming' && order.status !== 'completed' )
     setActiveOrderLength(active.length)
+    let all = warehouseOrders.filter( order => order.status === 'active' || order.status === 'receiving' || order.status === 'received' || order.status === 'count' || order.status === 'picked' )
+    setAllJobs(all)
+    let unassigned = warehouseOrders.filter( order => !order.employee && order.status !== 'incoming')
+    setUnassignedJobs(unassigned)    
     }
   }
 
@@ -63,6 +79,16 @@ export default function Dashboard( props ) {
     let length = customerOrders.filter( order => !order.customer_confirmed_transport && order.status === 'active' )
     setCustomerOrderLength(length.length)
     }
+  }
+
+  const assignEmployee = (emp, jobs) => {
+    jobs.forEach( async job => {
+      await axios.put(`/assignemployee/${job}`, {employee: emp} ) })
+    fetchEmployees()
+    setRecentlyAssignedJobs(jobs)
+    setRecentlyAssignedEmp(emp)
+    setTimeout( setCount(count + 1), 500)
+    setAssignedAlert(true)
   }
   
     return (
@@ -83,17 +109,21 @@ export default function Dashboard( props ) {
       <>
       <DashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} />
 
-      <SideNav user = {user} incomingLength = {incomingOrderLength} customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+      <SideNav user = {user} jobs = {unassignedJobs} incomingLength = {incomingOrderLength} customerLength = {customerOrderLength}
+      activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
       </>
       }
 
       { user.type === 'customer' &&
-        <Customer user = {user} confirmOrder = {confirmCustomerOrder} orders = {customerOrders} customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+        <Customer user = {user} fetch = {fetchCustomerOrders} confirmOrder = {confirmCustomerOrder} orders = {customerOrders}
+        customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
       }
 
       { user.type ==='warehouse' &&
-        <Warehouse user = {user} orders = {warehouseOrders} incomingLength = {incomingOrderLength} activeLength = {activeOrderLength}
-        fetchOrders = {fetchWarehouseOrders}  activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
+        <Warehouse user = {user} orders = {warehouseOrders} employees = {employees} incomingLength = {incomingOrderLength} jobs = {allJobs}
+        activeLength = {activeOrderLength} fetchOrders = {fetchWarehouseOrders} activeNavItem = {activeNavItem} assign = {assignEmployee}
+        setActiveNavItem = {setActiveNavItem} alert = {assignedAlert} setAlert = {setAssignedAlert} recentJobs = {recentlyAssignedJobs}
+        recentEmp = {recentlyAssignedEmp} />
       }
 
       </div>

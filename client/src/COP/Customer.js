@@ -10,7 +10,7 @@ import Cart from './Cart'
 import Checkout from './Checkout'
 import OrderDetails from './OrderDetails'
 
-export default function COP({ activeNavItem, setActiveNavItem, customerLength, orders, confirmOrder, user }) {
+export default function COP({ activeNavItem, setActiveNavItem, customerLength, orders, fetch, confirmOrder, user }) {
 
     const [recentlyPlacedOrder, setRecentlyPlacedOrder] = useState(false)
     const [orderAddress, setOrderAddress] = useState({
@@ -76,6 +76,7 @@ export default function COP({ activeNavItem, setActiveNavItem, customerLength, o
         setRecentOrderId(res.data.data.id)
         setRecentlyPlacedOrder(true)
         setActiveNavItem('')
+        fetch()
     }
 
     // Use the id of the above order to add cart items to the order.

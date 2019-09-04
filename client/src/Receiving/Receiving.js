@@ -15,11 +15,31 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
     const [currentOrderNumber, setCurrentOrderNumber] = useState()
     const [currentOrderInv, setCurrentOrderInv] = useState()
     const [currentPieces, setCurrentPieces] = useState()
-    const [error, setError] = useState()    
+    const [error, setError] = useState()
+    
     
     useEffect( () => {
         fetchOrders()
-    }, [])    
+        fetchInv()
+    }, [])
+
+    // test scanner  ///////////
+
+    const [inv, setInv] = useState()
+    const [product, setProduct] = useState('')
+
+    const fetchInv = async () => {
+        const res = await axios.post(`/getinv/${user.customer_of}`)
+        setInv(res.data.data)
+    }
+
+    const checkBarcode = code => {
+        const product = inv.filter( product => product.upc_code === code )
+        console.log(product[0])
+        setProduct(product[0])
+    }
+
+    /////////////////////////////
 
     const fetchOrders = async () => {
         try {
@@ -73,7 +93,13 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
         
         <div className="receiving">
 
-            <Quagga />
+            <div>
+            <p>{product.name}</p>
+            <p>{product.sku}</p>
+            <p>{product.upc_code}</p>
+            </div>
+
+            <Quagga check = {checkBarcode} />
 
             {
                 error &&

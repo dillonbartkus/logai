@@ -9,12 +9,12 @@ import TransportationInfo from './TransportInfo'
 import AssignJobs from './AssignJobs'
 import axios from 'axios'
 
-export default function Warehouse({ activeNavItem, setActiveNavItem, orders, user, fetchOrders, incomingLength, activeLength }){
+export default function Warehouse({ activeNavItem, setActiveNavItem, orders, user, jobs, employees, fetchOrders, assign, incomingLength, activeLength, alert, setAlert, recentJobs, recentEmp }){
 
     const [toggleTransportPopup, setToggleTransportPopup] = useState(false)
     const [currentOrder, setCurrentOrder] = useState()
     const [orderPlaced, setOrderPlaced] = useState(false)
-
+    
     const updateTransportInfo = async (company, driver, date, time, id) => {
         await axios.put(`/updatetransportinfo/${id}`, {
             trucking_company: company,
@@ -74,7 +74,14 @@ export default function Warehouse({ activeNavItem, setActiveNavItem, orders, use
 
         {
             activeNavItem === 'assign' &&
-            <AssignJobs setActiveNavItem = {setActiveNavItem} />
+            <AssignJobs setActiveNavItem = {setActiveNavItem}
+            employees = {employees}
+            jobs = {jobs}
+            alert = {alert}
+            recentJobs = {recentJobs}
+            recentEmp = {recentEmp}
+            setAlert = {setAlert}
+            assign = {assign} />
         }
 
         {
