@@ -14,8 +14,8 @@ class Quagga extends Component {
   }
 
   _onDetected = result => {
-    this.setState({results: this.state.results.concat([result])})
-    this.props.check(result)
+    this.setState({results: this.state.results.concat([result])})    
+    this.props.check(result.codeResult.code)
   }
 
   render() {
