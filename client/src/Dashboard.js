@@ -97,7 +97,9 @@ export default function Dashboard( props ) {
       onClick = { () => setDropdown(false) }
       >
       
-      { user && user.type === 'employee' &&
+      { user &&
+      <>
+      { user.type === 'employee' &&
       <>
       <MobileDashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} />
 
@@ -105,7 +107,7 @@ export default function Dashboard( props ) {
       </> 
       }
 
-      { user && user.type !== 'employee' &&
+      { user.type !== 'employee' &&
       <>
       <DashHeader dropdown = {dropdown} setDropdown = {setDropdown} setActiveNavItem = {setActiveNavItem} />
 
@@ -114,16 +116,18 @@ export default function Dashboard( props ) {
       </>
       }
 
-      { user && user.type === 'customer' &&
+      { user.type === 'customer' &&
         <Customer user = {user} fetch = {fetchCustomerOrders} confirmOrder = {confirmCustomerOrder} orders = {customerOrders}
         customerLength = {customerOrderLength} activeNavItem = {activeNavItem} setActiveNavItem = {setActiveNavItem} />
       }
 
-      { user && user.type ==='warehouse' &&
+      { user.type ==='warehouse' &&
         <Warehouse user = {user} orders = {warehouseOrders} employees = {employees} incomingLength = {incomingOrderLength} jobs = {allJobs}
         activeLength = {activeOrderLength} fetchOrders = {fetchWarehouseOrders} activeNavItem = {activeNavItem} assign = {assignEmployee}
         setActiveNavItem = {setActiveNavItem} alert = {assignedAlert} setAlert = {setAssignedAlert} recentJobs = {recentlyAssignedJobs}
         recentEmp = {recentlyAssignedEmp} />
+      }
+      </>
       }
 
       </div>
