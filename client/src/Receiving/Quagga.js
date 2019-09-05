@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Scanner from './Scanner'
-import Result from './Result'
+// import Result from './Result'
 
 class Quagga extends Component {
 
   state = {
     scanning: true,
     results: []
-  }
+  }  
 
   _scan = () => {
     this.setState({scanning: !this.state.scanning})
@@ -18,14 +18,15 @@ class Quagga extends Component {
     this.props.check(result.codeResult.code)
   }
 
+
   render() {
 
     return (
       <div>
           {/* <button onClick={this._scan}>{this.state.scanning ? 'Stop' : 'Start'}</button> */}
-          <ul className="results">
+          {/* <ul className="results">
             {this.state.results.map((result, i) => (<Result key={result.codeResult.code + i} result={result} />))}
-          </ul>
+          </ul> */}
           {this.state.scanning ? <Scanner onDetected={this._onDetected}/> : null}
       </div>
     )

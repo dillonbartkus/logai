@@ -5,6 +5,8 @@ class Result extends Component {
   render() {
     const result = this.props.result
 
+    console.log(result)
+    
     if (!result) { return null }
 
     return (

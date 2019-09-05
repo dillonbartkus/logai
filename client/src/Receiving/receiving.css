@@ -463,4 +463,8 @@
     width: 66%;
   }
 
+  canvas {
+    height: 0;
+  }
+
 }

@@ -6,7 +6,6 @@ import OrderScanner from './OrderScanner'
 import OrderComplete from './OrderComplete'
 import avatar from '../images/avatar.png'
 import axios from 'axios'
-import Quagga from './Quagga'
 import SERVERURL from '../config'
 
 export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
@@ -18,31 +17,9 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
     const [currentPieces, setCurrentPieces] = useState()
     const [error, setError] = useState()
     
-    
     useEffect( () => {
         fetchOrders()
-        fetchInv()
     }, [])
-
-    // test scanner  ///////////
-
-    const [inv, setInv] = useState()
-    const [product, setProduct] = useState('')
-
-    const fetchInv = async () => {
-        const res = await axios.post(`${SERVERURL}/getinv/${user.customer_of}`)
-        setInv(res.data.data)
-    }    
-
-    const checkBarcode = code => {
-        const product = inv.filter( product => product.upc_code === code )
-        console.log(product[0])
-        console.log(code)
-        
-        setProduct(product[0])
-    }    
-
-    /////////////////////////////
 
     const fetchOrders = async () => {
         try {
@@ -96,14 +73,6 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
         
         <div className="receiving">
 
-            { product && <div>
-            <p>{product.name}</p>
-            <p>{product.sku}</p>
-            <p>{product.upc_code}</p>
-            </div> }
-
-            <Quagga check = {checkBarcode} />
-
             {
                 error &&
                 <>
@@ -142,7 +111,6 @@ export default function Receiving({ setActiveNavItem, activeNavItem, user }) {
                 setActiveNavItem = {setActiveNavItem}
                 orderInv = {currentOrderInv}
                 fetchOrderInv = {fetchOrderInv}
-                check = {checkBarcode}
                 completeOrder = {completeOrder}
                 receivedOrder = {receivedOrder}
                 number = {currentOrderNumber}
