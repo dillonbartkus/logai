@@ -39,7 +39,7 @@ export default function Dashboard( props ) {
       top: 0,
       behavior: 'smooth'
     })
-  }, [warehouseOrders, customerOrders, count])
+  }, [warehouseOrders, customerOrders])
 
   const fetchEmployees = async () => {
     let res = await axios.post(`/getemployees/${user.id}`)
@@ -70,7 +70,7 @@ export default function Dashboard( props ) {
     let all = warehouseOrders.filter( order => order.status === 'active' || order.status === 'receiving' || order.status === 'received' || order.status === 'count' || order.status === 'picked' )
     setAllJobs(all)
     let unassigned = warehouseOrders.filter( order => !order.employee && order.status !== 'incoming')
-    setUnassignedJobs(unassigned)    
+    setUnassignedJobs(unassigned)
     }
   }
 

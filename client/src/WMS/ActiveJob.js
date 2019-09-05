@@ -3,7 +3,6 @@ import React from 'react'
 export default function ActiveJob({ job, id }) {
 
     const style = (id % 2 === 1) ? { backgroundColor: '#EFEFEF' } : null
-    console.log(job)
     
     let jobType
     if (job.status === 'active') jobType = 'Picking'
@@ -21,7 +20,7 @@ export default function ActiveJob({ job, id }) {
             <div>{job.id}</div>
             <div>{job.actual_date}</div>
             <div>{job.employee}</div>
-            <button className = "transportbutton"></button>
+            <div style = {{'textAlign' : 'center'}}><button className = "editactivejob">Edit</button></div>
             
         </div>
     )

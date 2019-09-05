@@ -757,6 +757,7 @@
     border-radius: 16px;
     height: 5vh;
     margin: auto 3% auto 3%;
+    font-size: 1.25vw;
 }
 
 .activejobs {
@@ -793,11 +794,36 @@
     overflow: scroll;
 }
 
-.activejobs-box > .countitem > * {
+.activejobs-box > .countitem > div {
     flex: 1;
     text-align: left;
 }
 
-.activejobs-box > .countitem > button {
+.activejobs-box > .countitem > div > button {
+    border-radius: 16px;
+    background-color: #FD992E;
+    width: 50%;
+    height: 4.5vh;
+    font-size: 1.4vw;
+}
+
+.roster {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #1D9DEB;
+    border-top: 0;
+}
+
+.isemployeeactive {
+    margin: auto;
+    cursor: pointer;
+    appearance: none;
+    border: 0.5px solid #1D9DEB;
+    height: 20px;
+    width: 20px;
+}
     
+.isemployeeactive:checked {
+    background-color: #1D9DEB;
 }

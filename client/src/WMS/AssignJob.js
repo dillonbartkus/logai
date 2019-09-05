@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Employee from './Employee'
+import AssignEmployee from './AssignEmployee'
 import UnassignedJob from './UnassignedJob'
 
 export default function AssignJob({ jobs, employees, assign }) {
@@ -11,7 +11,7 @@ export default function AssignJob({ jobs, employees, assign }) {
     if (clear) setTimeout( () => setClear(false), 500 )    
 
     const renderEmployees = () => {
-        if (employees) return employees.map( (emp, id) => <Employee employee = {emp} selected = {selectedEmp} select = {employeeSelect} jobs = {jobs} key = {id} id = {id} /> )
+        if (employees) return employees.map( (emp, id) => <AssignEmployee employee = {emp} selected = {selectedEmp} select = {employeeSelect} jobs = {jobs} key = {id} id = {id} /> )
     }
 
     const renderJobs = () => {

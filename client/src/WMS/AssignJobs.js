@@ -14,7 +14,7 @@ export default function AssignJobs({ jobs, employees, assign, alert, setAlert, r
 
     if (alert && activeTab !== 'assign') {
         setAlert(false)
-    }
+    }    
 
     return(
 
@@ -83,6 +83,7 @@ export default function AssignJobs({ jobs, employees, assign, alert, setAlert, r
 
             {   activeTab === 'roster' &&
                 <Roster setActiveTab = {setActiveTab}
+                jobs = {jobs}
                 employees = {employees} />
             }
 
