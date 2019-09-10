@@ -7,9 +7,6 @@ const Footer = props => {
       <div className = "footer">
 
         <div>
-          <span className = "socialmedia">
-              Social Media
-          </span>
 
           <span
           onClick = { () => window.location.href='mailto:dillonbartkus@gmail.com'}
@@ -21,7 +18,7 @@ const Footer = props => {
         <span
         onClick = {props.returnToTop}
         >
-          Return To Top
+          Back to the top ^
         </span>
 
       </div>

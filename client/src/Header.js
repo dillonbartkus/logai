@@ -37,43 +37,31 @@ export default function Header( props ) {
       <div className="other">
 
           <span
+          className = {isMain}
+          onClick = {props.showMain}
+          >Home</span>
+                
+          <span
           className = {isServices}
           onClick = {props.showServices}
-          >Solutions</span>
-                
+          >Services</span>
+
           <span
           className = {isAbout}
           onClick = {props.showAbout}
-          >About</span>
+          >About Us</span>
 
-          {
-            props.token &&
-            <span className = {isLogin}
-            onClick = { e => props.showDashboard() }
-            >
-            Profile
-            </span>
-          }
+          <span className = {isLogin}
+          onClick = { e => props.showLogin(e) }
+          >
+          Contact
+          </span>
 
-          {
-            !props.token &&
-
-            <span className = {isLogin}
-            onClick = { e => props.showLogin(e) }
-            >
-            Login
-            </span>
-          }
-
-          {
-            !props.token &&
-
-            <span className = {isRegister}
-            onClick = { () => props.showRegister() }
-            >
-            <span>Sign Up</span>
-            </span>
-          }
+          <span className = {isRegister}
+          onClick = { () => props.showRegister() }
+          >
+          <span>Get a Demo</span>
+          </span>
           
       </div>
 
