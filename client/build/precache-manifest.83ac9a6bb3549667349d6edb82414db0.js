@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "0f12d61e2125800a524244cd5caf6623",
-    "url": "/static/media/peoplewhite.0f12d61e.svg"
+    "revision": "bcbc7a2aec20d1dd5d06b59daa85833e",
+    "url": "/static/media/facebook.bcbc7a2a.jpg"
   },
   {
-    "revision": "a16c72da64ffabb54eef",
-    "url": "/static/css/main.477beb47.chunk.css"
+    "revision": "194f6f3a79ade8a5db0c",
+    "url": "/static/css/main.38d9d573.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/static/media/baportalbutton.bdcc9ae0.png"
   },
   {
-    "revision": "2cb15a48aea574318d77",
-    "url": "/static/js/2.a2e9b3b2.chunk.js"
+    "revision": "9dd40bddf085937d4148",
+    "url": "/static/js/2.72780d4b.chunk.js"
   },
   {
     "revision": "8c05652b72929387f676b73d6a18489f",
@@ -26,6 +26,50 @@ self.__precacheManifest = [
   {
     "revision": "4a237a8745404efd7842a268b890d37a",
     "url": "/static/media/avatar.4a237a87.png"
+  },
+  {
+    "revision": "c311cb110a01f2a446f00c0ef338bed0",
+    "url": "/static/media/screen.c311cb11.png"
+  },
+  {
+    "revision": "1e75c37ea91d62ab1643ea60e3557d8b",
+    "url": "/static/media/screen2.1e75c37e.png"
+  },
+  {
+    "revision": "71ecf37c1d4931cc3d15ca7ed7df9dd6",
+    "url": "/static/media/screen3.71ecf37c.png"
+  },
+  {
+    "revision": "19cf54a90fa35749ccfa901e35aea73e",
+    "url": "/static/media/screen4.19cf54a9.png"
+  },
+  {
+    "revision": "de1cb9c04b5a70129e04be15aa37b5a3",
+    "url": "/static/media/grow.de1cb9c0.png"
+  },
+  {
+    "revision": "eff46650c52448b0a2dd83ad9d37cfca",
+    "url": "/static/media/smart.eff46650.png"
+  },
+  {
+    "revision": "2a047792df49f01e5148b28d4d32cdc3",
+    "url": "/static/media/smile.2a047792.png"
+  },
+  {
+    "revision": "cfe3f0172690adad1e9a73c955b6ac6f",
+    "url": "/static/media/star.cfe3f017.png"
+  },
+  {
+    "revision": "194f6f3a79ade8a5db0c",
+    "url": "/static/js/main.d1aeba18.chunk.js"
+  },
+  {
+    "revision": "acf4ba6fd987a68f0ca50adcd06c5e67",
+    "url": "/static/media/instagram.acf4ba6f.png"
+  },
+  {
+    "revision": "7fb99744eaccae943d5adf537b5b3a93",
+    "url": "/static/media/linkedin.7fb99744.png"
   },
   {
     "revision": "5569cece7f453b23ddbe7e42e08734e7",
@@ -48,32 +92,12 @@ self.__precacheManifest = [
     "url": "/static/media/people.97658416.svg"
   },
   {
-    "revision": "a16c72da64ffabb54eef",
-    "url": "/static/js/main.c5be30a5.chunk.js"
+    "revision": "0f12d61e2125800a524244cd5caf6623",
+    "url": "/static/media/peoplewhite.0f12d61e.svg"
   },
   {
     "revision": "b2714ba9628dff096cc8bee0be64993a",
     "url": "/static/media/closemenu.b2714ba9.png"
-  },
-  {
-    "revision": "9f95e08d38eb0e73ed2de900b2b5a17c",
-    "url": "/static/media/shipping.9f95e08d.jpg"
-  },
-  {
-    "revision": "bd2c72c08af8d4ba5752fb5b63af5fdc",
-    "url": "/static/media/customers.bd2c72c0.jpg"
-  },
-  {
-    "revision": "6e49979ebca81d3f03c8ba10819dd80a",
-    "url": "/static/media/trucking.6e49979e.jpg"
-  },
-  {
-    "revision": "9949f56b5cc3132ae215b98cc1e3f822",
-    "url": "/static/media/warehouse.9949f56b.jpg"
-  },
-  {
-    "revision": "5d09ebf71e1c105972f1843d9d344ad8",
-    "url": "/static/media/dispatchers.5d09ebf7.jpg"
   },
   {
     "revision": "e3fd265cad20a4c73d6ed77280d57775",
@@ -92,11 +116,11 @@ self.__precacheManifest = [
     "url": "/static/media/managerportalbutton.b77f812f.png"
   },
   {
-    "revision": "2cb15a48aea574318d77",
+    "revision": "9dd40bddf085937d4148",
     "url": "/static/css/2.87a73fb7.chunk.css"
   },
   {
-    "revision": "4a73f14cb9445ecf573630ac7f6c1dd7",
+    "revision": "b1f7e7a4ef383dfd688e111b5d1d924e",
     "url": "/index.html"
   }
 ];

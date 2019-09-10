@@ -41,13 +41,13 @@ export default function Main(){
             </div>
 
             <div>
-              <img src = {grow} alt = '' />
+              <img style = {{'width' : '18%'}} src = {grow} alt = '' />
               <b>Optimize and grow</b>
               <p>Leverage smart analytics to identify inefficiencies in your supply-chain operation, and unlock insights in real-time.</p>
             </div>
 
             <div>
-              <img src = {star} alt = '' />
+              <img style = {{'width' : '20%'}} src = {star} alt = '' />
               <b>Provide delight</b>
               <p>Get real-time actionable information to the right people at the right time to take your business to new levels of productivity.</p>
             </div>
@@ -85,8 +85,8 @@ export default function Main(){
             </div>
 
             <img src = {linkedin} alt = '' />
-            <img src = {instagram} alt = '' />
-            <img src = {twitter} alt = '' />
+            <img className = "smallsocial" src = {instagram} alt = '' />
+            <img className = "smallsocial"  src = {twitter} alt = '' />
             <img src = {facebook} alt = '' />
 
           </div>
