@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RegConfirm = () =>  {
+export default function RegConfirm() {
 
     return (
 
@@ -14,5 +14,3 @@ const RegConfirm = () =>  {
       
     )
 }
-
-export default RegConfirm;

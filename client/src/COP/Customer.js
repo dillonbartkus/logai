@@ -97,7 +97,8 @@ export default function COP({ activeNavItem, setActiveNavItem, customerLength, o
     }
 
     const handlePaymentInfo = e => {
-        console.log(e)
+        setPaymentInfo(e)
+        console.log(paymentInfo)
     }
 
     // function for handling the preferred delivery times.

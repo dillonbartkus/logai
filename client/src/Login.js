@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import SERVERURL from './config'
 
-const Login = props => {
+export default function Login (props) {
 
   const textInput = React.createRef()
   const [email, setEmail] = useState('')
@@ -32,7 +32,7 @@ const Login = props => {
 
         <div className = "login" >
 
-                 <h1 className = "title">Login</h1>
+                 <h1 className = "title">Sign In</h1>
 
                 <form className = "logform">
                 
@@ -76,7 +76,4 @@ const Login = props => {
         </div>
 
     )
-  }
-
-
-export default Login;
+}

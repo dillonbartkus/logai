@@ -52,9 +52,10 @@ export default function Header( props ) {
           >About Us</span>
 
           <span className = {isLogin}
+          style = {{'textDecoration' : 'underLine'}}
           onClick = { e => props.showLogin(e) }
           >
-          Contact
+          Sign In
           </span>
 
           <span className = {isRegister}

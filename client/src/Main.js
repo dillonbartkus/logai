@@ -103,7 +103,7 @@ export default function Main(){
 
             <button className = "getademo">Get a demo</button>
 
-            </div>
+          </div>
 
         </div>
 

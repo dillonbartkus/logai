@@ -3,7 +3,7 @@ import team from './images/team.jpeg'
 import finance from './images/finance.png'
 import truck from './images/truck.jpeg'
 
-const About = () => {
+export default function About() {
 
     return (
 
@@ -32,6 +32,4 @@ const About = () => {
       </div>
 
     )
-  }
-
-export default About;
+}

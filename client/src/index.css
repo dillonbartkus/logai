@@ -34,10 +34,6 @@ input {
   border-bottom: 1px solid black;
 }
 
-.logform > input:focus {
-  /* border: 2px solid rgb(251, 190, 14); */
-}
-
 .formbutton {
   width: 25vw;
   height: 5vh;
@@ -47,6 +43,8 @@ input {
 
 .header {
   background-color: #fff !important;
+  font-family: Helvetica;
+  color: #4A4A4A;
   padding: 0 2%;
   display: flex;
   justify-content: space-between;
@@ -75,11 +73,11 @@ input {
 .logo > * {
   color: rgb(29, 157, 235);
   font-size: 4vw;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .header > div > *, .footer > div > * {  
-  padding: 10px;
+  padding: 10px 15px;
 }
 
 .navactive {
@@ -102,32 +100,11 @@ input {
 .main, .login, .register, .services, .about, .regconfirm {
   display: flex;
   flex-flow: column;
-  text-align: center;
 }
 
 .title {
   margin: 5% auto auto auto;
   font-size: 3vw;
-}
-
-.whoweserve {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.whoweserve > div {
-  display: flex;
-  flex-flow: column;
-  width: 25%;
-}
-
-.whoweserve > div > img {
-  width: 5vw;
-  margin:  5% auto;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 .maininfo {
@@ -203,11 +180,11 @@ input {
 }
 
 .youmeaneverything {
-  margin: 2% auto;
+  margin: 5% auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .youmeaneverything > img {
@@ -235,7 +212,7 @@ input {
 
 .mainblue > div {
   width: 65%;
-  margin: 5% 0 5% 5%;
+  margin: 3% 0 3% 5%;
 }
 
 .mainblue > div > p {
@@ -255,7 +232,7 @@ input {
 }
 
 .joinsocialmedia {
-  margin: 10% 5%;
+  margin: 5%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -270,6 +247,7 @@ input {
   min-width: 5%;
   height: 75px;
   margin-top: 5%;
+  cursor: pointer;
 }
 
 .joinsocialmedia > img:first-of-type {
@@ -290,6 +268,62 @@ input {
   background-color: #FFC753 !important;
   border: 1px solid #FFC753 !important;
   border-radius: 28.5px !important;
+}
+
+.services {
+  color: #4A4A4A;
+  font-family: 'helvetica';
+}
+
+.servicesdiv {
+  width: 90%;
+  margin: 5% auto;
+}
+
+.servicesdiv > h1 {
+  font-size: 45px;
+}
+
+.servicesdiv > p {
+  font-size: 25px;
+}
+
+.servicesblue {
+  margin: 5% 0;
+  background-color: #38A1F2;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.servicesblue > img {
+  margin: 5% auto;
+  width: 50%;
+}
+
+.servicesinfo {
+  margin: 5% auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.servicesinfo > img {
+  width: 20%;
+  max-height: 210px;
+}
+
+.servicesinfo > div {
+  width: 60%;
+}
+
+.servicesinfo > div > p {
+  margin-top: 2%;
+  font-size: 20px;
+}
+
+.servicesinfo > div > b {
+  font-size: 30px;
 }
 
 .footer {

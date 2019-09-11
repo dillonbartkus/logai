@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Footer = props => {
+export default function Footer ({ returnToTop }) {
 
     return (
 
@@ -16,7 +16,7 @@ const Footer = props => {
         </div>
 
         <span
-        onClick = {props.returnToTop}
+        onClick = {returnToTop}
         >
           Back to the top ^
         </span>
@@ -24,7 +24,4 @@ const Footer = props => {
       </div>
 
     )
-  }
-
-
-export default Footer;
+}
