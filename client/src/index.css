@@ -58,11 +58,11 @@ input {
 }
 
 .header.small {
-  height: 5.3vw;
+  height: 90px;
 }
 
 .header.big {
-  height: 7vw;
+  height: 110px;
 }
 
 .other > *, .logo {
@@ -100,6 +100,7 @@ input {
 .main, .login, .register, .services, .about, .regconfirm {
   display: flex;
   flex-flow: column;
+  font-family: helvetica;
 }
 
 .title {
@@ -110,22 +111,10 @@ input {
 .maininfo {
   text-align: left;
   color: #4A4A4A;
-  font-family: helvetica;
 }
 
 .smallpic {
   width: 25vw !important;
-}
-
-.aboutinfo > img {
-  margin: 5% auto;
-  width: 50vw;
-}
-
-.aboutp {
-  text-align: left;
-  margin: 0 10%;
-  font-size: 2vw;
 }
 
 .info {
@@ -270,9 +259,8 @@ input {
   border-radius: 28.5px !important;
 }
 
-.services {
+.services, .about {
   color: #4A4A4A;
-  font-family: 'helvetica';
 }
 
 .servicesdiv {
@@ -310,7 +298,7 @@ input {
 
 .servicesinfo > img {
   width: 20%;
-  max-height: 210px;
+  max-height: 225px;
 }
 
 .servicesinfo > div {
@@ -324,6 +312,82 @@ input {
 
 .servicesinfo > div > b {
   font-size: 30px;
+}
+
+.aboutsection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 4% auto;
+}
+
+.aboutsection > div {
+  width: 60%;
+}
+
+.aboutsection > div > h1 {
+  color: #38A1F2;
+  font-weight: 400;
+  font-size: 45px;
+  margin: 0;
+}
+
+.aboutsection > div > p {
+  font-size: 20px;
+  margin: 3% auto;
+}
+
+.aboutsection > img {
+  width: 33%;
+  min-height: 150px;
+}
+
+.about > h1 {
+  color: #38A1F2;
+  font-weight: 400;
+  font-size: 45px;
+  margin: 0;
+  margin-left: 5%;
+}
+
+.leadership {
+  margin: 5% auto;
+  margin-bottom: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.portrait {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #979797;
+  border-radius: 22px;
+  width: 19%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+}
+
+.portrait > img:first-of-type {
+  width: 50%;
+  margin: 10% auto;
+}
+
+.portrait > img:last-of-type {
+  width: 25%;
+  margin: 10% auto;
+  cursor: pointer;
+}
+
+.portrait > p {
+  margin: 1% auto;
+  text-align: center;
+  font-size: 20px;
+}
+
+.portrait > p:first-of-type {
+  font-weight: 900;
 }
 
 .footer {
@@ -472,7 +536,7 @@ button:focus {
 /* /////////////////////////////// */
 
 
-@media (max-width: 720px) {
+@media (max-width: 760px) {
 
   h1 {
     font-size: 24px !important;

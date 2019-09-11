@@ -28,7 +28,7 @@ export default function Services () {
       <div className="servicesinfo">
 
         <div>
-          <b>Put Data Analytics and Artificial Intelligence to work hard to reduce cost and increase productivity.</b>
+          <b>Put Data Analytics and Artificial Intelligence to work hard to reduce cost and increase productivity</b>
           <p>Achieve new levels of efficiency and productivity by letting data analytics and artificial intelligence gather and analyze data in real-time in order to identify and predict roadblocks, from the time an order is placed to the time goods are delivered.</p>
         </div>
 
@@ -41,8 +41,8 @@ export default function Services () {
         <img src = {money} alt = '' />
 
         <div>
-          <b>You mean everything to us.</b>
-          <p>We care about you, appreciate your hard work, and want to help you. We know first-hand all the stress, passion and hard work you put in everyday. We want to put the best technology solutions in your hands so you can work better, happier and smarter.</p>
+          <b>Get Cutting-Edge Technology at an Affordable Price</b>
+          <p>We want emerging businesses to have an affordable simple-to-use cutting-edge technology in their hands so they can gain a competitive advantage to thrive in the increasingly demanding markets of today and the future.</p>
         </div>
 
       </div>
@@ -50,8 +50,8 @@ export default function Services () {
       <div className="servicesinfo">
 
         <div>
-          <b>You mean everything to us.</b>
-          <p>We care about you, appreciate your hard work, and want to help you. We know first-hand all the stress, passion and hard work you put in everyday. We want to put the best technology solutions in your hands so you can work better, happier and smarter.</p>
+          <b>Customize your WMS experience and automation in order to work faster</b>
+          <p>No more burdensome generic warehouse management software. We take time to understand your business in-depth to provide you a custom WMS experience that ensures we meet your unique requirements and needs for automation.</p>
         </div>
 
         <img src = {ruler} alt = '' />
@@ -63,8 +63,8 @@ export default function Services () {
         <img src = {truck} alt = '' />
 
         <div>
-          <b>You mean everything to us.</b>
-          <p>We care about you, appreciate your hard work, and want to help you. We know first-hand all the stress, passion and hard work you put in everyday. We want to put the best technology solutions in your hands so you can work better, happier and smarter.</p>
+          <b>Obtain Transparency</b>
+          <p>Add value to your company brand by providing 24/7 transparency, giving them a seamless experience that will keep them doing business with you. Also, free yourself and your staff from being glued to emails and phones answering status update requests all day! YAY!</p>
         </div>
 
       </div>
