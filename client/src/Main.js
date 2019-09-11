@@ -22,32 +22,35 @@ export default function Main(){
 
           <div className="info">
 
-            <p>Log.Ai is a centralized and cloud-based Warehouse Management Software that leverages artifical intelligence, real-time business analytics and psychology to empower you to serve your clients more efficiently.</p>
+            <p>Log.Ai is a centralized cloud-based Warehouse Management Software that leverages artifical intelligence, real-time business analytics and psychology to empower you to serve your clients more efficiently and productively.</p>
 
           </div>
 
           <div className = "mainsection">
 
-            <div>
-              <img src = {smile} alt = '' />
+            <div className = "emojis">
+              <div style = {{'marginLeft' : 0}}><img src = {smile} alt = '' /></div>
+              <div><img src = {smart} alt = '' /></div>
+              <div><img style = {{'width' : '22%'}} src = {grow} alt = '' /></div>
+              <div><img style = {{'width' : '28%'}} src = {star} alt = '' /></div>
+            </div>
+
+            <div style = {{'marginLeft' : 0}}>
               <b>Increase customer satisfaction</b>
               <p>use our centralized software to conduct seamless and transparent operations that increase your On-time and In-full deliveries, making your customers happier.</p>
             </div>
 
             <div>
-              <img src = {smart} alt = '' />
               <b>Work smart, not harder</b>
               <p>Use machine learning to help automate your processes to work smarter, leaner and faster.</p>
             </div>
 
             <div>
-              <img style = {{'width' : '18%'}} src = {grow} alt = '' />
               <b>Optimize and grow</b>
               <p>Leverage smart analytics to identify inefficiencies in your supply-chain operation, and unlock insights in real-time.</p>
             </div>
 
             <div>
-              <img style = {{'width' : '20%'}} src = {star} alt = '' />
               <b>Provide delight</b>
               <p>Get real-time actionable information to the right people at the right time to take your business to new levels of productivity.</p>
             </div>

@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/facebook.bcbc7a2a.jpg"
   },
   {
-    "revision": "194f6f3a79ade8a5db0c",
-    "url": "/static/css/main.38d9d573.chunk.css"
+    "revision": "ee24bb4ba522c7d59e96",
+    "url": "/static/css/main.5660a31f.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "url": "/static/media/star.cfe3f017.png"
   },
   {
-    "revision": "194f6f3a79ade8a5db0c",
-    "url": "/static/js/main.d1aeba18.chunk.js"
+    "revision": "ee24bb4ba522c7d59e96",
+    "url": "/static/js/main.9c4821c1.chunk.js"
   },
   {
     "revision": "acf4ba6fd987a68f0ca50adcd06c5e67",
@@ -100,12 +100,12 @@ self.__precacheManifest = [
     "url": "/static/media/closemenu.b2714ba9.png"
   },
   {
-    "revision": "e3fd265cad20a4c73d6ed77280d57775",
-    "url": "/static/media/trackorderportalbutton.e3fd265c.png"
-  },
-  {
     "revision": "d4f82fb0139024cb4bf133b9cbff48ee",
     "url": "/static/media/orderhistoryportalbutton.d4f82fb0.png"
+  },
+  {
+    "revision": "e3fd265cad20a4c73d6ed77280d57775",
+    "url": "/static/media/trackorderportalbutton.e3fd265c.png"
   },
   {
     "revision": "aec3c0e243869e9804e58da913c7288a",
@@ -120,7 +120,7 @@ self.__precacheManifest = [
     "url": "/static/css/2.87a73fb7.chunk.css"
   },
   {
-    "revision": "b1f7e7a4ef383dfd688e111b5d1d924e",
+    "revision": "ec495aae59d40a908cbed170fad31595",
     "url": "/index.html"
   }
 ];

@@ -172,7 +172,7 @@ https://flickity.metafizzy.co
   .flickity-page-dots {
     position: absolute;
     width: 100%;
-    bottom: -25px;
+    bottom: 2%;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -189,13 +189,14 @@ https://flickity.metafizzy.co
     width: 10px;
     height: 10px;
     margin: 0 8px;
-    background: #333;
+    background-color: #D8D8D8;
     border-radius: 50%;
     opacity: 0.25;
     cursor: pointer;
   }
   
   .flickity-page-dots .dot.is-selected {
+    background-color: #fff;
     opacity: 1;
   }
   

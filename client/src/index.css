@@ -162,11 +162,24 @@ input {
 
 .mainsection {
   display: flex;
+  flex-wrap: wrap;
   margin: 0 5%;
 }
 
-.mainsection > div:first-of-type {
-  margin-left: 0;
+.emojis {
+  flex-direction: row !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+.emojis > div {
+  width: 22%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.emojis > div > img {
+  width: 18%;
 }
 
 .mainsection > div:last-of-type {
@@ -180,17 +193,13 @@ input {
   margin: 0 1.5%;
 }
 
-.mainsection > div > img {
-  width: 15%;
-}
-
 .mainsection > div > b {
-  font-size: 18px;
+  font-size: 16px;
   margin: 3% 0;
 }
 
 .mainsection > div > p {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .youmeaneverything {
