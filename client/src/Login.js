@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import SERVERURL from './config'
+import uppergear from './images/uppergear.png'
+import lowergear from './images/lowergear.png'
 
-export default function Login (props) {
+export default function Login ({ logUserIn }) {
 
   const textInput = React.createRef()
   const [email, setEmail] = useState('')
@@ -20,7 +22,7 @@ export default function Login (props) {
       email: email,
       pw: password
     })
-    props.logUserIn(res.data.data, res.data.token)
+    logUserIn(res.data.data, res.data.token)
   }
     catch(err) {
       console.log(err.message)
@@ -28,52 +30,63 @@ export default function Login (props) {
     }
   }
 
-    return(
+  const shouldEnter = e => {
+    let keyCode = e.charCode;
+    if(keyCode === 13) {
+      authorize(e)
+      }
+  }
 
-        <div className = "login" >
+  return(
 
-                 <h1 className = "title">Sign In</h1>
+    <div className = "login" >
 
-                <form className = "logform">
-                
-                        <input
-                        ref = {textInput}
-                        className = {invalidCred ? 'invalidCred' : '' }
-                        placeholder = "Email"
-                        type = "text"
-                        value = {email}
-                        onChange = {e => setEmail(e.target.value)}
-                        >
-                        </input>
+    <img className = "uppergear" src = {uppergear} alt = '' />
 
-                        <input
-                        ref = {textInput}
-                        className = {invalidCred ? 'invalidCred' : '' }
-                        placeholder = "Password"
-                        type = "password"
-                        value = {password}
-                        onChange = {e => setPassword(e.target.value)}
-                        >
-                        </input>
+    <img className = "lowergear" src = {lowergear} alt = '' />
 
-                        {
-                          invalidCred &&
-                          <p style = {{'color': 'red'}}>Invalid Username / Password</p>
-                        }
+      <div>
 
+        <h1>Sign In</h1>
 
-                        <button
-                        className = "formbutton"
-                        onClick = {authorize}
-                        >
-                        Login
-                        </button>
+        <label>Email Address</label>
+        <input
+        onChange = {e => setEmail(e.target.value)}
+        className = {invalidCred ? 'invalidCred' : '' }
+        ref = {textInput}
+        value = {email}
+        placeholder = "dillon@gmail.com"
+        type = "text"
+        ></input>
 
-                        <p>Forgot Password? <a href = "mailto:dillonbartkus@gmail.com">Reset</a></p>
-                
-                </form>
+        <div className = "forgotdiv">
+        <label>Password</label>
+        <p className = "forgotpw">Forgot password?</p>
+        </div>
+        <input
+        onChange = {e => setPassword(e.target.value)}
+        onKeyPress={ e => shouldEnter(e) }
+        className = {invalidCred ? 'invalidCred' : '' }
+        ref = {textInput}
+        value = {password}
+        placeholder = "Enter your password"
+        type = "password"
+        ></input>
 
+        {
+          invalidCred &&
+          <p style = {{'color': 'red'}}>Invalid Username / Password</p>
+        }
+
+        <div className = "buttonholder">
+          <button
+          onClick = {authorize}
+          className = "loginbutton">Sign In</button>
         </div>
 
-    )
+      </div>
+
+    </div>
+
+  )
 }

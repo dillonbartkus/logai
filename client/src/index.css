@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  /* background-color: #f6f8fa !important; */
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -58,11 +57,11 @@ input {
 }
 
 .header.small {
-  height: 90px;
+  height: 80px;
 }
 
 .header.big {
-  height: 110px;
+  height: 100px;
 }
 
 .other > *, .logo {
@@ -390,6 +389,89 @@ input {
   font-weight: 900;
 }
 
+.login {
+  background-color: #F6F8FA;
+  color: #4A4A4A;
+  width: 100%;
+  height: calc(100vh - 110px);
+  overflow: hidden;
+}
+
+.login > div:first-of-type {
+  height: 75%;
+  width: 40%;
+  margin: auto;
+  text-align: left;
+}
+
+.login > div > h1 {
+  font-size: 45px;
+  text-align: center;
+}
+
+.uppergear {
+  width: 25%;
+  position: absolute;
+}
+
+.lowergear {
+  width: 23%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.login > div > label, .login > div > div > label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.login > div > input {
+  width: 100%;
+  margin: 2% auto;
+  border: 1px solid #979797;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  color: #4A4A4A;
+  box-shadow: 0 7px 16px 0 rgba(0,0,0,0.5), 0 2px 4px 0 rgba(0,0,0,0.5);
+  height: 33px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.login > div > input:first-of-type {
+  margin-bottom: 5%;
+}
+
+.buttonholder {
+  text-align: center;
+  height: 12%;
+}
+
+.loginbutton {
+  border: 1px solid #38A1F2;
+  border-radius: 29px;
+  background-color: #38A1F2;
+  box-shadow: 0 7px 24px 0 rgba(0,0,0,0.5);
+  margin-top: 5%;
+  width: 175px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+}
+
+.forgotdiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forgotpw {
+  text-decoration: underline;
+  color: #7F7C80;
+  cursor: pointer;
+  font-size: 18px;
+}
+
 .footer {
   border-top: 1px solid #38A1F2;
   padding-top: 2%;
@@ -519,13 +601,13 @@ button:focus {
 
 @media (max-width: 1030px) {
 
-  .header.small {
+  /* .header.small {
     height: 8vw;
   }
   
   .header.big {
     height: 10vw;
-  }
+  } */
 
 }
 
@@ -563,6 +645,22 @@ button:focus {
     font-size: 3vw;
   }
 
+  .login {
+    height: calc(100vh - 70px);
+  }
+  
+  .login > h1 {
+    font-size: 45px;
+  }
+  
+  .uppergear {
+    width: 33%;
+  }
+  
+  .lowergear {
+    width: 33%;
+  }
+
   .mainsection > div > img {
     width: 30%;
   }
@@ -575,11 +673,6 @@ button:focus {
     height: 7.5vh !important;
   }
 
-  .whoweserve > * {
-    font-size: 3.3vw;
-    width: auto !important;
-  }
-
   .logo > * {
     font-size: 40px;
   }
@@ -590,8 +683,9 @@ button:focus {
 
   .mobileheader {
     background-color: #fff !important;
+    height: 50px;
     border-bottom: 1px solid #eceef1;
-    padding: 3vw;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;

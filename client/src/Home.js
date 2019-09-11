@@ -125,7 +125,10 @@ export default function Home() {
                 <RegConfirm />
               }
 
-          <Footer returnToTop = {returnToTop} />
+              {
+                !login &&
+                <Footer returnToTop = {returnToTop} />
+              }
 
           {isLoggedIn
           ? <Redirect to={{
