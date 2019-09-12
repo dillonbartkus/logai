@@ -14,7 +14,7 @@ https://flickity.metafizzy.co
   width: 50%;
   color: #fff;
   text-align: left;
-  margin: auto auto auto 7.5%;
+  margin: auto auto auto 5%;
   font-family: helvetica;
   padding-right: 5%;
 }
@@ -144,10 +144,10 @@ https://flickity.metafizzy.co
   }
   
   .flickity-prev-next-button.previous {
-    left: 10px;
+    left: 3px;
   }
   .flickity-prev-next-button.next {
-    right: 10px;
+    right: 3px;
   }
   /* right to left */
   .flickity-rtl .flickity-prev-next-button.previous {

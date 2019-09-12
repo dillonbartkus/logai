@@ -64,19 +64,22 @@ input {
   height: 100px;
 }
 
+.other > * {
+  margin: 0 20px;
+}
+
 .other > *, .logo {
   font-size: 20px;
-  margin: 0 7px;
+}
+
+.logo {
+  margin-left: 3%;
 }
 
 .logo > * {
-  color: rgb(29, 157, 235);
-  font-size: 4vw;
+  color: #379EEB;
+  font-size: 48px;
   font-weight: 500;
-}
-
-.header > div > *, .footer > div > * {  
-  padding: 10px 15px;
 }
 
 .navactive {
@@ -84,16 +87,17 @@ input {
 }
 
 .regbutton {
-  background-color: rgb(251, 190, 14);
+  background-color: #FFC753;
   border-radius: 50px;
   margin-right: 0;
+  padding: 7px 25px;
 }
 
-.regbuttonactive {
+.regbutton.active {
   background-color: #fff;
   color: rgb(29, 157, 235);
   box-shadow: 0 0 0 1.5px rgb(251, 190, 14);
-  border-radius: 25px;
+
 }
 
 .main, .login, .register, .services, .about, .regconfirm {
@@ -131,33 +135,6 @@ input {
   margin: 0 5%;
 }
 
-.emojis {
-  flex-direction: row !important;
-  width: 100% !important;
-  margin-left: 0 !important;
-}
-
-.emojis > div {
-  width: 22%;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.emojis > div > img {
-  width: 18%;
-}
-
-.mainsection > div:last-of-type {
-  margin-right: 0;
-}
-
-.mainsection > div {
-  width: 22%;
-  display: flex;
-  flex-direction: column;
-  margin: 0 1.5%;
-}
-
 .mainsection > div > b {
   font-size: 16px;
   margin: 3% 0;
@@ -167,12 +144,44 @@ input {
   font-size: 16px;
 }
 
+.mainsection > div:last-of-type {
+  margin-right: 0;
+}
+
+.emojis {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: 0;
+}
+
+.emojis > div, .emojitext {
+  width: 22%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.emojis > div > img {
+  width: 18%;
+}
+
+.plantemoji {
+  width: 22% !important;
+}
+
+.staremoji {
+  width: 28% !important;
+}
+
+.emojiinfo {
+  display: flex;
+}
+
 .youmeaneverything {
   margin: 5% auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
 }
 
 .youmeaneverything > img {
@@ -180,6 +189,7 @@ input {
 }
 
 .youmeaneverything > div {
+  margin-left: 5%;
   width: 60%;
 }
 
@@ -196,11 +206,12 @@ input {
   background-color: #38A1F2;
   display: flex;
   color: #fff;
+  margin: 5% 0;
 }
 
 .mainblue > div {
   width: 65%;
-  margin: 3% 0 3% 5%;
+  margin: 2% 0 2% 5%;
 }
 
 .mainblue > div > p {
@@ -220,7 +231,7 @@ input {
 }
 
 .joinsocialmedia {
-  margin: 5%;
+  margin: 6% 5%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -289,15 +300,18 @@ input {
 }
 
 .servicesinfo {
-  margin: 5% auto;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
 }
 
+.servicesinfo > * {
+  margin: 5%;
+
+}
+
 .servicesinfo > img {
-  width: 20%;
-  max-height: 225px;
+  width: 200px;
+  height: 200px;
 }
 
 .servicesinfo > div {
@@ -315,14 +329,20 @@ input {
 
 .aboutsection {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 90%;
-  margin: 4% auto;
+}
+
+.aboutsection > * {
+  margin: 5%;
 }
 
 .aboutsection > div {
   width: 60%;
+}
+
+.aboutsection > img {
+  width: 33%;
+  min-height: 150px;
 }
 
 .aboutsection > div > h1 {
@@ -335,11 +355,7 @@ input {
 .aboutsection > div > p {
   font-size: 20px;
   margin: 3% auto;
-}
-
-.aboutsection > img {
-  width: 33%;
-  min-height: 150px;
+  line-height: 24px;
 }
 
 .about > h1 {
@@ -347,6 +363,7 @@ input {
   font-weight: 400;
   font-size: 45px;
   margin: 0;
+  margin-top: 7%;
   margin-left: 5%;
 }
 
@@ -398,7 +415,7 @@ input {
 }
 
 .login > div:first-of-type {
-  height: 75%;
+  height: auto;
   width: 40%;
   margin: auto;
   text-align: left;
@@ -618,7 +635,7 @@ button:focus {
 /* /////////////////////////////// */
 
 
-@media (max-width: 760px) {
+@media (max-width: 810px) {
 
   h1 {
     font-size: 24px !important;
@@ -626,10 +643,6 @@ button:focus {
 
   h3 {
     font-size: 18px !important;
-  }
-
-  p {
-    font-size: 14px !important;
   }
 
   li {
@@ -645,8 +658,121 @@ button:focus {
     font-size: 3vw;
   }
 
+  .mainsection {
+    height: 70vh;
+  }
+
+  .mainblue {
+    flex-wrap: wrap;
+  }
+
+  .mainblue > div {
+    width: 75%;
+    margin: 5% auto;
+  }
+
+  .mainblue > button {
+    width: 50%;
+    margin: 5% auto 7% auto;
+  }
+
+  .mainblue > div > h1 {
+    font-size: 20px !important;
+  }
+
+  .mainblue > div > p {
+    font-size: 14px;
+  }
+
+  .servicesblue > img {
+    width: 200px;
+    height: 160px;
+    margin: 10% auto;
+  }
+
+  .emojis {
+    flex-direction: column !important;
+    width: 15% !important;
+    margin-right: 5%;
+    height: 100%;
+    justify-content: space-around;
+  }
+
+  .emojis > div {
+    width: 100%;
+    text-align: center;
+    margin: 30% 0;
+  }
+
+  .emojis > div > img {
+    width: 75%;
+  }
+
+  .plantemoji {
+    width: 100% !important;
+  }
+
+  .staremoji {
+    width: 110% !important;
+  }
+
+  .emojiinfo {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .emojitext {
+    width: 100%;
+    margin: 5% 0;
+    margin-top: 0;
+  }
+
+  .youmeaneverything > div > p {
+    font-size: 14px;
+  }
+
+  .youmeaneverything > div > b {
+    font-size: 20px;
+  }
+
+  .info > p {
+    font-size: 20px;
+  }
+
+  .servicesinfo > div > b {
+    font-size: 20px;
+  }
+
+  .servicesinfo > div > p {
+    font-size: 14px;
+  }
+
+  .servicesinfo > img {
+    height: 100px !important;
+    width: 100px !important;
+  }
+
+  .aboutsection > div > p {
+    font-size: 12px;
+  }
+
+  .aboutsection > img {
+    min-height: 100px;
+  }
+
+  .portrait > p {
+    font-size: 14px;
+  }
+
   .login {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 95px);
+  }
+
+  .login > div {
+    width: 75% !important;
   }
   
   .login > h1 {
@@ -683,9 +809,9 @@ button:focus {
 
   .mobileheader {
     background-color: #fff !important;
-    height: 50px;
+    height: 75px;
     border-bottom: 1px solid #eceef1;
-    padding: 10px;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;

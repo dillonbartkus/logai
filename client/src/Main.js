@@ -31,28 +31,32 @@ export default function Main(){
             <div className = "emojis">
               <div style = {{'marginLeft' : 0}}><img src = {smile} alt = '' /></div>
               <div><img src = {smart} alt = '' /></div>
-              <div><img style = {{'width' : '22%'}} src = {grow} alt = '' /></div>
-              <div><img style = {{'width' : '28%'}} src = {star} alt = '' /></div>
+              <div><img className = "plantemoji" src = {grow} alt = '' /></div>
+              <div><img className = "staremoji" src = {star} alt = '' /></div>
             </div>
 
-            <div style = {{'marginLeft' : 0}}>
-              <b>Increase customer satisfaction</b>
-              <p>use our centralized software to conduct seamless and transparent operations that increase your On-time and In-full deliveries, making your customers happier.</p>
-            </div>
+            <div className = "emojiinfo">
 
-            <div>
-              <b>Work smart, not harder</b>
-              <p>Use machine learning to help automate your processes to work smarter, leaner and faster.</p>
-            </div>
+              <div className = "emojitext" style = {{'marginLeft' : 0}}>
+                <b>Increase customer satisfaction</b>
+                <p>Use our centralized software to conduct seamless and transparent operations that increase your On-time and In-full deliveries, making your customers happier.</p>
+              </div>
 
-            <div>
-              <b>Optimize and grow</b>
-              <p>Leverage smart analytics to identify inefficiencies in your supply-chain operation, and unlock insights in real-time.</p>
-            </div>
+              <div className = "emojitext" >
+                <b>Work smart, not harder</b>
+                <p>Use machine learning to help automate your processes to work smarter, leaner and faster.</p>
+              </div>
 
-            <div>
-              <b>Provide delight</b>
-              <p>Get real-time actionable information to the right people at the right time to take your business to new levels of productivity.</p>
+              <div className = "emojitext" >
+                <b>Optimize and grow</b>
+                <p>Leverage smart analytics to identify inefficiencies in your supply-chain operation, and unlock insights in real-time.</p>
+              </div>
+
+              <div className = "emojitext" >
+                <b>Provide delight</b>
+                <p>Get real-time actionable information to the right people at the right time to take your business to new levels of productivity.</p>
+              </div>
+              
             </div>
 
           </div>
@@ -87,10 +91,21 @@ export default function Main(){
               <p>Join our conversation about the growing importance of logistics to the economy and our everyday lives. Also, share with us your experience and the challenges you are facing today, and what you are doing to overcome them. Let's start the dialogue!</p>
             </div>
 
-            <img src = {linkedin} alt = '' />
-            <img className = "smallsocial" src = {instagram} alt = '' />
-            <img className = "smallsocial"  src = {twitter} alt = '' />
-            <img src = {facebook} alt = '' />
+            <img
+            onClick = { () => window.open('https://www.linkedin.com/company/log-ai/') }
+            src = {linkedin} alt = '' />
+
+            <img
+            onClick = { () => window.open('https://www.instagram.com/log_ai/') }
+            className = "smallsocial" src = {instagram} alt = '' />
+
+            <img
+            onClick = { () => window.open('https://twitter.com/LogAi7') }
+            className = "smallsocial"  src = {twitter} alt = '' />
+
+            <img
+            onClick = { () => window.open('https://www.linkedin.com/company/log-ai/') }
+            src = {facebook} alt = '' />
 
           </div>
 

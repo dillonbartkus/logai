@@ -42,7 +42,7 @@ export default function Services () {
 
         <div>
           <b>Get Cutting-Edge Technology at an Affordable Price</b>
-          <p>We want emerging businesses to have an affordable simple-to-use cutting-edge technology in their hands so they can gain a competitive advantage to thrive in the increasingly demanding markets of today and the future.</p>
+          <p>We want emerging businesses to have an affordable, simple-to-use, cutting-edge technology in their hands so they can gain a competitive advantage to thrive in the increasingly demanding markets of today and the future.</p>
         </div>
 
       </div>
@@ -54,7 +54,7 @@ export default function Services () {
           <p>No more burdensome generic warehouse management software. We take time to understand your business in-depth to provide you a custom WMS experience that ensures we meet your unique requirements and needs for automation.</p>
         </div>
 
-        <img src = {ruler} alt = '' />
+        <img style = {{'width' : '320px', 'height' : '180px' }} src = {ruler} alt = '' />
 
       </div>
 

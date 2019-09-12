@@ -33,7 +33,7 @@ export default function About() {
 
         <div>
           <h1>Our Story</h1>
-          <p>Log.Ai was born out of curiosity, appreciation for the logistics industry, and the desire to serve our nation, again. In 2018, Rodolfo Valdivia, a Marine Corps veteran, while working in Morgan Stanley, realized that as e-commerce and global trade continue to grow, the logistics industry will become increasingly more vital to our economic growth. He saw that this space was in need of technological innovation.</p>
+          <p>Log.Ai was born out of curiosity, appreciation for the logistics industry, and the desire to serve our nation, again. In 2018, Rodolfo Valdivia, a Marine Corps veteran, while working in Morgan Stanley realized that as e-commerce and global trade continue to grow, the logistics industry will become increasingly more vital to our economic growth. He saw that this space was in need of technological innovation.</p>
           <p>That same year, he took the leap, quit his job, became a truck driver, UX Designer, and teamed up with Dillon, Marc and Stephen to build Log.Ai.</p>
         </div>
 
@@ -44,7 +44,7 @@ export default function About() {
         <div>
           <h1>Our Mission</h1>
           <p>We are driven to empower businesses to mke warehouse operations their competitive edge and serve their clients better.</p>
-          <p>As a diverse minority group of humble beginnings, we are also determined to help , educate, and hire people from all walks of life that have the passion to serve, make a difference for our world, and themselves.</p>
+          <p>As a diverse minority group of humble beginnings, we are also determined to help, educate, and hire people from all walks of life that have the passion to serve, make a difference for our world, and themselves.</p>
         </div>
 
         <img style = {{'width' : '25%'}} src = {teamwork} alt = '' />
@@ -89,7 +89,7 @@ export default function About() {
         <img src = {stephen} alt = 'stephen' />
           <p>Stephen Metzger</p>
           <p>Advisor and</p>
-          <p>Macroeconomist</p>
+          <p>Macro-economist</p>
           <img
           onClick = { () => window.open('https://www.linkedin.com/in/stephen-metzger-9b29731a/') }
           src = {linkedin} alt = '' />

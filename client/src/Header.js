@@ -7,8 +7,8 @@ export default function Header( props ) {
   let isAbout = (props.about) ? 'navactive' : ''
   let isServices = (props.services) ? 'navactive' : ''
   let isMain = (props.main) ? 'navactive' : ''
-  let isRegister = (props.register) ? 'regbuttonactive' : 'regbutton'
-  let isLogin = (props.login) ? 'navactive' : ''
+  let isRegister = (props.register) ? 'regbutton active' : 'regbutton'
+  let isLogin = (props.login) ? 'navactive' : ''  
 
   setInterval( () => {
     const scroll = window.scrollY
@@ -52,7 +52,6 @@ export default function Header( props ) {
           >About Us</span>
 
           <span className = {isLogin}
-          style = {{'textDecoration' : 'underLine'}}
           onClick = { e => props.showLogin(e) }
           >
           Sign In
