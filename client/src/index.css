@@ -658,6 +658,23 @@ button:focus {
     font-size: 3vw;
   }
 
+  .leadership {
+    flex-wrap: wrap;
+  }
+
+  .portrait {
+    width: 75%;
+    margin: 5% auto;
+  }
+
+  .portrait > p {
+    font-size: 20px;
+  }
+
+  .portrait > img:last-of-type {
+    margin: 5% auto;
+  }
+
   .mainsection {
     height: 70vh;
   }
@@ -667,13 +684,13 @@ button:focus {
   }
 
   .mainblue > div {
-    width: 75%;
-    margin: 5% auto;
+    width: 100%;
+    margin: 5%;
   }
 
   .mainblue > button {
     width: 50%;
-    margin: 5% auto 7% auto;
+    margin: 7% 5%;
   }
 
   .mainblue > div > h1 {
@@ -682,6 +699,7 @@ button:focus {
 
   .mainblue > div > p {
     font-size: 14px;
+    width: 100%;
   }
 
   .servicesblue > img {
@@ -757,14 +775,11 @@ button:focus {
 
   .aboutsection > div > p {
     font-size: 12px;
+    line-height: 16px;
   }
 
   .aboutsection > img {
     min-height: 100px;
-  }
-
-  .portrait > p {
-    font-size: 14px;
   }
 
   .login {
@@ -777,6 +792,14 @@ button:focus {
   
   .login > h1 {
     font-size: 45px;
+  }
+
+  .buttonholder {
+    height: 16%;
+  }
+
+  .loginbutton {
+    width: 200px;
   }
   
   .uppergear {
@@ -791,12 +814,24 @@ button:focus {
     width: 30%;
   }
 
+  .joinsocialmedia > div > h1 {
+    font-size: 20px !important;
+  }
+
+  .joinsocialmedia > div > p {
+    font-size: 14px !important;
+  }
+
   .joinsocialmedia > img  {
     height: 5vh;
   }
 
   .joinsocialmedia > .smallsocial {
     height: 7.5vh !important;
+  }
+
+  .logo {
+    margin-left: 2%;
   }
 
   .logo > * {
@@ -811,7 +846,7 @@ button:focus {
     background-color: #fff !important;
     height: 75px;
     border-bottom: 1px solid #eceef1;
-    padding: 10px 20px;
+    padding: 10px 3%;
     display: flex;
     justify-content: space-between;
     align-items: center;
