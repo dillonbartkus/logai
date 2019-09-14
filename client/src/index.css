@@ -151,6 +151,7 @@ input {
 .emojis {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   width: 100%;
   margin-left: 0;
 }
@@ -158,7 +159,6 @@ input {
 .emojis > div, .emojitext {
   width: 22%;
   margin: 0 auto;
-  text-align: left;
 }
 
 .emojitext {
@@ -705,7 +705,7 @@ button:focus {
   }
 
   .mainsection {
-    height: 70vh;
+    height: 80vh;
   }
 
   .mainblue {
@@ -714,12 +714,12 @@ button:focus {
 
   .mainblue > div {
     width: 100%;
-    margin: 5%;
+    margin: 5% 8%;
   }
 
   .mainblue > button {
     width: 50%;
-    margin: 7% 5%;
+    margin: 7% 8%;
   }
 
   .mainblue > div > h1 {
@@ -748,7 +748,10 @@ button:focus {
   .emojis > div {
     width: 100%;
     text-align: center;
-    margin: 30% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
   }
 
   .emojis > div > img {
@@ -859,10 +862,6 @@ button:focus {
     height: 7.5vh !important;
   }
 
-  .logo {
-    margin-left: 2%;
-  }
-
   .logo > * {
     font-size: 40px;
   }
@@ -875,7 +874,7 @@ button:focus {
     background-color: #fff !important;
     height: 75px;
     border-bottom: 1px solid #eceef1;
-    padding: 10px 3%;
+    padding: 10px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
