@@ -14,12 +14,12 @@ export default function About() {
 
     <div className = "about">
 
-      <div className = "aboutsection">
+      <div className = "aboutsection right">
 
         <div>
           <h1>Who we are</h1>
-          <p>We founded Log.Ai because we are passionate to serve our nation and empower and help those who sacrifice tremendously to carry on warehouse operations.</p>
-          <p>Log.Ai wants to be the most seamless and smartest way to conduct logistics operations at an affordable price.</p>
+          <p>We founded Log.Ai because we are passionate to serve our nation and help those who sacrifice tremendously to carry on warehouse operations.</p>
+          <p>Log.Ai wants to be the smartest, most seamless way to conduct logistics operations at an affordable price.</p>
           <p>We believe that all businesses can make warehouse operations their competitive edge.</p>
         </div>
 
@@ -27,23 +27,23 @@ export default function About() {
 
       </div>
 
-      <div className = "aboutsection">
+      <div className = "aboutsection left">
 
         <img src = {heart} alt = '' />
 
         <div>
           <h1>Our Story</h1>
-          <p>Log.Ai was born out of curiosity, appreciation for the logistics industry, and the desire to serve our nation, again. In 2018, Rodolfo Valdivia, a Marine Corps veteran, while working in Morgan Stanley realized that as e-commerce and global trade continue to grow, the logistics industry will become increasingly more vital to our economic growth. He saw that this space was in need of technological innovation.</p>
+          <p>Log.Ai was born out of curiosity, appreciation for the logistics industry, and the desire to serve our nation, again. In 2018, Rodolfo Valdivia, a Marine Corps veteran, while working at Morgan Stanley realized that as e-commerce and global trade continue to grow, the logistics industry will become increasingly more vital to our economic growth. He saw that this space was in need of technological innovation.</p>
           <p>That same year, he took the leap, quit his job, became a truck driver, UX Designer, and teamed up with Dillon, Marc and Stephen to build Log.Ai.</p>
         </div>
 
       </div>
 
-      <div className = "aboutsection">
+      <div className = "aboutsection right">
 
         <div>
           <h1>Our Mission</h1>
-          <p>We are driven to empower businesses to mke warehouse operations their competitive edge and serve their clients better.</p>
+          <p>We are driven to empower businesses to make warehouse operations their competitive edge and serve their clients better.</p>
           <p>As a diverse minority group of humble beginnings, we are also determined to help, educate, and hire people from all walks of life that have the passion to serve, make a difference for our world, and themselves.</p>
         </div>
 

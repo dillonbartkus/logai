@@ -52,7 +52,7 @@ const options = {
 
       <div>
         <h1>Obtain and provide peace of mind</h1>
-        <h3>Get end-to-end supply chain visibility and easily provide it to your clients so they know where their goods are all the time. Liberate yourself from being glued for hours to your emails and phones answering status update requests.</h3>
+        <h3>Get end-to-end supply chain visibility and easily provide it to your clients so they know where their goods are. Liberate yourself from being glued for hours to your emails and phones answering status update requests.</h3>
         <button>Get a demo</button>
       </div>
 

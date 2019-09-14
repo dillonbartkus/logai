@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/lowergear.3a126d9d.png"
   },
   {
-    "revision": "f59954c60f3400579589",
-    "url": "/static/css/main.218c897c.chunk.css"
+    "revision": "1cd21e526fa11f51fbc3",
+    "url": "/static/css/main.9048440c.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -76,8 +76,8 @@ self.__precacheManifest = [
     "url": "/static/media/uppergear.adfc71eb.png"
   },
   {
-    "revision": "f59954c60f3400579589",
-    "url": "/static/js/main.8d60666a.chunk.js"
+    "revision": "1cd21e526fa11f51fbc3",
+    "url": "/static/js/main.8da585c6.chunk.js"
   },
   {
     "revision": "6c22bf9b05567215eefffaa2fd423d85",
@@ -152,7 +152,7 @@ self.__precacheManifest = [
     "url": "/static/css/2.87a73fb7.chunk.css"
   },
   {
-    "revision": "8f167c83e5d1c6e7b9f8716ce1218c46",
+    "revision": "a0c4dd5bde8cdea5b78b5e8c408c22d1",
     "url": "/index.html"
   }
 ];

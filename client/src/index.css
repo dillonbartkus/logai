@@ -44,7 +44,7 @@ input {
   background-color: #fff !important;
   font-family: Helvetica;
   color: #4A4A4A;
-  padding: 0 2%;
+  padding: 0 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -121,7 +121,7 @@ input {
 }
 
 .info {
-  margin: 10% 5%;
+  margin: 10% 8%;
   font-weight: 900;
 }
 
@@ -132,7 +132,7 @@ input {
 .mainsection {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 5%;
+  margin: 0 8%;
 }
 
 .mainsection > div > b {
@@ -161,6 +161,14 @@ input {
   text-align: left;
 }
 
+.emojitext {
+  font-size: 15px;
+}
+
+.emojitext > p {
+  margin-top: 5%;
+}
+
 .emojis > div > img {
   width: 18%;
 }
@@ -178,7 +186,7 @@ input {
 }
 
 .youmeaneverything {
-  margin: 5% auto;
+  margin: 8%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -211,7 +219,16 @@ input {
 
 .mainblue > div {
   width: 65%;
-  margin: 2% 0 2% 5%;
+  margin: 5% 0 5% 8%;
+}
+
+.mainblue > div > h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.mainblue > div > p:first-of-type {
+  margin-top: 1%;
 }
 
 .mainblue > div > p {
@@ -227,13 +244,13 @@ input {
   height: 50px;
   font-size: 18px;
   width: 200px;
-  margin: auto;
+  margin: auto 10%;
 }
 
 .joinsocialmedia {
-  margin: 6% 5%;
+  margin: 6% 8%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -275,7 +292,7 @@ input {
 
 .servicesdiv {
   width: 90%;
-  margin: 5% auto;
+  margin: 5% 8%;
 }
 
 .servicesdiv > h1 {
@@ -302,20 +319,17 @@ input {
 .servicesinfo {
   display: flex;
   align-items: center;
-}
-
-.servicesinfo > * {
-  margin: 5%;
-
+  margin: 5% 8%;
 }
 
 .servicesinfo > img {
   width: 200px;
   height: 200px;
+  margin: 0 6%;
 }
 
 .servicesinfo > div {
-  width: 60%;
+  width: 70%;
 }
 
 .servicesinfo > div > p {
@@ -332,16 +346,32 @@ input {
   align-items: center;
 }
 
-.aboutsection > * {
-  margin: 5%;
+.aboutsection {
+  margin: 5% 0;
+}
+
+.aboutsection.right > img {
+  margin: 0 8% 0 4%;
+}
+
+.aboutsection.right > div {
+  margin: 0 4% 0 8%;
+}
+
+.aboutsection.left > img {
+  margin: 0 4% 0 8%;
+}
+
+.aboutsection.left > div {
+  margin: 0 8% 0 4%;
 }
 
 .aboutsection > div {
-  width: 60%;
+  width: 70%;
 }
 
 .aboutsection > img {
-  width: 33%;
+  width: 30%;
   min-height: 150px;
 }
 
@@ -353,7 +383,7 @@ input {
 }
 
 .aboutsection > div > p {
-  font-size: 20px;
+  font-size: 18px;
   margin: 3% auto;
   line-height: 24px;
 }
@@ -364,15 +394,14 @@ input {
   font-size: 45px;
   margin: 0;
   margin-top: 7%;
-  margin-left: 5%;
+  margin-left: 8%;
 }
 
 .leadership {
-  margin: 5% auto;
+  margin: 5% 8%;
   margin-bottom: 10%;
-  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -635,7 +664,7 @@ button:focus {
 /* /////////////////////////////// */
 
 
-@media (max-width: 810px) {
+@media (max-width: 880px) {
 
   h1 {
     font-size: 24px !important;

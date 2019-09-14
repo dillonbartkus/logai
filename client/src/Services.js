@@ -28,8 +28,8 @@ export default function Services () {
       <div className="servicesinfo">
 
         <div>
-          <b>Put Data Analytics and Artificial Intelligence to work hard to reduce cost and increase productivity</b>
-          <p>Achieve new levels of efficiency and productivity by letting data analytics and artificial intelligence gather and analyze data in real-time in order to identify and predict roadblocks, from the time an order is placed to the time goods are delivered.</p>
+          <b>Put Data Analytics and Artificial Intelligence to work hard to reduce cost, and increase productivity</b>
+          <p>Achieve new levels of efficiency by letting data analytics and artificial intelligence identify and predict roadblocks in real-time, from the time an order is placed to the time goods are delivered.</p>
         </div>
 
         <img src = {data} alt = '' />
@@ -42,7 +42,7 @@ export default function Services () {
 
         <div>
           <b>Get Cutting-Edge Technology at an Affordable Price</b>
-          <p>We want emerging businesses to have an affordable, simple-to-use, cutting-edge technology in their hands so they can gain a competitive advantage to thrive in the increasingly demanding markets of today and the future.</p>
+          <p>We want emerging businesses to have affordable, empowering technology in their hands and thrive in the increasingly demanding markets of today and the future.</p>
         </div>
 
       </div>
@@ -51,7 +51,7 @@ export default function Services () {
 
         <div>
           <b>Customize your WMS experience and automation in order to work faster</b>
-          <p>No more burdensome generic warehouse management software. We take time to understand your business in-depth to provide you a custom WMS experience that ensures we meet your unique requirements and needs for automation.</p>
+          <p>No more burdensome, generic WMS! We take time to understand your business in-depth and provide you with a custom WMS experience that meets your unique requirements and automation needs.</p>
         </div>
 
         <img style = {{'width' : '320px', 'height' : '180px' }} src = {ruler} alt = '' />
@@ -64,7 +64,7 @@ export default function Services () {
 
         <div>
           <b>Obtain Transparency</b>
-          <p>Add value to your company brand by providing 24/7 transparency, giving them a seamless experience that will keep them doing business with you. Also, free yourself and your staff from being glued to emails and phones answering status update requests all day! YAY!</p>
+          <p>Add value to your company brand by providing 24/7 transparency, giving your customers an experience that will keep them doing business with you. Also, free your team from being glued to emails and phones answering status update requests all day! YAY!</p>
         </div>
 
       </div>
