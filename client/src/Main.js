@@ -10,13 +10,13 @@ import instagram from './images/instagram.png'
 import linkedin from './images/linkedin.png'
 import twitter from './images/twitter.png'
 
-export default function Main(){
+export default function Main({ showServices, showRegister }){
         
   return (
 
       <div className = "main">
         
-        <Carousel />
+        <Carousel showRegister = {showRegister} />
 
         <div className="maininfo">
 
@@ -80,7 +80,7 @@ export default function Main(){
               <p>Collect real-time data from the time a client places an order, to the moment it is actually delivered. We use artificial intelligence and business analytics to identify, predict and eliminate roadblocks.</p>
             </div>
 
-            <button>Learn More</button>
+            <button onClick = { () => showServices() } >Learn More</button>
 
           </div>
 
@@ -116,7 +116,9 @@ export default function Main(){
               <p>Let us show you how to achieve it.</p>
             </div>
 
-            <button className = "getademo">Get a demo</button>
+            <button
+            onClick = { () => showRegister() }
+            className = "getademo">Get a demo</button>
 
           </div>
 

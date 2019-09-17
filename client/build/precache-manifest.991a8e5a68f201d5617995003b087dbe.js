@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/lowergear.3a126d9d.png"
   },
   {
-    "revision": "21b8766a89871102774a",
-    "url": "/static/css/main.63d0c03a.chunk.css"
+    "revision": "bb9a43c85def1bf3b6c2",
+    "url": "/static/css/main.6bc4ead3.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -76,8 +76,8 @@ self.__precacheManifest = [
     "url": "/static/media/uppergear.adfc71eb.png"
   },
   {
-    "revision": "21b8766a89871102774a",
-    "url": "/static/js/main.8da585c6.chunk.js"
+    "revision": "bb9a43c85def1bf3b6c2",
+    "url": "/static/js/main.1645b779.chunk.js"
   },
   {
     "revision": "6c22bf9b05567215eefffaa2fd423d85",
@@ -140,19 +140,19 @@ self.__precacheManifest = [
     "url": "/static/media/orderhistoryportalbutton.d4f82fb0.png"
   },
   {
-    "revision": "aec3c0e243869e9804e58da913c7288a",
-    "url": "/static/media/wmsportalbutton.aec3c0e2.png"
-  },
-  {
     "revision": "b77f812f4c86d6671aecb2d65a071296",
     "url": "/static/media/managerportalbutton.b77f812f.png"
+  },
+  {
+    "revision": "aec3c0e243869e9804e58da913c7288a",
+    "url": "/static/media/wmsportalbutton.aec3c0e2.png"
   },
   {
     "revision": "f89ad784a31eba913f80",
     "url": "/static/css/2.87a73fb7.chunk.css"
   },
   {
-    "revision": "9e15ae4467eae4e502c896515bd98c33",
+    "revision": "dcbac5be06d3e67a135c5a0cc01f4697",
     "url": "/index.html"
   }
 ];

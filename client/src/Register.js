@@ -62,7 +62,7 @@ const Register = props => {
 
                 <div className = "radio">
 
-                        <div className = "radiobutton"
+                        {/* <div className = "radiobutton"
                         onClick = { () => {
                         setCompanyType('shipper')
                         }}
@@ -72,7 +72,7 @@ const Register = props => {
                         <input checked = {shipperCheck} type = "radio" name = "choice" value = "shipper"
                         onChange = {e => setCompanyType(e.target.value)}
                         ></input>
-                        </div>
+                        </div> */}
 
                         <div className = "radiobutton"
                         onClick = { () => {
@@ -86,7 +86,7 @@ const Register = props => {
                         ></input>
                         </div>
 
-                        <div className = "radiobutton"
+                        {/* <div className = "radiobutton"
                         onClick = { () => {
                             setCompanyType('carrier')
                             }}
@@ -96,7 +96,7 @@ const Register = props => {
                         <input checked = {carrierCheck} type = "radio" name = "choice" value = "carrier"
                         onChange = {e => setCompanyType(e.target.value)}
                         ></input>
-                        </div>
+                        </div> */}
 
                         <div className = "radiobutton"
                         onClick = { () => {

@@ -5,7 +5,7 @@ import money from './images/money.png'
 import ruler from './images/ruler.png'
 import truck from './images/truck.png'
 
-export default function Services () {
+export default function Services({ showRegister }) {
 
   return (
 
@@ -76,7 +76,9 @@ export default function Services () {
           <p>Let us show you how to achieve it.</p>
         </div>
 
-        <button className = "getademo">Get a demo</button>
+        <button
+        onClick = { () => showRegister() }
+        className = "getademo">Get a demo</button>
 
       </div>
 

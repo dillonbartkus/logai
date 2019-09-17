@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-// import axios from 'axios'
 import Header from './Header'
 import Footer from './Footer'
 import Main from './Main'
@@ -24,17 +23,6 @@ export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userData, setUserData] = useState(null)
   const [token, setToken] = useState(null)
-
-  // useEffect( () => {
-  //   fetchUser()
-  // }, [])
-
-  // const fetchUser = async () => {
-  //   if(localStorage.email && !userData) {
-  //     const res = await axios.post(`/users/${localStorage.email}`)
-  //     setUserData(res.data.data);
-  //   }
-  // }
 
   const logUserIn = (data, token) => {
     setToken(token)
@@ -97,7 +85,7 @@ export default function Home() {
 
               {
                 main &&
-                <Main />
+                <Main showServices = {showServices} showRegister = {showRegister} />
               }
 
               {
@@ -112,12 +100,12 @@ export default function Home() {
 
               {
                 about &&
-                <About />
+                <About showRegister = {showRegister} />
               }
 
               {
                 services &&
-                <Services />
+                <Services showRegister = {showRegister} />
               }
 
               {

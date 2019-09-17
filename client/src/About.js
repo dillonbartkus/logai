@@ -8,7 +8,7 @@ import marc from './images/marc.png'
 import stephen from './images/stephen.png'
 import linkedin from './images/linkedin.png'
 
-export default function About() {
+export default function About({ showRegister }) {
 
   return (
 
@@ -104,7 +104,9 @@ export default function About() {
           <p>Let us show you how to achieve it.</p>
         </div>
 
-        <button className = "getademo">Get a demo</button>
+        <button
+        onClick = { () => showRegister() }
+        className = "getademo">Get a demo</button>
 
       </div>
 
