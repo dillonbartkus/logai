@@ -12,7 +12,7 @@ const options = {
   contain: true,
   lazyLoad: true,
   wrapAround: true,
-  autoPlay: 5000,
+  autoPlay: 7000,
   pauseAutoPlayOnHover: false
 }
   return (
@@ -64,7 +64,7 @@ const options = {
 
       <div>
         <h1>Work happier and more motivated</h1>
-        <h3>See how we have combined design and psychology to help you and your team work more cheerfully and with more drive to reach new milestones.</h3>
+        <h3>See how we have combined design, psychology and chronobiology to help you and your team work more effective, cheerful and with more drive to reach new milestones.</h3>
         <button onClick = { () => showRegister() } >Sign up</button>
       </div>
 
