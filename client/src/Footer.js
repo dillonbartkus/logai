@@ -9,6 +9,7 @@ export default function Footer ({ returnToTop }) {
         <div>
 
           <span
+          style = {{'fontWeight' : 900}}
           onClick = { () => window.location.href='mailto:dillonbartkus@gmail.com'}
           >
               Contact Us

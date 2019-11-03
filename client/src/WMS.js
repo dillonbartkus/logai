@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import SERVERURL from './config'
 import Completed from './Completed'
 import TrackInv from './TrackInv'
 import Fulfilling from './Fulfilling'
@@ -19,12 +20,12 @@ useEffect( () => {
 }, [] )
 
 const fetchInv = async () => {
-    let res = await axios.post(`/getinv/${props.userData.id}`)
+    let res = await axios.post(`${SERVERURL}/getinv/${props.userData.id}`)
     setInv(res.data.data);
 }
 
 const fetchOrders = async () => {
-    let res = await axios.post(`/getorders/${props.userData.id}`)        
+    let res = await axios.post(`${SERVERURL}/getorders/${props.userData.id}`)        
     setFulfillingOrders(res.data.data.filter( order => order.status === 'Fulfilling'))
     setCompletedOrders(res.data.data.filter( order => order.status === 'Completed' || order.status === 'Received'))
     setIncomingOrders(res.data.data.filter( order => order.status === 'Incoming'))
@@ -34,7 +35,7 @@ const receiveInventory = itemData => {
     itemData.forEach( async item => {
         let quantity = item.quantity + item.item_amount
         let id = item.id
-        await axios.put(`/product/${id}`, { quantity: quantity } )
+        await axios.put(`${SERVERURL}/product/${id}`, { quantity: quantity } )
     })
     fetchInv()
 }
@@ -43,18 +44,18 @@ const shipInventory = itemData => {
     itemData.forEach( async item => {
         let quantity = item.quantity - item.item_amount
         let id = item.id
-        await axios.put(`/product/${id}`, { quantity: quantity } )
+        await axios.put(`${SERVERURL}/product/${id}`, { quantity: quantity } )
     })
     fetchInv()
 }
 
 const receiveOrder = async order => {
-    await axios.put(`/order/${order.id}`, { status: 'Received' } )
+    await axios.put(`${SERVERURL}/order/${order.id}`, { status: 'Received' } )
     fetchOrders()
 }
 
 const shipOrder = async order => {
-    await axios.put(`/order/${order.id}`, { status: 'Completed' } )
+    await axios.put(`${SERVERURL}/order/${order.id}`, { status: 'Completed' } )
     fetchOrders()
 }
 

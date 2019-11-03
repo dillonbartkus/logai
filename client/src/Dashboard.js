@@ -7,6 +7,7 @@ import SideNav from './SideNav'
 import Receiving from './Receiving/Receiving'
 import MobileDashHeader from './MobileDashHeader'
 import axios from 'axios'
+import SERVERURL from './config'
 
 export default function Dashboard( props ) {
 
@@ -42,22 +43,22 @@ export default function Dashboard( props ) {
   }, [warehouseOrders, customerOrders])
 
   const fetchEmployees = async () => {
-    let res = await axios.post(`/getemployees/${user.id}`)
+    let res = await axios.post(`${SERVERURL}/getemployees/${user.id}`)
     setEmployees(res.data.data)
   }
 
   const fetchWarehouseOrders = async () => {    
-    let res = await axios.post(`/getwarehouseorders/${user.id}`)
+    let res = await axios.post(`${SERVERURL}/getwarehouseorders/${user.id}`)
     setWarehouseOrders(res.data.data)
   }
 
   const fetchCustomerOrders = async () => {
-    let res = await axios.post(`/getallcustomerorders/${user.id}`)
+    let res = await axios.post(`${SERVERURL}/getallcustomerorders/${user.id}`)
     setCustomerOrders(res.data.data)
   }
 
   const confirmCustomerOrder = async orderId => {
-    await axios.put(`/confirmcustomermorder/${orderId}`)
+    await axios.put(`${SERVERURL}/confirmcustomermorder/${orderId}`)
     fetchCustomerOrders()
 }
 
@@ -83,7 +84,7 @@ export default function Dashboard( props ) {
 
   const assignEmployee = (emp, jobs) => {
     jobs.forEach( async job => {
-      await axios.put(`/assignemployee/${job}`, {employee: emp} ) })
+      await axios.put(`${SERVERURL}/assignemployee/${job}`, {employee: emp} ) })
     fetchEmployees()
     setRecentlyAssignedJobs(jobs)
     setRecentlyAssignedEmp(emp)

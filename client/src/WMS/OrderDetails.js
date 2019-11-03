@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import OrderItem from './OrderItem'
 import back from '../images/back.png'
 import axios from 'axios'
+import SERVERURL from '../config'
 
 export default function OrderDetails({ setActiveNavItem, showTransportInfo, order }) {
 
@@ -13,7 +14,7 @@ export default function OrderDetails({ setActiveNavItem, showTransportInfo, orde
     }, [] )    
 
     const fetchOrderItems = async () => {
-        let res = await axios.post(`/getorderinv/${order.id}`)
+        let res = await axios.post(`${SERVERURL}/getorderinv/${order.id}`)
         setOrderItems(res.data.data)
     }
     

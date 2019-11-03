@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import SERVERURL from '../config'
 
 export default function MessageBox({ order }) {
     
@@ -11,7 +12,7 @@ export default function MessageBox({ order }) {
     }
 
     const submitInstructions= async () => {
-        await axios.put(`/addinstructions/${order.id}`, {
+        await axios.put(`${SERVERURL}/addinstructions/${order.id}`, {
             instructions
         })
     }

@@ -46,10 +46,13 @@ body {
     margin-top: 5%;
     cursor: pointer;
     text-align: right;
+    display: flex;
+    justify-content: space-around;
 }
 
 .headeruserpic > img {
-    width: 3vw;
+    width: 2.5vw;
+    border-radius: 50px;
 }
 
 .headerdropdown {

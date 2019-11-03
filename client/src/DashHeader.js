@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import avatar from './images/avatar.png'
 import { Redirect } from 'react-router-dom'
 
-export default function DashHeader({ setActiveNavItem, dropdown, setDropdown }) {
+export default function DashHeader({ setActiveNavItem, dropdown, setDropdown }) {    
 
     const [loggedOut, setLoggedOut] = useState(false)
 
@@ -42,7 +42,8 @@ export default function DashHeader({ setActiveNavItem, dropdown, setDropdown }) 
                 setDropdown(!dropdown)
             }}
             className="headeruserpic">
-                <img src = {avatar} alt=''/> User
+                <img src = {avatar} alt=''/>
+                <span>Matthew</span>
             </div>
 
         </div>

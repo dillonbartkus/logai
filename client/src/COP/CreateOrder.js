@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import SERVERURL from '../config'
 import Searchbar from './Searchbar'
 import ProductList from './ProductList'
 import Categories from './Categories'
@@ -26,7 +27,7 @@ export default function CreateOrder({ setActiveNavItem, cart, user, addToCart })
     })    
 
     const fetchProducts = async () => {
-        const res =  await axios.post(`/products/${user.customer_of}`)
+        const res =  await axios.post(`${SERVERURL}/products/${user.customer_of}`)
         setProducts(res.data.data)
     }    
     

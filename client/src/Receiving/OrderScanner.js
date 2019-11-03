@@ -3,6 +3,7 @@ import back from '../images/back.png'
 import ScanItem from './ScanItem'
 import ScanLocation from './ScanLocation'
 import axios from 'axios'
+import SERVERURL from '../config'
 
 export default function OrderScanner({ order, check, orderInv, setActiveNavItem, number, pieces, receivedOrder, completeOrder, fetchOrderInv }) {
 
@@ -38,7 +39,7 @@ export default function OrderScanner({ order, check, orderInv, setActiveNavItem,
     }
 
     const isCompleted = async item => {
-        await axios.put(`/orderitemiscompleted`, {
+        await axios.put(`${SERVERURL}/orderitemiscompleted`, {
             item_id : item.id,
             order_id: order.id
         })

@@ -8,6 +8,7 @@ import OrderDetails from './OrderDetails'
 import TransportationInfo from './TransportInfo'
 import AssignJobs from './AssignJobs'
 import axios from 'axios'
+import SERVERURL from '../config'
 
 export default function Warehouse({ activeNavItem, setActiveNavItem, orders, user, jobs, employees, fetchOrders, assign, incomingLength, activeLength, alert, setAlert, recentJobs, recentEmp }){
 
@@ -16,13 +17,13 @@ export default function Warehouse({ activeNavItem, setActiveNavItem, orders, use
     const [orderPlaced, setOrderPlaced] = useState(false)
     
     const updateTransportInfo = async (company, driver, date, time, id) => {
-        await axios.put(`/updatetransportinfo/${id}`, {
+        await axios.put(`${SERVERURL}/updatetransportinfo/${id}`, {
             trucking_company: company,
             truck_driver: driver,
             actual_date: date,
             actual_time: time
         })
-        await axios.put(`/updateorderstatus/${id}`, {
+        await axios.put(`${SERVERURL}/updateorderstatus/${id}`, {
             status: 'active'
         })
         setOrderPlaced(true)

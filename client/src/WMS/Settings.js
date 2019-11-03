@@ -1,6 +1,7 @@
 import React from 'react'
 import SettingsItem from './SettingsItem'
 import axios from 'axios'
+import SERVERURL from '../config'
 
 export default function Settings({ setActiveTab, inv, fetch }) {
 
@@ -9,7 +10,7 @@ export default function Settings({ setActiveTab, inv, fetch }) {
     }
 
     const changeSellingFrequency = async (rate, item) => {
-        const res = await axios.put(`/updatecountrate/${item.id}`, {
+        const res = await axios.put(`${SERVERURL}/updatecountrate/${item.id}`, {
             rate_of_count: rate
         })
         console.log(res.data.data.rate_of_count)

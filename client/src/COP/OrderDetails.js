@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import balloons from '../images/balloons.png'
 import MessageBox from './MessageBox'
 import axios from 'axios'
+import SERVERURL from '../config'
 
 export default function OrderDetails({ setActiveNavItem, orderId, confirmOrder }) {
 
@@ -15,7 +16,7 @@ export default function OrderDetails({ setActiveNavItem, orderId, confirmOrder }
     }, [count])
 
     const fetchOrder = async () => {
-        const res = await axios.post(`/getcustomerorder/${orderId}`)
+        const res = await axios.post(`${SERVERURL}/getcustomerorder/${orderId}`)
         setOrder(res.data.data[0])
     }
 

@@ -9,6 +9,7 @@ import TrackOrders from './TrackOrders'
 import Cart from './Cart'
 import Checkout from './Checkout'
 import OrderDetails from './OrderDetails'
+import SERVERURL from '../config'
 
 export default function COP({ activeNavItem, setActiveNavItem, customerLength, orders, fetch, confirmOrder, user }) {
 
@@ -46,7 +47,7 @@ export default function COP({ activeNavItem, setActiveNavItem, customerLength, o
     }, [])    
 
     const fetchCart = async () => {
-        const res = await axios.post(`/cart/${user.id}`)
+        const res = await axios.post(`${SERVERURL}/cart/${user.id}`)
         setCart(res.data.data)
     }
 
@@ -58,7 +59,7 @@ export default function COP({ activeNavItem, setActiveNavItem, customerLength, o
 
     const orderWasPlaced = async (cart, times, dates, tax, shipping, subtotal, totalWeight) => {
         const now = new Date().toLocaleDateString()
-        const res = await axios.post(`/createcustomerorder`, {
+        const res = await axios.post(`${SERVERURL}/createcustomerorder`, {
             warehouse_id: user.customer_of,
             ordered_by: user.id,
             date_placed: now,
@@ -83,7 +84,7 @@ export default function COP({ activeNavItem, setActiveNavItem, customerLength, o
 
     const addCartItemsToOrder = async (cart, id) => {
         cart.forEach( async item => {            
-            await axios.post(`/additemstoorder`, {
+            await axios.post(`${SERVERURL}/additemstoorder`, {
                 item_id: item.id,
                 amount_ordered: item.item_quantity,
                 order_id: id
@@ -92,7 +93,7 @@ export default function COP({ activeNavItem, setActiveNavItem, customerLength, o
     }
 
     const emptyCart = async () => {
-        await axios.delete(`/emptycart/${1}`)
+        await axios.delete(`${SERVERURL}/emptycart/${1}`)
         fetchCart()
     }
 

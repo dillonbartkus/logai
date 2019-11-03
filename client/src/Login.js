@@ -55,7 +55,7 @@ export default function Login ({ logUserIn }) {
         className = {invalidCred ? 'invalidCred' : '' }
         ref = {textInput}
         value = {email}
-        placeholder = "dillon@gmail.com"
+        placeholder = "Enter your email"
         type = "text"
         ></input>
 

@@ -7,6 +7,7 @@ import ReplenishOrderConfirm from './ReplenishOrderConfirm'
 import CycleCount from './CycleCount'
 import Settings from './Settings'
 import axios from 'axios'
+import SERVERURL from '../config'
 
 export default function WMS({ user, showOrder }){
 
@@ -25,7 +26,7 @@ export default function WMS({ user, showOrder }){
     }, [])
 
     const fetchInv = async () => {
-        const res = await axios.post(`/getinv/${user.id}`)
+        const res = await axios.post(`${SERVERURL}/getinv/${user.id}`)
         setInv(res.data.data)
     }
 
@@ -36,7 +37,7 @@ export default function WMS({ user, showOrder }){
     }
 
     const requestReplenishOrder = async (item, quantity) => {
-        await axios.put(`/replenishproduct/${item.id}`)
+        await axios.put(`${SERVERURL}/replenishproduct/${item.id}`)
         setConfirmReplenish(true)
         fetchInv()
     }
